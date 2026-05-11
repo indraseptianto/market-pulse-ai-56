@@ -784,3 +784,45 @@ export const getCryptoOrderbookImbalance = createServerFn({ method: "GET" })
     if (error || !payload) return { data: null as null, source: "error" as const, error };
     return { data: payload, source: "api" as const, error: null };
   });
+
+// ── Forex: Orderbook Positioning ─────────────────────────────────────────────
+export const getForexOrderbook = createServerFn({ method: "GET" })
+  .inputValidator(
+    z.object({
+      symbol: z.string().optional(), // e.g. "EURUSD", "USDIDR"
+    }).optional(),
+  )
+  .handler(async ({ data }) => {
+    const { data: payload, error } = await dsFetch<unknown>(
+      "/forex/orderbook-positioning",
+      { query: { symbol: data?.symbol } },
+    );
+    console.log("[getForexOrderbook] error:", error, "symbol:", data?.symbol);
+    if (error || !payload) return { data: null as null, source: "error" as const, error };
+    return { data: payload, source: "api" as const, error: null };
+  });
+
+// ── Institutional Investors: Summary ─────────────────────────────────────────
+export const getInstitutionalInvestors = createServerFn({ method: "GET" })
+  .inputValidator(
+    z.object({
+      symbol: z.string().optional(),
+      limit: z.number().optional(),
+      skip: z.number().optional(),
+    }).optional(),
+  )
+  .handler(async ({ data }) => {
+    const { data: payload, error } = await dsFetch<unknown>(
+      "/stocks/institutional-investors",
+      {
+        query: {
+          symbol: data?.symbol,
+          limit: data?.limit ?? 50,
+          skip: data?.skip ?? 0,
+        },
+      },
+    );
+    console.log("[getInstitutionalInvestors] error:", error);
+    if (error || !payload) return { data: null as null, source: "error" as const, error };
+    return { data: payload, source: "api" as const, error: null };
+  });

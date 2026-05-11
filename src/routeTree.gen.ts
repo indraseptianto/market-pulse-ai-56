@@ -14,6 +14,8 @@ import { Route as TechnicalRouteImport } from './routes/technical'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as ScreenerRouteImport } from './routes/screener'
 import { Route as NewsRouteImport } from './routes/news'
+import { Route as InstitutionalRouteImport } from './routes/institutional'
+import { Route as ForexRouteImport } from './routes/forex'
 import { Route as FairValueRouteImport } from './routes/fair-value'
 import { Route as CryptoRouteImport } from './routes/crypto'
 import { Route as ChartRouteImport } from './routes/chart'
@@ -44,6 +46,16 @@ const ScreenerRoute = ScreenerRouteImport.update({
 const NewsRoute = NewsRouteImport.update({
   id: '/news',
   path: '/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InstitutionalRoute = InstitutionalRouteImport.update({
+  id: '/institutional',
+  path: '/institutional',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForexRoute = ForexRouteImport.update({
+  id: '/forex',
+  path: '/forex',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FairValueRoute = FairValueRouteImport.update({
@@ -83,6 +95,8 @@ export interface FileRoutesByFullPath {
   '/chart': typeof ChartRoute
   '/crypto': typeof CryptoRoute
   '/fair-value': typeof FairValueRoute
+  '/forex': typeof ForexRoute
+  '/institutional': typeof InstitutionalRoute
   '/news': typeof NewsRoute
   '/screener': typeof ScreenerRoute
   '/settings': typeof SettingsRoute
@@ -96,6 +110,8 @@ export interface FileRoutesByTo {
   '/chart': typeof ChartRoute
   '/crypto': typeof CryptoRoute
   '/fair-value': typeof FairValueRoute
+  '/forex': typeof ForexRoute
+  '/institutional': typeof InstitutionalRoute
   '/news': typeof NewsRoute
   '/screener': typeof ScreenerRoute
   '/settings': typeof SettingsRoute
@@ -110,6 +126,8 @@ export interface FileRoutesById {
   '/chart': typeof ChartRoute
   '/crypto': typeof CryptoRoute
   '/fair-value': typeof FairValueRoute
+  '/forex': typeof ForexRoute
+  '/institutional': typeof InstitutionalRoute
   '/news': typeof NewsRoute
   '/screener': typeof ScreenerRoute
   '/settings': typeof SettingsRoute
@@ -125,6 +143,8 @@ export interface FileRouteTypes {
     | '/chart'
     | '/crypto'
     | '/fair-value'
+    | '/forex'
+    | '/institutional'
     | '/news'
     | '/screener'
     | '/settings'
@@ -138,6 +158,8 @@ export interface FileRouteTypes {
     | '/chart'
     | '/crypto'
     | '/fair-value'
+    | '/forex'
+    | '/institutional'
     | '/news'
     | '/screener'
     | '/settings'
@@ -151,6 +173,8 @@ export interface FileRouteTypes {
     | '/chart'
     | '/crypto'
     | '/fair-value'
+    | '/forex'
+    | '/institutional'
     | '/news'
     | '/screener'
     | '/settings'
@@ -165,6 +189,8 @@ export interface RootRouteChildren {
   ChartRoute: typeof ChartRoute
   CryptoRoute: typeof CryptoRoute
   FairValueRoute: typeof FairValueRoute
+  ForexRoute: typeof ForexRoute
+  InstitutionalRoute: typeof InstitutionalRoute
   NewsRoute: typeof NewsRoute
   ScreenerRoute: typeof ScreenerRoute
   SettingsRoute: typeof SettingsRoute
@@ -208,6 +234,20 @@ declare module '@tanstack/react-router' {
       path: '/news'
       fullPath: '/news'
       preLoaderRoute: typeof NewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/institutional': {
+      id: '/institutional'
+      path: '/institutional'
+      fullPath: '/institutional'
+      preLoaderRoute: typeof InstitutionalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forex': {
+      id: '/forex'
+      path: '/forex'
+      fullPath: '/forex'
+      preLoaderRoute: typeof ForexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/fair-value': {
@@ -261,6 +301,8 @@ const rootRouteChildren: RootRouteChildren = {
   ChartRoute: ChartRoute,
   CryptoRoute: CryptoRoute,
   FairValueRoute: FairValueRoute,
+  ForexRoute: ForexRoute,
+  InstitutionalRoute: InstitutionalRoute,
   NewsRoute: NewsRoute,
   ScreenerRoute: ScreenerRoute,
   SettingsRoute: SettingsRoute,

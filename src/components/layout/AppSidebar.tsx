@@ -12,6 +12,8 @@ import {
   Sparkles,
   Activity,
   Target,
+  Building2,
+  Zap,
 } from "lucide-react";
 
 import {
@@ -38,14 +40,15 @@ const mainItems = [
 ];
 
 const analyticsItems = [
-  { title: "Technical Scanner",  url: "/technical", icon: Activity  },
-  { title: "News & Sentiment",   url: "/news",      icon: Newspaper },
-  { title: "Economic Calendar",  url: "/calendar",  icon: Calendar  },
+  { title: "Technical Scanner",       url: "/technical",     icon: Activity   },
+  { title: "Institutional Tracker",   url: "/institutional", icon: Zap        },
+  { title: "News & Sentiment",        url: "/news",          icon: Newspaper  },
+  { title: "Economic Calendar",       url: "/calendar",      icon: Calendar   },
 ];
 
 const marketsItems = [
-  { title: "Crypto", url: "/crypto", icon: Bitcoin                          },
-  { title: "Forex",  url: "/forex",  icon: DollarSign, soon: true as const  },
+  { title: "Crypto", url: "/crypto", icon: Bitcoin    },
+  { title: "Forex",  url: "/forex",  icon: DollarSign },
 ];
 
 type NavItem = {
