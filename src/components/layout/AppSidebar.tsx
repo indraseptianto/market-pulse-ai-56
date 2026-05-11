@@ -14,6 +14,7 @@ import {
   Target,
   Building2,
   Zap,
+  CalendarDays,
 } from "lucide-react";
 
 import {
@@ -40,10 +41,11 @@ const mainItems = [
 ];
 
 const analyticsItems = [
-  { title: "Technical Scanner",       url: "/technical",     icon: Activity   },
-  { title: "Institutional Tracker",   url: "/institutional", icon: Zap        },
-  { title: "News & Sentiment",        url: "/news",          icon: Newspaper  },
-  { title: "Economic Calendar",       url: "/calendar",      icon: Calendar   },
+  { title: "Technical Scanner",       url: "/technical",     icon: Activity     },
+  { title: "Institutional Tracker",   url: "/institutional", icon: Zap          },
+  { title: "Earnings Calendar",       url: "/earnings",      icon: CalendarDays },
+  { title: "News & Sentiment",        url: "/news",          icon: Newspaper    },
+  { title: "Economic Calendar",       url: "/calendar",      icon: Calendar     },
 ];
 
 const marketsItems = [

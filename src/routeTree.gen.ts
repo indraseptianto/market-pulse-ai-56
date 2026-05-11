@@ -17,6 +17,7 @@ import { Route as NewsRouteImport } from './routes/news'
 import { Route as InstitutionalRouteImport } from './routes/institutional'
 import { Route as ForexRouteImport } from './routes/forex'
 import { Route as FairValueRouteImport } from './routes/fair-value'
+import { Route as EarningsRouteImport } from './routes/earnings'
 import { Route as CryptoRouteImport } from './routes/crypto'
 import { Route as ChartRouteImport } from './routes/chart'
 import { Route as CalendarRouteImport } from './routes/calendar'
@@ -63,6 +64,11 @@ const FairValueRoute = FairValueRouteImport.update({
   path: '/fair-value',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EarningsRoute = EarningsRouteImport.update({
+  id: '/earnings',
+  path: '/earnings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CryptoRoute = CryptoRouteImport.update({
   id: '/crypto',
   path: '/crypto',
@@ -94,6 +100,7 @@ export interface FileRoutesByFullPath {
   '/calendar': typeof CalendarRoute
   '/chart': typeof ChartRoute
   '/crypto': typeof CryptoRoute
+  '/earnings': typeof EarningsRoute
   '/fair-value': typeof FairValueRoute
   '/forex': typeof ForexRoute
   '/institutional': typeof InstitutionalRoute
@@ -109,6 +116,7 @@ export interface FileRoutesByTo {
   '/calendar': typeof CalendarRoute
   '/chart': typeof ChartRoute
   '/crypto': typeof CryptoRoute
+  '/earnings': typeof EarningsRoute
   '/fair-value': typeof FairValueRoute
   '/forex': typeof ForexRoute
   '/institutional': typeof InstitutionalRoute
@@ -125,6 +133,7 @@ export interface FileRoutesById {
   '/calendar': typeof CalendarRoute
   '/chart': typeof ChartRoute
   '/crypto': typeof CryptoRoute
+  '/earnings': typeof EarningsRoute
   '/fair-value': typeof FairValueRoute
   '/forex': typeof ForexRoute
   '/institutional': typeof InstitutionalRoute
@@ -142,6 +151,7 @@ export interface FileRouteTypes {
     | '/calendar'
     | '/chart'
     | '/crypto'
+    | '/earnings'
     | '/fair-value'
     | '/forex'
     | '/institutional'
@@ -157,6 +167,7 @@ export interface FileRouteTypes {
     | '/calendar'
     | '/chart'
     | '/crypto'
+    | '/earnings'
     | '/fair-value'
     | '/forex'
     | '/institutional'
@@ -172,6 +183,7 @@ export interface FileRouteTypes {
     | '/calendar'
     | '/chart'
     | '/crypto'
+    | '/earnings'
     | '/fair-value'
     | '/forex'
     | '/institutional'
@@ -188,6 +200,7 @@ export interface RootRouteChildren {
   CalendarRoute: typeof CalendarRoute
   ChartRoute: typeof ChartRoute
   CryptoRoute: typeof CryptoRoute
+  EarningsRoute: typeof EarningsRoute
   FairValueRoute: typeof FairValueRoute
   ForexRoute: typeof ForexRoute
   InstitutionalRoute: typeof InstitutionalRoute
@@ -257,6 +270,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FairValueRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/earnings': {
+      id: '/earnings'
+      path: '/earnings'
+      fullPath: '/earnings'
+      preLoaderRoute: typeof EarningsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/crypto': {
       id: '/crypto'
       path: '/crypto'
@@ -300,6 +320,7 @@ const rootRouteChildren: RootRouteChildren = {
   CalendarRoute: CalendarRoute,
   ChartRoute: ChartRoute,
   CryptoRoute: CryptoRoute,
+  EarningsRoute: EarningsRoute,
   FairValueRoute: FairValueRoute,
   ForexRoute: ForexRoute,
   InstitutionalRoute: InstitutionalRoute,

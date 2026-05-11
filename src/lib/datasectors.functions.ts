@@ -826,3 +826,58 @@ export const getInstitutionalInvestors = createServerFn({ method: "GET" })
     if (error || !payload) return { data: null as null, source: "error" as const, error };
     return { data: payload, source: "api" as const, error: null };
   });
+
+// ── Finance News (DataSectors) ────────────────────────────────────────────────
+export const getDSNews = createServerFn({ method: "GET" })
+  .inputValidator(
+    z.object({
+      query: z.string().optional(),
+      ticker: z.string().optional(),
+      limit: z.number().optional(),
+      skip: z.number().optional(),
+    }).optional(),
+  )
+  .handler(async ({ data }) => {
+    const { data: payload, error } = await dsFetch<unknown>("/news", {
+      query: {
+        q: data?.query,
+        ticker: data?.ticker,
+        limit: data?.limit ?? 30,
+        skip: data?.skip ?? 0,
+      },
+    });
+    console.log("[getDSNews] error:", error);
+    if (error || !payload) return { data: null as null, source: "error" as const, error };
+    return { data: payload, source: "api" as const, error: null };
+  });
+
+// ── Earnings Calendar ─────────────────────────────────────────────────────────
+export const getEarningsCalendar = createServerFn({ method: "GET" })
+  .inputValidator(
+    z.object({
+      startDate: z.string().optional(),
+      endDate: z.string().optional(),
+      symbol: z.string().optional(),
+      market: z.string().optional(),
+      limit: z.number().optional(),
+    }).optional(),
+  )
+  .handler(async ({ data }) => {
+    const today = new Date();
+    const startDate = data?.startDate ?? new Date(today.getTime() - 7 * 86400000).toISOString().slice(0, 10);
+    const endDate   = data?.endDate   ?? new Date(today.getTime() + 60 * 86400000).toISOString().slice(0, 10);
+
+    // Try /stocks/earnings first (list of upcoming earnings)
+    const { data: payload, error } = await dsFetch<unknown>("/stocks/earnings", {
+      query: {
+        startDate,
+        endDate,
+        symbol: data?.symbol,
+        market: data?.market ?? "id-id",
+        limit: data?.limit ?? 200,
+      },
+    });
+    console.log("[getEarningsCalendar] error:", error);
+    if (error || !payload) return { data: null as null, source: "error" as const, error };
+    return { data: payload, source: "api" as const, error: null };
+  });
