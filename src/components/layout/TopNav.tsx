@@ -1,12 +1,19 @@
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { CommandPalette } from "./CommandPalette";
 import { ThemeToggle } from "./ThemeToggle";
-import { Bell } from "lucide-react";
+import { Bell, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { useMounted } from "@/hooks/use-mounted";
+import { lazy, Suspense } from "react";
+
+// Lazy-load CommandPalette — it uses browser-only APIs (cmdk/dialog) that crash SSR
+const CommandPalette = lazy(() =>
+  import("./CommandPalette").then((m) => ({ default: m.CommandPalette }))
+);
 
 export function TopNav() {
+  const mounted = useMounted();
   return (
     <header className="sticky top-0 z-30 flex h-14 items-center gap-2 border-b border-border/60 bg-background/80 px-3 backdrop-blur-md md:px-4">
       {/* Left: sidebar trigger */}
@@ -36,7 +43,22 @@ export function TopNav() {
 
       {/* Right: search + theme + notifications */}
       <div className="flex items-center gap-1">
-        <CommandPalette />
+        {/* Only render CommandPalette on client — cmdk uses browser APIs */}
+        {mounted ? (
+          <Suspense fallback={
+            <div className="hidden md:flex h-9 w-64 items-center gap-2 rounded-md border border-input bg-background px-3 text-muted-foreground text-sm">
+              <Search className="h-3.5 w-3.5" />
+              Cari kode saham…
+            </div>
+          }>
+            <CommandPalette />
+          </Suspense>
+        ) : (
+          <div className="hidden md:flex h-9 w-64 items-center gap-2 rounded-md border border-input bg-background px-3 text-muted-foreground text-sm">
+            <Search className="h-3.5 w-3.5" />
+            Cari kode saham…
+          </div>
+        )}
 
         <Separator orientation="vertical" className="h-5 opacity-40 mx-1" />
 
