@@ -14,6 +14,7 @@ import { Route as TechnicalRouteImport } from './routes/technical'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as ScreenerRouteImport } from './routes/screener'
 import { Route as NewsRouteImport } from './routes/news'
+import { Route as FairValueRouteImport } from './routes/fair-value'
 import { Route as CryptoRouteImport } from './routes/crypto'
 import { Route as ChartRouteImport } from './routes/chart'
 import { Route as CalendarRouteImport } from './routes/calendar'
@@ -43,6 +44,11 @@ const ScreenerRoute = ScreenerRouteImport.update({
 const NewsRoute = NewsRouteImport.update({
   id: '/news',
   path: '/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FairValueRoute = FairValueRouteImport.update({
+  id: '/fair-value',
+  path: '/fair-value',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CryptoRoute = CryptoRouteImport.update({
@@ -76,6 +82,7 @@ export interface FileRoutesByFullPath {
   '/calendar': typeof CalendarRoute
   '/chart': typeof ChartRoute
   '/crypto': typeof CryptoRoute
+  '/fair-value': typeof FairValueRoute
   '/news': typeof NewsRoute
   '/screener': typeof ScreenerRoute
   '/settings': typeof SettingsRoute
@@ -88,6 +95,7 @@ export interface FileRoutesByTo {
   '/calendar': typeof CalendarRoute
   '/chart': typeof ChartRoute
   '/crypto': typeof CryptoRoute
+  '/fair-value': typeof FairValueRoute
   '/news': typeof NewsRoute
   '/screener': typeof ScreenerRoute
   '/settings': typeof SettingsRoute
@@ -101,6 +109,7 @@ export interface FileRoutesById {
   '/calendar': typeof CalendarRoute
   '/chart': typeof ChartRoute
   '/crypto': typeof CryptoRoute
+  '/fair-value': typeof FairValueRoute
   '/news': typeof NewsRoute
   '/screener': typeof ScreenerRoute
   '/settings': typeof SettingsRoute
@@ -115,6 +124,7 @@ export interface FileRouteTypes {
     | '/calendar'
     | '/chart'
     | '/crypto'
+    | '/fair-value'
     | '/news'
     | '/screener'
     | '/settings'
@@ -127,6 +137,7 @@ export interface FileRouteTypes {
     | '/calendar'
     | '/chart'
     | '/crypto'
+    | '/fair-value'
     | '/news'
     | '/screener'
     | '/settings'
@@ -139,6 +150,7 @@ export interface FileRouteTypes {
     | '/calendar'
     | '/chart'
     | '/crypto'
+    | '/fair-value'
     | '/news'
     | '/screener'
     | '/settings'
@@ -152,6 +164,7 @@ export interface RootRouteChildren {
   CalendarRoute: typeof CalendarRoute
   ChartRoute: typeof ChartRoute
   CryptoRoute: typeof CryptoRoute
+  FairValueRoute: typeof FairValueRoute
   NewsRoute: typeof NewsRoute
   ScreenerRoute: typeof ScreenerRoute
   SettingsRoute: typeof SettingsRoute
@@ -197,6 +210,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/fair-value': {
+      id: '/fair-value'
+      path: '/fair-value'
+      fullPath: '/fair-value'
+      preLoaderRoute: typeof FairValueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/crypto': {
       id: '/crypto'
       path: '/crypto'
@@ -240,6 +260,7 @@ const rootRouteChildren: RootRouteChildren = {
   CalendarRoute: CalendarRoute,
   ChartRoute: ChartRoute,
   CryptoRoute: CryptoRoute,
+  FairValueRoute: FairValueRoute,
   NewsRoute: NewsRoute,
   ScreenerRoute: ScreenerRoute,
   SettingsRoute: SettingsRoute,

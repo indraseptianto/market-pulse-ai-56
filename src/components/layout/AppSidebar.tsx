@@ -11,6 +11,7 @@ import {
   Settings as SettingsIcon,
   Sparkles,
   Activity,
+  Target,
 } from "lucide-react";
 
 import {
@@ -29,10 +30,11 @@ import {
 import { Badge } from "@/components/ui/badge";
 
 const mainItems = [
-  { title: "Dashboard",      url: "/",          icon: LayoutDashboard },
-  { title: "Advanced Chart", url: "/chart",     icon: LineChart       },
-  { title: "Screener",       url: "/screener",  icon: Filter          },
-  { title: "Watchlist",      url: "/watchlist", icon: Star            },
+  { title: "Dashboard",         url: "/",            icon: LayoutDashboard },
+  { title: "Advanced Chart",    url: "/chart",       icon: LineChart       },
+  { title: "Screener",          url: "/screener",    icon: Filter          },
+  { title: "Fair Value",        url: "/fair-value",  icon: Target          },
+  { title: "Watchlist",         url: "/watchlist",   icon: Star            },
 ];
 
 const analyticsItems = [
