@@ -18,9 +18,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, ArrowUp, Filter, RotateCcw, Database, Zap, Users, Globe } from "lucide-react";
+import { ArrowDown, ArrowUp, Filter, RotateCcw, Database, Zap, Users, Globe, Save, Bookmark, Trash2 } from "lucide-react";
 import { useMounted } from "@/hooks/use-mounted";
 import { getOwnershipBySymbol, getSmartMoneySignals } from "@/services/ownership/ownershipService";
+import { useScreenerPresets, useSaveScreenerPreset, useDeleteScreenerPreset } from "@/integrations/supabase/hooks";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/screener")({
   head: () => ({
@@ -69,6 +71,38 @@ function ScreenerPage() {
   const [ownershipFilter, setOwnershipFilter] = useState<string>("all");
 
   const smartMoneySignals = useMemo(() => getSmartMoneySignals(), []);
+
+  // ── Screener presets (Supabase) ───────────────────────────────────────────
+  const presetsQ   = useScreenerPresets();
+  const saveMut    = useSaveScreenerPreset();
+  const deleteMut  = useDeleteScreenerPreset();
+  const [presetName, setPresetName] = useState("");
+
+  const currentFilters = { search, sector, maxPE, minROE, maxDE, minDiv, ownershipFilter };
+
+  const savePreset = async () => {
+    const name = presetName.trim() || `Preset ${new Date().toLocaleDateString("id-ID")}`;
+    try {
+      await saveMut.mutateAsync({ name, filters: currentFilters });
+      toast.success(`Preset "${name}" disimpan`);
+      setPresetName("");
+    } catch (e: unknown) {
+      const msg = e instanceof Error ? e.message : "Gagal";
+      if (msg.includes("Not authenticated")) toast.error("Login diperlukan untuk menyimpan preset");
+      else toast.error(msg);
+    }
+  };
+
+  const loadPreset = (filters: Record<string, unknown>) => {
+    if (typeof filters.search === "string") setSearch(filters.search);
+    if (typeof filters.sector === "string") setSector(filters.sector);
+    if (typeof filters.maxPE === "number") setMaxPE(filters.maxPE);
+    if (typeof filters.minROE === "number") setMinROE(filters.minROE);
+    if (typeof filters.maxDE === "number") setMaxDE(filters.maxDE);
+    if (typeof filters.minDiv === "number") setMinDiv(filters.minDiv);
+    if (typeof filters.ownershipFilter === "string") setOwnershipFilter(filters.ownershipFilter);
+    toast.success("Preset dimuat");
+  };
 
   const sectors = useMemo(
     () => Array.from(new Set(universe.map((e) => e.sector))).sort(),
@@ -273,6 +307,42 @@ function ScreenerPage() {
               {ownershipFilter !== "all" && (
                 <div className="rounded-lg bg-primary/10 border border-primary/20 px-2.5 py-1.5 text-[10px] text-primary">
                   Showing only stocks with IDNFinancials ownership data
+                </div>
+              )}
+            </div>
+
+            {/* Saved Presets */}
+            <div className="border-t border-border/40 pt-4 space-y-2">
+              <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
+                <Bookmark className="h-3.5 w-3.5" />
+                Preset Tersimpan
+              </div>
+              <div className="flex gap-1.5">
+                <Input
+                  value={presetName}
+                  onChange={e => setPresetName(e.target.value)}
+                  placeholder="Nama preset..."
+                  className="h-8 text-xs"
+                />
+                <Button size="sm" variant="outline" className="h-8 px-2" onClick={savePreset} disabled={saveMut.isPending}>
+                  <Save className="h-3.5 w-3.5" />
+                </Button>
+              </div>
+              {presetsQ.data && presetsQ.data.length > 0 && (
+                <div className="space-y-1">
+                  {presetsQ.data.map(p => (
+                    <div key={p.id} className="flex items-center gap-1 rounded-lg bg-background/40 px-2 py-1.5">
+                      <button
+                        onClick={() => loadPreset(p.filters as Record<string, unknown>)}
+                        className="flex-1 text-left text-xs truncate hover:text-primary transition-colors"
+                      >
+                        {p.name}
+                      </button>
+                      <button onClick={() => deleteMut.mutate(p.id)} className="text-muted-foreground hover:text-destructive transition-colors">
+                        <Trash2 className="h-3 w-3" />
+                      </button>
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
