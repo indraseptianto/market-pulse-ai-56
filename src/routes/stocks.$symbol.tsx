@@ -9,9 +9,9 @@ import {
   getStockEarnings,
   getStockEquitiesV2,
   getInvestorActivity,
+  getStockPrice,
 } from "@/lib/datasectors.functions";
 import { getTiingoPrices } from "@/lib/tiingo.functions";
-import { useLivePrice } from "@/hooks/use-live-price";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { GlassCard } from "@/components/common/GlassCard";
 import { PriceChart } from "@/components/stock/PriceChart";
@@ -22,7 +22,8 @@ import { QuarterlyFinancials } from "@/components/stock/QuarterlyFinancials";
 import { OwnershipCard } from "@/components/stock/OwnershipCard";
 import { OwnershipIntelligencePanel } from "@/components/ownership/OwnershipIntelligencePanel";
 import { Skeleton } from "@/components/ui/skeleton";
-import { ArrowLeft, Building2, LineChart, Activity } from "lucide-react";
+import { ArrowLeft, Building2, LineChart, Activity, TrendingUp, TrendingDown, RefreshCw } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { fmtPrice, fmtPct, fmtCompact, changeClass } from "@/lib/formatters";
 import { findMockEquity } from "@/lib/mock-data";
 import { evaluateValuation } from "@/lib/valuation";
@@ -52,9 +53,7 @@ function StockDetailPage() {
   const earningsFn  = useServerFn(getStockEarnings);
   const equitiesV2Fn = useServerFn(getStockEquitiesV2);
   const tradesFn    = useServerFn(getInvestorActivity);
-
-  // ── Live price from chart-saham ───────────────────────────────────────────
-  const livePrice = useLivePrice(sym);
+  const priceFn     = useServerFn(getStockPrice);
 
   // ── Existing queries ──────────────────────────────────────────────────────
   const detail = useQuery({
@@ -98,6 +97,14 @@ function StockDetailPage() {
     staleTime: 300_000,
   });
 
+  // ── Real-time price from chart-saham ──────────────────────────────────────
+  const livePrice = useQuery({
+    queryKey: ["live-price", sym],
+    queryFn: () => priceFn({ data: { symbol: sym } }),
+    staleTime: 60_000,
+    refetchInterval: 60_000, // auto-refresh every 60s
+  });
+
   // Filter trades to this symbol
   const symbolTrades = useMemo(() => {
     const all = trades.data?.data ?? [];
@@ -108,20 +115,21 @@ function StockDetailPage() {
   }, [trades.data, sym]);
 
   // ── Derived ───────────────────────────────────────────────────────────────
-  const equityBase = detail.data?.data ?? findMockEquity(sym);
+  const baseEquity = detail.data?.data ?? findMockEquity(sym);
+  const live = livePrice.data?.data;
 
-  // Merge live price on top of equity base data
-  const lp = livePrice.data?.data;
-  const equity = equityBase ? {
-    ...equityBase,
-    price:      lp?.close      ?? equityBase.price,
-    change:     lp?.change     ?? equityBase.change,
-    change_pct: lp?.change_pct ?? equityBase.change_pct,
-    volume:     lp?.volume     ?? equityBase.volume,
-    market_cap: lp?.market_cap ?? equityBase.market_cap,
-    day_high:   lp?.high       ?? equityBase.day_high,
-    day_low:    lp?.low        ?? equityBase.day_low,
-    shares_outstanding: lp?.sharesOutstanding ?? equityBase.shares_outstanding,
+  // Merge live price on top of base equity data
+  const equity = baseEquity ? {
+    ...baseEquity,
+    price:       live?.price       ?? baseEquity.price,
+    change:      live?.change      ?? baseEquity.change,
+    change_pct:  live?.change_pct  ?? baseEquity.change_pct,
+    volume:      live?.volume      ?? baseEquity.volume,
+    market_cap:  live?.marketCap   ?? baseEquity.market_cap,
+    prev_close:  live?.prevClose   ?? baseEquity.prev_close,
+    day_high:    live?.high        ?? baseEquity.day_high,
+    day_low:     live?.low         ?? baseEquity.day_low,
+    shares_outstanding: live?.shareOutstanding ?? baseEquity.shares_outstanding,
   } : null;
   const ratiosData = (ratios.data?.data ?? {}) as Record<string, number | null | undefined>;
 
@@ -197,14 +205,26 @@ function StockDetailPage() {
                 <div className={`text-sm num ${changeClass(equity.change_pct)}`}>
                   {fmtPct(equity.change_pct)}
                 </div>
-                {lp && (
-                  <div className="mt-1 text-[10px] text-muted-foreground">
-                    {lp.date} · IDX Live
-                    {lp.foreignFlow !== 0 && (
-                      <span className={`ml-2 font-medium ${lp.foreignFlow > 0 ? "text-gain" : "text-loss"}`}>
-                        Foreign {lp.foreignFlow > 0 ? "+" : ""}{fmtCompact(lp.foreignFlow)}
-                      </span>
-                    )}
+                {live && (
+                  <div className="mt-1 flex items-center justify-end gap-2">
+                    <span className="text-[10px] text-muted-foreground">
+                      {live.date}
+                    </span>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-5 w-5"
+                      onClick={() => livePrice.refetch()}
+                      title="Refresh harga"
+                    >
+                      <RefreshCw className={`h-3 w-3 ${livePrice.isFetching ? "animate-spin" : ""}`} />
+                    </Button>
+                  </div>
+                )}
+                {live && (live.foreignFlow !== 0) && (
+                  <div className={`mt-1 flex items-center justify-end gap-1 text-[11px] ${live.foreignFlow > 0 ? "text-gain" : "text-loss"}`}>
+                    {live.foreignFlow > 0 ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
+                    <span>Foreign {live.foreignFlow > 0 ? "Buy" : "Sell"} {fmtCompact(Math.abs(live.foreignFlow))}</span>
                   </div>
                 )}
               </div>

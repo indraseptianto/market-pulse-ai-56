@@ -109,10 +109,63 @@ export const getEquities = createServerFn({ method: "GET" })
         sort: z.string().optional(),
         sector: z.string().optional(),
         limit: z.number().min(1).max(200).optional(),
+        symbols: z.array(z.string()).optional(), // specific symbols to fetch prices for
       })
       .optional(),
   )
   .handler(async ({ data }) => {
+    // If specific symbols requested, fetch real prices for them
+    if (data?.symbols && data.symbols.length > 0) {
+      const today = new Date();
+      const toDate = today.toISOString().slice(0, 10);
+      const fromDate = new Date(today.getTime() - 7 * 86400000).toISOString().slice(0, 10);
+
+      const priceResults = await Promise.allSettled(
+        data.symbols.slice(0, 20).map(async (sym) => {
+          const { data: payload } = await dsFetch<unknown>(
+            `/chart-saham/${sym.toUpperCase()}/daily`,
+            { query: { from: fromDate, to: toDate }, retries: 0, timeoutMs: 8000 },
+          );
+          if (!payload) return null;
+          const inner = (payload as Record<string, unknown>).data as Record<string, unknown> | null;
+          const innerData = inner?.data as Record<string, unknown> | null;
+          const chartData = innerData?.data as Record<string, unknown> | null;
+          const chartbit = chartData?.chartbit as Record<string, unknown>[] | null;
+          if (!chartbit?.length) return null;
+          const sorted = [...chartbit].sort((a, b) =>
+            String(b.date ?? "").localeCompare(String(a.date ?? ""))
+          );
+          const latest = sorted[0];
+          const prev   = sorted[1];
+          const close     = Number(latest.close ?? 0);
+          const prevClose = Number(prev?.close ?? close);
+          const change    = close - prevClose;
+          const shares    = Number(latest.shareoutstanding ?? 0);
+          const mock = findMockEquity(sym) || { ...mockEquities[0], symbol: sym.toUpperCase() };
+          return {
+            ...mock,
+            symbol: sym.toUpperCase(),
+            price: close,
+            change: +change.toFixed(2),
+            change_pct: +((prevClose > 0 ? change / prevClose : 0) * 100).toFixed(4),
+            volume: Number(latest.volume ?? 0),
+            market_cap: close * shares,
+            prev_close: prevClose,
+            day_high: Number(latest.high ?? close),
+            day_low: Number(latest.low ?? close),
+            shares_outstanding: shares,
+          } as Equity;
+        })
+      );
+
+      const list = priceResults
+        .map(r => r.status === "fulfilled" ? r.value : null)
+        .filter((x): x is Equity => x !== null);
+
+      if (list.length > 0) return { data: list, source: "api" as const, error: null };
+    }
+
+    // Default: use v2/equities for the list (company info + fundamentals)
     const { data: payload, error } = await dsFetch("/stocks/v2/equities", {
       query: {
         sort: data?.sort,
@@ -136,22 +189,96 @@ export const getEquityDetail = createServerFn({ method: "GET" })
   .inputValidator(z.object({ symbol: z.string().min(1).max(20) }))
   .handler(async ({ data }) => {
     const sym = data.symbol.toUpperCase();
-    const { data: payload, error } = await dsFetch("/stocks/v2/equities", {
-      query: { symbol: sym, limit: 1 },
-    });
-    if (!error && payload) {
-      const list = unwrapList<Record<string, unknown>>(payload)
-        .map(mapEquity)
-        .filter((x): x is Equity => x !== null);
-      const match = list.find((e) => e.symbol === sym) || list[0];
-      if (match) return { data: match, source: "api" as const, error: null };
+
+    // ── 1. Get company info from v2/equities ──────────────────────────────
+    const { data: equityPayload } = await dsFetch<Record<string, unknown>>(
+      "/stocks/v2/equities",
+      { query: { symbol: sym } },
+    );
+
+    // ── 2. Get real-time price from chart-saham ───────────────────────────
+    const today = new Date();
+    const toDate = today.toISOString().slice(0, 10);
+    const fromDate = new Date(today.getTime() - 7 * 86400000).toISOString().slice(0, 10);
+    const { data: pricePayload } = await dsFetch<unknown>(
+      `/chart-saham/${sym}/daily`,
+      { query: { from: fromDate, to: toDate }, retries: 0 },
+    );
+
+    // Parse price from chart-saham
+    let livePrice: Partial<{
+      price: number; open: number; high: number; low: number;
+      prevClose: number; change: number; change_pct: number;
+      volume: number; value: number; foreignFlow: number;
+      marketCap: number; shareOutstanding: number; date: string;
+    }> = {};
+
+    if (pricePayload) {
+      const inner = (pricePayload as Record<string, unknown>).data as Record<string, unknown> | null;
+      const innerData = inner?.data as Record<string, unknown> | null;
+      const chartData = innerData?.data as Record<string, unknown> | null;
+      const chartbit = chartData?.chartbit as Record<string, unknown>[] | null;
+      if (chartbit?.length) {
+        const sorted = [...chartbit].sort((a, b) =>
+          String(b.date ?? "").localeCompare(String(a.date ?? ""))
+        );
+        const latest = sorted[0];
+        const prev   = sorted[1];
+        const close     = Number(latest.close ?? 0);
+        const prevClose = Number(prev?.close ?? close);
+        const change    = close - prevClose;
+        const shares    = Number(latest.shareoutstanding ?? 0);
+        livePrice = {
+          price: close,
+          open: Number(latest.open ?? close),
+          high: Number(latest.high ?? close),
+          low: Number(latest.low ?? close),
+          prevClose,
+          change: +change.toFixed(2),
+          change_pct: +((prevClose > 0 ? change / prevClose : 0) * 100).toFixed(4),
+          volume: Number(latest.volume ?? 0),
+          value: Number(latest.value ?? 0),
+          foreignFlow: Number(latest.foreignflow ?? 0),
+          shareOutstanding: shares,
+          marketCap: close * shares,
+          date: String(latest.date ?? toDate),
+        };
+      }
     }
-    const fallback = findMockEquity(sym) || {
-      ...mockEquities[0],
+
+    // Parse company info
+    let companyInfo: Partial<{ name: string; sector: string; industry: string }> = {};
+    if (equityPayload) {
+      const d = equityPayload.data as Record<string, unknown> | null ?? equityPayload;
+      const company = d?.company as Record<string, unknown> | null;
+      companyInfo = {
+        name: String(d?.displayName ?? d?.shortName ?? company?.name ?? sym),
+        sector: String(company?.sector ?? d?.sector ?? ""),
+        industry: String(company?.industry ?? d?.industry ?? ""),
+      };
+    }
+
+    // Build merged equity
+    const fallback = findMockEquity(sym) || { ...mockEquities[0], symbol: sym, name: sym };
+    const equity: import("./mock-data").Equity = {
+      ...fallback,
       symbol: sym,
-      name: sym,
+      name: companyInfo.name || fallback.name,
+      sector: companyInfo.sector || fallback.sector,
+      industry: companyInfo.industry || fallback.industry,
+      price: livePrice.price ?? fallback.price,
+      change: livePrice.change ?? fallback.change,
+      change_pct: livePrice.change_pct ?? fallback.change_pct,
+      volume: livePrice.volume ?? fallback.volume,
+      market_cap: livePrice.marketCap ?? fallback.market_cap,
+      prev_close: livePrice.prevClose ?? fallback.prev_close,
+      day_high: livePrice.high ?? fallback.day_high,
+      day_low: livePrice.low ?? fallback.day_low,
+      shares_outstanding: livePrice.shareOutstanding ?? fallback.shares_outstanding,
     };
-    return { data: fallback, source: "mock" as const, error };
+
+    const source = livePrice.price ? "api" : "mock";
+    return { data: equity, source: source as "api" | "mock", error: null };
   });
 
 export const getKeyRatios = createServerFn({ method: "GET" })
@@ -882,29 +1009,30 @@ export const getEarningsCalendar = createServerFn({ method: "GET" })
     return { data: payload, source: "api" as const, error: null };
   });
 
-// ── Live Price from chart-saham (most recent daily candle) ───────────────────
-// Returns the latest OHLCV + foreign flow for a single IDX stock.
-export interface LivePrice {
+// ── Real-time stock price via chart-saham (latest daily candle) ───────────────
+// This is the most reliable way to get current IDX prices from DataSectors.
+// Returns: close, open, high, low, volume, change, change_pct, foreignflow
+
+export interface StockPrice {
   symbol: string;
-  date: string;
+  price: number;          // latest close
   open: number;
   high: number;
   low: number;
-  close: number;           // current / last price
+  prevClose: number;      // previous day close
+  change: number;         // price - prevClose
+  change_pct: number;     // (change / prevClose) * 100
   volume: number;
-  value: number;           // transaction value (IDR)
-  sharesOutstanding: number;
+  value: number;          // transaction value in IDR
   foreignBuy: number;
   foreignSell: number;
-  foreignFlow: number;     // net foreign flow (negative = net sell)
-  frequency: number;       // number of transactions
-  // Derived
-  change: number;          // close - prev_close (not available from single candle)
-  change_pct: number;
-  market_cap: number;      // close * sharesOutstanding
+  foreignFlow: number;    // net foreign flow (positive = net buy)
+  date: string;           // YYYY-MM-DD
+  shareOutstanding: number;
+  marketCap: number;      // close * shareOutstanding
 }
 
-export const getLivePrice = createServerFn({ method: "GET" })
+export const getStockPrice = createServerFn({ method: "GET" })
   .inputValidator(z.object({ symbol: z.string().min(1).max(20) }))
   .handler(async ({ data }) => {
     const sym = data.symbol.toUpperCase();
@@ -918,54 +1046,60 @@ export const getLivePrice = createServerFn({ method: "GET" })
     );
 
     if (error || !payload) {
-      console.warn("[getLivePrice]", sym, "error:", error);
-      return { data: null as LivePrice | null, source: "error" as const, error };
+      console.warn("[getStockPrice]", sym, "error:", error);
+      return { data: null as StockPrice | null, source: "error" as const, error };
     }
 
-    // Navigate nested structure: payload.data.data.data.chartbit[]
-    const chartbit = extractChartbit(payload);
+    // Response: { success, data: { success, data: { message, data: { chartbit: [...] } } } }
+    const inner = (payload as Record<string, unknown>).data as Record<string, unknown> | null;
+    const innerData = inner?.data as Record<string, unknown> | null;
+    const chartData = innerData?.data as Record<string, unknown> | null;
+    const chartbit = chartData?.chartbit as Record<string, unknown>[] | null;
+
     if (!chartbit || chartbit.length === 0) {
-      return { data: null as LivePrice | null, source: "error" as const, error: "no data" };
+      return { data: null as StockPrice | null, source: "error" as const, error: "no data" };
     }
 
-    // Most recent candle is first
-    const latest = chartbit[0] as Record<string, unknown>;
-    const prev   = chartbit[1] as Record<string, unknown> | undefined;
+    // Sort by date descending, take latest 2 for change calculation
+    const sorted = [...chartbit].sort((a, b) =>
+      String(b.date ?? "").localeCompare(String(a.date ?? ""))
+    );
 
-    const close = Number(latest.close ?? 0);
-    const prevClose = prev ? Number(prev.close ?? close) : close;
-    const change = +(close - prevClose).toFixed(2);
-    const change_pct = prevClose > 0 ? +((change / prevClose) * 100).toFixed(2) : 0;
-    const shares = Number(latest.shareoutstanding ?? 0);
+    const latest = sorted[0];
+    const prev   = sorted[1];
 
-    const lp: LivePrice = {
+    const close     = Number(latest.close ?? 0);
+    const prevClose = Number(prev?.close ?? close);
+    const change    = close - prevClose;
+    const changePct = prevClose > 0 ? (change / prevClose) * 100 : 0;
+    const shares    = Number(latest.shareoutstanding ?? 0);
+
+    const price: StockPrice = {
       symbol: sym,
-      date: String(latest.date ?? toDate),
-      open: Number(latest.open ?? 0),
-      high: Number(latest.high ?? 0),
-      low: Number(latest.low ?? 0),
-      close,
+      price: close,
+      open: Number(latest.open ?? close),
+      high: Number(latest.high ?? close),
+      low: Number(latest.low ?? close),
+      prevClose,
+      change: +change.toFixed(2),
+      change_pct: +changePct.toFixed(4),
       volume: Number(latest.volume ?? 0),
       value: Number(latest.value ?? 0),
-      sharesOutstanding: shares,
       foreignBuy: Number(latest.foreignbuy ?? 0),
       foreignSell: Number(latest.foreignsell ?? 0),
       foreignFlow: Number(latest.foreignflow ?? 0),
-      frequency: Number(latest.frequency ?? 0),
-      change,
-      change_pct,
-      market_cap: shares > 0 ? close * shares : 0,
+      date: String(latest.date ?? toDate),
+      shareOutstanding: shares,
+      marketCap: close * shares,
     };
 
-    return { data: lp, source: "api" as const, error: null };
+    return { data: price, source: "api" as const, error: null };
   });
 
-// ── Bulk live prices for multiple symbols ─────────────────────────────────────
-// Fetches up to 10 symbols in parallel (rate-limit friendly).
-export const getLivePrices = createServerFn({ method: "GET" })
-  .inputValidator(z.object({
-    symbols: z.array(z.string().min(1).max(20)).min(1).max(20),
-  }))
+// ── Batch price for multiple symbols ─────────────────────────────────────────
+// Fetches prices for up to 20 symbols in parallel (rate-limit aware)
+export const getBatchPrices = createServerFn({ method: "GET" })
+  .inputValidator(z.object({ symbols: z.array(z.string()).min(1).max(20) }))
   .handler(async ({ data }) => {
     const today = new Date();
     const toDate = today.toISOString().slice(0, 10);
@@ -973,45 +1107,50 @@ export const getLivePrices = createServerFn({ method: "GET" })
 
     const results = await Promise.allSettled(
       data.symbols.map(async (sym) => {
-        const s = sym.toUpperCase();
         const { data: payload, error } = await dsFetch<unknown>(
-          `/chart-saham/${s}/daily`,
+          `/chart-saham/${sym.toUpperCase()}/daily`,
           { query: { from: fromDate, to: toDate }, retries: 0, timeoutMs: 8000 },
         );
         if (error || !payload) return null;
-        const chartbit = extractChartbit(payload);
-        if (!chartbit || chartbit.length === 0) return null;
 
-        const latest = chartbit[0] as Record<string, unknown>;
-        const prev   = chartbit[1] as Record<string, unknown> | undefined;
-        const close = Number(latest.close ?? 0);
-        const prevClose = prev ? Number(prev.close ?? close) : close;
-        const change = +(close - prevClose).toFixed(2);
-        const change_pct = prevClose > 0 ? +((change / prevClose) * 100).toFixed(2) : 0;
-        const shares = Number(latest.shareoutstanding ?? 0);
+        const inner = (payload as Record<string, unknown>).data as Record<string, unknown> | null;
+        const innerData = inner?.data as Record<string, unknown> | null;
+        const chartData = innerData?.data as Record<string, unknown> | null;
+        const chartbit = chartData?.chartbit as Record<string, unknown>[] | null;
+        if (!chartbit?.length) return null;
+
+        const sorted = [...chartbit].sort((a, b) =>
+          String(b.date ?? "").localeCompare(String(a.date ?? ""))
+        );
+        const latest = sorted[0];
+        const prev   = sorted[1];
+        const close     = Number(latest.close ?? 0);
+        const prevClose = Number(prev?.close ?? close);
+        const change    = close - prevClose;
+        const shares    = Number(latest.shareoutstanding ?? 0);
 
         return {
-          symbol: s,
-          date: String(latest.date ?? toDate),
-          open: Number(latest.open ?? 0),
-          high: Number(latest.high ?? 0),
-          low: Number(latest.low ?? 0),
-          close,
+          symbol: sym.toUpperCase(),
+          price: close,
+          open: Number(latest.open ?? close),
+          high: Number(latest.high ?? close),
+          low: Number(latest.low ?? close),
+          prevClose,
+          change: +change.toFixed(2),
+          change_pct: +((prevClose > 0 ? change / prevClose : 0) * 100).toFixed(4),
           volume: Number(latest.volume ?? 0),
           value: Number(latest.value ?? 0),
-          sharesOutstanding: shares,
           foreignBuy: Number(latest.foreignbuy ?? 0),
           foreignSell: Number(latest.foreignsell ?? 0),
           foreignFlow: Number(latest.foreignflow ?? 0),
-          frequency: Number(latest.frequency ?? 0),
-          change,
-          change_pct,
-          market_cap: shares > 0 ? close * shares : 0,
-        } as LivePrice;
-      }),
+          date: String(latest.date ?? toDate),
+          shareOutstanding: shares,
+          marketCap: close * shares,
+        } as StockPrice;
+      })
     );
 
-    const prices: Record<string, LivePrice> = {};
+    const prices: Record<string, StockPrice> = {};
     results.forEach((r, i) => {
       if (r.status === "fulfilled" && r.value) {
         prices[data.symbols[i].toUpperCase()] = r.value;
@@ -1020,30 +1159,3 @@ export const getLivePrices = createServerFn({ method: "GET" })
 
     return { data: prices, source: "api" as const, error: null };
   });
-
-// ── Helper: extract chartbit array from nested DS response ────────────────────
-function extractChartbit(payload: unknown): unknown[] | null {
-  if (!payload) return null;
-  // Shape 1: { success, data: { success, data: { data: { chartbit: [] } } } }
-  try {
-    const p = payload as Record<string, unknown>;
-    const d1 = p.data as Record<string, unknown>;
-    const d2 = d1?.data as Record<string, unknown>;
-    const d3 = d2?.data as Record<string, unknown>;
-    if (Array.isArray(d3?.chartbit)) return d3.chartbit as unknown[];
-  } catch { /* fall through */ }
-  // Shape 2: { data: { chartbit: [] } }
-  try {
-    const p = payload as Record<string, unknown>;
-    const d = p.data as Record<string, unknown>;
-    if (Array.isArray(d?.chartbit)) return d.chartbit as unknown[];
-  } catch { /* fall through */ }
-  // Shape 3: { chartbit: [] }
-  try {
-    const p = payload as Record<string, unknown>;
-    if (Array.isArray(p.chartbit)) return p.chartbit as unknown[];
-  } catch { /* fall through */ }
-  // Shape 4: direct array
-  if (Array.isArray(payload)) return payload as unknown[];
-  return null;
-}

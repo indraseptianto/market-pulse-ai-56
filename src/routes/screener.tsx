@@ -18,11 +18,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, ArrowUp, Filter, RotateCcw, Database, Zap, Users, Globe, Save, Bookmark, Trash2, RefreshCw } from "lucide-react";
+import { ArrowDown, ArrowUp, Filter, RotateCcw, Database, Zap, Users, Globe, Save, Bookmark, Trash2 } from "lucide-react";
 import { useMounted } from "@/hooks/use-mounted";
 import { getOwnershipBySymbol, getSmartMoneySignals } from "@/services/ownership/ownershipService";
 import { useScreenerPresets, useSaveScreenerPreset, useDeleteScreenerPreset } from "@/integrations/supabase/hooks";
-import { useLivePrices } from "@/hooks/use-live-price";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/screener")({
@@ -58,21 +57,6 @@ function ScreenerPage() {
     enabled: mounted,
   });
   const universe = data?.data ?? mockEquities;
-
-  // ── Live prices overlay ───────────────────────────────────────────────────
-  const universeSymbols = useMemo(() => (data?.data ?? mockEquities).map(e => e.symbol).slice(0, 20), [data]);
-  const livePricesQ = useLivePrices(universeSymbols);
-  const liveMap = livePricesQ.data?.data ?? {};
-
-  // Merge live prices into universe
-  const universeWithLive = useMemo(() =>
-    universe.map(e => {
-      const lp = liveMap[e.symbol];
-      if (!lp) return e;
-      return { ...e, price: lp.close, change: lp.change, change_pct: lp.change_pct, volume: lp.volume, market_cap: lp.market_cap || e.market_cap };
-    }),
-    [universe, liveMap]
-  );
 
   const [search, setSearch] = useState("");
   const [sector, setSector] = useState<string>("all");
@@ -121,13 +105,13 @@ function ScreenerPage() {
   };
 
   const sectors = useMemo(
-    () => Array.from(new Set(universeWithLive.map((e) => e.sector))).sort(),
-    [universeWithLive],
+    () => Array.from(new Set(universe.map((e) => e.sector))).sort(),
+    [universe],
   );
 
   const filtered = useMemo(() => {
     const q = search.trim().toUpperCase();
-    let out = universeWithLive.filter((e) => {
+    let out = universe.filter((e) => {
       if (q && !e.symbol.includes(q) && !e.name.toUpperCase().includes(q))
         return false;
       if (sector !== "all" && e.sector !== sector) return false;
@@ -169,7 +153,7 @@ function ScreenerPage() {
       return dir === "desc" ? bv - av : av - bv;
     });
     return out;
-  }, [universeWithLive, search, sector, maxPE, minROE, maxDE, minDiv, sort, dir, ownershipFilter, smartMoneySignals]);
+  }, [universe, search, sector, maxPE, minROE, maxDE, minDiv, sort, dir, ownershipFilter, smartMoneySignals]);
 
   const reset = () => {
     setSearch("");
@@ -212,19 +196,6 @@ function ScreenerPage() {
             Filter and sort the equity universe by valuation, profitability and yield.
           </p>
         </div>
-        <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" onClick={() => livePricesQ.refetch()} disabled={livePricesQ.isFetching}>
-            <RefreshCw className={`h-3.5 w-3.5 mr-1.5 ${livePricesQ.isFetching ? "animate-spin" : ""}`} />
-            {livePricesQ.isFetching ? "Updating..." : "Live Prices"}
-          </Button>
-          {Object.keys(liveMap).length > 0 && (
-            <span className="text-[11px] text-gain flex items-center gap-1">
-              <span className="h-1.5 w-1.5 rounded-full bg-gain animate-pulse inline-block" />
-              {Object.keys(liveMap).length} live
-            </span>
-          )}
-        </div>
-      </div>
 
         <div className="grid gap-3 lg:grid-cols-[280px_1fr]">
           <GlassCard className="space-y-5 lg:sticky lg:top-20 lg:self-start">
@@ -381,7 +352,7 @@ function ScreenerPage() {
             <div className="flex items-center justify-between border-b border-border/40 px-4 py-3 text-xs text-muted-foreground">
               <span>
                 Showing <span className="text-foreground font-medium num">{filtered.length}</span> of{" "}
-                {universeWithLive.length} equities
+                {universe.length} equities
               </span>
               {data?.source === "mock" && (
                 <span className="rounded-full bg-warning/15 px-2 py-0.5 text-[10px] uppercase tracking-wider text-warning">
