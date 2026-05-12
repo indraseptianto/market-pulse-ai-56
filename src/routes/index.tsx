@@ -23,6 +23,13 @@ import {
   Globe,
 } from "lucide-react";
 import { fmtPct, fmtCompact, changeClass } from "@/lib/formatters";
+import { useLivePrices } from "@/hooks/use-live-price";
+
+// Top IDX stocks to fetch live prices for on dashboard
+const DASHBOARD_SYMBOLS = [
+  "BBCA","BBRI","BMRI","TLKM","ASII","BREN","GOTO","AMMN","TPIA","DCII",
+  "UNVR","KLBF","ADRO","ANTM","MDKA","PGAS","PTBA","SMGR","ICBP","INDF",
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -48,17 +55,40 @@ function DashboardPage() {
 
   const equities = data?.data ?? mockEquities;
 
-  // Hero stats derived from equities
+  // ── Live prices overlay ───────────────────────────────────────────────────
+  const livePricesQ = useLivePrices(DASHBOARD_SYMBOLS);
+  const liveMap = livePricesQ.data?.data ?? {};
+
+  // Merge live prices into equities
+  const equitiesWithLive = useMemo(() =>
+    equities.map(e => {
+      const lp = liveMap[e.symbol];
+      if (!lp) return e;
+      return {
+        ...e,
+        price:      lp.close,
+        change:     lp.change,
+        change_pct: lp.change_pct,
+        volume:     lp.volume,
+        market_cap: lp.market_cap || e.market_cap,
+        day_high:   lp.high,
+        day_low:    lp.low,
+      };
+    }),
+    [equities, liveMap]
+  );
+
+  // Hero stats derived from equitiesWithLive
   const heroStats = useMemo(() => {
-    if (!equities.length) return null;
-    const gainers = equities.filter((e) => e.change_pct > 0).length;
-    const losers  = equities.filter((e) => e.change_pct < 0).length;
-    const avgChange = equities.reduce((s, e) => s + e.change_pct, 0) / equities.length;
-    const totalMcap = equities.reduce((s, e) => s + (e.market_cap ?? 0), 0);
-    const topGainer = [...equities].sort((a, b) => b.change_pct - a.change_pct)[0];
-    const topLoser  = [...equities].sort((a, b) => a.change_pct - b.change_pct)[0];
+    if (!equitiesWithLive.length) return null;
+    const gainers = equitiesWithLive.filter((e) => e.change_pct > 0).length;
+    const losers  = equitiesWithLive.filter((e) => e.change_pct < 0).length;
+    const avgChange = equitiesWithLive.reduce((s, e) => s + e.change_pct, 0) / equitiesWithLive.length;
+    const totalMcap = equitiesWithLive.reduce((s, e) => s + (e.market_cap ?? 0), 0);
+    const topGainer = [...equitiesWithLive].sort((a, b) => b.change_pct - a.change_pct)[0];
+    const topLoser  = [...equitiesWithLive].sort((a, b) => a.change_pct - b.change_pct)[0];
     return { gainers, losers, avgChange, totalMcap, topGainer, topLoser };
-  }, [equities]);
+  }, [equitiesWithLive]);
 
   return (
     <PageTransition>
@@ -126,14 +156,14 @@ function DashboardPage() {
                   icon={<TrendingUp className="h-4 w-4 text-success" />}
                   label="Gainers"
                   value={String(heroStats.gainers)}
-                  sub={`of ${equities.length}`}
+                  sub={`of ${equitiesWithLive.length}`}
                   tone="gain"
                 />
                 <HeroStat
                   icon={<TrendingDown className="h-4 w-4 text-destructive" />}
                   label="Losers"
                   value={String(heroStats.losers)}
-                  sub={`of ${equities.length}`}
+                  sub={`of ${equitiesWithLive.length}`}
                   tone="loss"
                 />
                 <HeroStat
@@ -188,7 +218,7 @@ function DashboardPage() {
         </section>
 
         {/* ── TICKER TAPE ──────────────────────────────────────────────── */}
-        <TickerTape equities={equities} />
+        <TickerTape equities={equitiesWithLive} />
 
         {/* ── MARKET OVERVIEW STATS ────────────────────────────────────── */}
         {isLoading ? (
@@ -198,21 +228,21 @@ function DashboardPage() {
             ))}
           </div>
         ) : (
-          <MarketOverview equities={equities} />
+          <MarketOverview equities={equitiesWithLive} />
         )}
 
         {/* ── MAIN CONTENT GRID ────────────────────────────────────────── */}
         <div className="grid gap-4 lg:grid-cols-3">
           {/* Left 2/3 */}
           <div className="lg:col-span-2 space-y-4">
-            <SectorStrip equities={equities} />
-            <GainersLosers equities={equities} />
+            <SectorStrip equities={equitiesWithLive} />
+            <GainersLosers equities={equitiesWithLive} />
           </div>
 
           {/* Right 1/3 */}
           <div className="space-y-4">
-            <AISummaryCard equities={equities} />
-            <TrendingStocks equities={equities} />
+            <AISummaryCard equities={equitiesWithLive} />
+            <TrendingStocks equities={equitiesWithLive} />
           </div>
         </div>
 

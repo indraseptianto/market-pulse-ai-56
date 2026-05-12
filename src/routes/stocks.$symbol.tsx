@@ -11,6 +11,7 @@ import {
   getInvestorActivity,
 } from "@/lib/datasectors.functions";
 import { getTiingoPrices } from "@/lib/tiingo.functions";
+import { useLivePrice } from "@/hooks/use-live-price";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { GlassCard } from "@/components/common/GlassCard";
 import { PriceChart } from "@/components/stock/PriceChart";
@@ -51,6 +52,9 @@ function StockDetailPage() {
   const earningsFn  = useServerFn(getStockEarnings);
   const equitiesV2Fn = useServerFn(getStockEquitiesV2);
   const tradesFn    = useServerFn(getInvestorActivity);
+
+  // ── Live price from chart-saham ───────────────────────────────────────────
+  const livePrice = useLivePrice(sym);
 
   // ── Existing queries ──────────────────────────────────────────────────────
   const detail = useQuery({
@@ -104,7 +108,21 @@ function StockDetailPage() {
   }, [trades.data, sym]);
 
   // ── Derived ───────────────────────────────────────────────────────────────
-  const equity = detail.data?.data ?? findMockEquity(sym);
+  const equityBase = detail.data?.data ?? findMockEquity(sym);
+
+  // Merge live price on top of equity base data
+  const lp = livePrice.data?.data;
+  const equity = equityBase ? {
+    ...equityBase,
+    price:      lp?.close      ?? equityBase.price,
+    change:     lp?.change     ?? equityBase.change,
+    change_pct: lp?.change_pct ?? equityBase.change_pct,
+    volume:     lp?.volume     ?? equityBase.volume,
+    market_cap: lp?.market_cap ?? equityBase.market_cap,
+    day_high:   lp?.high       ?? equityBase.day_high,
+    day_low:    lp?.low        ?? equityBase.day_low,
+    shares_outstanding: lp?.sharesOutstanding ?? equityBase.shares_outstanding,
+  } : null;
   const ratiosData = (ratios.data?.data ?? {}) as Record<string, number | null | undefined>;
 
   const techCandles =
@@ -179,6 +197,16 @@ function StockDetailPage() {
                 <div className={`text-sm num ${changeClass(equity.change_pct)}`}>
                   {fmtPct(equity.change_pct)}
                 </div>
+                {lp && (
+                  <div className="mt-1 text-[10px] text-muted-foreground">
+                    {lp.date} · IDX Live
+                    {lp.foreignFlow !== 0 && (
+                      <span className={`ml-2 font-medium ${lp.foreignFlow > 0 ? "text-gain" : "text-loss"}`}>
+                        Foreign {lp.foreignFlow > 0 ? "+" : ""}{fmtCompact(lp.foreignFlow)}
+                      </span>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
 

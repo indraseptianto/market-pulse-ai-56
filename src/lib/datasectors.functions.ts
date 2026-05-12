@@ -881,3 +881,169 @@ export const getEarningsCalendar = createServerFn({ method: "GET" })
     if (error || !payload) return { data: null as null, source: "error" as const, error };
     return { data: payload, source: "api" as const, error: null };
   });
+
+// ── Live Price from chart-saham (most recent daily candle) ───────────────────
+// Returns the latest OHLCV + foreign flow for a single IDX stock.
+export interface LivePrice {
+  symbol: string;
+  date: string;
+  open: number;
+  high: number;
+  low: number;
+  close: number;           // current / last price
+  volume: number;
+  value: number;           // transaction value (IDR)
+  sharesOutstanding: number;
+  foreignBuy: number;
+  foreignSell: number;
+  foreignFlow: number;     // net foreign flow (negative = net sell)
+  frequency: number;       // number of transactions
+  // Derived
+  change: number;          // close - prev_close (not available from single candle)
+  change_pct: number;
+  market_cap: number;      // close * sharesOutstanding
+}
+
+export const getLivePrice = createServerFn({ method: "GET" })
+  .inputValidator(z.object({ symbol: z.string().min(1).max(20) }))
+  .handler(async ({ data }) => {
+    const sym = data.symbol.toUpperCase();
+    const today = new Date();
+    const toDate = today.toISOString().slice(0, 10);
+    const fromDate = new Date(today.getTime() - 7 * 86400000).toISOString().slice(0, 10);
+
+    const { data: payload, error } = await dsFetch<unknown>(
+      `/chart-saham/${sym}/daily`,
+      { query: { from: fromDate, to: toDate } },
+    );
+
+    if (error || !payload) {
+      console.warn("[getLivePrice]", sym, "error:", error);
+      return { data: null as LivePrice | null, source: "error" as const, error };
+    }
+
+    // Navigate nested structure: payload.data.data.data.chartbit[]
+    const chartbit = extractChartbit(payload);
+    if (!chartbit || chartbit.length === 0) {
+      return { data: null as LivePrice | null, source: "error" as const, error: "no data" };
+    }
+
+    // Most recent candle is first
+    const latest = chartbit[0] as Record<string, unknown>;
+    const prev   = chartbit[1] as Record<string, unknown> | undefined;
+
+    const close = Number(latest.close ?? 0);
+    const prevClose = prev ? Number(prev.close ?? close) : close;
+    const change = +(close - prevClose).toFixed(2);
+    const change_pct = prevClose > 0 ? +((change / prevClose) * 100).toFixed(2) : 0;
+    const shares = Number(latest.shareoutstanding ?? 0);
+
+    const lp: LivePrice = {
+      symbol: sym,
+      date: String(latest.date ?? toDate),
+      open: Number(latest.open ?? 0),
+      high: Number(latest.high ?? 0),
+      low: Number(latest.low ?? 0),
+      close,
+      volume: Number(latest.volume ?? 0),
+      value: Number(latest.value ?? 0),
+      sharesOutstanding: shares,
+      foreignBuy: Number(latest.foreignbuy ?? 0),
+      foreignSell: Number(latest.foreignsell ?? 0),
+      foreignFlow: Number(latest.foreignflow ?? 0),
+      frequency: Number(latest.frequency ?? 0),
+      change,
+      change_pct,
+      market_cap: shares > 0 ? close * shares : 0,
+    };
+
+    return { data: lp, source: "api" as const, error: null };
+  });
+
+// ── Bulk live prices for multiple symbols ─────────────────────────────────────
+// Fetches up to 10 symbols in parallel (rate-limit friendly).
+export const getLivePrices = createServerFn({ method: "GET" })
+  .inputValidator(z.object({
+    symbols: z.array(z.string().min(1).max(20)).min(1).max(20),
+  }))
+  .handler(async ({ data }) => {
+    const today = new Date();
+    const toDate = today.toISOString().slice(0, 10);
+    const fromDate = new Date(today.getTime() - 7 * 86400000).toISOString().slice(0, 10);
+
+    const results = await Promise.allSettled(
+      data.symbols.map(async (sym) => {
+        const s = sym.toUpperCase();
+        const { data: payload, error } = await dsFetch<unknown>(
+          `/chart-saham/${s}/daily`,
+          { query: { from: fromDate, to: toDate }, retries: 0, timeoutMs: 8000 },
+        );
+        if (error || !payload) return null;
+        const chartbit = extractChartbit(payload);
+        if (!chartbit || chartbit.length === 0) return null;
+
+        const latest = chartbit[0] as Record<string, unknown>;
+        const prev   = chartbit[1] as Record<string, unknown> | undefined;
+        const close = Number(latest.close ?? 0);
+        const prevClose = prev ? Number(prev.close ?? close) : close;
+        const change = +(close - prevClose).toFixed(2);
+        const change_pct = prevClose > 0 ? +((change / prevClose) * 100).toFixed(2) : 0;
+        const shares = Number(latest.shareoutstanding ?? 0);
+
+        return {
+          symbol: s,
+          date: String(latest.date ?? toDate),
+          open: Number(latest.open ?? 0),
+          high: Number(latest.high ?? 0),
+          low: Number(latest.low ?? 0),
+          close,
+          volume: Number(latest.volume ?? 0),
+          value: Number(latest.value ?? 0),
+          sharesOutstanding: shares,
+          foreignBuy: Number(latest.foreignbuy ?? 0),
+          foreignSell: Number(latest.foreignsell ?? 0),
+          foreignFlow: Number(latest.foreignflow ?? 0),
+          frequency: Number(latest.frequency ?? 0),
+          change,
+          change_pct,
+          market_cap: shares > 0 ? close * shares : 0,
+        } as LivePrice;
+      }),
+    );
+
+    const prices: Record<string, LivePrice> = {};
+    results.forEach((r, i) => {
+      if (r.status === "fulfilled" && r.value) {
+        prices[data.symbols[i].toUpperCase()] = r.value;
+      }
+    });
+
+    return { data: prices, source: "api" as const, error: null };
+  });
+
+// ── Helper: extract chartbit array from nested DS response ────────────────────
+function extractChartbit(payload: unknown): unknown[] | null {
+  if (!payload) return null;
+  // Shape 1: { success, data: { success, data: { data: { chartbit: [] } } } }
+  try {
+    const p = payload as Record<string, unknown>;
+    const d1 = p.data as Record<string, unknown>;
+    const d2 = d1?.data as Record<string, unknown>;
+    const d3 = d2?.data as Record<string, unknown>;
+    if (Array.isArray(d3?.chartbit)) return d3.chartbit as unknown[];
+  } catch { /* fall through */ }
+  // Shape 2: { data: { chartbit: [] } }
+  try {
+    const p = payload as Record<string, unknown>;
+    const d = p.data as Record<string, unknown>;
+    if (Array.isArray(d?.chartbit)) return d.chartbit as unknown[];
+  } catch { /* fall through */ }
+  // Shape 3: { chartbit: [] }
+  try {
+    const p = payload as Record<string, unknown>;
+    if (Array.isArray(p.chartbit)) return p.chartbit as unknown[];
+  } catch { /* fall through */ }
+  // Shape 4: direct array
+  if (Array.isArray(payload)) return payload as unknown[];
+  return null;
+}

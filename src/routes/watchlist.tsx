@@ -7,7 +7,7 @@ import { PageTransition } from "@/components/layout/PageTransition";
 import { GlassCard } from "@/components/common/GlassCard";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Star, Trash2, Bell, Plus, Cloud, CloudOff } from "lucide-react";
+import { Star, Trash2, Bell, Plus, Cloud, CloudOff, RefreshCw } from "lucide-react";
 import { fmtPct, fmtPrice, changeClass } from "@/lib/formatters";
 import { mockEquities } from "@/lib/mock-data";
 import { toast } from "sonner";
@@ -21,6 +21,7 @@ import {
   useToggleAlert,
 } from "@/integrations/supabase/hooks";
 import type { Alert } from "@/integrations/supabase/types";
+import { useLivePrices } from "@/hooks/use-live-price";
 
 export const Route = createFileRoute("/watchlist")({
   head: () => ({
@@ -71,6 +72,10 @@ function WatchlistPage() {
     [symbols, all],
   );
 
+  // ── Live prices from chart-saham ─────────────────────────────
+  const livePricesQ = useLivePrices(symbols);
+  const liveMap = livePricesQ.data?.data ?? {};
+
   const add = async (sym: string) => {
     const s = sym.trim().toUpperCase();
     if (!s) return;
@@ -120,9 +125,15 @@ function WatchlistPage() {
               Pantau saham favorit dan atur alert harga, RSI, dan volume.
             </p>
           </div>
-          <div className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] ${isCloud ? "border-success/30 bg-success/10 text-gain" : "border-border/40 text-muted-foreground"}`}>
-            {isCloud ? <Cloud className="h-3 w-3" /> : <CloudOff className="h-3 w-3" />}
-            {isCloud ? "Cloud sync aktif" : "Login untuk sync"}
+          <div className="flex items-center gap-2">
+            <Button variant="outline" size="sm" onClick={() => livePricesQ.refetch()} disabled={livePricesQ.isFetching}>
+              <RefreshCw className={`h-3.5 w-3.5 mr-1.5 ${livePricesQ.isFetching ? "animate-spin" : ""}`} />
+              Refresh Harga
+            </Button>
+            <div className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] ${isCloud ? "border-success/30 bg-success/10 text-gain" : "border-border/40 text-muted-foreground"}`}>
+              {isCloud ? <Cloud className="h-3 w-3" /> : <CloudOff className="h-3 w-3" />}
+              {isCloud ? "Cloud sync aktif" : "Login untuk sync"}
+            </div>
           </div>
         </div>
 
@@ -164,7 +175,12 @@ function WatchlistPage() {
                     </td>
                   </tr>
                 ) : (
-                  rows.map((e) => (
+                  rows.map((e) => {
+                    const lp = liveMap[e!.symbol];
+                    const price = lp?.close ?? e!.price;
+                    const changePct = lp?.change_pct ?? e!.change_pct;
+                    const volume = lp?.volume ?? e!.volume;
+                    return (
                     <tr key={e!.symbol} className="border-b border-border/30 hover:bg-accent/20">
                       <td className="px-4 py-2.5">
                         <Link to="/stocks/$symbol" params={{ symbol: e!.symbol }} className="block">
@@ -172,12 +188,17 @@ function WatchlistPage() {
                           <div className="truncate text-xs text-muted-foreground max-w-[220px]">{e!.name}</div>
                         </Link>
                       </td>
-                      <td className="px-4 py-2.5 text-right num">{fmtPrice(e!.price)}</td>
-                      <td className={`px-4 py-2.5 text-right num ${changeClass(e!.change_pct)}`}>{fmtPct(e!.change_pct)}</td>
+                      <td className="px-4 py-2.5 text-right">
+                        <div className="num font-semibold">{fmtPrice(price)}</div>
+                        {lp && <div className="text-[10px] text-muted-foreground">{lp.date}</div>}
+                      </td>
+                      <td className={`px-4 py-2.5 text-right num ${changeClass(changePct)}`}>
+                        {fmtPct(changePct)}
+                      </td>
                       <td className="px-4 py-2.5 text-right">
                         <div className="inline-flex gap-1">
                           <Button size="sm" variant="ghost" title="Alert +5%"
-                            onClick={() => addAlertFn(e!.symbol, "price_above", +(e!.price * 1.05).toFixed(2))}>
+                            onClick={() => addAlertFn(e!.symbol, "price_above", +(price * 1.05).toFixed(2))}>
                             <Bell className="h-3.5 w-3.5" />
                           </Button>
                           <Button size="sm" variant="ghost" onClick={() => remove(e!.symbol)} disabled={removeMut.isPending}>
@@ -186,7 +207,8 @@ function WatchlistPage() {
                         </div>
                       </td>
                     </tr>
-                  ))
+                    );
+                  })
                 )}
               </tbody>
             </table>
