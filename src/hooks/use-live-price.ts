@@ -2,7 +2,7 @@
 // React Query hooks that fetch real-time IDX prices from DataSectors chart-saham.
 // Refreshes every 60 seconds during market hours (WIB 09:00–16:00).
 
-import { useQuery, useQueries } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { getLivePrice, getLivePrices, type LivePrice } from "@/lib/datasectors.functions";
 import { useMounted } from "./use-mounted";
