@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { useMemo } from "react";
-import { getEquities } from "@/lib/datasectors.functions";
+import { getEquities, getBatchPrices } from "@/lib/datasectors.functions";
 import { mockEquities } from "@/lib/mock-data";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { MarketOverview } from "@/components/dashboard/MarketOverview";
@@ -11,6 +11,7 @@ import { SectorStrip } from "@/components/dashboard/SectorStrip";
 import { TickerTape } from "@/components/dashboard/TickerTape";
 import { TrendingStocks } from "@/components/dashboard/TrendingStocks";
 import { AISummaryCard } from "@/components/dashboard/AISummaryCard";
+import { LivePriceBadge } from "@/components/common/LivePriceBadge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -23,6 +24,7 @@ import {
   Globe,
 } from "lucide-react";
 import { fmtPct, fmtCompact, changeClass } from "@/lib/formatters";
+import { isIDXTradingHours } from "@/hooks/use-live-price";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,13 +42,40 @@ export const Route = createFileRoute("/")({
 
 function DashboardPage() {
   const fn = useServerFn(getEquities);
+  const batchFn = useServerFn(getBatchPrices);
+
   const { data, isLoading } = useQuery({
     queryKey: ["equities", "dashboard"],
     queryFn: () => fn({ data: { limit: 100 } }),
     staleTime: 60_000,
   });
 
-  const equities = data?.data ?? mockEquities;
+  // Live prices for top 10 IDX stocks — polls every 30s during market hours
+  const TOP_SYMBOLS = ["BBCA","BBRI","BMRI","TLKM","ASII","BREN","GOTO","AMMN","TPIA","DCII"];
+  const livePricesQ = useQuery({
+    queryKey: ["batch-prices-dashboard", TOP_SYMBOLS.join(",")],
+    queryFn: () => batchFn({ data: { symbols: TOP_SYMBOLS } }),
+    staleTime: 25_000,
+    refetchInterval: isIDXTradingHours() ? 30_000 : 5 * 60_000,
+    refetchIntervalInBackground: false,
+  });
+
+  const baseEquities = data?.data ?? mockEquities;
+  const liveMap = livePricesQ.data?.data ?? {};
+
+  // Merge live prices into equities
+  const equities = useMemo(() => baseEquities.map(e => {
+    const live = liveMap[e.symbol];
+    if (!live) return e;
+    return {
+      ...e,
+      price: live.price,
+      change: live.change,
+      change_pct: live.change_pct,
+      volume: live.volume,
+      market_cap: live.marketCap || e.market_cap,
+    };
+  }), [baseEquities, liveMap]);
 
   // Hero stats derived from equities
   const heroStats = useMemo(() => {
@@ -87,6 +116,12 @@ function DashboardPage() {
                 <span className="text-[11px] text-muted-foreground">
                   IDX · NYSE · NASDAQ
                 </span>
+                <LivePriceBadge
+                  lastUpdated={livePricesQ.dataUpdatedAt ? new Date(livePricesQ.dataUpdatedAt) : null}
+                  isFetching={livePricesQ.isFetching}
+                  onRefresh={() => livePricesQ.refetch()}
+                  compact
+                />
               </div>
 
               <h1 className="text-2xl font-bold tracking-tight md:text-3xl">

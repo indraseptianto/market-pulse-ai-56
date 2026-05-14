@@ -9,7 +9,6 @@ import {
   getStockEarnings,
   getStockEquitiesV2,
   getInvestorActivity,
-  getStockPrice,
 } from "@/lib/datasectors.functions";
 import { getTiingoPrices } from "@/lib/tiingo.functions";
 import { PageTransition } from "@/components/layout/PageTransition";
@@ -21,13 +20,14 @@ import { FairValueCard } from "@/components/stock/FairValueCard";
 import { QuarterlyFinancials } from "@/components/stock/QuarterlyFinancials";
 import { OwnershipCard } from "@/components/stock/OwnershipCard";
 import { OwnershipIntelligencePanel } from "@/components/ownership/OwnershipIntelligencePanel";
+import { LivePriceBadge } from "@/components/common/LivePriceBadge";
 import { Skeleton } from "@/components/ui/skeleton";
-import { ArrowLeft, Building2, LineChart, Activity, TrendingUp, TrendingDown, RefreshCw } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowLeft, Building2, LineChart, Activity, TrendingUp, TrendingDown } from "lucide-react";
 import { fmtPrice, fmtPct, fmtCompact, changeClass } from "@/lib/formatters";
 import { findMockEquity } from "@/lib/mock-data";
 import { evaluateValuation } from "@/lib/valuation";
 import { technicalSummary } from "@/lib/indicators";
+import { useLivePriceTicker } from "@/hooks/use-live-price";
 
 export const Route = createFileRoute("/stocks/$symbol")({
   head: ({ params }) => ({
@@ -53,7 +53,6 @@ function StockDetailPage() {
   const earningsFn  = useServerFn(getStockEarnings);
   const equitiesV2Fn = useServerFn(getStockEquitiesV2);
   const tradesFn    = useServerFn(getInvestorActivity);
-  const priceFn     = useServerFn(getStockPrice);
 
   // ── Existing queries ──────────────────────────────────────────────────────
   const detail = useQuery({
@@ -97,13 +96,9 @@ function StockDetailPage() {
     staleTime: 300_000,
   });
 
-  // ── Real-time price from chart-saham ──────────────────────────────────────
-  const livePrice = useQuery({
-    queryKey: ["live-price", sym],
-    queryFn: () => priceFn({ data: { symbol: sym } }),
-    staleTime: 60_000,
-    refetchInterval: 60_000, // auto-refresh every 60s
-  });
+  // ── Live price — polls every 30s during market hours ─────────────────────
+  const { price: live, isFetching: priceFetching, lastUpdated, isLive } =
+    useLivePriceTicker(sym);
 
   // Filter trades to this symbol
   const symbolTrades = useMemo(() => {
@@ -116,7 +111,6 @@ function StockDetailPage() {
 
   // ── Derived ───────────────────────────────────────────────────────────────
   const baseEquity = detail.data?.data ?? findMockEquity(sym);
-  const live = livePrice.data?.data;
 
   // Merge live price on top of base equity data
   const equity = baseEquity ? {
@@ -157,8 +151,8 @@ function StockDetailPage() {
     : null;
   const fair = valuationInput ? evaluateValuation(valuationInput) : null;
 
-  const earningsPayload = earnings.data?.data ?? null;
-  const equitiesV2Payload = equitiesV2.data?.data ?? null;
+  const earningsPayload = (earnings.data?.data ?? null) as Record<string, unknown> | null;
+  const equitiesV2Payload = (equitiesV2.data?.data ?? null) as Record<string, unknown> | null;
 
   return (
     <PageTransition>
@@ -201,30 +195,26 @@ function StockDetailPage() {
                 </div>
               </div>
               <div className="text-right">
+                <div className="flex items-center justify-end gap-2 mb-1">
+                  <LivePriceBadge
+                    lastUpdated={lastUpdated}
+                    isFetching={priceFetching}
+                    compact
+                  />
+                </div>
                 <div className="text-3xl font-semibold num">{fmtPrice(equity.price)}</div>
                 <div className={`text-sm num ${changeClass(equity.change_pct)}`}>
-                  {fmtPct(equity.change_pct)}
+                  {equity.change > 0 ? "+" : ""}{fmtPrice(equity.change)} ({fmtPct(equity.change_pct)})
                 </div>
-                {live && (
-                  <div className="mt-1 flex items-center justify-end gap-2">
-                    <span className="text-[10px] text-muted-foreground">
-                      {live.date}
-                    </span>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="h-5 w-5"
-                      onClick={() => livePrice.refetch()}
-                      title="Refresh harga"
-                    >
-                      <RefreshCw className={`h-3 w-3 ${livePrice.isFetching ? "animate-spin" : ""}`} />
-                    </Button>
-                  </div>
-                )}
-                {live && (live.foreignFlow !== 0) && (
+                {live && live.foreignFlow !== 0 && (
                   <div className={`mt-1 flex items-center justify-end gap-1 text-[11px] ${live.foreignFlow > 0 ? "text-gain" : "text-loss"}`}>
-                    {live.foreignFlow > 0 ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
-                    <span>Foreign {live.foreignFlow > 0 ? "Buy" : "Sell"} {fmtCompact(Math.abs(live.foreignFlow))}</span>
+                    {live.foreignFlow > 0
+                      ? <TrendingUp className="h-3 w-3" />
+                      : <TrendingDown className="h-3 w-3" />}
+                    <span>
+                      Foreign {live.foreignFlow > 0 ? "Net Buy" : "Net Sell"}{" "}
+                      {fmtCompact(Math.abs(live.foreignFlow))}
+                    </span>
                   </div>
                 )}
               </div>

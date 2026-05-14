@@ -1009,7 +1009,80 @@ export const getEarningsCalendar = createServerFn({ method: "GET" })
     return { data: payload, source: "api" as const, error: null };
   });
 
-// ── Real-time stock price via chart-saham (latest daily candle) ───────────────
+// ── Helper: parse chart-saham response into StockPrice ───────────────────────
+function parseChartSahamResponse(
+  payload: unknown,
+  sym: string,
+  fallbackDate: string,
+): { data: StockPrice | null; source: "api" | "error"; error: string | null } {
+  // Response shape: { success, data: { success, data: { message, data: { chartbit: [...] } } } }
+  const inner = (payload as Record<string, unknown>).data as Record<string, unknown> | null;
+  const innerData = inner?.data as Record<string, unknown> | null;
+  const chartData = innerData?.data as Record<string, unknown> | null;
+  const chartbit = chartData?.chartbit as Record<string, unknown>[] | null;
+
+  if (!chartbit || chartbit.length === 0) {
+    return { data: null, source: "error", error: "no data" };
+  }
+
+  // Sort by unix_timestamp or datetime descending — get latest bar
+  const sorted = [...chartbit].sort((a, b) => {
+    const ta = Number(a.unix_timestamp ?? 0);
+    const tb = Number(b.unix_timestamp ?? 0);
+    if (ta !== tb) return tb - ta;
+    return String(b.datetime ?? b.date ?? "").localeCompare(String(a.datetime ?? a.date ?? ""));
+  });
+
+  const latest = sorted[0];
+
+  // For change calculation: find the previous day's last close
+  // For 1m data: group by date, get last bar of previous trading day
+  const latestDate = String(latest.datetime ?? latest.date ?? "").slice(0, 10);
+  const prevDayBars = sorted.filter(b =>
+    String(b.datetime ?? b.date ?? "").slice(0, 10) < latestDate
+  );
+  const prevClose = prevDayBars.length > 0
+    ? Number(prevDayBars[0].close ?? 0)
+    : Number(latest.open ?? latest.close ?? 0); // fallback to open
+
+  const close  = Number(latest.close ?? 0);
+  const change = close - prevClose;
+  const changePct = prevClose > 0 ? (change / prevClose) * 100 : 0;
+  const shares = Number(latest.shareoutstanding ?? latest.share_outstanding ?? 0);
+
+  // Aggregate today's OHLV from all bars of the same date
+  const todayBars = sorted.filter(b =>
+    String(b.datetime ?? b.date ?? "").slice(0, 10) === latestDate
+  );
+  const dayHigh  = Math.max(...todayBars.map(b => Number(b.high ?? 0)));
+  const dayLow   = Math.min(...todayBars.filter(b => Number(b.low ?? 0) > 0).map(b => Number(b.low ?? 0)));
+  const dayOpen  = Number(todayBars[todayBars.length - 1]?.open ?? latest.open ?? close);
+  const dayVol   = todayBars.reduce((s, b) => s + Number(b.volume ?? 0), 0);
+  const dayValue = todayBars.reduce((s, b) => s + Number(b.value ?? 0), 0);
+
+  const price: StockPrice = {
+    symbol: sym,
+    price: close,
+    open: dayOpen,
+    high: dayHigh > 0 ? dayHigh : close,
+    low: dayLow > 0 ? dayLow : close,
+    prevClose,
+    change: +change.toFixed(2),
+    change_pct: +changePct.toFixed(4),
+    volume: dayVol || Number(latest.volume ?? 0),
+    value: dayValue || Number(latest.value ?? 0),
+    foreignBuy: Number(latest.foreign_buy ?? latest.foreignbuy ?? 0),
+    foreignSell: Number(latest.foreign_sell ?? latest.foreignsell ?? 0),
+    foreignFlow: Number(latest.foreignflow ?? 0),
+    date: latestDate || fallbackDate,
+    shareOutstanding: shares,
+    marketCap: close * shares,
+  };
+
+  return { data: price, source: "api", error: null };
+}
+
+// ── Real-time stock price via chart-saham (1m → daily fallback) ───────────────
 // This is the most reliable way to get current IDX prices from DataSectors.
 // Returns: close, open, high, low, volume, change, change_pct, foreignflow
 
@@ -1038,62 +1111,28 @@ export const getStockPrice = createServerFn({ method: "GET" })
     const sym = data.symbol.toUpperCase();
     const today = new Date();
     const toDate = today.toISOString().slice(0, 10);
-    const fromDate = new Date(today.getTime() - 7 * 86400000).toISOString().slice(0, 10);
+    const fromDate = new Date(today.getTime() - 2 * 86400000).toISOString().slice(0, 10); // last 2 days
 
+    // Use 1m timeframe for most granular live data
     const { data: payload, error } = await dsFetch<unknown>(
-      `/chart-saham/${sym}/daily`,
-      { query: { from: fromDate, to: toDate } },
+      `/chart-saham/${sym}/1m`,
+      { query: { from: fromDate, to: toDate }, retries: 0, timeoutMs: 8000 },
     );
 
+    // Fallback to daily if 1m fails
     if (error || !payload) {
-      console.warn("[getStockPrice]", sym, "error:", error);
-      return { data: null as StockPrice | null, source: "error" as const, error };
+      const { data: dailyPayload, error: dailyError } = await dsFetch<unknown>(
+        `/chart-saham/${sym}/daily`,
+        { query: { from: fromDate, to: toDate }, retries: 1, timeoutMs: 8000 },
+      );
+      if (dailyError || !dailyPayload) {
+        console.warn("[getStockPrice]", sym, "error:", error);
+        return { data: null as StockPrice | null, source: "error" as const, error };
+      }
+      return parseChartSahamResponse(dailyPayload, sym, toDate);
     }
 
-    // Response: { success, data: { success, data: { message, data: { chartbit: [...] } } } }
-    const inner = (payload as Record<string, unknown>).data as Record<string, unknown> | null;
-    const innerData = inner?.data as Record<string, unknown> | null;
-    const chartData = innerData?.data as Record<string, unknown> | null;
-    const chartbit = chartData?.chartbit as Record<string, unknown>[] | null;
-
-    if (!chartbit || chartbit.length === 0) {
-      return { data: null as StockPrice | null, source: "error" as const, error: "no data" };
-    }
-
-    // Sort by date descending, take latest 2 for change calculation
-    const sorted = [...chartbit].sort((a, b) =>
-      String(b.date ?? "").localeCompare(String(a.date ?? ""))
-    );
-
-    const latest = sorted[0];
-    const prev   = sorted[1];
-
-    const close     = Number(latest.close ?? 0);
-    const prevClose = Number(prev?.close ?? close);
-    const change    = close - prevClose;
-    const changePct = prevClose > 0 ? (change / prevClose) * 100 : 0;
-    const shares    = Number(latest.shareoutstanding ?? 0);
-
-    const price: StockPrice = {
-      symbol: sym,
-      price: close,
-      open: Number(latest.open ?? close),
-      high: Number(latest.high ?? close),
-      low: Number(latest.low ?? close),
-      prevClose,
-      change: +change.toFixed(2),
-      change_pct: +changePct.toFixed(4),
-      volume: Number(latest.volume ?? 0),
-      value: Number(latest.value ?? 0),
-      foreignBuy: Number(latest.foreignbuy ?? 0),
-      foreignSell: Number(latest.foreignsell ?? 0),
-      foreignFlow: Number(latest.foreignflow ?? 0),
-      date: String(latest.date ?? toDate),
-      shareOutstanding: shares,
-      marketCap: close * shares,
-    };
-
-    return { data: price, source: "api" as const, error: null };
+    return parseChartSahamResponse(payload, sym, toDate);
   });
 
 // ── Batch price for multiple symbols ─────────────────────────────────────────
