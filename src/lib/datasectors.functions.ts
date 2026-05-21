@@ -196,7 +196,7 @@ export const getEquityDetail = createServerFn({ method: "GET" })
       { query: { symbol: sym } },
     );
 
-    // ── 2. Get real-time price from chart-saham ───────────────────────────
+    // ── 2. Get real-time price from the same chart-saham source used elsewhere
     const today = new Date();
     const toDate = today.toISOString().slice(0, 10);
     const fromDate = new Date(today.getTime() - 7 * 86400000).toISOString().slice(0, 10);
@@ -205,46 +205,9 @@ export const getEquityDetail = createServerFn({ method: "GET" })
       { query: { from: fromDate, to: toDate }, retries: 0 },
     );
 
-    // Parse price from chart-saham
-    let livePrice: Partial<{
-      price: number; open: number; high: number; low: number;
-      prevClose: number; change: number; change_pct: number;
-      volume: number; value: number; foreignFlow: number;
-      marketCap: number; shareOutstanding: number; date: string;
-    }> = {};
-
-    if (pricePayload) {
-      const inner = (pricePayload as Record<string, unknown>).data as Record<string, unknown> | null;
-      const innerData = inner?.data as Record<string, unknown> | null;
-      const chartData = innerData?.data as Record<string, unknown> | null;
-      const chartbit = chartData?.chartbit as Record<string, unknown>[] | null;
-      if (chartbit?.length) {
-        const sorted = [...chartbit].sort((a, b) =>
-          String(b.date ?? "").localeCompare(String(a.date ?? ""))
-        );
-        const latest = sorted[0];
-        const prev   = sorted[1];
-        const close     = Number(latest.close ?? 0);
-        const prevClose = Number(prev?.close ?? close);
-        const change    = close - prevClose;
-        const shares    = Number(latest.shareoutstanding ?? 0);
-        livePrice = {
-          price: close,
-          open: Number(latest.open ?? close),
-          high: Number(latest.high ?? close),
-          low: Number(latest.low ?? close),
-          prevClose,
-          change: +change.toFixed(2),
-          change_pct: +((prevClose > 0 ? change / prevClose : 0) * 100).toFixed(4),
-          volume: Number(latest.volume ?? 0),
-          value: Number(latest.value ?? 0),
-          foreignFlow: Number(latest.foreignflow ?? 0),
-          shareOutstanding: shares,
-          marketCap: close * shares,
-          date: String(latest.date ?? toDate),
-        };
-      }
-    }
+    const livePrice = pricePayload
+      ? parseChartSahamResponse(pricePayload, sym, toDate).data
+      : null;
 
     // Parse company info
     let companyInfo: Partial<{ name: string; sector: string; industry: string }> = {};
@@ -266,18 +229,18 @@ export const getEquityDetail = createServerFn({ method: "GET" })
       name: companyInfo.name || fallback.name,
       sector: companyInfo.sector || fallback.sector,
       industry: companyInfo.industry || fallback.industry,
-      price: livePrice.price ?? fallback.price,
-      change: livePrice.change ?? fallback.change,
-      change_pct: livePrice.change_pct ?? fallback.change_pct,
-      volume: livePrice.volume ?? fallback.volume,
-      market_cap: livePrice.marketCap ?? fallback.market_cap,
-      prev_close: livePrice.prevClose ?? fallback.prev_close,
-      day_high: livePrice.high ?? fallback.day_high,
-      day_low: livePrice.low ?? fallback.day_low,
-      shares_outstanding: livePrice.shareOutstanding ?? fallback.shares_outstanding,
+      price: livePrice?.price ?? fallback.price,
+      change: livePrice?.change ?? fallback.change,
+      change_pct: livePrice?.change_pct ?? fallback.change_pct,
+      volume: livePrice?.volume ?? fallback.volume,
+      market_cap: livePrice?.marketCap ?? fallback.market_cap,
+      prev_close: livePrice?.prevClose ?? fallback.prev_close,
+      day_high: livePrice?.high ?? fallback.day_high,
+      day_low: livePrice?.low ?? fallback.day_low,
+      shares_outstanding: livePrice?.shareOutstanding ?? fallback.shares_outstanding,
     };
 
-    const source = livePrice.price ? "api" : "mock";
+    const source = livePrice?.price ? "api" : "mock";
     return { data: equity, source: source as "api" | "mock", error: null };
   });
 
@@ -334,6 +297,38 @@ interface CandleRaw {
   v?: number;
 }
 
+function extractChartSahamBars(payload: unknown): Record<string, unknown>[] {
+  if (!payload) return [];
+  if (Array.isArray(payload)) return payload as Record<string, unknown>[];
+
+  const root = payload as Record<string, unknown>;
+  const directData = root.data;
+  if (Array.isArray(directData)) return directData as Record<string, unknown>[];
+
+  const nested = directData as Record<string, unknown> | null;
+  const nestedData = nested?.data as Record<string, unknown> | null;
+  const chartData = nestedData?.data as Record<string, unknown> | null;
+  const chartbit = chartData?.chartbit;
+  if (Array.isArray(chartbit)) return chartbit as Record<string, unknown>[];
+
+  return [];
+}
+
+function mapChartSahamBar(raw: Record<string, unknown>): Candle | null {
+  const time = String(raw.datetime ?? raw.date ?? "").slice(0, 10);
+  const close = Number(raw.close ?? 0);
+  if (!time || close <= 0) return null;
+
+  return {
+    time,
+    open: Number(raw.open ?? close),
+    high: Number(raw.high ?? close),
+    low: Number(raw.low ?? close),
+    close,
+    volume: Number(raw.volume ?? 0),
+  };
+}
+
 export const getCandles = createServerFn({ method: "GET" })
   .inputValidator(
     z.object({
@@ -342,35 +337,25 @@ export const getCandles = createServerFn({ method: "GET" })
     }),
   )
   .handler(async ({ data }) => {
-    const { data: payload, error } = await dsFetch("/chart/candles", {
-      query: { symbol: data.symbol.toUpperCase(), interval: data.interval ?? "1D" },
+    const sym = data.symbol.toUpperCase();
+    const today = new Date();
+    const toDate = today.toISOString().slice(0, 10);
+    const fromDate = new Date(today.getTime() - 140 * 86400000).toISOString().slice(0, 10);
+    const timeframe = data.interval && data.interval !== "1D" ? data.interval : "daily";
+
+    const { data: payload, error } = await dsFetch(`/chart-saham/${sym}/${timeframe}`, {
+      query: { from: fromDate, to: toDate, limit: "0" },
     });
     if (error || !payload) {
       const base = findMockEquity(data.symbol)?.price ?? 5000;
       return { data: mockCandles(base, 90), source: "mock" as const, error };
     }
-    const raw = unwrapList<CandleRaw>(payload);
-    const candles: Candle[] = raw
-      .map((r) => {
-        const time =
-          (typeof r.time === "string" ? r.time : undefined) ||
-          r.date ||
-          (typeof r.t === "number"
-            ? new Date(r.t).toISOString().slice(0, 10)
-            : typeof r.t === "string"
-              ? r.t
-              : undefined);
-        if (!time) return null;
-        return {
-          time,
-          open: Number(r.open ?? r.o ?? 0),
-          high: Number(r.high ?? r.h ?? 0),
-          low: Number(r.low ?? r.l ?? 0),
-          close: Number(r.close ?? r.c ?? 0),
-          volume: Number(r.volume ?? r.v ?? 0),
-        };
-      })
-      .filter((c): c is Candle => c !== null && c.close > 0);
+
+    const candles = extractChartSahamBars(payload)
+      .map(mapChartSahamBar)
+      .filter((c): c is Candle => c !== null)
+      .sort((a, b) => a.time.localeCompare(b.time));
+
     if (candles.length === 0) {
       const base = findMockEquity(data.symbol)?.price ?? 5000;
       return { data: mockCandles(base, 90), source: "mock" as const, error: "empty" };
@@ -1015,11 +1000,7 @@ function parseChartSahamResponse(
   sym: string,
   fallbackDate: string,
 ): { data: StockPrice | null; source: "api" | "error"; error: string | null } {
-  // Response shape: { success, data: { success, data: { message, data: { chartbit: [...] } } } }
-  const inner = (payload as Record<string, unknown>).data as Record<string, unknown> | null;
-  const innerData = inner?.data as Record<string, unknown> | null;
-  const chartData = innerData?.data as Record<string, unknown> | null;
-  const chartbit = chartData?.chartbit as Record<string, unknown>[] | null;
+  const chartbit = extractChartSahamBars(payload);
 
   if (!chartbit || chartbit.length === 0) {
     return { data: null, source: "error", error: "no data" };
@@ -1136,56 +1117,32 @@ export const getStockPrice = createServerFn({ method: "GET" })
   });
 
 // ── Batch price for multiple symbols ─────────────────────────────────────────
-// Fetches prices for up to 20 symbols in parallel (rate-limit aware)
+// Fetches prices for up to 60 symbols in parallel.
 export const getBatchPrices = createServerFn({ method: "GET" })
-  .inputValidator(z.object({ symbols: z.array(z.string()).min(1).max(20) }))
+  .inputValidator(z.object({ symbols: z.array(z.string()).min(1).max(60) }))
   .handler(async ({ data }) => {
     const today = new Date();
     const toDate = today.toISOString().slice(0, 10);
-    const fromDate = new Date(today.getTime() - 7 * 86400000).toISOString().slice(0, 10);
+    const fromDate = new Date(today.getTime() - 2 * 86400000).toISOString().slice(0, 10);
 
     const results = await Promise.allSettled(
       data.symbols.map(async (sym) => {
+        const symbol = sym.toUpperCase();
         const { data: payload, error } = await dsFetch<unknown>(
-          `/chart-saham/${sym.toUpperCase()}/daily`,
+          `/chart-saham/${symbol}/1m`,
           { query: { from: fromDate, to: toDate }, retries: 0, timeoutMs: 8000 },
         );
-        if (error || !payload) return null;
+        if (!error && payload) {
+          const parsed = parseChartSahamResponse(payload, symbol, toDate);
+          if (parsed.data) return parsed.data;
+        }
 
-        const inner = (payload as Record<string, unknown>).data as Record<string, unknown> | null;
-        const innerData = inner?.data as Record<string, unknown> | null;
-        const chartData = innerData?.data as Record<string, unknown> | null;
-        const chartbit = chartData?.chartbit as Record<string, unknown>[] | null;
-        if (!chartbit?.length) return null;
-
-        const sorted = [...chartbit].sort((a, b) =>
-          String(b.date ?? "").localeCompare(String(a.date ?? ""))
+        const { data: dailyPayload, error: dailyError } = await dsFetch<unknown>(
+          `/chart-saham/${symbol}/daily`,
+          { query: { from: fromDate, to: toDate }, retries: 1, timeoutMs: 8000 },
         );
-        const latest = sorted[0];
-        const prev   = sorted[1];
-        const close     = Number(latest.close ?? 0);
-        const prevClose = Number(prev?.close ?? close);
-        const change    = close - prevClose;
-        const shares    = Number(latest.shareoutstanding ?? 0);
-
-        return {
-          symbol: sym.toUpperCase(),
-          price: close,
-          open: Number(latest.open ?? close),
-          high: Number(latest.high ?? close),
-          low: Number(latest.low ?? close),
-          prevClose,
-          change: +change.toFixed(2),
-          change_pct: +((prevClose > 0 ? change / prevClose : 0) * 100).toFixed(4),
-          volume: Number(latest.volume ?? 0),
-          value: Number(latest.value ?? 0),
-          foreignBuy: Number(latest.foreignbuy ?? 0),
-          foreignSell: Number(latest.foreignsell ?? 0),
-          foreignFlow: Number(latest.foreignflow ?? 0),
-          date: String(latest.date ?? toDate),
-          shareOutstanding: shares,
-          marketCap: close * shares,
-        } as StockPrice;
+        if (dailyError || !dailyPayload) return null;
+        return parseChartSahamResponse(dailyPayload, symbol, toDate).data;
       })
     );
 

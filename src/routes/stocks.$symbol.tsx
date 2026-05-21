@@ -11,7 +11,6 @@ import {
   getStockEquitiesV2,
   getInvestorActivity,
 } from "@/lib/datasectors.functions";
-import { getTiingoPrices } from "@/lib/tiingo.functions";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { GlassCard } from "@/components/common/GlassCard";
 import { PriceChart } from "@/components/stock/PriceChart";
@@ -52,7 +51,6 @@ function StockDetailPage() {
   const candleFn    = useServerFn(getCandles);
   const ratiosFn    = useServerFn(getKeyRatios);
   const insightsFn  = useServerFn(getStockInsights);
-  const tiingoFn    = useServerFn(getTiingoPrices);
   const earningsFn  = useServerFn(getStockEarnings);
   const equitiesV2Fn = useServerFn(getStockEquitiesV2);
   const tradesFn    = useServerFn(getInvestorActivity);
@@ -66,11 +64,6 @@ function StockDetailPage() {
   const candles = useQuery({
     queryKey: ["candles", sym],
     queryFn: () => candleFn({ data: { symbol: sym } }),
-    staleTime: 60_000,
-  });
-  const tiingo = useQuery({
-    queryKey: ["tiingo-prices-detail", sym],
-    queryFn: () => tiingoFn({ data: { symbol: sym, days: 365 } }),
     staleTime: 60_000,
   });
   const ratios = useQuery({
@@ -137,8 +130,34 @@ function StockDetailPage() {
   } : null;
   const ratiosData = (ratios.data?.data ?? {}) as Record<string, number | null | undefined>;
 
-  const techCandles =
-    (tiingo.data?.source === "tiingo" ? tiingo.data.data : null) ?? candles.data?.data ?? [];
+  const chartCandles = useMemo(() => {
+    const source = candles.data?.data ?? [];
+    if (!live || source.length === 0) return source;
+
+    const next = [...source];
+    const last = next[next.length - 1];
+    if (!last) return source;
+
+    const liveDate = live.date || last.time;
+    const liveCandle = {
+      time: liveDate,
+      open: live.open,
+      high: live.high,
+      low: live.low,
+      close: live.price,
+      volume: live.volume,
+    };
+
+    if (last.time >= liveDate) {
+      next[next.length - 1] = { ...last, ...liveCandle };
+      return next;
+    }
+
+    next.push(liveCandle);
+    return next;
+  }, [candles.data, live]);
+
+  const techCandles = chartCandles;
   const tech = useMemo(() => {
     if (techCandles.length < 30) return null;
     return technicalSummary(
@@ -259,7 +278,7 @@ function StockDetailPage() {
             {candles.isLoading ? (
               <Skeleton className="h-[320px] rounded-xl" />
             ) : (
-              <PriceChart candles={candles.data?.data ?? []} fairPrice={fair?.fairPrice ?? null} />
+              <PriceChart candles={chartCandles} fairPrice={fair?.fairPrice ?? null} />
             )}
           </GlassCard>
           <div className="space-y-3">

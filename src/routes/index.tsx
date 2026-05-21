@@ -46,21 +46,25 @@ function DashboardPage() {
 
   const { data, isLoading } = useQuery({
     queryKey: ["equities", "dashboard"],
-    queryFn: () => fn({ data: { limit: 100 } }),
+    queryFn: () => fn({ data: { limit: 60 } }),
     staleTime: 60_000,
   });
 
-  // Live prices for top 10 IDX stocks — polls every 30s during market hours
-  const TOP_SYMBOLS = ["BBCA","BBRI","BMRI","TLKM","ASII","BREN","GOTO","AMMN","TPIA","DCII"];
+  // Live prices for the full dashboard universe; polls every 30s during market hours.
+  const baseEquities = data?.data ?? mockEquities;
+  const dashboardSymbols = useMemo(
+    () => baseEquities.map((equity) => equity.symbol.toUpperCase()).slice(0, 60),
+    [baseEquities],
+  );
   const livePricesQ = useQuery({
-    queryKey: ["batch-prices-dashboard", TOP_SYMBOLS.join(",")],
-    queryFn: () => batchFn({ data: { symbols: TOP_SYMBOLS } }),
+    queryKey: ["batch-prices-dashboard", dashboardSymbols.join(",")],
+    queryFn: () => batchFn({ data: { symbols: dashboardSymbols } }),
     staleTime: 25_000,
     refetchInterval: isIDXTradingHours() ? 30_000 : 5 * 60_000,
     refetchIntervalInBackground: false,
+    enabled: dashboardSymbols.length > 0,
   });
 
-  const baseEquities = data?.data ?? mockEquities;
   const liveMap = livePricesQ.data?.data ?? {};
 
   // Merge live prices into equities
