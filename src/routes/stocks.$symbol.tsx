@@ -6,6 +6,7 @@ import {
   getEquityDetail,
   getCandles,
   getKeyRatios,
+  getStockInsights,
   getStockEarnings,
   getStockEquitiesV2,
   getInvestorActivity,
@@ -18,6 +19,7 @@ import { KeyRatiosGrid } from "@/components/stock/KeyRatiosGrid";
 import { AIAnalysis } from "@/components/stock/AIAnalysis";
 import { FairValueCard } from "@/components/stock/FairValueCard";
 import { QuarterlyFinancials } from "@/components/stock/QuarterlyFinancials";
+import { PeerInsightsCard } from "@/components/stock/PeerInsightsCard";
 import { OwnershipCard } from "@/components/stock/OwnershipCard";
 import { OwnershipIntelligencePanel } from "@/components/ownership/OwnershipIntelligencePanel";
 import { LivePriceBadge } from "@/components/common/LivePriceBadge";
@@ -49,6 +51,7 @@ function StockDetailPage() {
   const detailFn    = useServerFn(getEquityDetail);
   const candleFn    = useServerFn(getCandles);
   const ratiosFn    = useServerFn(getKeyRatios);
+  const insightsFn  = useServerFn(getStockInsights);
   const tiingoFn    = useServerFn(getTiingoPrices);
   const earningsFn  = useServerFn(getStockEarnings);
   const equitiesV2Fn = useServerFn(getStockEquitiesV2);
@@ -74,6 +77,13 @@ function StockDetailPage() {
     queryKey: ["ratios", sym],
     queryFn: () => ratiosFn({ data: { symbol: sym } }),
     staleTime: 600_000,
+  });
+
+  const insights = useQuery({
+    queryKey: ["stock-insights", sym],
+    queryFn: () => insightsFn({ data: { symbol: sym } }),
+    staleTime: 300_000,
+    retry: false,
   });
 
   // ── New queries ───────────────────────────────────────────────────────────
@@ -293,6 +303,11 @@ function StockDetailPage() {
             </div>
           </GlassCard>
         )}
+
+        <PeerInsightsCard
+          payload={insights.data?.data ?? null}
+          isLoading={insights.isLoading}
+        />
 
         {/* ── Key Ratios ── */}
         {ratios.data?.data && <KeyRatiosGrid ratios={ratios.data.data as never} />}
