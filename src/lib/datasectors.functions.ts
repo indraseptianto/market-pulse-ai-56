@@ -9,6 +9,25 @@ import {
   findMockEquity,
 } from "./mock-data";
 
+const IDX_TIME_ZONE = "Asia/Jakarta";
+
+function formatDateInTimeZone(date: Date, timeZone = IDX_TIME_ZONE): string {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(date);
+  const get = (type: string) => parts.find((part) => part.type === type)?.value ?? "";
+  return `${get("year")}-${get("month")}-${get("day")}`;
+}
+
+function idxDate(offsetDays = 0): string {
+  const date = new Date();
+  date.setUTCDate(date.getUTCDate() + offsetDays);
+  return formatDateInTimeZone(date);
+}
+
 export interface SearchResult {
   id: string;
   symbol: string;
@@ -116,15 +135,14 @@ export const getEquities = createServerFn({ method: "GET" })
   .handler(async ({ data }) => {
     // If specific symbols requested, fetch real prices for them
     if (data?.symbols && data.symbols.length > 0) {
-      const today = new Date();
-      const toDate = today.toISOString().slice(0, 10);
-      const fromDate = new Date(today.getTime() - 7 * 86400000).toISOString().slice(0, 10);
+      const toDate = idxDate();
+      const fromDate = idxDate(-10);
 
       const priceResults = await Promise.allSettled(
-        data.symbols.slice(0, 20).map(async (sym) => {
+        data.symbols.slice(0, 60).map(async (sym) => {
           const { data: payload } = await dsFetch<unknown>(
             `/chart-saham/${sym.toUpperCase()}/daily`,
-            { query: { from: fromDate, to: toDate }, retries: 0, timeoutMs: 8000 },
+            { query: { from: fromDate, to: toDate, limit: "0" }, retries: 1, timeoutMs: 8000 },
           );
           if (!payload) return null;
           const inner = (payload as Record<string, unknown>).data as Record<string, unknown> | null;
@@ -201,9 +219,8 @@ export const getEquityDetail = createServerFn({ method: "GET" })
     );
 
     // ── 2. Get real-time price from the same chart-saham source used elsewhere
-    const today = new Date();
-    const toDate = today.toISOString().slice(0, 10);
-    const fromDate = new Date(today.getTime() - 7 * 86400000).toISOString().slice(0, 10);
+    const toDate = idxDate();
+    const fromDate = idxDate(-10);
     const { data: pricePayload } = await dsFetch<unknown>(
       `/chart-saham/${sym}/daily`,
       { query: { from: fromDate, to: toDate }, retries: 0 },
@@ -346,9 +363,8 @@ export const getCandles = createServerFn({ method: "GET" })
   )
   .handler(async ({ data }) => {
     const sym = data.symbol.toUpperCase();
-    const today = new Date();
-    const toDate = today.toISOString().slice(0, 10);
-    const fromDate = new Date(today.getTime() - 140 * 86400000).toISOString().slice(0, 10);
+    const toDate = idxDate();
+    const fromDate = idxDate(-140);
     const timeframe = data.interval && data.interval !== "1D" ? data.interval : "daily";
 
     const { data: payload, error } = await dsFetch(`/chart-saham/${sym}/${timeframe}`, {
@@ -486,11 +502,8 @@ export const getChartSaham = createServerFn({ method: "GET" })
   .handler(async ({ data }) => {
     const sym = data.symbol.toUpperCase();
     const tf = data.timeframe ?? "daily";
-    const today = new Date();
-    const toDate = data.to ?? today.toISOString().slice(0, 10);
-    const fromDate =
-      data.from ??
-      new Date(today.getTime() - 365 * 86400000).toISOString().slice(0, 10);
+    const toDate = data.to ?? idxDate();
+    const fromDate = data.from ?? idxDate(-365);
 
     const { data: payload, error } = await dsFetch<{ success: boolean; data: unknown }>(
       `/chart-saham/${sym}/${tf}`,
@@ -506,11 +519,7 @@ export const getChartSaham = createServerFn({ method: "GET" })
         : { data: [] as Candle[], source: "error" as const, error };
     }
 
-    const rawArr = Array.isArray(payload)
-      ? payload
-      : Array.isArray((payload as Record<string, unknown>).data)
-        ? ((payload as Record<string, unknown>).data as ChartSahamBar[])
-        : [];
+    const rawArr = extractChartSahamBars(payload) as ChartSahamBar[];
 
     const candles: Candle[] = (rawArr as ChartSahamBar[])
       .map((r) => {
@@ -1106,9 +1115,8 @@ export const getStockPrice = createServerFn({ method: "GET" })
   .inputValidator(z.object({ symbol: z.string().min(1).max(20) }))
   .handler(async ({ data }) => {
     const sym = data.symbol.toUpperCase();
-    const today = new Date();
-    const toDate = today.toISOString().slice(0, 10);
-    const fromDate = new Date(today.getTime() - 10 * 86400000).toISOString().slice(0, 10);
+    const toDate = idxDate();
+    const fromDate = idxDate(-10);
 
     const { data: dailyPayload, error: dailyError } = await dsFetch<unknown>(
       `/chart-saham/${sym}/daily`,
@@ -1136,9 +1144,8 @@ export const getStockPrice = createServerFn({ method: "GET" })
 export const getBatchPrices = createServerFn({ method: "GET" })
   .inputValidator(z.object({ symbols: z.array(z.string()).min(1).max(60) }))
   .handler(async ({ data }) => {
-    const today = new Date();
-    const toDate = today.toISOString().slice(0, 10);
-    const fromDate = new Date(today.getTime() - 10 * 86400000).toISOString().slice(0, 10);
+    const toDate = idxDate();
+    const fromDate = idxDate(-10);
 
     const results = await Promise.allSettled(
       data.symbols.map(async (sym) => {

@@ -50,8 +50,12 @@ function DashboardPage() {
     staleTime: 60_000,
   });
 
-  // Live prices for the full dashboard universe; polls every 30s during market hours.
-  const baseEquities = data?.data ?? (import.meta.env.PROD ? [] : mockEquities);
+  // Use a stable IDX universe for dashboard symbols, then hydrate every row with
+  // latest DataSectors chart-saham prices. Metadata fallback is okay; prices are not.
+  const baseEquities = useMemo(
+    () => (data?.data?.length ? data.data : mockEquities),
+    [data?.data],
+  );
   const dashboardSymbols = useMemo(
     () => baseEquities.map((equity) => equity.symbol.toUpperCase()).slice(0, 60),
     [baseEquities],
@@ -66,11 +70,12 @@ function DashboardPage() {
   });
 
   const liveMap = livePricesQ.data?.data ?? {};
+  const hasLivePrices = Object.keys(liveMap).length > 0;
 
-  // Merge live prices into equities
+  // Merge live prices into equities. In production, never render stale seed prices.
   const equities = useMemo(() => baseEquities.map(e => {
     const live = liveMap[e.symbol];
-    if (!live) return e;
+    if (!live) return import.meta.env.PROD ? null : e;
     return {
       ...e,
       price: live.price,
@@ -79,7 +84,10 @@ function DashboardPage() {
       volume: live.volume,
       market_cap: live.marketCap || e.market_cap,
     };
-  }), [baseEquities, liveMap]);
+  }).filter((equity): equity is NonNullable<typeof equity> => equity !== null), [baseEquities, liveMap]);
+
+  const isDashboardLoading =
+    isLoading || (dashboardSymbols.length > 0 && livePricesQ.isLoading && !hasLivePrices);
 
   // Hero stats derived from equities
   const heroStats = useMemo(() => {
@@ -153,7 +161,7 @@ function DashboardPage() {
             </div>
 
             {/* Right: hero stat cards */}
-            {isLoading ? (
+            {isDashboardLoading ? (
               <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 w-full lg:w-auto">
                 {Array.from({ length: 4 }).map((_, i) => (
                   <Skeleton key={i} className="h-20 w-full rounded-xl lg:w-36" />
@@ -230,7 +238,7 @@ function DashboardPage() {
         <TickerTape equities={equities} />
 
         {/* ── MARKET OVERVIEW STATS ────────────────────────────────────── */}
-        {isLoading ? (
+        {isDashboardLoading ? (
           <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
             {Array.from({ length: 4 }).map((_, i) => (
               <Skeleton key={i} className="h-28 rounded-2xl" />
