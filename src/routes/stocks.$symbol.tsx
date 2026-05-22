@@ -114,24 +114,35 @@ function StockDetailPage() {
 
   // ── Derived ───────────────────────────────────────────────────────────────
   const baseEquity = detail.data?.data ?? findMockEquity(sym);
+  const rawCandles = candles.data?.data ?? [];
+  const latestDaily = rawCandles[rawCandles.length - 1] ?? null;
+  const previousDaily = rawCandles[rawCandles.length - 2] ?? null;
+  const dailyChange =
+    latestDaily && previousDaily
+      ? +(latestDaily.close - previousDaily.close).toFixed(2)
+      : null;
+  const dailyChangePct =
+    dailyChange != null && previousDaily && previousDaily.close > 0
+      ? +((dailyChange / previousDaily.close) * 100).toFixed(4)
+      : null;
 
-  // Merge live price on top of base equity data
+  // Daily candle is canonical; intraday is used only when daily is unavailable.
   const equity = baseEquity ? {
     ...baseEquity,
-    price:       live?.price       ?? baseEquity.price,
-    change:      live?.change      ?? baseEquity.change,
-    change_pct:  live?.change_pct  ?? baseEquity.change_pct,
+    price:       latestDaily?.close ?? live?.price ?? baseEquity.price,
+    change:      dailyChange ?? live?.change ?? baseEquity.change,
+    change_pct:  dailyChangePct ?? live?.change_pct ?? baseEquity.change_pct,
     volume:      live?.volume      ?? baseEquity.volume,
     market_cap:  live?.marketCap   ?? baseEquity.market_cap,
-    prev_close:  live?.prevClose   ?? baseEquity.prev_close,
-    day_high:    live?.high        ?? baseEquity.day_high,
-    day_low:     live?.low         ?? baseEquity.day_low,
+    prev_close:  previousDaily?.close ?? live?.prevClose ?? baseEquity.prev_close,
+    day_high:    latestDaily?.high ?? live?.high ?? baseEquity.day_high,
+    day_low:     latestDaily?.low ?? live?.low ?? baseEquity.day_low,
     shares_outstanding: live?.shareOutstanding ?? baseEquity.shares_outstanding,
   } : null;
   const ratiosData = (ratios.data?.data ?? {}) as Record<string, number | null | undefined>;
 
   const chartCandles = useMemo(() => {
-    const source = candles.data?.data ?? [];
+    const source = rawCandles;
     if (!live || source.length === 0) return source;
 
     const next = [...source];
@@ -148,14 +159,9 @@ function StockDetailPage() {
       volume: live.volume,
     };
 
-    if (last.time >= liveDate) {
-      next[next.length - 1] = { ...last, ...liveCandle };
-      return next;
-    }
-
-    next.push(liveCandle);
+    if (liveDate > last.time) next.push(liveCandle);
     return next;
-  }, [candles.data, live]);
+  }, [rawCandles, live]);
 
   const techCandles = chartCandles;
   const tech = useMemo(() => {

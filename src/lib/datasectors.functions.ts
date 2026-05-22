@@ -1064,7 +1064,7 @@ function parseChartSahamResponse(
 }
 
 // ── Real-time stock price via chart-saham (1m → daily fallback) ───────────────
-// This is the most reliable way to get current IDX prices from DataSectors.
+// Daily is the canonical current IDX price; 1m is only a fallback because it can lag.
 // Returns: close, open, high, low, volume, change, change_pct, foreignflow
 
 export interface StockPrice {
@@ -1092,25 +1092,24 @@ export const getStockPrice = createServerFn({ method: "GET" })
     const sym = data.symbol.toUpperCase();
     const today = new Date();
     const toDate = today.toISOString().slice(0, 10);
-    const fromDate = new Date(today.getTime() - 2 * 86400000).toISOString().slice(0, 10); // last 2 days
+    const fromDate = new Date(today.getTime() - 10 * 86400000).toISOString().slice(0, 10);
 
-    // Use 1m timeframe for most granular live data
+    const { data: dailyPayload, error: dailyError } = await dsFetch<unknown>(
+      `/chart-saham/${sym}/daily`,
+      { query: { from: fromDate, to: toDate, limit: "0" }, retries: 1, timeoutMs: 8000 },
+    );
+    if (!dailyError && dailyPayload) {
+      const parsed = parseChartSahamResponse(dailyPayload, sym, toDate);
+      if (parsed.data) return parsed;
+    }
+
     const { data: payload, error } = await dsFetch<unknown>(
       `/chart-saham/${sym}/1m`,
       { query: { from: fromDate, to: toDate }, retries: 0, timeoutMs: 8000 },
     );
-
-    // Fallback to daily if 1m fails
     if (error || !payload) {
-      const { data: dailyPayload, error: dailyError } = await dsFetch<unknown>(
-        `/chart-saham/${sym}/daily`,
-        { query: { from: fromDate, to: toDate }, retries: 1, timeoutMs: 8000 },
-      );
-      if (dailyError || !dailyPayload) {
-        console.warn("[getStockPrice]", sym, "error:", error);
-        return { data: null as StockPrice | null, source: "error" as const, error };
-      }
-      return parseChartSahamResponse(dailyPayload, sym, toDate);
+      console.warn("[getStockPrice]", sym, "error:", dailyError ?? error);
+      return { data: null as StockPrice | null, source: "error" as const, error: dailyError ?? error };
     }
 
     return parseChartSahamResponse(payload, sym, toDate);
@@ -1123,26 +1122,26 @@ export const getBatchPrices = createServerFn({ method: "GET" })
   .handler(async ({ data }) => {
     const today = new Date();
     const toDate = today.toISOString().slice(0, 10);
-    const fromDate = new Date(today.getTime() - 2 * 86400000).toISOString().slice(0, 10);
+    const fromDate = new Date(today.getTime() - 10 * 86400000).toISOString().slice(0, 10);
 
     const results = await Promise.allSettled(
       data.symbols.map(async (sym) => {
         const symbol = sym.toUpperCase();
+        const { data: dailyPayload, error: dailyError } = await dsFetch<unknown>(
+          `/chart-saham/${symbol}/daily`,
+          { query: { from: fromDate, to: toDate, limit: "0" }, retries: 1, timeoutMs: 8000 },
+        );
+        if (!dailyError && dailyPayload) {
+          const parsed = parseChartSahamResponse(dailyPayload, symbol, toDate);
+          if (parsed.data) return parsed.data;
+        }
+
         const { data: payload, error } = await dsFetch<unknown>(
           `/chart-saham/${symbol}/1m`,
           { query: { from: fromDate, to: toDate }, retries: 0, timeoutMs: 8000 },
         );
-        if (!error && payload) {
-          const parsed = parseChartSahamResponse(payload, symbol, toDate);
-          if (parsed.data) return parsed.data;
-        }
-
-        const { data: dailyPayload, error: dailyError } = await dsFetch<unknown>(
-          `/chart-saham/${symbol}/daily`,
-          { query: { from: fromDate, to: toDate }, retries: 1, timeoutMs: 8000 },
-        );
-        if (dailyError || !dailyPayload) return null;
-        return parseChartSahamResponse(dailyPayload, symbol, toDate).data;
+        if (error || !payload) return null;
+        return parseChartSahamResponse(payload, symbol, toDate).data;
       })
     );
 

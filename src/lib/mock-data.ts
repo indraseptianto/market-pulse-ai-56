@@ -179,7 +179,15 @@ export const mockCandles = (basePrice = 5000, days = 90, seedKey = "candles"): C
     });
     prev = close;
   }
-  return out;
+  const lastClose = out[out.length - 1]?.close ?? basePrice;
+  const scale = lastClose > 0 ? basePrice / lastClose : 1;
+  return out.map((c, i) => ({
+    ...c,
+    open: +(c.open * scale).toFixed(2),
+    high: +(c.high * scale).toFixed(2),
+    low: +(c.low * scale).toFixed(2),
+    close: i === out.length - 1 ? +basePrice.toFixed(2) : +(c.close * scale).toFixed(2),
+  }));
 };
 
 export const findMockEquity = (symbol: string): Equity | undefined =>
