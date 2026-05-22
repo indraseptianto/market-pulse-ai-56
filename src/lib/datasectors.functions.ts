@@ -28,6 +28,135 @@ function idxDate(offsetDays = 0): string {
   return formatDateInTimeZone(date);
 }
 
+interface YahooChartQuote {
+  open?: Array<number | null>;
+  high?: Array<number | null>;
+  low?: Array<number | null>;
+  close?: Array<number | null>;
+  volume?: Array<number | null>;
+}
+
+interface YahooChartResult {
+  meta?: {
+    regularMarketPrice?: number;
+    regularMarketDayHigh?: number;
+    regularMarketDayLow?: number;
+    regularMarketVolume?: number;
+    chartPreviousClose?: number;
+    fiftyTwoWeekHigh?: number;
+    fiftyTwoWeekLow?: number;
+    longName?: string;
+    shortName?: string;
+  };
+  timestamp?: number[];
+  indicators?: {
+    quote?: YahooChartQuote[];
+  };
+}
+
+function yahooIdxSymbol(symbol: string): string {
+  const clean = symbol.toUpperCase().replace(/\.JK$/, "");
+  return `${clean}.JK`;
+}
+
+function yahooInterval(timeframe: string): string {
+  if (timeframe === "daily") return "1d";
+  if (timeframe === "1h" || timeframe === "4h") return "60m";
+  return timeframe;
+}
+
+async function fetchYahooChart(
+  symbol: string,
+  range = "5d",
+  interval = "1d",
+): Promise<{ data: YahooChartResult | null; error: string | null }> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 8000);
+  try {
+    const url = new URL(`https://query1.finance.yahoo.com/v8/finance/chart/${yahooIdxSymbol(symbol)}`);
+    url.searchParams.set("range", range);
+    url.searchParams.set("interval", interval);
+    const res = await fetch(url.toString(), {
+      headers: {
+        Accept: "application/json",
+        "User-Agent": "Mozilla/5.0",
+      },
+      signal: controller.signal,
+    });
+    clearTimeout(timer);
+    if (!res.ok) return { data: null, error: `Yahoo HTTP ${res.status}` };
+    const json = await res.json() as { chart?: { result?: YahooChartResult[]; error?: unknown } };
+    const result = json.chart?.result?.[0] ?? null;
+    return result ? { data: result, error: null } : { data: null, error: "Yahoo empty response" };
+  } catch (err) {
+    clearTimeout(timer);
+    return { data: null, error: err instanceof Error ? err.message : "Yahoo request failed" };
+  }
+}
+
+function yahooChartToCandles(result: YahooChartResult | null): Candle[] {
+  const timestamps = result?.timestamp ?? [];
+  const quote = result?.indicators?.quote?.[0];
+  if (!timestamps.length || !quote) return [];
+
+  return timestamps
+    .map((timestamp, index) => {
+      const close = Number(quote.close?.[index] ?? 0);
+      if (close <= 0) return null;
+      const time = formatDateInTimeZone(new Date(timestamp * 1000));
+      return {
+        time,
+        open: Number(quote.open?.[index] ?? close),
+        high: Number(quote.high?.[index] ?? close),
+        low: Number(quote.low?.[index] ?? close),
+        close,
+        volume: Number(quote.volume?.[index] ?? 0),
+      } satisfies Candle;
+    })
+    .filter((c): c is Candle => c !== null)
+    .sort((a, b) => a.time.localeCompare(b.time));
+}
+
+function yahooChartToStockPrice(result: YahooChartResult | null, symbol: string): StockPrice | null {
+  const candles = yahooChartToCandles(result);
+  const latest = candles[candles.length - 1];
+  if (!latest) return null;
+  const prev = candles[candles.length - 2];
+  const meta = result?.meta ?? {};
+  const price = Number(meta.regularMarketPrice ?? latest.close);
+  const prevClose = Number(prev?.close ?? meta.chartPreviousClose ?? latest.open ?? price);
+  const change = price - prevClose;
+  const volume = Number(meta.regularMarketVolume ?? latest.volume ?? 0);
+  return {
+    symbol: symbol.toUpperCase(),
+    price,
+    open: latest.open,
+    high: Number(meta.regularMarketDayHigh ?? latest.high ?? price),
+    low: Number(meta.regularMarketDayLow ?? latest.low ?? price),
+    prevClose,
+    change: +change.toFixed(2),
+    change_pct: +((prevClose > 0 ? change / prevClose : 0) * 100).toFixed(4),
+    volume,
+    value: volume * price,
+    foreignBuy: 0,
+    foreignSell: 0,
+    foreignFlow: 0,
+    date: latest.time,
+    shareOutstanding: 0,
+    marketCap: 0,
+  };
+}
+
+async function getYahooStockPrice(symbol: string): Promise<StockPrice | null> {
+  const { data } = await fetchYahooChart(symbol, "5d", "1d");
+  return yahooChartToStockPrice(data, symbol);
+}
+
+async function getYahooCandles(symbol: string, range = "1y", interval = "1d"): Promise<Candle[]> {
+  const { data } = await fetchYahooChart(symbol, range, interval);
+  return yahooChartToCandles(data);
+}
+
 export interface SearchResult {
   id: string;
   symbol: string;
@@ -144,34 +273,22 @@ export const getEquities = createServerFn({ method: "GET" })
             `/chart-saham/${sym.toUpperCase()}/daily`,
             { query: { from: fromDate, to: toDate, limit: "0" }, retries: 1, timeoutMs: 8000 },
           );
-          if (!payload) return null;
-          const inner = (payload as Record<string, unknown>).data as Record<string, unknown> | null;
-          const innerData = inner?.data as Record<string, unknown> | null;
-          const chartData = innerData?.data as Record<string, unknown> | null;
-          const chartbit = chartData?.chartbit as Record<string, unknown>[] | null;
-          if (!chartbit?.length) return null;
-          const sorted = [...chartbit].sort((a, b) =>
-            String(b.date ?? "").localeCompare(String(a.date ?? ""))
-          );
-          const latest = sorted[0];
-          const prev   = sorted[1];
-          const close     = Number(latest.close ?? 0);
-          const prevClose = Number(prev?.close ?? close);
-          const change    = close - prevClose;
-          const shares    = Number(latest.shareoutstanding ?? 0);
+          const parsed = payload ? parseChartSahamResponse(payload, sym, toDate).data : null;
+          const fallbackPrice = parsed ?? await getYahooStockPrice(sym);
+          if (!fallbackPrice) return null;
           const mock = findMockEquity(sym) || { ...mockEquities[0], symbol: sym.toUpperCase() };
           return {
             ...mock,
             symbol: sym.toUpperCase(),
-            price: close,
-            change: +change.toFixed(2),
-            change_pct: +((prevClose > 0 ? change / prevClose : 0) * 100).toFixed(4),
-            volume: Number(latest.volume ?? 0),
-            market_cap: close * shares,
-            prev_close: prevClose,
-            day_high: Number(latest.high ?? close),
-            day_low: Number(latest.low ?? close),
-            shares_outstanding: shares,
+            price: fallbackPrice.price,
+            change: fallbackPrice.change,
+            change_pct: fallbackPrice.change_pct,
+            volume: fallbackPrice.volume,
+            market_cap: fallbackPrice.marketCap || mock.market_cap,
+            prev_close: fallbackPrice.prevClose,
+            day_high: fallbackPrice.high,
+            day_low: fallbackPrice.low,
+            shares_outstanding: fallbackPrice.shareOutstanding || mock.shares_outstanding,
           } as Equity;
         })
       );
@@ -226,9 +343,10 @@ export const getEquityDetail = createServerFn({ method: "GET" })
       { query: { from: fromDate, to: toDate }, retries: 0 },
     );
 
-    const livePrice = pricePayload
+    const dsPrice = pricePayload
       ? parseChartSahamResponse(pricePayload, sym, toDate).data
       : null;
+    const livePrice = dsPrice ?? await getYahooStockPrice(sym);
 
     // Parse company info
     let companyInfo: Partial<{ name: string; sector: string; industry: string }> = {};
@@ -371,6 +489,10 @@ export const getCandles = createServerFn({ method: "GET" })
       query: { from: fromDate, to: toDate, limit: "0" },
     });
     if (error || !payload) {
+      const yahooCandles = await getYahooCandles(sym, "6mo", "1d");
+      if (yahooCandles.length > 0) {
+        return { data: yahooCandles.slice(-90), source: "api" as const, error: null };
+      }
       const base = findMockEquity(data.symbol)?.price ?? 5000;
       return allowMockFallback()
         ? { data: mockCandles(base, 90), source: "mock" as const, error }
@@ -383,6 +505,10 @@ export const getCandles = createServerFn({ method: "GET" })
       .sort((a, b) => a.time.localeCompare(b.time));
 
     if (candles.length === 0) {
+      const yahooCandles = await getYahooCandles(sym, "6mo", "1d");
+      if (yahooCandles.length > 0) {
+        return { data: yahooCandles.slice(-90), source: "api" as const, error: null };
+      }
       const base = findMockEquity(data.symbol)?.price ?? 5000;
       return allowMockFallback()
         ? { data: mockCandles(base, 90), source: "mock" as const, error: "empty" }
@@ -513,6 +639,10 @@ export const getChartSaham = createServerFn({ method: "GET" })
     console.log("[getChartSaham]", sym, tf, "error:", error);
 
     if (error || !payload) {
+      const yahooCandles = await getYahooCandles(sym, tf === "daily" ? "1y" : "5d", yahooInterval(tf));
+      if (yahooCandles.length > 0) {
+        return { data: yahooCandles, source: "api" as const, error: null };
+      }
       const base = findMockEquity(sym)?.price ?? 5000;
       return allowMockFallback()
         ? { data: mockCandles(base, 365, `ds:${sym}`), source: "mock" as const, error }
@@ -538,6 +668,10 @@ export const getChartSaham = createServerFn({ method: "GET" })
       .sort((a, b) => a.time.localeCompare(b.time));
 
     if (candles.length === 0) {
+      const yahooCandles = await getYahooCandles(sym, tf === "daily" ? "1y" : "5d", yahooInterval(tf));
+      if (yahooCandles.length > 0) {
+        return { data: yahooCandles, source: "api" as const, error: null };
+      }
       const base = findMockEquity(sym)?.price ?? 5000;
       return allowMockFallback()
         ? { data: mockCandles(base, 365, `ds:${sym}`), source: "mock" as const, error: "empty" }
@@ -1132,11 +1266,18 @@ export const getStockPrice = createServerFn({ method: "GET" })
       { query: { from: fromDate, to: toDate }, retries: 0, timeoutMs: 8000 },
     );
     if (error || !payload) {
+      const yahooPrice = await getYahooStockPrice(sym);
+      if (yahooPrice) return { data: yahooPrice, source: "api" as const, error: null };
       console.warn("[getStockPrice]", sym, "error:", dailyError ?? error);
       return { data: null as StockPrice | null, source: "error" as const, error: dailyError ?? error };
     }
 
-    return parseChartSahamResponse(payload, sym, toDate);
+    const parsed = parseChartSahamResponse(payload, sym, toDate);
+    if (parsed.data) return parsed;
+    const yahooPrice = await getYahooStockPrice(sym);
+    return yahooPrice
+      ? { data: yahooPrice, source: "api" as const, error: null }
+      : parsed;
   });
 
 // ── Batch price for multiple symbols ─────────────────────────────────────────
@@ -1163,8 +1304,9 @@ export const getBatchPrices = createServerFn({ method: "GET" })
           `/chart-saham/${symbol}/1m`,
           { query: { from: fromDate, to: toDate }, retries: 0, timeoutMs: 8000 },
         );
-        if (error || !payload) return null;
-        return parseChartSahamResponse(payload, symbol, toDate).data;
+        if (error || !payload) return getYahooStockPrice(symbol);
+        const parsed = parseChartSahamResponse(payload, symbol, toDate).data;
+        return parsed ?? getYahooStockPrice(symbol);
       })
     );
 
