@@ -1,6 +1,11 @@
 // Server-only DataSectors API helpers.
 const BASE_URL = "https://api.datasectors.com/api";
 
+export function allowMockFallback(): boolean {
+  if (process.env.ENABLE_MOCK_DATA === "true") return true;
+  return process.env.NODE_ENV !== "production" && process.env.VERCEL_ENV !== "production";
+}
+
 export interface FetchOptions {
   method?: "GET" | "POST";
   query?: Record<string, string | number | undefined>;

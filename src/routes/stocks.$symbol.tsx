@@ -113,7 +113,7 @@ function StockDetailPage() {
   }, [trades.data, sym]);
 
   // ── Derived ───────────────────────────────────────────────────────────────
-  const baseEquity = detail.data?.data ?? findMockEquity(sym);
+  const baseEquity = detail.data?.data ?? (import.meta.env.PROD ? undefined : findMockEquity(sym));
   const rawCandles = candles.data?.data ?? [];
   const latestDaily = rawCandles[rawCandles.length - 1] ?? null;
   const previousDaily = rawCandles[rawCandles.length - 2] ?? null;
@@ -200,8 +200,15 @@ function StockDetailPage() {
         </Link>
 
         {/* ── Company header ── */}
-        {!equity ? (
+        {!equity && detail.isLoading ? (
           <Skeleton className="h-32 rounded-2xl" />
+        ) : !equity ? (
+          <GlassCard>
+            <div className="text-sm font-medium">Data harga {sym} belum tersedia</div>
+            <div className="mt-1 text-xs text-muted-foreground">
+              DataSectors tidak mengembalikan harga terbaru. Pastikan `DATASECTORS_API_KEY` aktif untuk environment Production di Vercel.
+            </div>
+          </GlassCard>
         ) : (
           <GlassCard>
             <div className="flex flex-wrap items-start gap-4">

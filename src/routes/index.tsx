@@ -51,7 +51,7 @@ function DashboardPage() {
   });
 
   // Live prices for the full dashboard universe; polls every 30s during market hours.
-  const baseEquities = data?.data ?? mockEquities;
+  const baseEquities = data?.data ?? (import.meta.env.PROD ? [] : mockEquities);
   const dashboardSymbols = useMemo(
     () => baseEquities.map((equity) => equity.symbol.toUpperCase()).slice(0, 60),
     [baseEquities],

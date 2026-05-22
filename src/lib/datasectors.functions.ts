@@ -1,6 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
-import { dsFetch, unwrapList } from "./datasectors.server";
+import { allowMockFallback, dsFetch, unwrapList } from "./datasectors.server";
 import {
   type Equity,
   type Candle,
@@ -174,13 +174,17 @@ export const getEquities = createServerFn({ method: "GET" })
       },
     });
     if (error || !payload) {
-      return { data: mockEquities, source: "mock" as const, error };
+      return allowMockFallback()
+        ? { data: mockEquities, source: "mock" as const, error }
+        : { data: [] as Equity[], source: "error" as const, error };
     }
     const list = unwrapList<Record<string, unknown>>(payload)
       .map(mapEquity)
       .filter((x): x is Equity => x !== null);
     if (list.length === 0) {
-      return { data: mockEquities, source: "mock" as const, error: "empty response" };
+      return allowMockFallback()
+        ? { data: mockEquities, source: "mock" as const, error: "empty response" }
+        : { data: [] as Equity[], source: "error" as const, error: "empty response" };
     }
     return { data: list, source: "api" as const, error: null };
   });
@@ -219,6 +223,10 @@ export const getEquityDetail = createServerFn({ method: "GET" })
         sector: String(company?.sector ?? d?.sector ?? ""),
         industry: String(company?.industry ?? d?.industry ?? ""),
       };
+    }
+
+    if (!livePrice && !allowMockFallback()) {
+      return { data: null as Equity | null, source: "error" as const, error: "latest price unavailable" };
     }
 
     // Build merged equity
@@ -348,7 +356,9 @@ export const getCandles = createServerFn({ method: "GET" })
     });
     if (error || !payload) {
       const base = findMockEquity(data.symbol)?.price ?? 5000;
-      return { data: mockCandles(base, 90), source: "mock" as const, error };
+      return allowMockFallback()
+        ? { data: mockCandles(base, 90), source: "mock" as const, error }
+        : { data: [] as Candle[], source: "error" as const, error };
     }
 
     const candles = extractChartSahamBars(payload)
@@ -358,7 +368,9 @@ export const getCandles = createServerFn({ method: "GET" })
 
     if (candles.length === 0) {
       const base = findMockEquity(data.symbol)?.price ?? 5000;
-      return { data: mockCandles(base, 90), source: "mock" as const, error: "empty" };
+      return allowMockFallback()
+        ? { data: mockCandles(base, 90), source: "mock" as const, error: "empty" }
+        : { data: [] as Candle[], source: "error" as const, error: "empty" };
     }
     return { data: candles, source: "api" as const, error: null };
   });
@@ -489,7 +501,9 @@ export const getChartSaham = createServerFn({ method: "GET" })
 
     if (error || !payload) {
       const base = findMockEquity(sym)?.price ?? 5000;
-      return { data: mockCandles(base, 365, `ds:${sym}`), source: "mock" as const, error };
+      return allowMockFallback()
+        ? { data: mockCandles(base, 365, `ds:${sym}`), source: "mock" as const, error }
+        : { data: [] as Candle[], source: "error" as const, error };
     }
 
     const rawArr = Array.isArray(payload)
@@ -516,7 +530,9 @@ export const getChartSaham = createServerFn({ method: "GET" })
 
     if (candles.length === 0) {
       const base = findMockEquity(sym)?.price ?? 5000;
-      return { data: mockCandles(base, 365, `ds:${sym}`), source: "mock" as const, error: "empty" };
+      return allowMockFallback()
+        ? { data: mockCandles(base, 365, `ds:${sym}`), source: "mock" as const, error: "empty" }
+        : { data: [] as Candle[], source: "error" as const, error: "empty" };
     }
     return { data: candles, source: "api" as const, error: null };
   });
