@@ -2,7 +2,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { useMemo, useState } from "react";
-import { getEquities } from "@/lib/datasectors.functions";
+import { getBatchPrices, getEquities } from "@/lib/datasectors.functions";
 import { mockEquities, type Equity } from "@/lib/mock-data";
 import { evaluateValuation, type ValuationResult } from "@/lib/valuation";
 import { PageTransition } from "@/components/layout/PageTransition";
@@ -33,6 +33,7 @@ import {
   Info,
 } from "lucide-react";
 import { useMounted } from "@/hooks/use-mounted";
+import { isIDXTradingHours } from "@/hooks/use-live-price";
 
 export const Route = createFileRoute("/fair-value")({
   head: () => ({
@@ -132,6 +133,7 @@ function UpsideBadge({ upside }: { upside: number | null }) {
 // ── Main page ─────────────────────────────────────────────────────────────────
 function FairValuePage() {
   const fn = useServerFn(getEquities);
+  const batchFn = useServerFn(getBatchPrices);
   const mounted = useMounted();
 
   const { data, isLoading } = useQuery({
@@ -141,14 +143,50 @@ function FairValuePage() {
     enabled: mounted,
   });
 
-  const universe = data?.data ?? mockEquities;
+  const baseUniverse = useMemo(
+    () => (data?.data?.length ? data.data : mockEquities),
+    [data?.data],
+  );
+  const fairValueSymbols = useMemo(
+    () => baseUniverse.map((equity) => equity.symbol.toUpperCase()).slice(0, 60),
+    [baseUniverse],
+  );
+  const prices = useQuery({
+    queryKey: ["batch-prices-fair-value", fairValueSymbols.join(",")],
+    queryFn: () => batchFn({ data: { symbols: fairValueSymbols } }),
+    staleTime: 25_000,
+    refetchInterval: isIDXTradingHours() ? 30_000 : 5 * 60_000,
+    refetchIntervalInBackground: false,
+    enabled: mounted && fairValueSymbols.length > 0,
+  });
+  const liveMap = prices.data?.data ?? {};
+  const universe = useMemo(
+    () =>
+      baseUniverse.map((equity) => {
+        const live = liveMap[equity.symbol.toUpperCase()];
+        if (!live) return equity;
+        return {
+          ...equity,
+          price: live.price,
+          change: live.change,
+          change_pct: live.change_pct,
+          volume: live.volume,
+          market_cap: live.marketCap || equity.market_cap,
+          prev_close: live.prevClose,
+          day_high: live.high,
+          day_low: live.low,
+          shares_outstanding: live.shareOutstanding || equity.shares_outstanding,
+        };
+      }),
+    [baseUniverse, liveMap],
+  );
 
   // ── Filters ────────────────────────────────────────────────────────────────
   const [search, setSearch] = useState("");
   const [sector, setSector] = useState("all");
-  const [verdictFilter, setVerdictFilter] = useState<"all" | "Undervalued" | "Fair Value" | "Overvalued">("Undervalued");
-  const [minUpside, setMinUpside] = useState(10);
-  const [maxPE, setMaxPE] = useState(30);
+  const [verdictFilter, setVerdictFilter] = useState<"all" | "Undervalued" | "Fair Value" | "Overvalued">("all");
+  const [minUpside, setMinUpside] = useState(-50);
+  const [maxPE, setMaxPE] = useState(100);
   const [minROE, setMinROE] = useState(0);
   const [sort, setSort] = useState<SortKey>("score");
   const [dir, setDir] = useState<"asc" | "desc">("desc");
@@ -221,9 +259,9 @@ function FairValuePage() {
   const reset = () => {
     setSearch("");
     setSector("all");
-    setVerdictFilter("Undervalued");
-    setMinUpside(10);
-    setMaxPE(30);
+    setVerdictFilter("all");
+    setMinUpside(-50);
+    setMaxPE(100);
     setMinROE(0);
   };
 
@@ -404,9 +442,14 @@ function FairValuePage() {
                 <span className="text-foreground font-medium num">{filtered.length}</span> dari{" "}
                 {scored.length} saham
               </span>
-              {data?.source === "mock" && (
+              {(data?.source === "mock" || !data?.data?.length) && (
                 <span className="rounded-full bg-warning/15 px-2 py-0.5 text-[10px] uppercase tracking-wider text-warning">
-                  Demo data
+                  Metadata fallback
+                </span>
+              )}
+              {prices.isFetching && (
+                <span className="rounded-full bg-primary/15 px-2 py-0.5 text-[10px] uppercase tracking-wider text-primary">
+                  Updating prices
                 </span>
               )}
             </div>

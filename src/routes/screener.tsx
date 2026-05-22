@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { useMemo, useState } from "react";
-import { getEquities } from "@/lib/datasectors.functions";
+import { getBatchPrices, getEquities } from "@/lib/datasectors.functions";
 import { mockEquities, type Equity } from "@/lib/mock-data";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { GlassCard } from "@/components/common/GlassCard";
@@ -23,6 +23,7 @@ import { useMounted } from "@/hooks/use-mounted";
 import { getOwnershipBySymbol, getSmartMoneySignals } from "@/services/ownership/ownershipService";
 import { useScreenerPresets, useSaveScreenerPreset, useDeleteScreenerPreset } from "@/integrations/supabase/hooks";
 import { toast } from "sonner";
+import { isIDXTradingHours } from "@/hooks/use-live-price";
 
 export const Route = createFileRoute("/screener")({
   head: () => ({
@@ -49,6 +50,7 @@ type SortKey =
 
 function ScreenerPage() {
   const fn = useServerFn(getEquities);
+  const batchFn = useServerFn(getBatchPrices);
   const mounted = useMounted();
   const { data } = useQuery({
     queryKey: ["equities", "screener"],
@@ -56,7 +58,43 @@ function ScreenerPage() {
     staleTime: 60_000,
     enabled: mounted,
   });
-  const universe = data?.data ?? mockEquities;
+  const baseUniverse = useMemo(
+    () => (data?.data?.length ? data.data : mockEquities),
+    [data?.data],
+  );
+  const screenerSymbols = useMemo(
+    () => baseUniverse.map((equity) => equity.symbol.toUpperCase()).slice(0, 60),
+    [baseUniverse],
+  );
+  const prices = useQuery({
+    queryKey: ["batch-prices-screener", screenerSymbols.join(",")],
+    queryFn: () => batchFn({ data: { symbols: screenerSymbols } }),
+    staleTime: 25_000,
+    refetchInterval: isIDXTradingHours() ? 30_000 : 5 * 60_000,
+    refetchIntervalInBackground: false,
+    enabled: mounted && screenerSymbols.length > 0,
+  });
+  const liveMap = prices.data?.data ?? {};
+  const universe = useMemo(
+    () =>
+      baseUniverse.map((equity) => {
+        const live = liveMap[equity.symbol.toUpperCase()];
+        if (!live) return equity;
+        return {
+          ...equity,
+          price: live.price,
+          change: live.change,
+          change_pct: live.change_pct,
+          volume: live.volume,
+          market_cap: live.marketCap || equity.market_cap,
+          prev_close: live.prevClose,
+          day_high: live.high,
+          day_low: live.low,
+          shares_outstanding: live.shareOutstanding || equity.shares_outstanding,
+        };
+      }),
+    [baseUniverse, liveMap],
+  );
 
   const [search, setSearch] = useState("");
   const [sector, setSector] = useState<string>("all");
@@ -354,9 +392,14 @@ function ScreenerPage() {
                 Showing <span className="text-foreground font-medium num">{filtered.length}</span> of{" "}
                 {universe.length} equities
               </span>
-              {data?.source === "mock" && (
+              {(data?.source === "mock" || !data?.data?.length) && (
                 <span className="rounded-full bg-warning/15 px-2 py-0.5 text-[10px] uppercase tracking-wider text-warning">
-                  Demo data
+                  Metadata fallback
+                </span>
+              )}
+              {prices.isFetching && (
+                <span className="rounded-full bg-primary/15 px-2 py-0.5 text-[10px] uppercase tracking-wider text-primary">
+                  Updating prices
                 </span>
               )}
             </div>
