@@ -10,15 +10,16 @@ import {
   getStockEarnings,
   getStockEquitiesV2,
   getInvestorActivity,
+  getDSNews,
 } from "@/lib/datasectors.functions";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { GlassCard } from "@/components/common/GlassCard";
 import { PriceChart } from "@/components/stock/PriceChart";
 import { KeyRatiosGrid } from "@/components/stock/KeyRatiosGrid";
-import { AIAnalysis } from "@/components/stock/AIAnalysis";
 import { FairValueCard } from "@/components/stock/FairValueCard";
 import { QuarterlyFinancials } from "@/components/stock/QuarterlyFinancials";
 import { PeerInsightsCard } from "@/components/stock/PeerInsightsCard";
+import { StockIntelligenceTerminal } from "@/components/stock/StockIntelligenceTerminal";
 import { OwnershipCard } from "@/components/stock/OwnershipCard";
 import { OwnershipIntelligencePanel } from "@/components/ownership/OwnershipIntelligencePanel";
 import { LivePriceBadge } from "@/components/common/LivePriceBadge";
@@ -54,6 +55,7 @@ function StockDetailPage() {
   const earningsFn  = useServerFn(getStockEarnings);
   const equitiesV2Fn = useServerFn(getStockEquitiesV2);
   const tradesFn    = useServerFn(getInvestorActivity);
+  const newsFn      = useServerFn(getDSNews);
 
   // ── Existing queries ──────────────────────────────────────────────────────
   const detail = useQuery({
@@ -90,6 +92,13 @@ function StockDetailPage() {
     queryKey: ["equities-v2", sym],
     queryFn: () => equitiesV2Fn({ data: { symbol: sym } }),
     staleTime: 600_000,
+  });
+
+  const news = useQuery({
+    queryKey: ["stock-news", sym],
+    queryFn: () => newsFn({ data: { ticker: sym, query: sym, limit: 8 } }),
+    staleTime: 300_000,
+    retry: false,
   });
 
   // Investor activity — filter by ticker if possible, else show all recent
@@ -281,7 +290,19 @@ function StockDetailPage() {
           </GlassCard>
         )}
 
-        {/* ── Price chart + Fair Value + AI ── */}
+        {equity && (
+          <StockIntelligenceTerminal
+            equity={equity}
+            technical={tech}
+            fair={fair}
+            newsPayload={news.data?.data ?? null}
+            earningsPayload={earningsPayload}
+            peerPayload={insights.data?.data ?? null}
+            trades={symbolTrades}
+          />
+        )}
+
+        {/* ── Price chart + Fair Value ── */}
         <div className="grid gap-3 lg:grid-cols-3">
           <GlassCard className="lg:col-span-2">
             <div className="mb-2 flex items-center justify-between">
@@ -296,7 +317,6 @@ function StockDetailPage() {
           </GlassCard>
           <div className="space-y-3">
             {valuationInput && <FairValueCard {...valuationInput} />}
-            {equity && <AIAnalysis equity={equity} />}
           </div>
         </div>
 
