@@ -15,6 +15,7 @@ import {
   Building2,
   Zap,
   CalendarDays,
+  Database,
 } from "lucide-react";
 
 import {
@@ -37,6 +38,7 @@ const mainItems = [
   { title: "Advanced Chart",    url: "/chart",       icon: LineChart       },
   { title: "Screener",          url: "/screener",    icon: Filter          },
   { title: "Fair Value",        url: "/fair-value",  icon: Target          },
+  { title: "IDX Official Data", url: "/idx-data",    icon: Database        },
   { title: "Watchlist",         url: "/watchlist",   icon: Star            },
 ];
 

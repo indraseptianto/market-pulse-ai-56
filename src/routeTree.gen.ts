@@ -15,6 +15,7 @@ import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as ScreenerRouteImport } from './routes/screener'
 import { Route as NewsRouteImport } from './routes/news'
 import { Route as InstitutionalRouteImport } from './routes/institutional'
+import { Route as IdxDataRouteImport } from './routes/idx-data'
 import { Route as ForexRouteImport } from './routes/forex'
 import { Route as FairValueRouteImport } from './routes/fair-value'
 import { Route as EarningsRouteImport } from './routes/earnings'
@@ -52,6 +53,11 @@ const NewsRoute = NewsRouteImport.update({
 const InstitutionalRoute = InstitutionalRouteImport.update({
   id: '/institutional',
   path: '/institutional',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IdxDataRoute = IdxDataRouteImport.update({
+  id: '/idx-data',
+  path: '/idx-data',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ForexRoute = ForexRouteImport.update({
@@ -103,6 +109,7 @@ export interface FileRoutesByFullPath {
   '/earnings': typeof EarningsRoute
   '/fair-value': typeof FairValueRoute
   '/forex': typeof ForexRoute
+  '/idx-data': typeof IdxDataRoute
   '/institutional': typeof InstitutionalRoute
   '/news': typeof NewsRoute
   '/screener': typeof ScreenerRoute
@@ -119,6 +126,7 @@ export interface FileRoutesByTo {
   '/earnings': typeof EarningsRoute
   '/fair-value': typeof FairValueRoute
   '/forex': typeof ForexRoute
+  '/idx-data': typeof IdxDataRoute
   '/institutional': typeof InstitutionalRoute
   '/news': typeof NewsRoute
   '/screener': typeof ScreenerRoute
@@ -136,6 +144,7 @@ export interface FileRoutesById {
   '/earnings': typeof EarningsRoute
   '/fair-value': typeof FairValueRoute
   '/forex': typeof ForexRoute
+  '/idx-data': typeof IdxDataRoute
   '/institutional': typeof InstitutionalRoute
   '/news': typeof NewsRoute
   '/screener': typeof ScreenerRoute
@@ -154,6 +163,7 @@ export interface FileRouteTypes {
     | '/earnings'
     | '/fair-value'
     | '/forex'
+    | '/idx-data'
     | '/institutional'
     | '/news'
     | '/screener'
@@ -170,6 +180,7 @@ export interface FileRouteTypes {
     | '/earnings'
     | '/fair-value'
     | '/forex'
+    | '/idx-data'
     | '/institutional'
     | '/news'
     | '/screener'
@@ -186,6 +197,7 @@ export interface FileRouteTypes {
     | '/earnings'
     | '/fair-value'
     | '/forex'
+    | '/idx-data'
     | '/institutional'
     | '/news'
     | '/screener'
@@ -203,6 +215,7 @@ export interface RootRouteChildren {
   EarningsRoute: typeof EarningsRoute
   FairValueRoute: typeof FairValueRoute
   ForexRoute: typeof ForexRoute
+  IdxDataRoute: typeof IdxDataRoute
   InstitutionalRoute: typeof InstitutionalRoute
   NewsRoute: typeof NewsRoute
   ScreenerRoute: typeof ScreenerRoute
@@ -254,6 +267,13 @@ declare module '@tanstack/react-router' {
       path: '/institutional'
       fullPath: '/institutional'
       preLoaderRoute: typeof InstitutionalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/idx-data': {
+      id: '/idx-data'
+      path: '/idx-data'
+      fullPath: '/idx-data'
+      preLoaderRoute: typeof IdxDataRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/forex': {
@@ -323,6 +343,7 @@ const rootRouteChildren: RootRouteChildren = {
   EarningsRoute: EarningsRoute,
   FairValueRoute: FairValueRoute,
   ForexRoute: ForexRoute,
+  IdxDataRoute: IdxDataRoute,
   InstitutionalRoute: InstitutionalRoute,
   NewsRoute: NewsRoute,
   ScreenerRoute: ScreenerRoute,
