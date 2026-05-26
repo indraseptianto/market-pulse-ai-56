@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-05-26T13:52:12.591917+00:00",
-  "count": 260,
+  "generated_at": "2026-05-26T14:15:14.798177+00:00",
+  "count": 262,
   "summary": {
     "universe_total": 951,
-    "processed_total": 97,
-    "remaining_total": 854,
-    "published_total": 260,
+    "processed_total": 99,
+    "remaining_total": 852,
+    "published_total": 262,
     "status_counts": {
-      "selesai": 222,
+      "selesai": 224,
       "partial": 38
     },
     "sheet_status_counts": {
-      "selesai": 59,
+      "selesai": 61,
       "partial": 38
     }
   },
@@ -2019,6 +2019,17 @@
       "has_llm_fallback": false
     },
     {
+      "code": "PGUN",
+      "company_name": "Pradiksi Gunatama Tbk.",
+      "status": "selesai",
+      "json": "/data/idx-official/json/PGUN/PGUN_official_data.json",
+      "excel": "/data/idx-official/excel/PGUN_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T13:55:15.222010+00:00",
+      "error": null,
+      "has_llm_fallback": false
+    },
+    {
       "code": "PIPA",
       "company_name": "Multi Makmur Lemindo Tbk.",
       "status": "selesai",
@@ -2400,6 +2411,17 @@
       "excel": "/data/idx-official/excel/SNLK_official_data.xlsx",
       "partial": false,
       "scraped_at": "2026-05-26T11:10:20.988067+00:00",
+      "error": null,
+      "has_llm_fallback": false
+    },
+    {
+      "code": "SOFA",
+      "company_name": "Boston Furniture Industries Tb",
+      "status": "selesai",
+      "json": "/data/idx-official/json/SOFA/SOFA_official_data.json",
+      "excel": "/data/idx-official/excel/SOFA_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T14:14:01.014804+00:00",
       "error": null,
       "has_llm_fallback": false
     },
