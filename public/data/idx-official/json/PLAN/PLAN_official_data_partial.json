@@ -1,0 +1,116 @@
+{
+  "code": "PLAN",
+  "company_name": "Planet Properindo Jaya Tbk.",
+  "scraped_at": "2026-05-26T12:25:16.337185+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "PLAN Planet Properindo Jaya Tbk. shareholders dividend annual report pdf",
+      "title": "Annual Report PT Planet Properindo Jaya Tbk (PLAN) 2020 - ticmi",
+      "url": "https://www.ticmi.co.id/datapasarmodal/ED/ar/viewsingle/136101/annual-report-pt-planet-properindo-jaya-tbk-plan-2020",
+      "content": "Annual Report. Annual Report PT Planet Properindo Jaya Tbk (PLAN) 2020. Upss, kamu belum berlangganan Data Paket, kami bantuin pilihkan paket data terbaik",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "PLAN Planet Properindo Jaya Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 005/PPJ/VI/2025 PT Planet Properindo Jaya Tbk PLAN 1 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202506/c787b86238_b911b97f8b.pdf",
+      "content": "termaktub dalam Laporan Keuangan Tahunan Perseroan per tanggal 31-12-2024 (tigapuluh satu Desember duaribu duapuluh empat), yang telah",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "PLAN Planet Properindo Jaya Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 2024",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202505/28a76fedd4_9f7674b882.pdf",
+      "content": "Kami telah mengaudit laporan keuangan PT Planet Properindo Jaya Tbk (“Perusahaan”), yang terdiri dari laporan posisi keuangan tanggal 31 Desember 2024, serta",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "PLAN Planet Properindo Jaya Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 2023",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202405/8196e5aae7_38d6b9f1ab.pdf",
+      "content": "Kami telah mengaudit laporan keuangan PT Planet Properindo Jaya Tbk (“Perusahaan”), yang terdiri dari laporan posisi keuangan tanggal 31 Desember 2023, serta",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "PLAN Planet Properindo Jaya Tbk. annual report 2025 pdf official",
+      "title": "[PDF] 009/PPJ/V/2025 PT Planet Properindo Jaya Tbk PLAN 1 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202505/76155862a6_ee750e05e8.pdf",
+      "content": "The Company made invitations to the Annual General Meeting of Shareholders on 22 Mei 2025 ... Annual Report 2024 PT.Planet Properindo Jaya tbk.pdf.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "PLAN Planet Properindo Jaya Tbk. annual report 2024 pdf official",
+      "title": "[PDF] 012/PPJ/V/2024 PT Planet Properindo Jaya Tbk PLAN 1 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202405/a3838460c1_1dd9590e5a.pdf",
+      "content": "Annual report PPJ 2023.pdf. This is an official document of PT Planet Properindo Jaya Tbk that does not require a signature as it was generated.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "PLAN Planet Properindo Jaya Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Perseroan dengan ini menyampaikan laporan keuangan untuk ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202308/20230808131600-39385-0/FinancialStatement-2023-II-PLAN.pdf",
+      "content": "PT Planet Properindo Jaya Tbk bertanggung jawab penuh atas informasi tertera di dalam dokumen ini. Nomor Surat. PPJ/0723/025. Nama Emiten. PT",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "PLAN Planet Properindo Jaya Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT PLANET PROPERINDO JAYA Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202006/20210603101549-25511-0/Laporan%20Keuangan%20Audit_PLAN_31%20Des%202020.pdf",
+      "content": "Kami telah mengaudit laporan keuangan PT Planet Properindo Jaya Tbk terlampir, yang terdiri dari laporan posisi keuangan tanggal 31 Desember",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "PLAN Planet Properindo Jaya Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "PT PLANET PROPERINDO JAYA Tbk",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202503/20260328141737-60127-0/01.%20Audit%20Report%20PT%20PPJ_per%2031%20Des%202025.pdf",
+      "content": "Laporan Tahunan 2025 (“Laporan Tahunan”). ... aset keuangan dan liabilitas keuangan yang diakui di dalam laporan posisi keuangan mendekati nilai.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "PLAN Planet Properindo Jaya Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT PLANET PROPERINDO JAYA Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202209/20220908220322-32195-0/Final%20LK%20Interim_PLAN%20Tbk%20Jun%202022%20(Unaudited).pdf",
+      "content": "Laporan keuangan Perusahaan disusun sesuai dengan Standar Akuntansi Keuangan di Indonesia yang meliputi Pernyataan Standar Akuntansi Keuangan (",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "PLAN Planet Properindo Jaya Tbk. website resmi investor relation annual report pdf",
+      "title": "PT. Planet Properindo Jaya Tbk [PLAN] | IDNFinancials",
+      "url": "https://www.idnfinancials.com/plan/pt-planet-properindo-jaya-tbk",
+      "content": "# IPO. | IPO Date | {{ipo.ipo\\_dates.ipo\\_date | dateMoment}} |. | Offering Shares | {{ipo.ipo\\_dates.offering\\_shares | numberFormat}} |. | Founders' Shares | {{ipo.ipo\\_dates.company\\_listing | numberFormat}} |. | Total Listed Shares | {{ipo.ipo\\_dates.total\\_listed\\_shares | numberFormat}} |. | Percentage | {{ipo.ipo\\_dates.percentage | numberFormat(2)}}% |. | Offering Price | {{ipo.ipo\\_dates.offering\\_price | numberFormat}} *(IDR)* |. | Fund Raised | {{ipo.ipo\\_dates.fund\\_raised | numberFormat}} *(IDR)* |. | {{row.name}} | {{row.listing\\_date | dateMoment('ll')}}  {{row.mature\\_date | dateMoment('ll')}} |  | {{row.interest | numberFormat(2)}}% |. | {{row.ratio}} | {{row.shares\\_issue | numberFormat}} | {{row.price | numberFormat}} *(IDR)* | {{row.fund\\_raise | numberFormat}} *(IDR)* | {{row.listing\\_date | dateMoment('ll')}} |. | {{row.year}} | {{row.dividend\\_shares | numberFormat(2)}} *({{row.currency}})* | {{row.payment\\_date | dateMoment(\"DD MMM YYYY\") }} | {{row.type}} |. | {{row.name}} | {{row.shares|numberFormat}} *(Shares)* | {{row.nominal|numberFormat}} *({{row.currency}})* | {{row.percentage|numberFormat(2)}}% |. | {{ row.percentage }} % | {{ row.shareholder|numberFormat }}  ({{formatDiff(row.different\\_shareholder)}}) | {{ row.period | dateMoment(\"DD MMM YYYY\") }} |. | {{row.asof\\_date}} | {{row.revenue|numberFormat}} *{{row.currency}}* | {{row.net\\_profit|numberFormat}} *{{row.currency}}* |.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "PLAN Planet Properindo Jaya Tbk. annual report 2025 pdf official",
+      "title": "Laporan Keuangan PT Planet Properindo Jaya Tbk – IDX:PLAN",
+      "url": "https://id.tradingview.com/symbols/IDX-PLAN/financials-overview",
+      "content": "Dapatkan gambaran umum keuangan PT Planet Properindo Jaya Tbk dengan seluruh metrik penting lainnya. Lihat kapitalisasi pasar PLAN, dividen,",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {},
+  "partial_llm_fallback": {
+    "enabled": true,
+    "status": "failed",
+    "error": "no_text_documents_for_llm",
+    "data": null
+  }
+}

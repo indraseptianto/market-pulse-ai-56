@@ -1,0 +1,116 @@
+{
+  "code": "ENZO",
+  "company_name": "Morenzo Abadi Perkasa Tbk.",
+  "scraped_at": "2026-05-26T12:30:12.325162+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "ENZO Morenzo Abadi Perkasa Tbk. annual report 2025 pdf official",
+      "title": "Company Report | PKPK",
+      "url": "https://www.pkpk-tbk.co.id/company-report",
+      "content": "Although the documents contained on this site have been selected and are in the interest of our current and future shareholders and equity research analysts, some of the matters discussed on this site may contain statements based on forecasts made at that time. | Revenue | 8.402.370.000 | 11.148.500.000 | 6.825.410.000 | 13.253.900.000 | 17.334.700.000 | 3.078.120.000 |. | Profit Before Tax | -22.052.900.000 | -19.518.000.000 | -169.647.000 | -9.492.890.000 | 172.167.000 | -1.538.880.000 |. | Profit attributable to equity holders of the Company | -13.729.500.000 | -10.411.900.000 | -3.744.280.000 | -41.250.500.000 | 53.720.900 | -379.496.000 |. | Current assets | 61.433.500.000 | 42.986.000.000 | 36.732.700.000 | 12.783.000.000 | 6.752.830.000 | 6.617.840.000 |. | Net assets value (NAV) attributable to equity holders of the Company | 69.785.400.000 | 59.323.000.000 | 55.578.800.000 | 14.328.200.000 | 40.391.500.000 | 40.012.000.000 |. Note: (1) For comparative purposes, the earnings per share and the NAV per share were computed based on the share capital of 600,000,000 shares upon the listing of the Company.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ENZO Morenzo Abadi Perkasa Tbk. website resmi investor relation annual report pdf",
+      "title": "PT. Morenzo Abadi Perkasa | Indonesian Crabs Exporter",
+      "url": "https://www.morenzo.co.id/investor-relations.html",
+      "content": "## INVESTOR RELATIONS. ##### PT Morenzo Abadi Perkasa will always stand innovative and increasing performance continues to prove our growth potential for shareholders. #### Founded in 2002 and listed on the Stock Exchange of Indonesia in 2020. AGMS & EGMS Information Disclosure & Corporate Action Financial Highlights Financial Information Yearly Report Quarterly Report Monthly Report Prospectus Presentations & Press Releases Stakeholder Information/ Services. ## NEWS AND EVENTS. ###### Contact Us. Desa Gajah RT 002/ RW 003. Kel. Gajah, Kec. Gajah, Kab. Demak,. ###### ESG. ###### Legal. ###### Privacy Policy. Morenzo Abadi Perkasa Tbk. All Rights Reserved.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ENZO Morenzo Abadi Perkasa Tbk. website resmi investor relation annual report pdf",
+      "title": "Reports and presentations - Investors | Stora Enso",
+      "url": "https://www.storaenso.com/en/investors/reports-and-presentations",
+      "content": "Below you can find Stora Enso's latest annual reports, financial report materials, presentations, webcast recordings and other presentations.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ENZO Morenzo Abadi Perkasa Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "Laporan Keuangan Tahunan 2020 PT Morenzo Abadi Perkasa Tbk ...",
+      "url": "https://www.studocu.id/id/document/universitas-halu-oleo/akuntansi/financial-statement-2020-tahunan-enzo/34067901",
+      "content": "Dokumen ini merupakan dokumen resmi PT Morenzo Abadi Perkasa Tbk yang tidak memerlukan tanda tangan karena dihasilkan secara elektronik. PT Morenzo Abadi",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ENZO Morenzo Abadi Perkasa Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT Morenzo Abadi Perkasa Tbk ENZO 4 Penyampaian ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/ef951ed1ab_1ce1b3f23c.pdf",
+      "content": "ENZO - SPD Q1 2025.pdf. 3. ENZO - Laporan Keuangan Q1 2025.pdf. 4. ENZO - Penjelasan Aset dan Liabiltas 31 Mar 2025.pdf. Lampiran. Dokumen ini",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ENZO Morenzo Abadi Perkasa Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] ANNUAL REPORT - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202505/f005c9368e_a18a511262.pdf",
+      "content": "Page 1. 2024. ANNUAL REPORT. SUSTAINABILITY REPORT. PT. Morenzo Abadi Perkasa Tbk. Page 2. 2. PT Morenzo Abadi Perkasa Tbk. Page 3. 3. 2024 Annual Report and",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ENZO Morenzo Abadi Perkasa Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Nomor Surat Nama Perusahaan Kode Emiten Lampiran ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/c40d2de5b3_70fa014d47.pdf",
+      "content": "ENZO ... Annual Report 2024 ENZO_ok.pdf. Lampiran. Dokumen ini merupakan dokumen resmi PT Morenzo Abadi Perkasa Tbk yang tidak memerlukan tanda",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ENZO Morenzo Abadi Perkasa Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 2022 Annual Report Sustainability Report - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202306/037ecebdfe_dee40c6db3.pdf",
+      "content": "Page 1. 2022. Annual Report. Sustainability Report. PT Morenzo Abadi Perkasa Tbk ... Keuangan. 9. 1.2. Informasi Saham. 13. 2. Laporan Kepada.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ENZO Morenzo Abadi Perkasa Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT MORENZO ABADI PERKASA Tbk DAN ENTITAS ANAKNYA - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202403/7ab815d12d_e3a6888196.pdf",
+      "content": "Kami telah mengaudit laporan keuangan konsolidasian PT Morenzo. Abadi ... Report and Sustainability Report 2023 (\"Annual Report\"). The.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ENZO Morenzo Abadi Perkasa Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] ANNUAL REPORT SUSTAINABILITY REPORT - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202604/b773a12f00_006bae313e.pdf",
+      "content": "Page 1. 2025. ANNUAL REPORT. SUSTAINABILITY REPORT. PT. Morenzo Abadi Perkasa Tbk. Page 2. 2. PT Morenzo Abadi Perkasa Tbk. Page 3. 3. 2025",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ENZO Morenzo Abadi Perkasa Tbk. website resmi investor relation annual report pdf",
+      "title": "[PDF] 2021 Annual Report Sustainability Report - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202205/38c8d46042_a0e5279b01.pdf",
+      "content": "The original consolidated financial statements included herein are in Indonesian language. PT MORENZO ABADI PERKASA Tbk DAN ENTITAS ANAKNYA.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ENZO Morenzo Abadi Perkasa Tbk. financial report 2025 pdf official",
+      "title": "[PDF] ANNUAL REPORT - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/73ab3f45df_9aa6e4f987.pdf",
+      "content": "Page 1. 2024. ANNUAL REPORT. SUSTAINABILITY REPORT. PT. Morenzo Abadi Perkasa Tbk ... 2025. 74. 4.11. Aspek Promosi dan Pemasaran. 75. 4.12",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {},
+  "partial_llm_fallback": {
+    "enabled": true,
+    "status": "failed",
+    "error": "no_text_documents_for_llm",
+    "data": null
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "code": "PMMP",
+  "company_name": "Panca Mitra Multiperdana Tbk.",
+  "scraped_at": "2026-05-26T12:05:14.528964+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "PMMP Panca Mitra Multiperdana Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "[PDF] PT Panca Mitra Multiperdana Tbk | Combined Report 2023",
+      "url": "https://pancamitra.com/site/uploads/investor_report_files/663113d13ba60-pmmp-2023-synergy-for-sustainbility.pdf",
+      "content": "Page 1. PT Panca Mitra Multiperdana Tbk | Combined Report 2023. 1. Page 2. Laporan Tahunan dan Keberlanjutan 2023 | PT Panca Mitra Multiperdana",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "PMMP Panca Mitra Multiperdana Tbk. website resmi investor relation annual report pdf",
+      "title": "Investor Relations - MPM Group",
+      "url": "https://www.mpmgroup.co.id/en/investor-relation/stock",
+      "content": "... Financial Highlights Annual Report Financial Information & Presentation General Meeting of Shareholders Disclosure Investor Contact. Stock Information. C",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "PMMP Panca Mitra Multiperdana Tbk. website resmi investor relation annual report pdf",
+      "title": "Hubungan Investor - Mitra Keluarga",
+      "url": "https://investor.mitrakeluarga.com/investor-relations",
+      "content": "Laporan. Informasi untuk tahunan, keuangan, keberlanjutan ; Presentasi Perusahaan. Informasi untuk pertemuan dan presentasi investor ; Pemegang",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "PMMP Panca Mitra Multiperdana Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "Annual Report PT Panca Mitra Multiperdana Tbk (PMMP) 2021 - ticmi",
+      "url": "https://www.ticmi.co.id/datapasarmodal/ED/ar/viewsingle/135574/annual-report-pt-panca-mitra-multiperdana-tbk-pmmp-2021",
+      "content": "Annual Report. Annual Report PT Panca Mitra Multiperdana Tbk (PMMP) 2021. Upss, kamu belum berlangganan Data Paket, kami bantuin pilihkan paket data terbaik",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "PMMP Panca Mitra Multiperdana Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] No. Peng-S-00014/BEI.PLP/07-2025 PENGUMUMAN BURSA ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202507/aa5240bc1d_046e104843.pdf",
+      "content": "PMMP. PT Panca Mitra. Multiperdana Tbk. Terlambat LKTW1 per 31 Maret 2025. Late Submission of. Financial Report as of March 31, 2025. 29 Juni 2025. SP3 & Denda.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "PMMP Panca Mitra Multiperdana Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] No. Peng-S-00024/BEI.PLP/10-2025 PENGUMUMAN BURSA ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202510/15a0054296_607cad44c1.pdf",
+      "content": "PMMP. PT Panca Mitra. Multiperdana Tbk. Belum. Menyampaikan. LKTT per 30 Juni. 2025 Late. Submission of. Financial Report as of June 30, 2025. 29 September 2025.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "PMMP Panca Mitra Multiperdana Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT PANCA MITRA MULTIPERDANA Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202410/09802c28dd_ec6645e2eb.pdf",
+      "content": "Laporan keuangan konsolidasian PT Panca Mitra Multiperdana. Tbk dan ... The consolidated financial statements of PT Panca Mitra.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "PMMP Panca Mitra Multiperdana Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 073/PMMP/CORSEC/X/2024 PT Panca Mitra Multiperdana Tbk ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202410/d60cd0b28a_03f6b3790f.pdf",
+      "content": "Dokumen ini merupakan dokumen resmi PT Panca Mitra Multiperdana Tbk. yang tidak memerlukan tanda tangan karena dihasilkan secara elektronik",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "PMMP Panca Mitra Multiperdana Tbk. annual report 2025 pdf official",
+      "title": "[PDF] PT PANCA MITRA MULTIPERDANA Tbk DAN ENTITAS ANAK ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202402/20260210141716-59377-0/Audit%20Report%20PT.%20PMMP%20Tbk%20311224.pdf",
+      "content": "The Group's consolidated financial statements for the year ended 31 December 2023 were audited by other independent auditor who expressed an unmodified opinion",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "PMMP Panca Mitra Multiperdana Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT PANCA MITRA MULTIPERDANA Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202503/20260317105905-59851-0/LK%20PT%20Panca%20Mitra%20Multiperdana%20300626.pdf",
+      "content": "dari laporan keuangan konsolidasian secara keseluruhan. 302.763. 502.504. 5.450. 5.450. -. 2h,10. 13.000. December 31,. 2024. 30 Juni/. June 30,.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "PMMP Panca Mitra Multiperdana Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] pt panca mitra multiperdana tbk dan entitas anak/and subsidiary - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202004/20210409144650-24407-0/PMMP%20-%20Audited%20Financial%20Statement%2031%20Des%202020.pdf",
+      "content": "Laporan keuangan konsolidasian PT Panca tulitra Muitiperdana Tbk dan ... annual salary increase rate, annual employee turn- over rate",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "PMMP Panca Mitra Multiperdana Tbk. financial report 2025 pdf official",
+      "title": "PT. Panca Mitra Multiperdana Tbk [PMMP] | IDNFinancials",
+      "url": "https://www.idnfinancials.com/pmmp/pt-panca-mitra-multiperdana-tbk",
+      "content": "| **Open** IDR 0 | **Previous Close** IDR 0 |. | **Offer** IDR 0 | **Bid** IDR 0 |. | **Volume** 0 *(Shares)* | **Value** IDR 0 |. | **Frequency** 0 *(Times)* | **EPS** IDR 0 |. | **PE Ratio** 0 *(Times)* | **Market Cap.** IDR 0 M |. # IPO. | IPO Date | {{ipo.ipo\\_dates.ipo\\_date | dateMoment}} |. | Offering Shares | {{ipo.ipo\\_dates.offering\\_shares | numberFormat}} |. | Founders' Shares | {{ipo.ipo\\_dates.company\\_listing | numberFormat}} |. | Total Listed Shares | {{ipo.ipo\\_dates.total\\_listed\\_shares | numberFormat}} |. | Percentage | {{ipo.ipo\\_dates.percentage | numberFormat(2)}}% |. | Offering Price | {{ipo.ipo\\_dates.offering\\_price | numberFormat}} *(IDR)* |. | {{row.name}} | {{row.listing\\_date | dateMoment('ll')}}  {{row.mature\\_date | dateMoment('ll')}} |  | {{row.interest | numberFormat(2)}}% |. | {{row.ratio}} | {{row.shares\\_issue | numberFormat}} | {{row.price | numberFormat}} *(IDR)* | {{row.fund\\_raise | numberFormat}} *(IDR)* | {{row.listing\\_date | dateMoment('ll')}} |. | {{row.year}} | {{row.dividend\\_shares | numberFormat(2)}} *({{row.currency}})* | {{row.payment\\_date | dateMoment(\"DD MMM YYYY\") }} | {{row.type}} |. | {{row.name}} | {{row.shares|numberFormat}} *(Shares)* | {{row.nominal|numberFormat}} *({{row.currency}})* | {{row.percentage|numberFormat(2)}}% |.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    }
+  ],
+  "documents": [
+    {
+      "url": "https://pancamitra.com/site/uploads/investor_report_files/663113d13ba60-pmmp-2023-synergy-for-sustainbility.pdf",
+      "title": "[PDF] PT Panca Mitra Multiperdana Tbk | Combined Report 2023",
+      "pdf_path": "/opt/idx-official-data/documents/PMMP/663113d13ba60-pmmp-2023-synergy-for-sustainbility.pdf",
+      "text_path": "/opt/idx-official-data/extracted/PMMP/663113d13ba60-pmmp-2023-synergy-for-sustainbility.txt",
+      "bytes": 10626560
+    }
+  ],
+  "financial_income_revenue": [],
+  "dividends": [
+    {
+      "document": "/opt/idx-official-data/documents/PMMP/663113d13ba60-pmmp-2023-synergy-for-sustainbility.pdf",
+      "evidence_text": "Dividend Equity 78 Kebijakan Transaksi Material 73 Laporan Laba (Rugi) Material Transaction Policy 6 Laporan Tahunan dan Keberlanjutan 2023 | PT Panca Mitra Multiperdana Tbk Daftar Isi | Table of Contents 78 Realisasi Penggunaan Dana Penawaran 85 Survei Kepuasan Pelanggan [F.30] Umum Customer Satisfaction Survey Realization of Public Offering Funds Usage 85 Mekanisme Pengaduan Pelanggan 78 Informasi Material Mengenai Investasi, Customer Complaint Mechanism Ekspansi, Divestasi, Penggabungan/ Peleburan Usaha, Akuisisi, 86 Mendukung Pelestarian Lingkungan Hidup Resktrukturisasi Utang/Modal, Transaksi Supporting Environmental Preservation Afiliasi dan Transaksi Berbenturan Kepentingan 86 Penggunaan dan Pengelolaan Energi [3-3] Material Information Regarding Investment, Energy Use and Management Expansion, Divestment, Merger/Consolidation, 86 Pemakaian Listrik di Dalam Perseroan (kWh) Acquisition, Debt/Capital Restructuring, [302-1][F.6] Affiliated Transactions, and Conflict of Interest 86 Electricity Consumption within the Company Transactions (kWh) 79 Perubahan Kebijakan Akuntansi 87 Total Konsumsi Air (m3) Changes in Accounting Policies Total Water Consumption (m3) 79 Kesehatan dan Keselamatan Kerja (K3) [3-3] 87 Penggunaan Air [F.8] [303-1] Occupational Health and Safety (OHS) Water Usage 79 Transaksi Investasi, Ekspansi, Divestasi, 87 Pengelolaan Limbah dan Efluen [3-3] Penggabungan/Peleburan Usaha, Akuisisi dan Waste and Effluent Management Resktrukturisasi Utang/Modal 88 Jenis Limbah yang Dihasilkan (Ton) [306-3] Investment Transactions, Expansion, [F.13] Divestment, Merger/Consolidation, Acquisition, Type of Waste Generated (Tons) and Debt/Capital Restructuring Transactions. 88 Total Limbah Berdasarkan Pengelolaannya 79 Transaksi Transaksi Afiliasi dan Transaksi (Ton) [306-2] [306-4] [306-5] Berbenturan Kepentingan Total Waste Based on Management (Tons) Affiliated Transactions and Transactions with Conflicts of Interest 88 Persentase Limbah terhadap Kuantitas Produksi 79 Perubahan Ketentuan Peraturan Perundang- Percentage of Waste to Production Quantity undangan yang Berpengaruh Signifikan Terhadap Perseroan 89 Keanekaragaman Hayati [F.9] [F.10] Significant Changes to Legal and Regulatory Biodiversity Provisions Affecting the Company 90 Tata Kelola Perusahaan 79 Tinjauan Keberlanjutan Aspek Sosial/Social Corporate Governance Aspect Social Sustainability Review 91 Prinsip Tata Kelola Perusahaan yang Baik Good Corporate Governance Principles 80 Sistem Manajemen Kesehatan dan Keselamatan Kerja 92 Struktur Tata Kelola Keberlanjutan [2-9] Occupational Health and Safety Management Sustainability Governance Structure System (OHSMS) 93 Keterlibatan Pemangku Kepentingan [E.4] 80 Identifikasi Bahaya dan Penilaian Risiko [403- [E.5] [2-29] 2][403-7] Stakeholder Engagement Hazard Identification and Risk Assessment"
+    }
+  ],
+  "latest_shareholders_freefloat_ownership": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/PMMP/663113d13ba60-pmmp-2023-synergy-for-sustainbility.pdf",
+        "shareholders": "Shareholders PT Panca Mitra Multiperdana Tbk | Combined Report 2023 5 Daftar Isi | Table of Contents 54 Sumber Daya Manusia Income Statement / Profit and Loss Statement Human Resources 55 Komposisi Sumber Daya Manusia Composition of Human Resources 73 Penjualan Sales 55 Komposisi Sumber Daya Manusia Composition of Human Resources 73 Beban-beban Expenses 58 Informasi Kepemilikan Pemegang Saham Shareholder Ownership Information 74 Laporan Arus Kas Cash Flow Statement 60 Entitas Anak, Asosiasi dan Ventura Subsidiary, Associate, and Joint Venture 74 Arus Kas Operasi Operating Cash Flow 61 Kronologis Pencatatan Saham Share Listing Chronology 74 Laba (Rugi) Bersih Net Income (Loss) 62 Kronologis Pencatatan Obligasi dan/atau Efek Lainnya 74 Penghasilan Komprehensif Lain dan Total Other Bond Listing Chronology Laba (Rugi) Komprehensif Other Comprehensive Income and Total 62 Kantor Akuntan Publik (KAP) Comprehensive Profit (Loss) Public Accounting Office (PAO) 75 Arus Kas Investasi 62 Lembaga/Profesi Penunjang Investment Cash Flow Supporting and/or Profession Parties 75 Arus Kas Pendanaan 63 Pengembangan Kompetensi Keberlanjutan Cash Flow from Investing [F.22] Sustainability Competency Development 75 Rasio Keuangan Financial Ratio 65 Analisis dan Pembahasan Manajemen Management Analysis and Discussion 75 Rasio Keuangan Penting Important Financial Ratios 66 Tinjauan Umum Overview 76 Kemampuan Membayar Hutang Debt Solvency 66 Tinjauan Operasional dan Segmen Usaha Operational and Business Segment Review 76 Struktur Modal Capital Structure 67 Tinjauan Keberlanjutan Aspek Ekonomi [3-3] Sustainability Review of Economic Aspects 77 Investasi Barang Modal Investment in Capital Goods 69 Nilai Ekonomi Dihasilkan dan Didistribusikan (AS$) [201-1] 77 Ikatan yang Material untuk Investasi Barang Economic Value Generated and Distributed Modal (US Dollar) Material Connections for Investment in Capital Goods 69 Dampak Ekonomi Tidak Langsung [203-2] Indirect Economic Impact 77 Realisasi Investasi Barang Modal Realization of Investment in Capital Goods 70 Menjaga Rantai Pasokan dan Pengadaan [2-6] [3-3] 77 Prospek Usaha Maintaining Supply Chain and Procurement Business Prospects 70 Tinjauan Keuangan 77 Aspek Pemasaran Financial Review Marketing Aspect 71 Aset 77 Informasi dan Fakta Material yang Terjadi Assets 77 Setelah Tanggal Laporan Akuntan Information and Material Facts Occurring After 72 Liabilitas the Accountant’s Report Date Liabilities 78 Dividen 72",
+        "free_float": ""
+      }
+    ]
+  },
+  "management": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/PMMP/663113d13ba60-pmmp-2023-synergy-for-sustainbility.pdf",
+        "directors": "Board of Directors’ Report 13 Identifikasi Topik Material [2-14] Identification of Material Topics 37 Laporan dewan komisaris Board of Commissioners Report 15 Sekilas Tentang Perseroan Overview of the Company 40 Profil Perusahaan Company Profile 15 Produk Kami Our Product 42 Riwayat Singkat Perusahaan Company History 16 Produk Bernilai Tambah Value-added Products 42 Skala Usaha [C.3] Organizational Scale 18 Wilayah Pemasaran 2023 Market Areas 2023 42 Perubahan Signifikan Pada Perseroan Significant Changes in the Company 19 Jejak Langkah Milestones 43 Visi dan Misi Perusahaan [C.1] Vision and Mission 22 Penghargaan dan Sertifikasi Award and Certification 43 Bidang dan Produk Usaha [C.4] [2-1] Products and Services Lines 23 Strategi Keberlanjutan [A.1] [2-22] Sustainability Strategy 43 Bidang usaha Line of business 25 Ikhtisar Kinerja Performance Overview 44 Produk Usaha Products 26 Ikhtisar Data Keuangan Penting Financial Highlights 44 Wilayah Operasional [2-1] [2-6] The Company’s Operational Area 26 Laporan Posisi Keuangan Statement of Financial Position 45 Struktur Organisasi Organization Structure 26 Laporan Laba (Rugi) Statement of Financial Position 46 Profil direksi Board of Directors’ Profiles 27 Laporan Arus Kas Statement of Cash Flow 50 Profil Dewan Komisaris Board of Commissioners’ Profiles 27 Rasio Keuangan Financial Ratios 53 Perubahan Komposisi Dewan Komisaris The change in the composition of the Board of 28 Ikhtisar Kinerja Keberlanjutan Commissioners’ Sustainability Performance Overview 53 Pernyataan Komisaris Independensi 31 Laporan Analisis Perusahaan Sekuritas The statement of the Independent Security Change Analysis Report Commissioner 31 Aksi Korporasi 54 Hubungan Afiliasi Direksi, Dewan Komisaris, Corporate Actions Pemegang Saham Utama dan Pengendali Affiliation Between the Board of Directors, 31 Informasi Penghentian Sementara the Board of Commissioners, and Controlling Perdagangan Saham dan/atau Penghapusan Shareholders PT Panca Mitra Multiperdana Tbk | Combined Report 2023 5 Daftar Isi | Table of Contents 54 Sumber Daya Manusia Income Statement / Profit and Loss Statement Human Resources 55 Komposisi Sumber Daya Manusia Composition of Human Resources 73 Penjualan Sales 55 Komposisi Sumber Daya Manusia Composition of Human Resources 73 Beban-beban Expenses 58 Informasi Kepemilikan Pemegang Saham Shareholder Ownership Information 74 Laporan Arus Kas Cash Flow Statement 60 Entitas Anak, Asosiasi dan Ventura Subsidiary, Associate, and Joint Venture 74 Arus Kas Operasi Operating Cash Flow 61 Kronolog",
+        "commissioners": "Board of Commissioners Report 15 Sekilas Tentang Perseroan Overview of the Company 40 Profil Perusahaan Company Profile 15 Produk Kami Our Product 42 Riwayat Singkat Perusahaan Company History 16 Produk Bernilai Tambah Value-added Products 42 Skala Usaha [C.3] Organizational Scale 18 Wilayah Pemasaran 2023 Market Areas 2023 42 Perubahan Signifikan Pada Perseroan Significant Changes in the Company 19 Jejak Langkah Milestones 43 Visi dan Misi Perusahaan [C.1] Vision and Mission 22 Penghargaan dan Sertifikasi Award and Certification 43 Bidang dan Produk Usaha [C.4] [2-1] Products and Services Lines 23 Strategi Keberlanjutan [A.1] [2-22] Sustainability Strategy 43 Bidang usaha Line of business 25 Ikhtisar Kinerja Performance Overview 44 Produk Usaha Products 26 Ikhtisar Data Keuangan Penting Financial Highlights 44 Wilayah Operasional [2-1] [2-6] The Company’s Operational Area 26 Laporan Posisi Keuangan Statement of Financial Position 45 Struktur Organisasi Organization Structure 26 Laporan Laba (Rugi) Statement of Financial Position 46 Profil direksi Board of Directors’ Profiles 27 Laporan Arus Kas Statement of Cash Flow 50 Profil Dewan Komisaris Board of Commissioners’ Profiles 27 Rasio Keuangan Financial Ratios 53 Perubahan Komposisi Dewan Komisaris The change in the composition of the Board of 28 Ikhtisar Kinerja Keberlanjutan Commissioners’ Sustainability Performance Overview 53 Pernyataan Komisaris Independensi 31 Laporan Analisis Perusahaan Sekuritas The statement of the Independent Security Change Analysis Report Commissioner 31 Aksi Korporasi 54 Hubungan Afiliasi Direksi, Dewan Komisaris, Corporate Actions Pemegang Saham Utama dan Pengendali Affiliation Between the Board of Directors, 31 Informasi Penghentian Sementara the Board of Commissioners, and Controlling Perdagangan Saham dan/atau Penghapusan Shareholders PT Panca Mitra Multiperdana Tbk | Combined Report 2023 5 Daftar Isi | Table of Contents 54 Sumber Daya Manusia Income Statement / Profit and Loss Statement Human Resources 55 Komposisi Sumber Daya Manusia Composition of Human Resources 73 Penjualan Sales 55 Komposisi Sumber Daya Manusia Composition of Human Resources 73 Beban-beban Expenses 58 Informasi Kepemilikan Pemegang Saham Shareholder Ownership Information 74 Laporan Arus Kas Cash Flow Statement 60 Entitas Anak, Asosiasi dan Ventura Subsidiary, Associate, and Joint Venture 74 Arus Kas Operasi Operating Cash Flow 61 Kronologis Pencatatan Saham Share Listing Chronology 74 Laba (Rugi) Bersih Net Income (Loss) 62 Kronologis Penc"
+      }
+    ]
+  },
+  "evidence": {
+    "663113d13ba60-pmmp-2023-synergy-for-sustainbility_financial": "Consolidated Statements of Profit or Loss and Lain Konsolidasian…………………..…………………. 3 …………………….Other Comprehensive Income Laporan Perubahan Ekuitas Konsolidasian.………… 4 ….Consolidated Statements of Changes in Equity Laporan Arus Kas Konsolidasian ……………………... 5-6 ...………Consolidated Statements of Cash Flows Catatan atas Laporan Keuangan Konsolidasian…..… 7-109 ..Notes to the Consolidated Financial Statements Informasi Keuangan Tambahan................................... 110-115 ..................Supplementary Financial Information The original consolidated financial statements included herein are in Indonesian language. PT PANCA MITRA MULTIPERDANA TBK PT PANCA MITRA MULTIPERDANA TBK DAN ENTITAS ANAKNYA AND ITS SUBSIDIARY LAPORAN POSISI KEUANGAN KONSOLIDASIAN CONSOLIDATED STATEMENTS OF Tanggal 31 Desember 2022 FINANCIAL POSITION (Disajikan dalam Dolar AS, kecuali Dinyatakan Lain) As at December 31, 2022 (Expressed in US Dollar, unless Otherwise Stated) Catatan/ Notes 2022 2021 ASET ASSETS ASET LANCAR CURRENT ASSETS 2f,2h,2i,2j,3, Kas dan setara kas 4,24 10.201.831 2.802.435 Cash and cash equivalent Piutang usaha 2f,2h,2i,3, Trade receivables Pihak ketiga 5,24 41.133.850 40.657.788 Third parties Piutang lain-lain 2f,2h,2i,3, Other receivables Pihak ketiga 24 1.211 5.550 Third parties Persediaan 2k,6 180.652.596 171.237.462 Inventories Uang muka dan beban Advances and dibayar dimuka 2l,8 1.410.577 1.320.666 prepaid expenses Pajak dibayar dimuka 2q,3,12 1.219.889 821.859 Prepaid tax Kas di bank dan deposito berjangka yang dibatasi 2f,2h,2i,3, Restricted cash in banks penggunaannya 9,15,24 13.098.124 12.161.082 and time deposits TOTAL ASET LANCAR 247.718.078 229.006.842 TOTAL CURRENT ASSETS ASET TIDAK LANCAR NON-CURRENT ASSETS Uang muka pembelian Advance payments for aset tetap 7 533.296 48.983 purchase of fixed assets Aset tetap - neto dikurangi akumulasi Fixed assets - net of penyusutan sebesar accumulated depreciation AS$26.540.630 pada of US$26,540,630 as at tanggal 31 Desember 2022 December 31, 2022 and dan AS$21.930.707 pada US$21,930,707 as at tanggal 31 Desember 2021 2m,2n,3,10 48.732.293 39.515.725 December 31, 2021 Taksiran tagihan pengembalian Estimated claim for pajak 2q,3,12 519.046 - tax refund Uang jaminan 2f,2h,2i,3,24 5.340 5.888 Security deposit TOTAL ASET TIDAK TOTAL NON-CURRENT LANCAR 49.789.975 39.570.596 ASSETS TOTAL ASET 297.508.053 268.577.438 TOTAL ASSETS Catatan terlampir merupakan bagian yang tidak terpisahkan The accompanying notes form an integral part of these dari laporan keuangan konsolidasian secara keseluruhan. consolidated financial statements. 1 The original consolidated financial statements included herein are in Indonesian language. PT PANCA MITRA MULTIPERDANA TBK PT PANCA MITRA MULTIPERDANA TBK DAN ENTITAS ANAKNYA AND ITS SUBSIDIARY LAPORAN POSISI KEUANGAN CONSOLIDATED STATEMENTS OF KONSOLIDASIAN (lanjutan) FINANCIAL POSITION (continued) Tanggal 31 Desember 2022 As at December 31, 2022 (Disajikan dalam Dolar AS, kecuali Dinyatakan Lain) (Expressed in US Dollar, unless Otherwise Stated) Catatan/ Notes 2022 2021 LIABILITAS DAN EKUITAS LIABILITIES AND EQUITY LIABILITAS JANGKA PENDEK CURRENT LIABILITIES Utang usaha 2f,2h,2i,3, Trade payables Pihak ketiga 11,24 30.745.138 23.032.200 Third parties Pinjaman bank jangka 2f,2h,2i,3, pendek 15,24 172.350.541 157.837.059 Short-term bank loans Liabilitas yang masih 2f,2h,2i,3, harus dibayar 13,24 1.587.531 1.191.193 Accrued liabilities Utang pajak 2q,3,12 2.889.131 5.218.932 Taxes payable Uang muka dari pelanggan - 159.979 Advances from customers Bagian pinjaman jangka panjang yang jatuh Current maturities of tempo dalam satu tahun: 2f,2h,2i,3,24 long-term loans: Pinjaman bank 15 1.728.038 1.704.127 Bank loans Liabilitas sewa 16 25.581 22.693 Lease liabilities TOTAL LIABILITAS TOTAL CURRENT JANGKA PENDEK 209.325.960 189.166.183 LIABILITIES LIABILITAS JANGKA NON-CURRENT PANJANG LIABILITIES Liabilitas imbalan kerja 2p,3,17 1.434.288 1.514.933 Employee benefits liability Liabilitas pajak tangguhan - neto 2q,3,12 899.155 1.254.826 Deferred tax liabilities - net Pinjaman jangka panjang setelah dikurangi bagian yang jatuh tempo dalam Long-term loans - net of satu tahun: 2f,2h,2i,3,24 current maturities: Pinjaman bank 15 4.561.064 2.972.608 Bank loans Liabilitas sewa 16 5.166 - Lease liabilities TOTAL LIABILITAS"
+  },
+  "processing_status": "selesai",
+  "processing_reasons": []
+}
