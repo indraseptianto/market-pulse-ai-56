@@ -1,0 +1,66 @@
+{
+  "code": "STRK",
+  "company_name": "Lovina Beach Brewery Tbk.",
+  "scraped_at": "2026-05-25T20:40:16.072874+00:00",
+  "source": "Official/company/IDX documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "STRK Lovina Beach Brewery Tbk. annual report 2024 pdf official",
+      "title": "[PDF] PT Lovina Beach Brewery Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202505/605458dce7_a77af585ea.pdf",
+      "content": "The 2024 Annual Report of PT Lovina Beach Brewery Tbk. (hereinafter referred to as the Company) was prepared based on Financial Services"
+    },
+    {
+      "query": "STRK Lovina Beach Brewery Tbk. annual report 2024 pdf official",
+      "title": "[PDF] PT Lovina Beach Brewery Tbk",
+      "url": "https://proclick.profindo.com/medias//images/6500387aa9580.pdf",
+      "content": "- Melakukan inovasi produk. Financial Performance and Valuation. Perseroan mencatatkan penjualan sebesar Rp 10.9 miliar hingga periode 1Q23."
+    },
+    {
+      "query": "STRK Lovina Beach Brewery Tbk. annual report 2024 pdf official",
+      "title": "Financial Statements Full Year 2024 of STRK - IndoPremier",
+      "url": "https://www.indopremier.com/ipotnews/newsDetail.php?jdl=Financial_Statements_Full_Year_2024_of_STRK&news_id=461480&group_news=RESEARCHNEWS&news_date=&taging_subtype=RESULT&name=&search=y_general&q=Financial+Statements&halaman=1",
+      "content": "PT Lovina Beach Brewery Tbk (STRK) membukukan rugi bersih pada tahun 2024 sebesar Rp 18,1 miliar ... EBITDA/IntExp. -21,91. Full akses : Klik pdf"
+    },
+    {
+      "query": "STRK Lovina Beach Brewery Tbk. annual report 2024 pdf official",
+      "title": "PT Lovina Beach Brewery Tbk (IDX:STRK) Balance Sheet",
+      "url": "https://stockanalysis.com/quote/idx/STRK/financials/balance-sheet",
+      "content": "Detailed annual and quarterly balance sheet for PT Lovina Beach Brewery Tbk (IDX:STRK), including cash, debt, assets, liabilities, and book value."
+    },
+    {
+      "query": "STRK Lovina Beach Brewery Tbk. annual report 2024 pdf official",
+      "title": "PT Lovina Beach Brewery Tbk Financial Statements – IDX:STRK",
+      "url": "https://www.tradingview.com/symbols/IDX-STRK/financials-overview",
+      "content": "Get an overview of PT Lovina Beach Brewery Tbk financials with all the important metrics ... View STRK market cap, dividends, revenue breakdown, and more on one"
+    },
+    {
+      "query": "STRK Lovina Beach Brewery Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "PT. Lovina Beach Brewery Tbk [STRK] | IDNFinancials",
+      "url": "https://www.idnfinancials.com/strk/pt-lovina-beach-brewery-tbk",
+      "content": "Title: PT. Lovina Beach Brewery Tbk [STRK] | IDNFinancials\n| **Volume** 1.336.194 *(Shares)* | **Value** IDR 207.386.164 |. | **PE Ratio** 0 *(Times)* | **Market Cap.** IDR 1.661.885 M |. | **Market Cap. Rank in Industry** 5 of 11 | **Market Cap. Rank in All Companies** 434 of 957 |. PT Lovina Beach Brewery Tbk (STRK) is engaged in the craft beer industry, which mainly distributes alcoholic beverages with brands such as Stark Craft Beer, Kaja, Nord, and Arak De'Wan. Through its subsidiary, the company also brews its own authentic liquors using local ingredients as well as imported ones. # IPO. | IPO Date | {{ipo.ipo\\_dates.ipo\\_date | dateMoment}} |. | Offering Shares | {{ipo.ipo\\_dates.offering\\_shares | numberFormat}} |. | Founders' Shares | {{ipo.ipo\\_dates.company\\_listing | numberFormat}} |. | Total Listed Shares | {{ipo.ipo\\_dates.total\\_listed\\_shares | numberFormat}} |. | Percentage | {{ipo.ipo\\_dates.percentage | numberFormat(2)}}% |. | Offering Price | {{ipo.ipo\\_dates.offering\\_price | numberFormat}} *(IDR)* |. | Fund Raised | {{ipo.ipo\\_dates.fund\\_raised | numberFormat}} *(IDR)* |. | Securities Administration Bureau | {{ipo.ipo\\_dates.securities}} |. | Lead Underwriter | {{ipo.ipo\\_dates.lead\\_underwriter}} |. | Listing Board | {{ipo.ipo\\_dates.listing\\_board}} |. | Name | Type | Listing Date&  Mature Date | Nominal *(Million)* | Rating | Interest *(%)* | Tenure |. | {{row.name}} | {{row.type}} | {{row.listing\\_date | dateMoment('ll')}}  {{row.mature\\_date | dateMoment('ll')}} |  | {{row.rating}} | {{row.interest | numberFormat(2)}}% | {{row.tenure}} {{row.tenure\\_unit}} |. | Ratio | Shares Issue | Price | Fund Raise | Listing Date |. | {{row.ratio}} | {{row.shares\\_issue | numberFormat}} | {{row.price | numberFormat}} *(IDR)* | {{row.fund\\_raise | numberFormat}} *(IDR)* | {{row.listing\\_date | dateMoment('ll')}} |. | Fiscal Year | Dividend per Share | Payment Date | Type |. | {{row.year}} | {{row.dividend\\_shares | numberFormat(2)}} *({{row.currency}})* | {{row.payment\\_date | dateMoment(\"DD MMM YYYY\") }} | {{row.type}} |. | Fiscal Year | Total Bonus Shares | Payment Date | Recording Date |. | {{row.fiscal\\_year}} | {{row.total\\_bonus\\_shares}} {{row.recording\\_date | dateMoment(\"DD MMM YYYY\") }} | {{row.payment\\_date | dateMoment(\"DD MMM YYYY\") }} | |. # Shareholders Last Update: {{shareholder[0].holding\\_date|dateMoment('ll')}}. | {{row.name}} | {{row.shares|numberFormat}} *(Shares)* | {{row.nominal|numberFormat}} *({{row.currency}})* | {{row.percentage|numberFormat(2)}}% |. ## {{videos[0].title}}. {{videos[0].date\\_create|timeAgo}}. ## {{row.title}}. ## {{news[0].title}}. {{news[0].date\\_create|timeAgo}}. ## {{row.title}}. | {{row.date\\_actual|dateMoment}}  {{row.title}}  Source: {{caption}} |. | {{row.asof\\_date}} | {{row.revenue|numberFormat}} *{{row.currency}}* | {{row.net\\_profit|numberFormat}} *{{row.currency}}* |. # Related Companies (*Alcohol and Liquors*)."
+    },
+    {
+      "query": "STRK Lovina Beach Brewery Tbk. shareholders dividend annual report pdf",
+      "title": "PT Lovina Beach Brewery Tbk Financial Statements – IDX:STRK",
+      "url": "https://in.tradingview.com/symbols/IDX-STRK/financials-overview",
+      "content": "Dividends. Dividend yield, history and sustainability. No dividends. STRK has never paid dividends and has no current plans to do so. Financial health."
+    }
+  ],
+  "documents": [
+    {
+      "url": "https://proclick.profindo.com/medias//images/6500387aa9580.pdf",
+      "title": "[PDF] PT Lovina Beach Brewery Tbk",
+      "pdf_path": "/opt/idx-official-data/documents/STRK/6500387aa9580.pdf",
+      "text_path": "/opt/idx-official-data/extracted/STRK/6500387aa9580.txt",
+      "bytes": 838857
+    }
+  ],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {
+    "6500387aa9580_financial": "Income Statement 31-03-2023** 31-03-2023* 31-12-2022** 31-12-2021** 31-12-2020** Penjualan neto Rp 10,859,348,665 Rp 3,831,158,239 Rp 30,937,826,688 Rp 10,125,568,270 Rp 6,089,056,685 Beban pokok penjualan (4,167,455,156) (1,517,482,858) (10,205,358,312) (3,903,579,520) (4,097,616,083) Laba (rugi) bruto 6,691,893,509 2,313,675,381 20,732,468,376 6,221,988,750 1,991,440,602 Laba (rugi) usaha 20,474,414,860 832,001,758 13,596,641,299 1,612,222,323 (2,272,850,820) Laba (rugi) periode/tahun berjalan 19,495,325,284 (638,227,715) 6,153,544,932 (7,233,296,444) Rp (7,458,836,347) Laba (rugi) komprehensif periode/tahun berjalan Rp 19,485,413,742 Rp (638,227,715) Rp 6,148,773,897 Rp (7,238,550,241) Rp (7,458,836,347) * Tidak diaudit ** Audit Equity IPO Note PT Lovina Beach Brewery Tbk Profindo Research Team: Setya Pambudi Yuda Sukama (Research Analyst) (Technical Analyst) Setya.pambudi@profindo.com yuda.sukama@profindo.com Ext 181 Ext 170 Profindo Equity Sales Team Jessie James Gabriella Pratiwy (Head of Equity Sales) (Head of Marcom & OLT) jessie.james@profindo.com Gabriella.pratiwy@profindo.com Ext 125/137 Ext 111 KANTOR PUSAT Permata Kuningan Building, 19F Jl. KuninganMulia, Kav. 9C, Guntur Setiabudi South Jakarta 12980 Phone : +62 21 5093 1888 Fax : +62 21 50933 1889 WA : 0818 0772 5505 FB : ProclikProfindo IG : @profindosekuritas Telegram : RanGers Stock Community Twitter : proclickRG KANTOR PERWAKILAN SERANG BANDUNG IDX Indonesia Stock Exchange IDX Indonesia Stock Exchange Jl. Veteran No 39-40 Jl. PHH Mustofa No 33 Cimuncang, Kota Serang Neglasari, Kec. Cibeunying Kaler, Banten 42117 Bandung 40124 DISCLAIMER This research report is prepared by PT PROFINDO SEKURITAS INDONESIA for information purposes only and is not to be used or considered as an offer or the solicitation of an offer to sell or to buy or subscribe for securities or other financial instruments. The report has been prepared without regard to individual financial circumstance, need or objective of person to receive it. The securities discussed in this report may not be suitable for all investors. The appropriateness of any particular investment or strategy whether opined on or referred to in this report or otherwise will depend on an investor’s individual circumstance and objective and should be independently evaluated and confirmed by such investor, and, if appropriate, with his professional advisers independently before adoption or implementation (either as is or varied)."
+  }
+}

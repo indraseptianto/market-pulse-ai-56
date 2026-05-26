@@ -1,0 +1,32 @@
+{
+  "code": "YOII",
+  "company_name": "Asuransi Digital Bersama Tbk.",
+  "scraped_at": "2026-05-25T16:30:18.698550+00:00",
+  "source": "Official/company/IDX documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "YOII Asuransi Digital Bersama Tbk. financial report 2025 pdf official",
+      "title": "Financial Statements 1Q 2025 of YOII",
+      "url": "https://ipotnews.com/ipotnews/newsDetail.php?jdl=Financial_Statements_1Q_2025_of_YOII&news_id=463430&group_news=RESEARCHNEWS&taging_subtype=YOII&name=&search=y_general&q=Financial+Statements&halaman=1",
+      "content": "PT Asuransi Digital Bersama Tbk (YOII) membukukan laba bersih pada Quarter 1 2025 sebesar Rp 3,3 miliar ... Income Statement. Revenue, 158,4 B. Gross Profit, 0"
+    },
+    {
+      "query": "YOII Asuransi Digital Bersama Tbk. financial report 2025 pdf official",
+      "title": "Financial Statements 2Q 2025 of YOII - Indo Premier Sekuritas",
+      "url": "https://www.indopremier.com/ipotnews/newsDetail.php?jdl=Financial_Statements_2Q_2025_of_YOII&news_id=471761&group_news=RESEARCHNEWS&news_date=&taging_subtype=RESULT&name=&search=y_general&q=Financial+Statements&halaman=1",
+      "content": "PT Asuransi Digital Bersama Tbk (YOII) membukukan laba bersih pada Quarter 2 2025 sebesar Rp 14,9 miliar. Menurun bila dibandingkan dengan"
+    },
+    {
+      "query": "YOII Asuransi Digital Bersama Tbk. financial report 2025 pdf official",
+      "title": "PT. Asuransi Digital Bersama Tbk [YOII] | IDNFinancials",
+      "url": "https://www.idnfinancials.com/yoii/pt-asuransi-digital-bersama-tbk",
+      "content": "# IPO. | IPO Date | {{ipo.ipo\\_dates.ipo\\_date | dateMoment}} |. | Offering Shares | {{ipo.ipo\\_dates.offering\\_shares | numberFormat}} |. | Founders' Shares | {{ipo.ipo\\_dates.company\\_listing | numberFormat}} |. | Total Listed Shares | {{ipo.ipo\\_dates.total\\_listed\\_shares | numberFormat}} |. | Percentage | {{ipo.ipo\\_dates.percentage | numberFormat(2)}}% |. | Offering Price | {{ipo.ipo\\_dates.offering\\_price | numberFormat}} *(IDR)* |. | Fund Raised | {{ipo.ipo\\_dates.fund\\_raised | numberFormat}} *(IDR)* |. | {{row.name}} | {{row.listing\\_date | dateMoment('ll')}}  {{row.mature\\_date | dateMoment('ll')}} |  | {{row.interest | numberFormat(2)}}% |. | {{row.ratio}} | {{row.shares\\_issue | numberFormat}} | {{row.price | numberFormat}} *(IDR)* | {{row.fund\\_raise | numberFormat}} *(IDR)* | {{row.listing\\_date | dateMoment('ll')}} |. | {{row.year}} | {{row.dividend\\_shares | numberFormat(2)}} *({{row.currency}})* | {{row.payment\\_date | dateMoment(\"DD MMM YYYY\") }} | {{row.type}} |. | {{row.fiscal\\_year}} | {{row.total\\_bonus\\_shares}} {{row.recording\\_date | dateMoment(\"DD MMM YYYY\") }} | {{row.payment\\_date | dateMoment(\"DD MMM YYYY\") }} | |. | {{row.name}} | {{row.shares|numberFormat}} *(Shares)* | {{row.nominal|numberFormat}} *({{row.currency}})* | {{row.percentage|numberFormat(2)}}% |. | {{ row.percentage }} % | {{ row.shareholder|numberFormat }}  ({{formatDiff(row.different\\_shareholder)}}) | {{ row.period | dateMoment(\"DD MMM YYYY\") }} |."
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {}
+}

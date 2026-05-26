@@ -1,0 +1,114 @@
+{
+  "code": "IPAC",
+  "company_name": "Era Graharealty Tbk.",
+  "scraped_at": "2026-05-26T10:00:13.198179+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "IPAC Era Graharealty Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "[PDF] LAMPIRAN Lampiran 1 Daftar Perusahaan Properties & Real Estate ...",
+      "url": "https://eprint.unipma.ac.id/2454/9/Lampiran.pdf",
+      "content": "IPAC Era Graharealty Tbk. 30 Jun 2021. 43. JRPT Jaya Real Property Tbk. 29 Jun ... Indonesia yang mempublikasikan Laporan Tahunan (Annual Report) secara",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "IPAC Era Graharealty Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "Agung Semesta Sejahtera Tbk - Hubungan Investor",
+      "url": "https://www.agungsemestasejahtera.com/investor",
+      "content": "* Ganti bahasa ke Bahasa Indonesia/Change to Indonesian Language ID. * Ganti bahasa ke Bahasa Inggris/Change to English Language EN. | 2026 | Laporan Keuangan Q1 2026 |. ## Informasi Tahunan.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "IPAC Era Graharealty Tbk. website resmi investor relation annual report pdf",
+      "title": "Annual Report | Agen Property #1 Indonesia",
+      "url": "https://eraindonesia.com/for-investors/annual-report",
+      "content": "Annual Report 2025 · Annual Report 2025 ; Annual Report 2024 · Annual Report 2024 ; Annual Report 2023 · Annual Report 2023 ; Annual Report 2022 · Annual Report 2022.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "IPAC Era Graharealty Tbk. shareholders dividend annual report pdf",
+      "title": "era graharealty tbk - Singapore - ShareInvestor.com",
+      "url": "https://www.shareinvestor.com/quote/IDX:IPAC/overview",
+      "content": "Total Shareholder Return (TSR) combines share price appreciation and dividends paid to show the total return to the shareholder expressed as a percentage. b.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "IPAC Era Graharealty Tbk. annual report 2025 pdf official",
+      "title": "APAC Realty Pte Ltd",
+      "url": "https://investor.apacrealty.era.com.sg/publications.html",
+      "content": "The ninth AGM of the Company will be held at 2pm on 23 April 2026 (Thursday) at ERA APAC Centre, Level 2, 450 Lorong 6 Toa Payoh Singapore 319394. | 24 Feb 2026 | DBS Group Research | Tabitha Foo | HOLD | S$0.70 | Download |. | 24 Feb 2026 | RHB Research | Vijay Natarajan | Neutral | S$0.70 | Download |. | 15 Sep 2025 | RHB Securities | Vijay Natarajan | Neutral | S$0.80 | Download |. | 11 Aug 2025 | DBS Group Research | Tabitha FOO / Derek TAN | BUY | S$0.80 | Download |. | 17 Mar 2025 | RHB Securities | Vijay Natarjan | BUY | S$0.48 | Download |. | 16 Aug 2023 | DBS Group Research | LING Lee Keng | HOLD | S$0.54 | Download |. | 16 Aug 2023 | RHB Securities | Vijay Natarjan | NEUTRAL | S$0.54 | Download |.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "IPAC Era Graharealty Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "Laporan Tahunan & Laporan Keberlanjutan - Tentang Grha Kedoya",
+      "url": "https://grhakedoya.com/id/hubungan-investor/laporan-tahunan-dan-laporan%20keberlanjutan",
+      "content": "Missing: IPAC Era Graharealty pdf",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "IPAC Era Graharealty Tbk. website resmi investor relation annual report pdf",
+      "title": "Annual Report PT Era Graharealty Tbk (IPAC) 2022 - ticmi",
+      "url": "https://ticmi.co.id/amp/datapasarmodal/ED/ar/viewsingle/138777/annual-report-pt-era-graharealty-tbk-ipac-2022",
+      "content": "Annual Report. Annual Report PT Era Graharealty Tbk (IPAC) 2022. Upss, kamu belum berlangganan Data Paket, kami bantuin pilihkan paket data terbaik",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "IPAC Era Graharealty Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] ERA - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202404/1d5c1cc837_8c5b2275d6.pdf",
+      "content": "Era. Groharealty Tbk, to present the Annual Report for the fiscal year 2023. This annual report signifies our commitment to accountability for the",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "IPAC Era Graharealty Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT Era Graharealty Tbk IPAC 1 Laporan Informasi atau Fakta ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202305/8a69c1bf12_f4a0842906.pdf",
+      "content": "Laporan KI Perubahan Dekom Bilingual Lampiran.pdf. Lampiran. Dokumen ini merupakan dokumen resmi PT Era Graharealty Tbk yang tidak memerlukan",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "IPAC Era Graharealty Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] LAPORAN PENDAPAT KEWAJARAN PT ERA GRAHAREALTY ...",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202505/f66c607ba6_5992f67cff.pdf",
+      "content": "Pendapat Kewajaran – PT Era Graharealty Tbk (“IPAC”). Halaman - 1 ... Sumber : Laporan Keuangan Audit konsolidasian IPAC per 31 Desember 2024,",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "IPAC Era Graharealty Tbk. annual report 2024 pdf official",
+      "title": "[PDF] 090/ERA/IV/24 PT Era Graharealty Tbk IPAC 2 Penyampaian ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202404/5914b64184_ecbe0e4cfd.pdf",
+      "content": "The Company hereby submit Annual and Continuity Report 2023 for the period of 01 January 2023 to 31 December. 2023 in Indonesia and English.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "IPAC Era Graharealty Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT ERA GRAHAREALTY Tbk DAN ENTITAS ANAK/AND ITS ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202503/20260316224443-59811-0/LK%20IPAC%20TW%20IV%202025.pdf",
+      "content": "PT ERA GRAHAREALTY Tbk. DAN ENTITAS ANAK/AND ITS SUBSIDIARIES. LAPORAN KEUANGAN/FINANCIAL STATEMENTS. TANGGAL 31 DESEMBER 2025. SERTA UNTUK",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {},
+  "processing_status": "partial",
+  "processing_reasons": [
+    "Tidak ada kandidat dokumen yang ditemukan dari pencarian."
+  ]
+}

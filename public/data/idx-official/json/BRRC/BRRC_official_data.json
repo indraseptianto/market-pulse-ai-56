@@ -1,0 +1,56 @@
+{
+  "code": "BRRC",
+  "company_name": "Raja Roti Cemerlang Tbk.",
+  "scraped_at": "2026-05-25T16:15:09.708369+00:00",
+  "source": "Official/company/IDX documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "BRRC Raja Roti Cemerlang Tbk. annual report 2025 pdf official",
+      "title": "Financial Statements 1Q 2025 of BRRC - IndoPremier",
+      "url": "https://www.indopremier.com/ipotnews/newsDetail.php?jdl=Financial_Statements_1Q_2025_of_BRRC&news_id=463767&group_news=RESEARCHNEWS&news_date=&taging_subtype=COMPANYUPDATE&name=&search=y_general&q=Financial+Statements&halaman=1",
+      "content": "PT Raja Roti Cemerlang Tbk (BRRC) membukukan laba bersih pada Quarter 1 2025 sebesar Rp 1,1 miliar ... EBITDA/IntExp. 11,66. Full akses : Klik pdf"
+    },
+    {
+      "query": "BRRC Raja Roti Cemerlang Tbk. annual report 2025 pdf official",
+      "title": "Raja Roti Cemerlang Tbk. (BRRC.JK) Income Statement",
+      "url": "https://finance.yahoo.com/quote/BRRC.JK/financials",
+      "content": "Get the detailed quarterly/annual income statement for Raja Roti Cemerlang Tbk. (BRRC.JK). Find out the revenue, expenses and profit or loss over the last"
+    },
+    {
+      "query": "BRRC Raja Roti Cemerlang Tbk. annual report 2024 pdf official",
+      "title": "Laporan Keuangan Tahunan PT Raja Roti Cemerlang Tbk - Scribd",
+      "url": "https://id.scribd.com/document/888458640/FinancialStatement-2024-Tahunan-BRRC",
+      "content": "PT Raja Roti Cemerlang Tbk menyampaikan laporan keuangan tahunan yang berakhir pada 31 Desember 2024. Laporan ini mencakup informasi mengenai aset, piutang,"
+    },
+    {
+      "query": "BRRC Raja Roti Cemerlang Tbk. annual report 2024 pdf official",
+      "title": "[PDF] PT RAJA ROTI CEMERLANG Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202403/20250328152120-51130-0/LK%20PT%20Raja%20Roti%20Cemerlang%20Tbk%20%2031%20Des%202024.pdf",
+      "content": "Annual Report and Sustainability Report 2024. (the \"Annual Report\"), but does not include the financial statements and our auditors' report"
+    },
+    {
+      "query": "BRRC Raja Roti Cemerlang Tbk. annual report 2024 pdf official",
+      "title": "[PDF] sanggahan dan batasan tanggung jawab - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202505/03751bfb44_7c934afc39.pdf",
+      "content": "Page 1. 1. Integrated Report 2024. PT Raja Roti Cemerlang Tbk. Page 2. 2. Laporan Tahunan Terintegrasi 2024. PT Raja Roti Cemerlang Tbk. SANGGAHAN DAN BATASAN"
+    },
+    {
+      "query": "BRRC Raja Roti Cemerlang Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "Financial Statements 3Q 2025 of BRRC",
+      "url": "https://www.ipotnews.com/ipotnews/newsDetail.php?jdl=Financial_Statements_3Q_2025_of_BRRC&news_id=478443&group_news=RESEARCHNEWS&taging_subtype=BRRC&name=&search=y_general&q=Financial+Statements+&halaman=1",
+      "content": "PT Raja Roti Cemerlang Tbk (BRRC) membukukan laba bersih pada Quarter 3 2025 sebesar Rp 1,1 miliar. Dengan demikian, laba bersih per saham"
+    },
+    {
+      "query": "BRRC Raja Roti Cemerlang Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "PT. Raja Roti Cemerlang Tbk [BRRC] - IDNFinancials.com",
+      "url": "https://www.idnfinancials.com/brrc/pt-raja-roti-cemerlang-tbk",
+      "content": "| **Market Cap. Rank in Industry** 33 of 34 | **Market Cap. Rank in All Companies** 918 of 958 |. # IPO. | IPO Date | {{ipo.ipo\\_dates.ipo\\_date | dateMoment}} |. | Offering Shares | {{ipo.ipo\\_dates.offering\\_shares | numberFormat}} |. | Founders' Shares | {{ipo.ipo\\_dates.company\\_listing | numberFormat}} |. | Total Listed Shares | {{ipo.ipo\\_dates.total\\_listed\\_shares | numberFormat}} |. | Percentage | {{ipo.ipo\\_dates.percentage | numberFormat(2)}}% |. | Offering Price | {{ipo.ipo\\_dates.offering\\_price | numberFormat}} *(IDR)* |. | Fund Raised | {{ipo.ipo\\_dates.fund\\_raised | numberFormat}} *(IDR)* |. | {{row.name}} | {{row.listing\\_date | dateMoment('ll')}}  {{row.mature\\_date | dateMoment('ll')}} |  | {{row.interest | numberFormat(2)}}% |. | {{row.ratio}} | {{row.shares\\_issue | numberFormat}} | {{row.price | numberFormat}} *(IDR)* | {{row.fund\\_raise | numberFormat}} *(IDR)* | {{row.listing\\_date | dateMoment('ll')}} |. | {{row.year}} | {{row.dividend\\_shares | numberFormat(2)}} *({{row.currency}})* | {{row.payment\\_date | dateMoment(\"DD MMM YYYY\") }} | {{row.type}} |. | {{row.name}} | {{row.shares|numberFormat}} *(Shares)* | {{row.nominal|numberFormat}} *({{row.currency}})* | {{row.percentage|numberFormat(2)}}% |. | {{ row.percentage }} % | {{ row.shareholder|numberFormat }}  ({{formatDiff(row.different\\_shareholder)}}) | {{ row.period | dateMoment(\"DD MMM YYYY\") }} |."
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {}
+}

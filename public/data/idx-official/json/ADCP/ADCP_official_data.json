@@ -1,0 +1,131 @@
+{
+  "code": "ADCP",
+  "company_name": "Adhi Commuter Properti Tbk.",
+  "scraped_at": "2026-05-26T10:36:43.124794+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "ADCP Adhi Commuter Properti Tbk. annual report 2025 pdf official",
+      "title": "[PDF] 2024 - adhi karya",
+      "url": "https://adhi.co.id/wp-content/uploads/2025/04/AR-ADHI-2024_08042025.pdf",
+      "content": "This annual report contains statements of financial condition, operational performance, projections, plans, strategies, policies, and objectives",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ADCP Adhi Commuter Properti Tbk. annual report 2025 pdf official",
+      "title": "[PDF] ADHI_LK_30-September-2025.pdf - adhi karya",
+      "url": "https://adhi.co.id/wp-content/uploads/2026/04/ADHI_LK_30-September-2025.pdf",
+      "content": "Aset Lancar. Current Assets. Kas dan Setara Kas. 4. 1,469,010,426,800. 2,243,830,554,138. Cash and Cash Equivalents. Piutang Usaha.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ADCP Adhi Commuter Properti Tbk. annual report 2025 pdf official",
+      "title": "[PDF] PEMANGGILAN RAPAT UMUM PEMEGANG SAHAM TAHUNAN PT ...",
+      "url": "https://www.adcp.co.id/storage/information-disclosures/May2025/0514%20Pemanggilan%20RUPST%202025.pdf",
+      "content": "PT ADHI COMMUTER PROPERTI Tbk. Head Office Jl. Pengantin Ali No 88, Jakarta 13720, Indonesia. P. 62-21 22822980 Email. adcp@adcp.co.id.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ADCP Adhi Commuter Properti Tbk. website resmi investor relation annual report pdf",
+      "title": "ADCP",
+      "url": "https://www.adcp.co.id/investor/financial-reports",
+      "content": "Laporan Keuangan PT Adhi Commuter Properti Tbk. Q2 2025. Laporan Keuangan PT Adhi Commuter Properti Tbk. Q1 2025 LK PT ADCP Konsolidasian 31 Maret 2025 R1.pdf). Laporan Keuangan PT Adhi Commuter Properti Tbk. Akhir Tahun 2024. Laporan Keuangan PT Adhi Commuter Properti Tbk. Q3 2024. Laporan Keuangan PT Adhi Commuter Properti Tbk. Q2 2024. Laporan Keuangan PT Adhi Commuter Properti Tbk. Q1 2024. Laporan Keuangan PT Adhi Commuter Properti Tbk. Akhir Tahun 2023. Laporan Keuangan PT Adhi Commuter Properti Tbk Q3 2023. Laporan Keuangan PT Adhi Commuter Properti Tbk Q1 2023. Laporan Keuangan PT Adhi Commuter Properti Tbk Q2 2023 Laporan Keuangan ADCP Q2 2023.pdf). Laporan Keuangan PT Adhi Commuter Properti Tbk. 2022 (Audited). Laporan Keuangan PT Adhi Commuter Properti Tbk. Q3 2022.pdf. Laporan Keuangan PT Adhi Commuter Properti Tbk. Q2 2022. Laporan Keuangan PT Adhi Commuter Properti Tbk. Q1 2022. Laporan Keuangan Konsolidasi PT Adhi Commuter Properti Tbk. 2021. Laporan Keuangan Konsolidasi PT Adhi Commuter Properti 2020.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ADCP Adhi Commuter Properti Tbk. website resmi investor relation annual report pdf",
+      "title": "Laporan Tahunan - PT ADHI KARYA (Persero) Tbk.",
+      "url": "https://adhi.co.id/hubungan-investor/keuangan/laporan-tahunan",
+      "content": "Laporan Perusahaan · Ikhtisar Keuangan · Laporan Keuangan · Laporan Keberlanjutan · Ikhtisar Obligasi · Laporan Tahunan · Presentasi Korporasi",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ADCP Adhi Commuter Properti Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] LAPORAN TAHUNAN ANNUAL REPORT - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/ff7504306f_4582b272d4.pdf",
+      "content": "Laporan Tahunan ini memuat kata “ADCP” dan “Perseroan” yang didefinisikan sebagai PT Adhi Commuter Properti. Tbk yang menjalankan kegiatan",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ADCP Adhi Commuter Properti Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 12/KI-ADCP/IV-2024 PT Adhi Commuter Properti Tbk ADCP 1 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202404/611c2aa015_0e6f50f4d6.pdf",
+      "content": "1. Persetujuan Laporan Tahunan dan Laporan Keuangan. Tahunan. 2. Persetujuan Penggunaan Laba Bersih. 3. Penetapan Gaji/Honorarium, Fasilitas",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ADCP Adhi Commuter Properti Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 06/KI-ADCP/III-2025 PT Adhi Commuter Properti Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202503/e3f2bc733c_c38bb5a039.pdf",
+      "content": "KINERJA KEUANGAN ADCP 2024, OPTIMALISASI. PORTOFOLIO. Uraian Informasi atau Fakta Material. ADCP mengumumkan laporan keuangan konsolidasian.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ADCP Adhi Commuter Properti Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Tentang Laporan Tahunan 2023 PT Adhi Commuter Properti Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202404/72a7b8b8e5_b1127f7824.pdf",
+      "content": "Selamat datang di Laporan Tahunan 2023 PT Adhi. Commuter Properti Tbk. Laporan Tahunan bertemakan. “Building Harmony to Empower the Nation”",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ADCP Adhi Commuter Properti Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT Adhi Commuter Properti Tbk ADCP 1 Laporan Informasi Potensi Ke",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202603/1839f52811_d84d7d068a.pdf",
+      "content": "Laporan keuangan tahunan kepada Otoritas Jasa Keuangan dan diumumkan kepada masyarakat paling lambat pada akhir bulan ketiga (tanggal 31",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ADCP Adhi Commuter Properti Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT Adhi Commuter Properti Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202604/038a5b4fa5_68d4ef5b5d.pdf",
+      "content": "Page 1. Laporan Tahunan. Annual Report 2025. PT Adhi Commuter Properti Tbk. 1. Page 2. Laporan Tahunan. Annual Report. 2025. PT Adhi Commuter Properti Tbk. 2.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ADCP Adhi Commuter Properti Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Perseroan dengan ini menyampaikan laporan keuangan untuk ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202605/20260501200343-62125-0/FinancialStatement-2026-I-ADCP.pdf",
+      "content": "PT Adhi Commuter Properti Tbk bertanggung jawab penuh atas informasi tertera di dalam dokumen ini. Nomor Surat. 182/ADCP-IV/2026. Nama Emiten.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    }
+  ],
+  "documents": [
+    {
+      "url": "https://adhi.co.id/wp-content/uploads/2025/04/AR-ADHI-2024_08042025.pdf",
+      "title": "[PDF] 2024 - adhi karya",
+      "error": "HTTPSConnectionPool(host='adhi.co.id', port=443): Max retries exceeded with url: /wp-content/uploads/2025/04/AR-ADHI-2024_08042025.pdf (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:992)')))"
+    },
+    {
+      "url": "https://adhi.co.id/wp-content/uploads/2026/04/ADHI_LK_30-September-2025.pdf",
+      "title": "[PDF] ADHI_LK_30-September-2025.pdf - adhi karya",
+      "error": "HTTPSConnectionPool(host='adhi.co.id', port=443): Max retries exceeded with url: /wp-content/uploads/2026/04/ADHI_LK_30-September-2025.pdf (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:992)')))"
+    },
+    {
+      "url": "https://www.adcp.co.id/storage/information-disclosures/May2025/0514%20Pemanggilan%20RUPST%202025.pdf",
+      "title": "[PDF] PEMANGGILAN RAPAT UMUM PEMEGANG SAHAM TAHUNAN PT ...",
+      "error": "HTTPSConnectionPool(host='www.adcp.co.id', port=443): Max retries exceeded with url: /storage/information-disclosures/May2025/0514%20Pemanggilan%20RUPST%202025.pdf (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fa40a0c47d0>, 'Connection to www.adcp.co.id timed out. (connect timeout=90)'))"
+    }
+  ],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {},
+  "processing_status": "partial",
+  "processing_reasons": [
+    "Kandidat ditemukan, tetapi tidak ada PDF yang berhasil didownload.",
+    "Sebagian dokumen gagal didownload/diekstrak; cek sheet documents di Excel."
+  ]
+}

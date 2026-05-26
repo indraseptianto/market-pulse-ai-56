@@ -1,0 +1,114 @@
+{
+  "code": "GTSI",
+  "company_name": "GTS Internasional Tbk.",
+  "scraped_at": "2026-05-26T08:55:12.718708+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "GTSI GTS Internasional Tbk. annual report 2024 pdf official",
+      "title": "GTSI",
+      "url": "https://gtsi.co.id/investors/annual-report",
+      "content": "You need to enable JavaScript to run this app.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "GTSI GTS Internasional Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "GTSI",
+      "url": "https://gtsi.co.id/id/investors/annual-report",
+      "content": "You need to enable JavaScript to run this app.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "GTSI GTS Internasional Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "Annual Report PT GTS Internasional Tbk (GTSI) 2021 - ticmi",
+      "url": "https://www.ticmi.co.id/index.php/amp/datapasarmodal/ED/ar/viewsingle/135352/annual-report-pt-gts-internasional-tbk-gtsi-2021",
+      "content": "Laporan Keuangan Interim · Laporan Keuangan Tahunan · Prospektus · Annual Report · Laporan Keuangan Interim Excel · Laporan Keuangan Tahunan Excel · Sustainability",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "GTSI GTS Internasional Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "2021Laporan Tahunan",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202205/b7794abb60_34c20300f2.pdf",
+      "content": "Therefore, the Company will be able to realize its vision to become a world-class company that serves as the owner and management of operation of LNG vessels and Floating and Regasification Storage Unit, as well as meet the needs of the community for natural gas, which is an environmental-friendly energy, KINERJA 2021 2021 PERFORMANCE LAPORAN MANAJEMEN MANAGEMENT REPORT PROFIL PERUSAHAAN COMPANY PROFILE ANALISIS & PEMBAHASAN MANAJEMEN MANAGEMENT DISCUSSION & ANALYSIS PT GTS Internasional Tbk Laporan Tahunan 2021 Annual Report 04 Ikhtisar Utama 2021 Key Highlights in 2021 Ikhtisar Data Keuangan dan Operasional Financial and Operational Highlights Ikhtisar Saham Share Highlights Peristiwa Penting 2021 2021 Event Highlights Sertifikasi Certifications 01 02 04 08 10 14 16 19 00 01 02 22 30 40 82 84 87 88 91 94 95 96 96 96 97 100 101 102 103 104 LAPORAN MANAJEMEN Management Reports KINERJA 2021 2021Performance ANALISIS DAN PEMBAHASAN MANAJEMEN Management Discussion and Analysis Makro Ekonomi Global dan Nasional Global and National Macroeconomics Diagram Rantai Suplai LNG Diagram of LNG Supply Chain Segmen Usaha/Business Segment Tinjauan Operasi Per Segmen Usaha Operational Review of Each BusinessSegment Analisis Kinerja Keuangan Financial Performance Analysis Kemampuan Membayar Utang, dan Kolektibilitas Piutang Serta Rasio Keuangan Utama Ability to Pay Debts, and Collectability Rate of Receivables And Key Financial Ratios Struktur Modal dan Kebijakan Manajemen Terhadap Struktur Modal Capital Structure and Management Policy on Capital Structure Ikatan Material untuk Investasi Barang Modal Material Commitments for Capital Goods Investment Investasi Barang Modal Pada Tahun Buku Capital Expenditures in the Financial Year Informasi dan Fakta Material yang Terjadi Setelah Tanggal Laporan Akuntan Material Information and Fact Post Accounting Prospek Usaha/Business Prospect Perbandingan Target dan Realisasi, Serta Proyeksi 2022 Comparison of Targets and Realizations, As Well As Projections for 2022 Aspek Pemasaran/Marketing Aspect Kebijakan Dividen/Dividend Policy Realisasi Dana Penawaran Umum Realization of Proceeds from Public Offering Informasi Transaksi Terkait Investasi, Ekspansi, Divestasi, Akuisisi, dan Restrukturisasi Information About Transactions Related to",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "GTSI GTS Internasional Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] GTS - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202205/a3b0e6c378_e6c8291589.pdf",
+      "content": "Submission of Annual Report and Sustainability. Report Year 2021 of PT GTS Internasional Tbk. (\"The Company\"). Dear Sir/Madam,. To comply with the provisions",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "GTSI GTS Internasional Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Setting New Milestones, Expanding towards the Horizon - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202404/33ecaafd90_0851069d8f.pdf",
+      "content": "Laporan Tahunan dan Keberlanjutan ini memuat kata. “GTSI ... Internasional Tbk. Laporan ini disajikan dalam dua bahasa yaitu Bahasa Indonesia dan Inggris.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "GTSI GTS Internasional Tbk. website resmi investor relation annual report pdf",
+      "title": "[PDF] Journey of Growth and Collaboration - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/3377590fa4_956827ef7a.pdf",
+      "content": "Laporan Tahunan dan Keberlanjutan dapat dilihat dan diunduh di situs web resmi Perseroan yaitu www.gtsi.co.id. The Company's 2024 Annual and.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "GTSI GTS Internasional Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "[PDF] Nomor Surat Nama Perusahaan Kode Emiten Lampiran ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202506/0a1935e597_abd245f30d.pdf",
+      "content": "GTSI - CN RUPST 12 Juni 2025.pdf. Lampiran. Dokumen ini merupakan dokumen resmi PT GTS Internasional Tbk yang tidak memerlukan tanda tangan",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "GTSI GTS Internasional Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Perseroan dengan ini menyampaikan laporan keuangan untuk ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202507/20250730191215-55118-0/FinancialStatement-2025-II-GTSI.pdf",
+      "content": "GTS Internasional Tbk bertanggung jawab penuh atas informasi tertera di dalam dokumen ini. Nomor Surat. 283/EXT-GTSI/VII/2025. Nama Emiten. PT",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "GTSI GTS Internasional Tbk. annual report 2025 pdf official",
+      "title": "[PDF] PT GTS INTERNASIONAL TBK. - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/20250424225851-52043-0/Laporan%20Keuangan%20GTSI%20Q1%202025.pdf",
+      "content": "As of March 31, 2025, the Group has a total of 37 employees (unaudited). Page 14. The original consolidated financial statements included herein",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "GTSI GTS Internasional Tbk. shareholders dividend annual report pdf",
+      "title": "[PDF] PT GTS Internasional Tbk. dan entitas anaknya/and its subsidiaries",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202303/20240330065734-42927-0/gtsi%20tbk_bilingual_31_des_2023_released.pdf",
+      "content": "information included in the 2023 Annual Report. (the “Annual Report”) other than the accompanying consolidated financial statements and our independent",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "GTSI GTS Internasional Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] GTSI - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202507/20250730191215-55118-0/GTSI%20-%20Pengantar%20Aset%20Liabilitas%20Q2-25.pdf",
+      "content": "Sesuai dengan Laporan Keuangan Konsolidasian PT. GTS Internasional Tbk. (\"Perseroan\") dan Entitas. Anaknya tanggal 30 Juni 2025, kami",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {},
+  "processing_status": "partial",
+  "processing_reasons": [
+    "Tidak ada kandidat dokumen yang ditemukan dari pencarian."
+  ]
+}

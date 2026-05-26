@@ -1,0 +1,85 @@
+{
+  "code": "GRIA",
+  "company_name": "Ingria Pratama Capitalindo Tbk",
+  "scraped_at": "2026-05-25T21:50:16.880119+00:00",
+  "source": "Official/company/IDX documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "GRIA Ingria Pratama Capitalindo Tbk annual report 2025 pdf official",
+      "title": "[PDF] Sangkalan dan Batas Tanggungjawab - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202604/15c1dc35a2_cd0a3325b9.pdf",
+      "content": "... Ingria Pratama. Capitalindo Tbk. Page 3. Laporan Tahunan & Keberlanjutan 2025. Annual & Sustainability Report. PT Ingria Pratama Capitalindo Tbk. Optimalisasi"
+    },
+    {
+      "query": "GRIA Ingria Pratama Capitalindo Tbk annual report 2025 pdf official",
+      "title": "Annual report - Ingria Pratama Capitalindo",
+      "url": "https://ingriagroup.com/en/laporan-tahunan",
+      "content": "Annual report. Ringkasan Laporan Tahunan. List of reports. AR_SR GRIA 2025. latest. View Download. AR_SR GRIA 2024. Previous Period. View Download."
+    },
+    {
+      "query": "GRIA Ingria Pratama Capitalindo Tbk annual report 2025 pdf official",
+      "title": "Financial Statements Full Year 2025 of GRIA",
+      "url": "https://www.ipotnews.com/module/newsDetail.php?jdl=Financial_Statements_Full_Year_2025_of_GRIA&news_id=486255&group_news=RESEARCHNEWS&taging_subtype=COMPANYUPDATE&name=&search=y_general&q=Financial+Statements&halaman=1",
+      "content": "membukukan laba bersih pada tahun 2025 sebesar Rp 7,7 miliar. Naik bila dibandingkan dengan periode yang sama di tahun 2024 sebesar Rp 5,8 miliar."
+    },
+    {
+      "query": "GRIA Ingria Pratama Capitalindo Tbk annual report 2025 pdf official",
+      "title": "[PDF] ING Group Annual Report 2025",
+      "url": "https://ing.com/binaries/content/assets/documents/annual-reports/2025-ing-groep-nv-annual-report.pdf",
+      "content": "Actual results, performance or events may differ materially from those in such statements due to a number of factors, including, without limitation: (1) changes in general economic conditions and customer behaviour, in particular economic conditions in ING’s core markets, including changes affecting currency exchange rates and the regional and global economic impact of the invasion of Russia into Ukraine and related international response measures (2) changes affecting interest rate levels (3) any default of a major market participant and related market disruption (4) changes in performance of financial markets, including in Europe and developing markets (5) fiscal uncertainty in Europe and the United States (6) discontinuation of or changes in ‘benchmark’ indices (7) inflation and deflation in our principal markets (8) changes in conditions in the credit and capital markets generally, including changes in borrower and counterparty creditworthiness (9) failures of banks falling under the scope of state compensation schemes (10) non-compliance with or changes in laws and regulations, including those concerning financial services, financial economic crimes and tax laws, and the interpretation and application thereof (11) geopolitical risks, political instabilities and policies and actions of governmental and regulatory authorities, including in connection with the invasion of Russia into Ukraine, other existing or emerging military conflicts, the risk of further military escalation, geopolitical tensions, trade restrictions and the related international response measures (12) legal and regulatory risks in certain countries with less developed legal and regulatory frameworks (13) prudential supervision and regulations, including in relation to stress tests and regulatory restrictions on dividends and distributions (also among members of the group) (14) ING’s ability to meet minimum capital and other prudential regulatory requirements (15) changes in regulation of US commodities and derivatives businesses of ING and its customers (16) application of bank recovery and resolution regimes, including write down and conversion powers in relation to our securities (17) outcome of current and future litigation, enforcement proceedings, investigations or other regulatory"
+    },
+    {
+      "query": "GRIA Ingria Pratama Capitalindo Tbk financial report 2025 pdf official",
+      "title": "Financial Statements 1Q 2025 of GRIA - IndoPremier",
+      "url": "https://www.indopremier.com/ipotnews/newsDetail.php?jdl=Financial_Statements_1Q_2025_of_GRIA&news_id=463285&group_news=RESEARCHNEWS&news_date=&taging_subtype=RESULT&name=&search=y_general&q=Financial+Statements&halaman=1",
+      "content": "PT Ingria Pratama Capitalindo Tbk (GRIA) membukukan rugi bersih pada Quarter 1 2025 sebesar Rp 783,4 juta. Menurun bila dibandingkan dengan"
+    },
+    {
+      "query": "GRIA Ingria Pratama Capitalindo Tbk laporan keuangan 2025 pdf resmi",
+      "title": "Financial Statements 2Q 2025 of GRIA",
+      "url": "https://www.ipotnews.com/ipotnews/newsDetail.php?jdl=Financial_Statements_2Q_2025_of_GRIA&news_id=469979&group_news=RESEARCHNEWS&taging_subtype=COMPANYUPDATE&name=&search=y_general&q=Financial+Statements&halaman=1",
+      "content": "PT Ingria Pratama Capitalindo Tbk (GRIA) membukukan laba bersih pada Quarter 2 2025 sebesar Rp 1,3 miliar. Naik bila dibandingkan dengan"
+    },
+    {
+      "query": "GRIA Ingria Pratama Capitalindo Tbk shareholders dividend annual report pdf",
+      "title": "[PDF] Meningkatkan Kapabilitas Menuju Pertumbuhan Berkualitas 2023",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202405/e5f34623d3_b5e1c5cec5.pdf",
+      "content": "Pada tanggal 8 Agustus 2023, PT Ingria Pratama Capitalindo Tbk secara resmi mencatatkan sahamnya pada Bursa Efek Indonesia. (BEI/IDX) dengan kode saham GRIA."
+    }
+  ],
+  "documents": [
+    {
+      "url": "https://ing.com/binaries/content/assets/documents/annual-reports/2025-ing-groep-nv-annual-report.pdf",
+      "title": "[PDF] ING Group Annual Report 2025",
+      "pdf_path": "/opt/idx-official-data/documents/GRIA/2025-ing-groep-nv-annual-report.pdf",
+      "text_path": "/opt/idx-official-data/extracted/GRIA/2025-ing-groep-nv-annual-report.txt",
+      "bytes": 20011936
+    }
+  ],
+  "financial_income_revenue": [],
+  "dividends": [
+    {
+      "document": "/opt/idx-official-data/documents/GRIA/2025-ing-groep-nv-annual-report.pdf",
+      "evidence_text": "dividend and share buyback distributions Investors Intellectual Using our scalable Unlocking our people’s § Tech and operations services Tech & Ops. full potential. § Proprietary knowledge, including § Shared innovation banking and risk expertise § Responsible sourcing § Data analytics including Gen & agentic § Third-party spend ...to make banking frictionless Suppliers & partners AI § Development of digital services and adapting to market changes § Secure and accessible banking experience Retail Banking Wholesale Banking § Support for financial resilience Natural § We reduced our exposure to upstream oil & gas by 71 percent since Leading brand position, digital capabilities, and Sector expertise, global network, sustainability 2019 and brought down the generated emissions (per MWh) in our § Energy consumed by our branches and service model tailored to client needs pioneers power sector by 85 percent since 2018. offices § Private Individuals § Large corporate clients and financial Society § €9.6 billion Renewable power-generation financing § Private Banking clients institutions § €166 billion Sustainable volume mobilised § Business Banking clients: Self-employed & Micro, SMEs, Mid-Corps ING Strategy, business model Our financial Our leadership and Sustainability Capital Risk Consolidated Parent company Other information ING Group Annual Report 2025 Contents at a glance and value creation performance corporate governance statement Management Management financial statements financial statements and appendices 17 Superior value for customers Providing superior value for customers is one of ING offers a broad range of banking products and services for private We strive to provide a seamless, mobile-first digital experience, engaging individuals, including savings accounts, payments, credit cards, customers across their daily banking activities and offering personalised our two overarching priorities, as we strive to mortgages, unsecured lending, investment solutions and insurance products and services supported by advanced technology and data-driven make banking easy, instant, person"
+    }
+  ],
+  "latest_shareholders_freefloat_ownership": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/GRIA/2025-ing-groep-nv-annual-report.pdf",
+        "shareholders": "shareholders of the parent. ING Strategy, business model Our financial Our leadership and Sustainability Capital Risk Consolidated Parent company Other information ING Group Annual Report 2025 Contents at a glance and value creation performance corporate governance statement Management Management financial statements financial statements and appendices 5 Letter to stakeholders Dear shareholders and other stakeholders, Banking Andrew Bester, both of whom have been an integral part of the Simplification of regulations and removal of internal barriers transformation ING has undergone over the past several years. We will We believe Europe must focus on simplifying regulation across the board certainly miss their steadfast dedication and commitment to ING. We can and work towards the removal of internal barriers that still hold back the Thank you for your support during the course of the only be grateful that we have had such colleagues in our midst and in our European Union. These obstacles undermine Europe’s competitiveness and year. As a bank we have performed well across a wide team. We also extend a warm word of welcome to our incoming limit its capacity for growth. range of metrics against a challenging and eventful colleague, CFO-designate Ida Lerner. It is encouraging to see that the European Commission has recognised the backdrop. We are grateful that this resilience has been We believe that we are well positioned, both operationally and financially, need for simplification of regulation and launched the Omnibus package. recognised by our shareholders, clients and to navigate a changing and more unpredictable global environment. It is Yet this alone will not suffice. Lasting progress requires a concerted effort clear that the world we have known for many years, and we have come to from regulators and all Member States to pursue simplification across the employees. accept as the norm, has changed. In a rapidly evolving multipolar world, it European Union. is incumbent upon us to make pragmatic and prudent choices consistent In 2025, we have strengthened our position as a leading retail bank, with our values. Furthermore, it is crucial to remove a plethora of internal barriers that exist serving nearly 41 million customers and cementing our role as one of within the European Union, so that Europe can accelerate its growth Europe’s largest mortgage providers. Our Private Individuals offer has While these developments are not of our making, we have to accept that ambitions. According to the European Commission, further completion continued to grow, supported by digital innovation and a relentless focus they do have implications for our businesses. Therefore, how we organise of the Single Market would double the already achieved EU GDP growth on providing customer value. Business Banking has expanded its reach, ourselves in terms of operational structures, and as such, our business since its creation in 1993. Other analyses point to the potential for even helping entrepreneurs and SMEs thrive in a challenging environment, while footprint, is important. larger economic gains if remaining internal barriers are removed. Private Banking and Wealth Management have deepened relationships This underscores the urgency of accelerating the process of completing with clients seeking trusted advice and tailored solutions. At the same The truth is that how we look at the world and how we process thes",
+        "free_float": ""
+      }
+    ]
+  },
+  "management": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/GRIA/2025-ing-groep-nv-annual-report.pdf",
+        "directors": "board of directors of Lloyds Banking Group Relevant CRD IV position(s) Relevant CRD IV position(s) PLC Relevant CRD IV position(s) § Chairperson of the SB § Vice-chairperson of the SB § Member of the SB § Member of the supervisory board of SHV Holdings N.V. § Non-executive chairperson of the board of directors of Relevant CRD IV position(s) § Non-executive board member of Exor N.V. Midlands Mindforge § Member of the SB Other ancillary positions § Non-executive member of the board of directors of Azora § None Other ancillary positions Other ancillary positions Capital S.L., Azora Investment Management S.L. and § Member of the supervisory board of Rijksmuseum Fonds § Non-executive chairperson of the board of directors of Azora Gestion SGIIC Mauritius Africa FinTech Hub § Non-executive chairperson of the board of directors of Bluserena Spa Unipersonale Other ancillary positions § Member of the global alumni advisory board of the Institute de Empresa (IE) Business School ING Strategy, business model Our financial Our leadership and Sustainability Capital Risk Consolidated Parent company Other information ING Group Annual Report 2025 Contents at a glance and value creation performance corporate governance statement Management Management financial statements financial statements and appendices 37 Margarete Lodewijk Hijmans Petri Herman Haase van den Bergh Hofsté Hulst Born 1961 Born 1955 Born 1953 Born 1963 Nationality Dutch Nationality Dutch Nationality Austrian Nationality Dutch Term expires 2029 Term expires 2028 Term expires 2027 Term expires 2029 Margarete was appointed a member of the SB at the Lodewijk was appointed a member of the SB at the Petri was appointed a member of the SB at the General Herman was appointed a member of the SB at the General General Meeting in May 2017. General Meeting in April 2021. Meeting in April 2025. Meeting in April 2020. Margarete is chairperson of the Audit Committee and a Lodewijk is chairperson of the ESG Committee and a Petri is a member of the Risk Committee and the Audit Herman is a member of the Audit Committee, the Risk member of the Risk Committee and the Remuner",
+        "commissioners": ""
+      }
+    ]
+  },
+  "evidence": {}
+}

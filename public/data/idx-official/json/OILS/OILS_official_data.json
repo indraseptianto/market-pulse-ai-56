@@ -1,0 +1,114 @@
+{
+  "code": "OILS",
+  "company_name": "Indo Oil Perkasa Tbk.",
+  "scraped_at": "2026-05-26T09:25:14.020619+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "OILS Indo Oil Perkasa Tbk. financial report 2025 pdf official",
+      "title": "Indo Oil Perkasa Quarter 2 2025 Financial Report - Celedog",
+      "url": "https://www.celedog.id/reports/7G7UhU6GhCJ",
+      "content": "Indo Oil Perkasa Quarter 2 2025 Financial Report — FINANCIAL STATEMENT Q2 — Annual & Financial Reports • Consumer Staples • by Indo Oil Perkasa Tbk. • 3-4.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "OILS Indo Oil Perkasa Tbk. annual report 2025 pdf official",
+      "title": "Annual Reports | Financials, AGM & Disclosures - GOLIL",
+      "url": "https://india.gulfoilltd.com/investors/annual-reports",
+      "content": "L = Licensee of Gulf Oil. This link will take you to an external website (not a Gulf Oil company website). D = Distributor of Gulf Oil. This link will take you to an external website (not a Gulf Oil company website). * GOLIL - Transcript of 17th AGM held on September 30, 2025. * Voting Results and Scrutinizer’s Report of 17th Annual General Meeting of the Company held on September 30, 2025. * Proceedings of the 17th Annual General Meeting of the Company. * Newspaper Publication - Notice of the 17th Annual General Meeting. * Business Responsibility and Sustainability Report (BRSR) – 2024-25. * E-Voting Results and Scrutinizers Report for the 16th AGM held on September 12, 2024. * Gulf Oil Lubricants India Limited Annual Report – 2023-24. * GOLIL Business Responsibility and Sustainability Report (BRSR) – 2023-24. * Transcript of the 13th AGM of Gulf Oil Lubricants India Limited on the September 16, 2021.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "OILS Indo Oil Perkasa Tbk. website resmi investor relation annual report pdf",
+      "title": "IR Releases - Lukoil",
+      "url": "https://www.lukoil.com/InvestorAndShareholderCenter/ir-releases",
+      "content": "IR Tool. Tools for Investors and Shareholders · Annual Report. Always moving forward. Switch to the mobile site version Switch to full site version. Tags. Key",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "OILS Indo Oil Perkasa Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 2022 Annual Report PT INDO OIL PERKASA Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202304/1a1ea3208a_77dd9fe8f3.pdf",
+      "content": "Laporan Tahunan dan Laporan Keberlanjutan 2022 PT. Indo Oil Perkasa Tbk (yang selanjutnya disebut. \"Perseroan\") disusun berdasarkan Peraturan Otoritas. Jasa",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "OILS Indo Oil Perkasa Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 023/SK/IOP/IV/2026 PT Indo Oil Perkasa Tbk OILS 1 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202604/43772e7620_4460339f44.pdf",
+      "content": "Dokumen ini merupakan dokumen resmi PT Indo Oil Perkasa Tbk yang tidak memerlukan tanda tangan karena dihasilkan secara elektronik oleh",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "OILS Indo Oil Perkasa Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Creating High Competence for a New Breakthrough - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202405/db44583532_f0f23292d0.pdf",
+      "content": "Laporan Tahunan 2023 Annual Report Pt Indo Oil Perkasa Tbk. Laporan Tahunan 2023 Annual Report Pt Indo Oil Perkasa Tbk. DAFTAR ISI. Table of Contents. I. KILAS",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "OILS Indo Oil Perkasa Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 022/SK/IOP/IV/2025 PT Indo Oil Perkasa Tbk OILS 1 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202505/f0668acbf1_1efe75fe92.pdf",
+      "content": "Dokumen ini merupakan dokumen resmi PT Indo Oil Perkasa Tbk yang tidak memerlukan tanda tangan karena dihasilkan secara elektronik oleh",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "OILS Indo Oil Perkasa Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT Indo Oil Perkasa Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202505/8253db0c32_f5837ede78.pdf",
+      "content": "TAHUN 2025 tanggal 25 April 2025. IKP didirikan untuk mengembangkan lini produk dan meningkatkan performa bisnis dari PT Indo Oil Perkasa Tbk.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "OILS Indo Oil Perkasa Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT INDO OIL PERKASA TBK",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202307/20230725135828-38123-0/LK-Q2-2023.pdf",
+      "content": "QUARTERLY FINANCIAL REPORT 2. DATE JUNE 30, 2023. UNAUDITED ... In the. Page 20. PT Indo Oil Perkasa Tbk. Catatan atas Laporan Keuangan Interim.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "OILS Indo Oil Perkasa Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT INDO OIL PERKASA Tbk",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202503/20260331003351-59767-0/LKT%20OILS%202025.pdf",
+      "content": "Menurut opini kami, laporan keuangan terlampir menyajikan secara wajar, dalam semua hal yang material, posisi keuangan Perusahaan tanggal. 31",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "OILS Indo Oil Perkasa Tbk. annual report 2024 pdf official",
+      "title": "PT. Indo Oil Perkasa Tbk [OILS] | IDNFinancials",
+      "url": "https://www.idnfinancials.com/oils/pt-indo-oil-perkasa-tbk",
+      "content": "Market Hints Bonds Call People Net Foreign Stake Monitor 1%+ Valuable Stock. PT Indo Oil Perkasa Tbk (OILS) is a producer and exporter of high-quality coconut oil and its derivative products, like crude coconut oil, refined coconut oil, and copra meal. OILS IDR 202 +2 (+1,00%). IDR 202 +2 (+1,00%). | IPO Date | {{ipo.ipo\\_dates.ipo\\_date | dateMoment}} |. | Offering Shares | {{ipo.ipo\\_dates.offering\\_shares | numberFormat}} |. | Founders' Shares | {{ipo.ipo\\_dates.company\\_listing | numberFormat}} |. | Percentage | {{ipo.ipo\\_dates.percentage | numberFormat(2)}}% |. | Offering Price | {{ipo.ipo\\_dates.offering\\_price | numberFormat}} *(IDR)* |. | Fund Raised | {{ipo.ipo\\_dates.fund\\_raised | numberFormat}} *(IDR)* |. | {{row.name}} | {{row.listing\\_date | dateMoment('ll')}}  {{row.mature\\_date | dateMoment('ll')}} |  | {{row.interest | numberFormat(2)}}% |. | {{row.ratio}} | {{row.shares\\_issue | numberFormat}} | {{row.price | numberFormat}} *(IDR)* | {{row.fund\\_raise | numberFormat}} *(IDR)* | {{row.listing\\_date | dateMoment('ll')}} |. | {{row.year}} | {{row.dividend\\_shares | numberFormat(2)}} *({{row.currency}})* | {{row.payment\\_date | dateMoment(\"DD MMM YYYY\") }} | {{row.type}} |. | {{row.name}} | {{row.shares|numberFormat}} *(Shares)* | {{row.nominal|numberFormat}} *({{row.currency}})* | {{row.percentage|numberFormat(2)}}% |.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "OILS Indo Oil Perkasa Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "PT. Indo Oil Perkasa Tbk [OILS] - IDNFinancials.com",
+      "url": "https://www.idnfinancials.com/id/oils/pt-indo-oil-perkasa-tbk",
+      "content": "PT Indo Oil Perkasa Tbk (OILS) adalah produsen dan pengekspor minyak kelapa berkualitas tinggi dan produk turunannya, seperti minyak kelapa mentah,",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {},
+  "processing_status": "partial",
+  "processing_reasons": [
+    "Tidak ada kandidat dokumen yang ditemukan dari pencarian."
+  ]
+}

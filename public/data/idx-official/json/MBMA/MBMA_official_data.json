@@ -1,0 +1,98 @@
+{
+  "code": "MBMA",
+  "company_name": "Merdeka Battery Materials Tbk.",
+  "scraped_at": "2026-05-25T23:50:13.250328+00:00",
+  "source": "Official/company/IDX documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "MBMA Merdeka Battery Materials Tbk. annual report 2024 pdf official",
+      "title": "[PDF] Paving Forward - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202505/6e34a53446_8e7765235c.pdf",
+      "content": "PT Merdeka Battery Materials Tbk (selanjutnya disebut sebagai “Perseroan” atau “MBMA ... 2024 Annual Report PT Merdeka Battery Materials Tbk. Prolog. Prologue."
+    },
+    {
+      "query": "MBMA Merdeka Battery Materials Tbk. annual report 2024 pdf official",
+      "title": "Merdeka Battery Materials – Announced 1Q 2024 financial ...",
+      "url": "https://www.procap-partners.com/post/merdeka-battery-materials-announced-1q-2024-financial-performance",
+      "content": "PT Merdeka Battery Materials Tbk (MBMA) announced Q1 2024 revenue of US$444 million and EBITDA of US$27 million, representing YoY growth of 211% and 102%."
+    },
+    {
+      "query": "MBMA Merdeka Battery Materials Tbk. annual report 2024 pdf official",
+      "title": "PT Merdeka Battery Materials Tbk. (MBMA.JK) - Yahoo Finance",
+      "url": "https://finance.yahoo.com/quote/MBMA.JK/financials",
+      "content": "Get the detailed quarterly/annual income statement for PT Merdeka Battery Materials Tbk ... 12/31/2024. 12/31/2023. 12/31/2022. Total Revenue. 1,434,519.21."
+    },
+    {
+      "query": "MBMA Merdeka Battery Materials Tbk. annual report 2024 pdf official",
+      "title": "PT. Merdeka Battery Materials Tbk [MBMA] | IDNFinancials",
+      "url": "https://www.idnfinancials.com/mbma/pt-merdeka-battery-materials-tbk",
+      "content": "# IPO. | IPO Date | {{ipo.ipo\\_dates.ipo\\_date | dateMoment}} |. | Offering Shares | {{ipo.ipo\\_dates.offering\\_shares | numberFormat}} |. | Founders' Shares | {{ipo.ipo\\_dates.company\\_listing | numberFormat}} |. | Total Listed Shares | {{ipo.ipo\\_dates.total\\_listed\\_shares | numberFormat}} |. | Percentage | {{ipo.ipo\\_dates.percentage | numberFormat(2)}}% |. | Offering Price | {{ipo.ipo\\_dates.offering\\_price | numberFormat}} *(IDR)* |. | Fund Raised | {{ipo.ipo\\_dates.fund\\_raised | numberFormat}} *(IDR)* |. | {{row.name}} | {{row.listing\\_date | dateMoment('ll')}}  {{row.mature\\_date | dateMoment('ll')}} |  | {{row.interest | numberFormat(2)}}% |. | {{row.ratio}} | {{row.shares\\_issue | numberFormat}} | {{row.price | numberFormat}} *(IDR)* | {{row.fund\\_raise | numberFormat}} *(IDR)* | {{row.listing\\_date | dateMoment('ll')}} |. | {{row.year}} | {{row.dividend\\_shares | numberFormat(2)}} *({{row.currency}})* | {{row.payment\\_date | dateMoment(\"DD MMM YYYY\") }} | {{row.type}} |. | {{row.name}} | {{row.shares|numberFormat}} *(Shares)* | {{row.nominal|numberFormat}} *({{row.currency}})* | {{row.percentage|numberFormat(2)}}% |. | {{ row.percentage }} % | {{ row.shareholder|numberFormat }}  ({{formatDiff(row.different\\_shareholder)}}) | {{ row.period | dateMoment(\"DD MMM YYYY\") }} |. | {{row.asof\\_date}} | {{row.revenue|numberFormat}} *{{row.currency}}* | {{row.net\\_profit|numberFormat}} *{{row.currency}}* |."
+    },
+    {
+      "query": "MBMA Merdeka Battery Materials Tbk. annual report 2024 pdf official",
+      "title": "[PDF] Nomor Surat Nama Perusahaan Kode Emiten Lampiran ... - Stockbit",
+      "url": "https://emitten-announcement.stockbit.com/attachments/f-31632115-0_AnnualReport2023-MBMA.pdf",
+      "content": "AR 2023 MBMA.pdf. 2. SR 2023 MBMA.pdf. This is an official document of PT Merdeka Battery Materials Tbk that does not require a signature as it"
+    },
+    {
+      "query": "MBMA Merdeka Battery Materials Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "Financial Statements 3Q 2025 of MBMA",
+      "url": "https://www.ipotnews.com/ipotnews/newsDetail.php?jdl=Financial_Statements_3Q_2025_of_MBMA&news_id=481867&group_news=RESEARCHNEWS&taging_subtype=RESULT&name=&search=y_general&q=Financial+Statements&halaman=1",
+      "content": "PT Merdeka Battery Materials Tbk (MBMA) membukukan laba bersih pada Quarter 3 2025 sebesar Rp 422,1 miliar. Naik bila dibandingkan dengan"
+    },
+    {
+      "query": "MBMA Merdeka Battery Materials Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "Laporan Keuangan - Merdeka Battery Materials",
+      "url": "https://merdekabattery.com/investor/reports/financial-statements",
+      "content": "Laporan Keuangan ; 30 Maret 2026. Laporan Keuangan Konsolidasian MBMA Q4 2025 ; 17 Desember 2025. Laporan Keuangan Konsolidasian MBMA Q3 2025 ; 25 September 2025."
+    },
+    {
+      "query": "MBMA Merdeka Battery Materials Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "Financial Statements 2Q 2025 of MBMA - Indo Premier Sekuritas",
+      "url": "https://www.indopremier.com/ipotnews/newsDetail.php?jdl=Financial_Statements_2Q_2025_of_MBMA&news_id=474796&group_news=RESEARCHNEWS&news_date=&taging_subtype=MBMA&name=&search=y_general&q=Financial+Statements&halaman=1",
+      "content": "PT Merdeka Battery Materials Tbk (MBMA) membukukan laba bersih pada Quarter 2 2025 sebesar Rp 95,0 miliar. Menurun bila dibandingkan dengan"
+    },
+    {
+      "query": "MBMA Merdeka Battery Materials Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "[PDF] Nomor Surat Nama Perusahaan Kode Emiten Lampiran ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202510/02254eff92_68cca1bb5b.pdf",
+      "content": "Merdeka Battery Materials Tbk akan melakukan penyampaian Laporan Keuangan Kuartal III untuk tahun buku 2025 yang Diaudit oleh Akuntan Publik"
+    },
+    {
+      "query": "MBMA Merdeka Battery Materials Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "[PDF] PT MERDEKA BATTERY MATERIALS Tbk - IDX",
+      "url": "https://www.idx.co.id/Portals/0/StaticData/ListedCompanies/Corporate_Actions/New_Info_JSX/Jenis_Informasi/01_Laporan_Keuangan/02_Soft_Copy_Laporan_Keuangan//Laporan%20Keuangan%20Tahun%202025/TW1/MBMA/FS%20MBMA%2031%20March%202025.pdf",
+      "content": "tanggal 31 Maret 2025, serta laporan laba rugi dan penghasilan ... penyajian material dalam laporan keuangan konsolidasian interim"
+    }
+  ],
+  "documents": [
+    {
+      "url": "https://emitten-announcement.stockbit.com/attachments/f-31632115-0_AnnualReport2023-MBMA.pdf",
+      "title": "[PDF] Nomor Surat Nama Perusahaan Kode Emiten Lampiran ... - Stockbit",
+      "pdf_path": "/opt/idx-official-data/documents/MBMA/f-31632115-0_AnnualReport2023-MBMA.pdf",
+      "text_path": "/opt/idx-official-data/extracted/MBMA/f-31632115-0_AnnualReport2023-MBMA.txt",
+      "bytes": 5772
+    }
+  ],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/MBMA/f-31632115-0_AnnualReport2023-MBMA.pdf",
+        "shareholders": "Shareholders? (Yes) The Company made invitations to the Annual General Meeting of Shareholders on 30 May 2024 The information referred above has been published on the Company’s website www.merdekabattery.com at 30 May 2024 Composition Ratio: Board of Directors = 1 Woman : 3 Man. Senior Management Level = 0 Woman : 5 Man. Recycle 0,56%. Thus to be informed accordingly. Respectfully, PT Merdeka Battery Materials Tbk Deny Greviartana Wijaya GM Legal/ Corporate Secretary PT Merdeka Battery Materials Tbk Gedung Treasury Tower Lantai 69 Phone : (021) 39525581 , Fax : (021) 39525582, www.merdekabattery.com Sender Name Deny Greviartana Wijaya Function GM Legal/ Corporate Secretary Date and Time 30-04-2024 19:01 Attachment 1. AR 2023 MBMA.pdf 2. SR 2023 MBMA.pdf This is an official document of PT Merdeka Battery Materials Tbk that does not require a signature as it was generated electronically by the electronic reporting system. PT Merdeka Battery Materials Tbk is fully responsible for the information contained within this document.",
+        "free_float": ""
+      }
+    ]
+  },
+  "management": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/MBMA/f-31632115-0_AnnualReport2023-MBMA.pdf",
+        "directors": "Board of Directors = 1 Woman : 3 Man. Senior Management Level = 0 Woman : 5 Man. Recycle 0,56%. Thus to be informed accordingly. Respectfully, PT Merdeka Battery Materials Tbk Deny Greviartana Wijaya GM Legal/ Corporate Secretary PT Merdeka Battery Materials Tbk Gedung Treasury Tower Lantai 69 Phone : (021) 39525581 , Fax : (021) 39525582, www.merdekabattery.com Sender Name Deny Greviartana Wijaya Function GM Legal/ Corporate Secretary Date and Time 30-04-2024 19:01 Attachment 1. AR 2023 MBMA.pdf 2. SR 2023 MBMA.pdf This is an official document of PT Merdeka Battery Materials Tbk that does not require a signature as it was generated electronically by the electronic reporting system. PT Merdeka Battery Materials Tbk is fully responsible for the information contained within this document.",
+        "commissioners": ""
+      }
+    ]
+  },
+  "evidence": {}
+}

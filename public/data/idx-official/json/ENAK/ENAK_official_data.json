@@ -1,0 +1,143 @@
+{
+  "code": "ENAK",
+  "company_name": "Champ Resto Indonesia Tbk.",
+  "scraped_at": "2026-05-26T06:55:25.657973+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "ENAK Champ Resto Indonesia Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "2025",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202605/04f6561fde_d800dd309f.pdf",
+      "content": "Laporan Tahunan Terintegrasi 2025 PT Champ Resto Indonesia Tbk memuat pernyataan berwawasan ke depan yang mencerminkan pandangan.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ENAK Champ Resto Indonesia Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "PT CHAMP RESTO INDONESIA Tbk",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202505/7ba5c26863_da616127ed.pdf",
+      "content": "Laporan keuangan Perusahaan disajikan sesuai dengan. Standar Akuntansi Keuangan di Indonesia. The Company's financial statements are",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ENAK Champ Resto Indonesia Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "[PDF] 046/CORPSEC/JUL/2025 PT Champ Resto Indonesia Tbk ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202507/eb6c66c3ad_bb3014f650.pdf",
+      "content": "CRIHighlights-IND (2).pdf. Lampiran. Dokumen ini merupakan dokumen resmi PT Champ Resto Indonesia Tbk yang tidak memerlukan tanda tangan.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ENAK Champ Resto Indonesia Tbk. shareholders dividend annual report pdf",
+      "title": "[PDF] PT CHAMP RESTO INDONESIA, Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202404/20250402095432-51460-0/ENAK_Laporan%20Keuangan%20Audited%202024.pdf",
+      "content": "Final dividend distributions to the shareholders are recognised as liabilities when the dividends are declared by the Company's shareholders.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ENAK Champ Resto Indonesia Tbk. shareholders dividend annual report pdf",
+      "title": "PT. Champ Resto Indonesia Tbk [ENAK] - IDNFinancials.com",
+      "url": "https://www.idnfinancials.com/enak/pt-champ-resto-indonesia-tbk",
+      "content": "Shareholders Last Update: Sep 30, 2024. Shareholder Name, Number of Shares, Paid-up Capital, Percentage",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ENAK Champ Resto Indonesia Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "2023",
+      "url": "https://www.champ-group.com/wp-content/uploads/2024/04/Champ-Resto-IR-2023-1.pdf",
+      "content": "Laporan Tahunan Terintegrasi ini memuat kata “ENAK” dan “Perseroan” yang didefinisikan sebagai PT Champ. Resto Indonesia Tbk. Adakalanya kata “Perusahaan",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    },
+    {
+      "query": "ENAK Champ Resto Indonesia Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "Laporan Tahunan",
+      "url": "https://www.champ-group.com/laporan-tahunan",
+      "content": "PLATINUM RESTO · BERITA & KEGIATAN · HUBUNGAN INVESTOR · INFORMASI KEUANGAN · LAPORAN KEUANGAN · RAPAT UMUM PEMEGANG SAHAM · KEPEMILIKAN SAHAM · IPO PROSPEKTUS",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    },
+    {
+      "query": "ENAK Champ Resto Indonesia Tbk. shareholders dividend annual report pdf",
+      "title": "Annual Report - Champ Resto Indonesia",
+      "url": "https://www.champ-group.com/en/annual-report",
+      "content": "FINANCE INFORMATION · FINANCIAL STATEMENTS · SHAREHOLDER MEETINGS · SHAREHOLDING · IPO PROSPECTUS · ANNUAL REPORT · EQUITY ANALYSIS · DIVIDEND HISTORY",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    },
+    {
+      "query": "ENAK Champ Resto Indonesia Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "Laporan Keuangan - Champ Resto Indonesia",
+      "url": "https://www.champ-group.com/laporan-keuangan-tahunan",
+      "content": "Champ Resto Indonesia Champ Resto Indonesia. # Laporan Keuangan. #### Laporan Keuangan Tahunan 2021. **LAPORAN KEUANGAN TAHUNAN PER 31 DESEMBER 2021**. **LAPORAN KEUANGAN KUARTAL I – 2022**. **LAPORAN KEUANGAN SEMESTER 1 – 2022**. **LAPORAN KEUANGAN KUARTAL III – 2022**.",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    },
+    {
+      "query": "ENAK Champ Resto Indonesia Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "Laporan Keuangan 2025 - Champ Resto Indonesia",
+      "url": "https://www.champ-group.com?spb-section=laporan-keuangan-2025",
+      "content": "LAPORAN KEUANGAN KUARTAL I – 2025 · LAPORAN KEUANGAN SEMESTER I – 2025 · LAPORAN KEUANGAN KUARTAL III – 2025",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    },
+    {
+      "query": "ENAK Champ Resto Indonesia Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "Laporan Keuangan PT Champ Resto Indonesia Tbk – IDX:ENAK – TradingView",
+      "url": "https://id.tradingview.com/symbols/IDX-ENAK/financials-overview",
+      "content": "PT Champ Resto Indonesia TbkPT Champ Resto Indonesia TbkPT Champ Resto Indonesia Tbk. ## PT Champ Resto Indonesia Tbk. # Fundamental dan statistik. ## Fakta penting. Rasio Harga terhadap Perolehan (TTM)—. ## Penilaian. Metrik fundamental untuk menentukan nilai wajar saham. Tidak ada data yang tersedia. Saat ini tidak ada data kapitalisasi pasar, pendapatan, atau laba bersih yang dapat ditampilkan. ## Pertumbuhan dan Profitabilitas. Kinerja dan marjin perusahaan terkini. ## Dividen. Dividen yang dihasilkan, riwayat dan keberlanjutan. ENAK tidak pernah membayar dividen dan belum berencana melakukannya. ## Kesehatan keuangan. Posisi keuangan dan solvabilitas perusahaan.",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    },
+    {
+      "query": "ENAK Champ Resto Indonesia Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "Laporan Tahunan PT Champ Resto 2022 | PDF",
+      "url": "https://id.scribd.com/document/725771173/Annual-Report-Pt-Champ-Resto-Indonesia-Tbk-2022",
+      "content": "Laporan tahunan terintegrasi 2022 PT Champ Resto Indonesia Tbk menjelaskan kinerja perseroan di tahun 2022, dengan meluncurkan inovasi produk baru dan",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    }
+  ],
+  "documents": [
+    {
+      "url": "https://www.champ-group.com/wp-content/uploads/2024/04/Champ-Resto-IR-2023-1.pdf",
+      "title": "2023",
+      "pdf_path": "/opt/idx-official-data/documents/ENAK/Champ-Resto-IR-2023-1.pdf",
+      "text_path": "/opt/idx-official-data/extracted/ENAK/Champ-Resto-IR-2023-1.txt",
+      "bytes": 8799232
+    }
+  ],
+  "financial_income_revenue": [],
+  "dividends": [
+    {
+      "document": "/opt/idx-official-data/documents/ENAK/Champ-Resto-IR-2023-1.pdf",
+      "evidence_text": "Dividend Policy Shareholders (GMS) Governance Guidelines (PUGKI) Realisasi Penggunaan Dana Hasil Penawaran Umum Dewan Komisaris 83 97 Realization of Use of Proceeds Board of Commissioners from Public Offering Informasi Material Mengenai Direksi Board of Directors 101 06 Investasi, Ekspansi, Divestasi, Penggabungan/Peleburan Nominasi dan Remunerasi Tanggung Jawab Dewan Komisaris dan Direksi Usaha, Akuisisi atau Nomination And Remuneration 104 Sosial Perusahaan Restrukturisasi Utang/Modal 84 of the Board of Commissioners Material Information on Corporate Social Responsibility and the Board of Directors Investment, Expansion, Organ Pendukung Dewan Divestment, Merger, Acquisition, Strategi Keberlanjutan Komisaris 136 or Debt/Capital Restructuring 106 Sustainability Strategies Supporting Organs of the Board Informasi Transaksi Material of Commissioners Ikthisar Kinerja Keberlanjutan yang Mengandung Benturan Tahun 2023 Organ Pendukung Direksi 137 Kepentingan Sustainability Performance 84 Supporting Organs of the Board 111 Material Transactions Highlight in 2023 of Directors Information Containing Conflict Tata Kelola Keberlanjutan of Interest Unit Audit Internal 138 115 Sustainable Governance Internal Audit Unit Transaksi dengan Pihak Afiliasi Kinerja Keberlanjutan Transactions with Affiliated 84 Sistem Pengendalian Internal 143 117 Sustainability Performance Parties Internal Control System Keberlanjutan Kinerja Ekonomi Perubahan Peraturan Sistem Manajemen Risiko 119 Sustainable Economic 144 Perundang-Undangan pada Risk Management System 85 Performance Tahun Buku Perkara Hukum dan Sanksi Changes of Law in Fiscal Year Keberlanjutan Kinerja Lingkungan Administratif 122 Sustainable Environmental 146 Perubahan Kebijakan Akuntansi Legal Cases and Administrative Performance yang Diterapkan Perseroan pada Sanctions Tahun Buku Keberlanjutan Kinerja Sosial 85 Kode Etik Perusahaan 149 Changes of Accounting Policy 123 Sustainable Social Performance Code of Conduct Implemented by the Company Tanggung Jawab Terhadap Kebijakan Kepemilikan Saham in Fiscal Year Produk dan Pelanggan Perusahaan oleh Dewan"
+    }
+  ],
+  "latest_shareholders_freefloat_ownership": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/ENAK/Champ-Resto-IR-2023-1.pdf",
+        "shareholders": "Shareholders Struktur Modal 76 and the Board of Directors Komposisi Kepemilikan Saham Capital Structure 57 Share Ownership Composition Ikatan Material untuk Investasi Kronologi Pencatatan Saham Barang Modal 60 76 Share Listing Chronology Material Commitments for Capital Expenditures Kronologi Pencatatan Efek Lainnya Realisasi Investasi Barang Modal 60 pada Tahun Buku Terakhir Other Securities Listing 77 Chronology Realization of Capital Goods Investment in the Last Fiscal Year Entitas Anak, Perusahaan Asosiasi, Perusahaan Ventura Informasi dan Fakta Material Bersama 61 yang Terjadi Setelah Tanggal Subsidiaries, Associates, and Laporan Akuntan 77 Joint Ventures Subsequent Events after the Reporting Date Informasi Kantor Akuntan Publik Information on Public 61 Prospek Usaha 77 Accountant Firm Business Prospects Laporan Tahunan Terintegrasi | Integrated Annual Report 2023\b PT Champ Resto Indonesia Tbk 3 Perbandingan Target dan Penerapan atas Pedoman Tata Pencapaian Kinerja Tahun 2023 Kelola Perusahaan Terbuka 78 Comparison of Performance Implementation of Corporate 127 Target and Achievement in 2023 Governance Principles of Public Proyeksi Tahun 2024 Company 78 Projection of 2024 Penerapan atas Pedoman Aspek Pemasaran Umum Governansi Korporat 79 Indonesia (PUG-KI) Marketing Aspect Rapat Umum Pemegang Saham 131 (RUPS) Implementation of the Kebijakan Dividen 90 82 General Meeting of Indonesian General Corporate Dividend Policy Shareholders (GMS) Governance Guidelines (PUGKI) Realisasi Penggunaan Dana Hasil Penawaran Umum Dewan Komisaris 83 97 Realization of Use of Proceeds Board of Commissioners from Public Offering Informasi Material Mengenai Direksi Board of Directors 101 06 Investasi, Ekspansi, Divestasi, Penggabungan/Peleburan Nominasi dan Remunerasi Tanggung Jawab Dewan Komisaris dan Direksi Usaha, Akuisisi atau Nomination A",
+        "free_float": ""
+      }
+    ]
+  },
+  "management": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/ENAK/Champ-Resto-IR-2023-1.pdf",
+        "directors": "Board of Directors’ Report 54 Board of Directors’ Profile Kemampuan Membayar Utang Pernyataan Pertanggungjawaban 75 Solvency Anggota Dewan Komisaris dan Informasi Mengenai Pemegang Direksi Saham Utama dan Pengendali Kolektibilitas Piutang 24 57 76 Statements of Responsibility by Information of Main and Receivables Collectability the Board of Commissioners Controlling Shareholders Struktur Modal 76 and the Board of Directors Komposisi Kepemilikan Saham Capital Structure 57 Share Ownership Composition Ikatan Material untuk Investasi Kronologi Pencatatan Saham Barang Modal 60 76 Share Listing Chronology Material Commitments for Capital Expenditures Kronologi Pencatatan Efek Lainnya Realisasi Investasi Barang Modal 60 pada Tahun Buku Terakhir Other Securities Listing 77 Chronology Realization of Capital Goods Investment in the Last Fiscal Year Entitas Anak, Perusahaan Asosiasi, Perusahaan Ventura Informasi dan Fakta Material Bersama 61 yang Terjadi Setelah Tanggal Subsidiaries, Associates, and Laporan Akuntan 77 Joint Ventures Subsequent Events after the Reporting Date Informasi Kantor Akuntan Publik Information on Public 61 Prospek Usaha 77 Accountant Firm Business Prospects Laporan Tahunan Terintegrasi | Integrated Annual Report 2023\b PT Champ Resto Indonesia Tbk 3 Perbandingan Target dan Penerapan atas Pedoman Tata Pencapaian Kinerja Tahun 2023 Kelola Perusahaan Terbuka 78 Comparison of Performance Implementation of Corporate 127 Target and Achievement in 2023 Governance Principles of Public Proyeksi Tahun 2024 Company 78 Projection of 2024 Penerapan atas Pedoman Aspek Pemasaran Umum Governansi Korporat 79 Indonesia (PUG-KI) Marketing Aspect Rapat Umum Pemegang Saham 131 (RUPS) Implementation of the Kebijakan Dividen 90 82 General Meeting of Indonesian General Corporate Dividend Policy",
+        "commissioners": "Board of Commissioners’ 14 Business Segment Report Profil Dewan Komisaris 51 Tinjauan Kinerja Keuangan Board of Commisioners’ Profile 71 Laporan Direksi Financial Performance Review 18 Profil Direksi Board of Directors’ Report 54 Board of Directors’ Profile Kemampuan Membayar Utang Pernyataan Pertanggungjawaban 75 Solvency Anggota Dewan Komisaris dan Informasi Mengenai Pemegang Direksi Saham Utama dan Pengendali Kolektibilitas Piutang 24 57 76 Statements of Responsibility by Information of Main and Receivables Collectability the Board of Commissioners Controlling Shareholders Struktur Modal 76 and the Board of Directors Komposisi Kepemilikan Saham Capital Structure 57 Share Ownership Composition Ikatan Material untuk Investasi Kronologi Pencatatan Saham Barang Modal 60 76 Share Listing Chronology Material Commitments for Capital Expenditures Kronologi Pencatatan Efek Lainnya Realisasi Investasi Barang Modal 60 pada Tahun Buku Terakhir Other Securities Listing 77 Chronology Realization of Capital Goods Investment in the Last Fiscal Year Entitas Anak, Perusahaan Asosiasi, Perusahaan Ventura Informasi dan Fakta Material Bersama 61 yang Terjadi Setelah Tanggal Subsidiaries, Associates, and Laporan Akuntan 77 Joint Ventures Subsequent Events after the Reporting Date Informasi Kantor Akuntan Publik Information on Public 61 Prospek Usaha 77 Accountant Firm Business Prospects Laporan Tahunan Terintegrasi | Integrated Annual Report 2023\b PT Champ Resto Indonesia Tbk 3 Perbandingan Target dan Penerapan atas Pedoman Tata Pencapaian Kinerja Tahun 2023 Kelola Perusahaan Terbuka 78 Comparison of Performance Implementation of Corporate 127 Target and Achievement in 2023 Governance Principles of Public Proyeksi Tahun 2024 Company 78 Projection of 2024 Penerapan atas Pedoman Aspek Pemasaran Umum Governan"
+      }
+    ]
+  },
+  "evidence": {
+    "Champ-Resto-IR-2023-1_financial": "Statements of Profit or Loss and Penghasilan Komprehensif Lain Other Comprehensive Income Penjualan Bersih 1.425,95 1.265,24 789,36 Net Sales Beban Pokok Penjualan (540,49) (513,98) (309,74) Cost of Goods Sold Laba Kotor 885,46 751,26 479,62 Gross Profit Laba/(Rugi) Periode Berjalan 21,35 62,28 (7,33) Profit/(Loss) for the Year Jumlah Penghasilan (Beban) Total Comprehensive Income 21,60 63,91 (5,85) Komprehensif (Loss) Laba/(Rugi) per Saham Dasar Basic Earnings/(Loss) 9,85 28,75 (3,66) (angka penuh) per Share (full amount) Rasio-Rasio Keuangan Financial Ratios Rasio Laba/(Rugi) terhadap 2,0% 7,6% (1,1%) Return on Assets Jumlah Aset Rasio Laba/(Rugi) terhadap 8,1% 23,2% (11,3%) Return on Equity Jumlah Ekuitas Rasio Laba/(Rugi) terhadap 1,5% 4,9% (0,9%) Profit Margin Penjualan Rasio Lancar*) 0,34x 0,50x 0,35x Current Ratio*) Rasio Liabilitas terhadap 3,01x 2,04x 9,35x Debt to Equity Ratio (DER) **) Jumlah Ekuitas**) Rasio Liabilitas terhadap 0,75x 0,67x 0,90x Debt to Assets Ratio **) Jumlah Aset**) *) Periode 2022 dan 2021, jumlah Liabilitas Jangka Pendek termasuk Dana Syirkah Temporer yang jatuh tempo dalam waktu 1 (satu) tahun For the 2022 and 2021 periods, current liabilities includes the current maturity portion of Temporary Syirkah Fund **) Periode 2022 dan 2021, jumlah Liabilitas termasuk Dana Syirkah Temporer For the 2022 and 2021 periods, total liabilities includes the Temporary Syirkah Fund Laporan Tahunan Terintegrasi | Integrated Annual Report 2023\b PT Champ Resto Indonesia Tbk Performance Highlights 7 Grafik Kinerja Keuangan Financial Graphs 7 Self-Owned Brands Jumlah Aset dalam miliar Rupiah Total Assets in billion Rupiah 2023 1.059,30 2022 817,51 2021 671,16 Jumlah Liabilitas dalam miliar Rupiah Total Liabilities in billion Rupiah 2023 794,97 322 2022 509,37 2021 546,34 Outlets Jumlah Ekuitas dalam miliar Rupiah Spread Across Greater Jakarta, Total Equity in billion Rupiah Java, Bali, Sumatra, and Sulawesi 2023 264,33 2022 268,73 2021 64,84 Penjualan Bersih dalam miliar Rupiah Net Sales in billion Rupiah 2023 1.425,95 2022 1.265,24 2021 789,36 PT Champ Resto Indonesia Tbk \b 2023 Laporan Tahunan Terintegrasi | Integrated Annual Report 8 Ikhtisar Kinerja Ikhtisar Saham Stocks Highlights (Dalam Rupiah) | (In Rupiah) Jumlah Triwulan Tertinggi Terendah Penutup Volume Transaksi Kapitalisasi Pasar Saham Beredar Quarter Highest Lowest Closing Transaction Volume Market Capitalization Outstanding Shares 2023 I 1.195 1.080 1.120 156.146.900 2.166.666.800 2.426.666.816.000 II 1.560 1.095 1.325 88.837.300 2.166.666.800 2.870.833.510.000 III 1.370 1.200 1.320 18.730.000 2.166.666.800 2.860.000.176.000 IV 1.315 - 1.295 2.409.000 2.166.666.800 2.805.833.506.000 2022 I* 895 635 820 61.262.200 2.166.666.800 1.776.666.776.000 II 1.880 795 1.565 212.694.000 2.166.666.800 3.390.833.542.000 III 2.200 1.490 1.755 304.583.900 2.166.666.800 3.802.500.234.000 IV 2.330 1.700 1.825 462.800.600 2.166.666.800 3.954.166.910.000 *) Efektif tercatat sejak 8 Februari 2022 | Effectively registered since February 8, 2022 Aksi Korporasi Corporate Action Sepanjang tahun buku 2023, Perseroan tidak melakukan aksi korporasi saham (stock split), penggabungan saham (reverse stock), dividen saham, saham bonus, perubahan nilai nominal saham, penerbitan efek konversi, serta penambahan dan pengurangan modal. Oleh karena itu, Perseroan tidak menyajikan informasi terkait aksi korporasi. Throughout the 2023 fiscal year, the Company did not conduct any corporate actions (stock split), stock merger (reverse stock), stock dividends, bonus shares, changes in the nominal value of shares, issuance of convertible securities, or additions and subtractions of capital. Therefore, the Company does not provide information related to corporate actions. Laporan Tahunan Terintegrasi | Integrated Annual Report 2023\b PT Champ Resto Indonesia Tbk Performance Highlights 9 Penghentian Sementara Perdagangan Saham dan/atau Penghapusan Pencatatan Saham Temporary Suspension of Trading and/or Delisting of Shares Sepanjang tahun 2023, Perseroan tidak dikenakan In 2023, the Company did not receive any sanctions sanksi terkait penghentian sementara perdagangan for temporary share suspension or delisting from the saham maupun penghapusan pencatatan saham dari stock exchange because of a violation of stock market bursa efek yang diakibatkan pelanggaran ketentuan regulation. yang berlaku di bursa. Peristiwa Penting Event Highlights 10 April 2023 | 10th April 2023 Pembukaan Gerai Pertama Grillman Opening of Grillman’s First Outlet Pembukaan gerai pertama Grillman di Summarecon Bekasi pada tanggal 10 April 2023. Grillman adalah merek restoran baru Perseroan yang menyajikan perpaduan makanan Korea- Jepang yang mayoritas disajikan menggunakan hotplate. Opening of Grillman first outlet in Summarecon Bekasi on 10th April, 2023. Grillman is the Company's new restaurant brand that serves a fusion of Korean-Japanese food, the majority of which is served using a hotplate. 21 April 2023 | 12th April 2023 Ekspansi Platinum Grill The Expansion of the Platinum Grill Branch Setelah sukses penetrasi ke kota Makass"
+  },
+  "processing_status": "selesai",
+  "processing_reasons": []
+}

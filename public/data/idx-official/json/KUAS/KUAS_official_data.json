@@ -1,0 +1,114 @@
+{
+  "code": "KUAS",
+  "company_name": "Ace Oldfields Tbk.",
+  "scraped_at": "2026-05-26T08:40:12.307746+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "KUAS Ace Oldfields Tbk. website resmi investor relation annual report pdf",
+      "title": "PT Waskita Karya (Persero) Tbk - Investor Relations - All Downloads",
+      "url": "https://investor.waskita.co.id/download.html",
+      "content": "| Q3 - 2025 Quarterly Financial Statement | 14 Oct 2025 | PDF version 3.64 MB |  |. | Q1 - 2024 Quarterly Financial Statement | 02 May 2024 | PDF version 2.88 MB |  |. | Power of Attorney Form for the Annual General Meeting of Shareholders Financial Year 2025 | 16 Apr 2026 | PDF version 0.40 MB |  |. | Announcement of the Annual General Meeting of Shareholders for Financial Year 2025 | 01 Apr 2026 | PDF version 0.07 MB |  |. | Power of Attorney Form for the Annual General Meeting of Shareholders Financial Year 2023 | 13 May 2024 | PDF version 0.28 MB |  |. | Announcement of The Annual General Meeting of Shareholders for Financial Year 2021 | 10 May 2022 | PDF version 0.09 MB |  |. | Announcement of The Extraordinary General Meeting of Shareholders PT Waskita Karya (Persero) Tbk | 18 Aug 2022 | PDF version 0.10 MB Tbk - PDF Version\") |  |.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "KUAS Ace Oldfields Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "Laporan Keuangan - PT Aspirasi Hidup Indonesia Tbk (AHI) (ACES)",
+      "url": "http://ahi.id/investor-relation/financial-report",
+      "content": "logo AHI. Tentang Kami. Hubungan Investor. Keberlanjutan. Berita · Karir · Kontak Kami. ID. EN. Laporan Keuangan. Tahun. 1Q. 1H. 9M. FY. 2026.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "KUAS Ace Oldfields Tbk. website resmi investor relation annual report pdf",
+      "title": "Annual Report - PT Ace Oldfields Tbk",
+      "url": "https://www.aceoldfields.com/investors/annual-report",
+      "content": "Annual Report. ANNUAL REPORT 2025. 10 April 2026 Laporan Tahunan & Keberlanjutan 2025 / Annual & Sustainability Report 2025. ANNUAL REPORT 2024.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "KUAS Ace Oldfields Tbk. website resmi investor relation annual report pdf",
+      "title": "Financial Report - PT Ace Oldfields Tbk",
+      "url": "https://www.aceoldfields.com/investors/financial-report",
+      "content": "Financial Report · FINANCIAL REPORT 2026 · FINANCIAL REPORT 2025 · FINANCIAL REPORT 2024 · FINANCIAL REPORT 2023 · FINANCIAL REPORT 2022 · FINANCIAL REPORT 2021.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "KUAS Ace Oldfields Tbk. website resmi investor relation annual report pdf",
+      "title": "Financial Report PT Ace Oldfields Tbk (KUAS) 2022 - ticmi",
+      "url": "https://www.ticmi.co.id/amp/datapasarmodal/ED/frx/viewsingle/138724/financial-report-pt-ace-oldfields-tbk-kuas-2022",
+      "content": "Financial Report. Financial Report PT Ace Oldfields Tbk (KUAS) 2022. Upss, kamu belum berlangganan Data Paket, kami bantuin pilihkan paket data terbaik",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "KUAS Ace Oldfields Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 094R/OJK-AO/VII/2022 PT Ace Oldfields Tbk KUAS 1 Laporan ... - IDX",
+      "url": "https://idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202209/f759cf87ad_6e60acc2ad.pdf",
+      "content": "Dokumen ini merupakan dokumen resmi PT Ace Oldfields Tbk yang tidak memerlukan tanda tangan karena dihasilkan secara elektronik oleh sistem",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "KUAS Ace Oldfields Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 150/OJK-AO/VII/2023 PT Ace Oldfields Tbk KUAS 2 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202307/0b6314ea06_ff7ee99e85.pdf",
+      "content": "Dokumen ini merupakan dokumen resmi PT Ace Oldfields Tbk yang tidak memerlukan tanda tangan karena dihasilkan secara elektronik oleh sistem",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "KUAS Ace Oldfields Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 048/OJK-AO/III/2023 PT Ace Oldfields Tbk KUAS 2 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202303/62a4dd58e4_1b51655842.pdf",
+      "content": "Dokumen ini merupakan dokumen resmi PT Ace Oldfields Tbk yang tidak memerlukan tanda tangan karena dihasilkan secara elektronik oleh sistem",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "KUAS Ace Oldfields Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Acceleration of Business Transformation For Sustainable Growth - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202404/e5f8e74c46_66d7053dda.pdf",
+      "content": "PT Ace Oldfields Tbk's 2023 Integrated Annual Report is a source of comprehensive documentation containing information on the Company's",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "KUAS Ace Oldfields Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 033/OJK-AO/VI/2022 PT Ace Oldfields Tbk KUAS 2 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202204/79d2f89b58_037c7100a4.pdf",
+      "content": "Dokumen ini merupakan dokumen resmi PT Ace Oldfields Tbk yang tidak memerlukan tanda tangan karena dihasilkan secara elektronik oleh sistem",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "KUAS Ace Oldfields Tbk. website resmi investor relation annual report pdf",
+      "title": "[PDF] Towards Sustainable Future - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202604/b1d23d3bd3_a619b6a8bc.pdf",
+      "content": "This Annual Report uses the term “Company” to refer to PT Ace ... PT Ace Oldfields Tbk meyakini bahwa perubahan kondisi usaha yang",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "KUAS Ace Oldfields Tbk. website resmi investor relation annual report pdf",
+      "title": "[PDF] Capturing Opportunities - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/db4f6398e8_074a16a287.pdf",
+      "content": "Delivering Value, Accelerating Forward 20 22 Analisis dan Pembahasan Manajemen Management Discussion and Analysis Tata Kelola Perusahaan Good Corporate Governance Laporan Keberlanjutan Sustainability Report Laporan Tahunan Terintegrasi 2024 Integrated Annual Report PT Ace Oldfields Tbk 5 DAFTAR ISI Table of Contents Kilas Kinerja Performance Highlight Laporan Manajemen Management Report Profil Perusahaan Company Profile Laporan Tahunan Terintegrasi 2024 Integrated Annual Report PT Ace Oldfields Tbk 6 1 Sanggahan dan Batasan Tanggung Jawab Disclaimers and Limitation of Liability 2 Tentang Laporan Tahunan Terintegrasi About The integrated Annual Report 3 Tema Laporan Tahunan Terintegrasi 2024 2024 integrated Annual Report Theme 4 Kesinambungan Tema Theme Continuity 8 Keunggulan Produk Perusahaan Product Superiority 9 KILAS KINERJA Performance Highlight 11 Kinerja Berkelanjutan Sustainable Performance 11 Ikhtisar Keuangan Financial Overview 14 Ikhtisar Kinerja Lingkungan dan Sosial Environmental and Social Performance Overview 15 Ikhtisar Kinerja Saham Share Performance Overview 17 Aksi Korporasi Corporate Actions 18 Penghentian Sementara Perdagangan Saham (Suspension) dan/ atau Penghapusan Pencatatan Saham (Delisting) Temporary Share Trading Suspension and/or Delisting 18 Informasi Mengenai Obligasi Sukuk atau Obligasi Konversi yang Masih Beredar Information on Outstanding Bonds, Sukuk, or Convertible Bonds 19 Sertifikasi 2024 Certifications in 2024 20 LAPORAN MANAJEMEN Management Report 21 Laporan Dewan Komisaris Board of Commissioners Report 30 Laporan Direksi Board of Directors Report 38 PROFIL PERUSAHAAN Company Profile 39 Identitas Perusahaan Corporate Identity 40 Skala Usaha (C.3) Business Scale (C.3) 41 Riwayat Singkat Perusahaan The Company At A Glance 43 Jejak Langkah Milestones 44 Visi dan Misi Vision and Mission 45 Nilai Keberlanjutan Sustainability Value 46 Bidang Usaha Line of Business 47 Produk dan/atau Jasa yang Dihasilkan Products and/or Services 49 Wilayah Operasional Operational Area 50 Struktur organisasi organizational Structure 52 Keanggotaan Dalam Asosiasi Association Membership 52 Perubahan organisasi yang Bersifat Signifikan Significant organizational Changes 52 Perubahan Komposisi Direksi dan Dewan Komisaris Tahun 2024 Changes in Composition of Board of Directors and Board of Commissioners in 2024 54 Profil Dewan Komisaris Board of Commissioners",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {},
+  "processing_status": "partial",
+  "processing_reasons": [
+    "Tidak ada kandidat dokumen yang ditemukan dari pencarian."
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "code": "LOPI",
+  "company_name": "Logisticsplus International Tb",
+  "scraped_at": "2026-05-25T20:35:13.725874+00:00",
+  "source": "Official/company/IDX documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "LOPI Logisticsplus International Tb annual report 2025 pdf official",
+      "title": "PT. Logisticsplus International Tbk [LOPI] | IDNFinancials",
+      "url": "https://www.idnfinancials.com/lopi/pt-logisticsplus-international-tbk?sl=en",
+      "content": "Market Hints Bonds Call People Net Foreign Valuable Stock. IDR 169 +1 (+0,59%). Sector: Transportation and Logistics, Industry: Logistics and Deliveries. # Market Activity. #### LOPI Stock Price. LOPI IDR 169 +1 (+0,59%). Last Update: 18 December 2025, 04:00 PM. The transaction data displayed above is delayed data of approximately 15 minutes. The data displayed on this site is for informational purposes only and cannot be used as a trading reference. # Net Foreign. # Overview. PT Logisticsplus International Tbk (LOPI) is a freight forwarding company that covers domestic and international markets. The company was founded in 2016 in Jakarta. It's a subsidiary of Logistics Plus Inc., an American company, giving it the privilege to use the global network in 180 countries for logistics purposes and international freight forwarding services (import and export clearance, LC document administration, etc.). Jl. Kavling Polri No. 20 Jagakarsa. ##### **Subsidiary Affiliation**. # IPO. # Dividend. # Managements. # Shareholders Last Update: {{shareholder[0].holding\\_date|dateMoment('ll')}}. # Videos. ## {{videos[0].title}}. {{videos[0].date\\_create|timeAgo}}. ## {{row.title}}. # News. ## {{news[0].title}}. {{news[0].date\\_create|timeAgo}}. ## {{row.title}}. # Announcements. # Market Hints. # Bonds. {{row.nominal | numberFormat}} *({{ row.nominal\\_currency }})*. # Financial Data. # Related Companies (*Logistics and Deliveries*)."
+    },
+    {
+      "query": "LOPI Logisticsplus International Tb annual report 2024 pdf official",
+      "title": "Laporan Keuangan & Tahunan – LogisticsPlus",
+      "url": "https://logisticsplus.co.id/laporan-keuangan-tahunan",
+      "content": "Laporan Tahunan | Laporan Keberlanjutan 2024. Laporan Tahunan | Laporan Keberlanjutan 2023. #### Profil Perusahaan. (LP) adalah penyedia transportasi, pergudangan, pemenuhan, logistik global, intelijen bisnis, teknologi, dan solusi rantai pasokan terkemuka di dunia. #### Artikel Terbaru. * ##### Pendapatan dan Laba LOPI Melonjak di 2025. * ##### LOPI Raih Kontrak dari Dua Perusahaan Senilai Rp 33 Miliar. #### Layanan Kami. * 3rd Party & 4th Party Logistics. #### Alamat Kami. Jl. Raya Kavling Polri No. 20, Kel. Jagakarsa, Kec. Jagakarsa, Kota Adm. Jakarta Selatan, Provinsi DKI Jakarta 12620."
+    },
+    {
+      "query": "LOPI Logisticsplus International Tb annual report 2024 pdf official",
+      "title": "[PDF] Laporan Tahunan & Laporan Keberlanjutan 2024 2024 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/34a341698a_7502793ed8.pdf",
+      "content": "The 2023 Annual Report of PT Logistic splus International. Tbk (hereinafter referred to as the Company) is prepared in accordance with Financial Services"
+    },
+    {
+      "query": "LOPI Logisticsplus International Tb annual report 2024 pdf official",
+      "title": "PT. Logisticsplus International Tbk [LOPI] | IDNFinancials",
+      "url": "https://www.idnfinancials.com/lopi/pt-logisticsplus-international-tbk",
+      "content": "# IPO. | IPO Date | {{ipo.ipo\\_dates.ipo\\_date | dateMoment}} |. | Offering Shares | {{ipo.ipo\\_dates.offering\\_shares | numberFormat}} |. | Founders' Shares | {{ipo.ipo\\_dates.company\\_listing | numberFormat}} |. | Total Listed Shares | {{ipo.ipo\\_dates.total\\_listed\\_shares | numberFormat}} |. | Percentage | {{ipo.ipo\\_dates.percentage | numberFormat(2)}}% |. | Offering Price | {{ipo.ipo\\_dates.offering\\_price | numberFormat}} *(IDR)* |. | Fund Raised | {{ipo.ipo\\_dates.fund\\_raised | numberFormat}} *(IDR)* |. | {{row.name}} | {{row.listing\\_date | dateMoment('ll')}}  {{row.mature\\_date | dateMoment('ll')}} |  | {{row.interest | numberFormat(2)}}% |. | {{row.ratio}} | {{row.shares\\_issue | numberFormat}} | {{row.price | numberFormat}} *(IDR)* | {{row.fund\\_raise | numberFormat}} *(IDR)* | {{row.listing\\_date | dateMoment('ll')}} |. | {{row.year}} | {{row.dividend\\_shares | numberFormat(2)}} *({{row.currency}})* | {{row.payment\\_date | dateMoment(\"DD MMM YYYY\") }} | {{row.type}} |. | {{row.fiscal\\_year}} | {{row.total\\_bonus\\_shares}} {{row.recording\\_date | dateMoment(\"DD MMM YYYY\") }} | {{row.payment\\_date | dateMoment(\"DD MMM YYYY\") }} | |. | {{row.name}} | {{row.shares|numberFormat}} *(Shares)* | {{row.nominal|numberFormat}} *({{row.currency}})* | {{row.percentage|numberFormat(2)}}% |. | {{ row.percentage }} % | {{ row.shareholder|numberFormat }}  ({{formatDiff(row.different\\_shareholder)}}) | {{ row.period | dateMoment(\"DD MMM YYYY\") }} |."
+    },
+    {
+      "query": "LOPI Logisticsplus International Tb annual report 2024 pdf official",
+      "title": "[PDF] 2023 Annual Report - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202404/c71e447fc9_2d8edd838f.pdf",
+      "content": "The 2023 Annual Report of PT Logistic plus. International Tbk (hereinafter referred to as the. Company) is prepared in accordance with Financial. Services"
+    },
+    {
+      "query": "LOPI Logisticsplus International Tb financial report 2025 pdf official",
+      "title": "Financial Statements 2Q 2025 of LOPI - Indo Premier Sekuritas",
+      "url": "https://www.indopremier.com/ipotnews/newsDetail.php?jdl=Financial_Statements_2Q_2025_of_LOPI&news_id=469479&group_news=RESEARCHNEWS&news_date=&taging_subtype=LOPI&name=&search=y_general&q=Financial+Statements&halaman=1",
+      "content": "PT Logisticsplus International Tbk (LOPI) membukukan laba bersih pada Quarter 2 2025 sebesar Rp 2,2 miliar. Naik bila dibandingkan dengan"
+    },
+    {
+      "query": "LOPI Logisticsplus International Tb financial report 2025 pdf official",
+      "title": "[PDF] pt logisticsplus international tbk - laporan keuangan tanggal 30 juni ...",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202507/20250723180618-55249-0/LKTT%20LOPI%20Juni%202025.pdf",
+      "content": "The Company's financial liabilities consist of short term bank loans, trade payables, short- term other payables, accrued expenses, unearned"
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {}
+}

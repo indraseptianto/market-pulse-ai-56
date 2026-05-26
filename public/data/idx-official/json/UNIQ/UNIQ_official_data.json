@@ -1,0 +1,136 @@
+{
+  "code": "UNIQ",
+  "company_name": "Ulima Nitra Tbk.",
+  "scraped_at": "2026-05-26T11:19:20.805156+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "UNIQ Ulima Nitra Tbk. shareholders dividend annual report pdf",
+      "title": "[PDF] RAPAT UMUM PEMEGANG SAHAM PT ULIMA NITRA Tbk TAHUN ...",
+      "url": "https://ulimanitra.co.id/pdf/poa/suratkuasa2023.pdf",
+      "content": "Shareholder to Annual General Meeting of Shareholders PT Ulima Nitra Tbk for Financial Year 2021 ... Company's Annual Report for the financial year ending",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "UNIQ Ulima Nitra Tbk. website resmi investor relation annual report pdf",
+      "title": "UNIQ Investor Relations - Ulima Nitra Tbk PT - Alpha Spread",
+      "url": "https://www.alphaspread.com/security/idx/uniq/investor-relations",
+      "content": "Ulima Nitra Tbk PT Logo. # Ulima Nitra Tbk PT IDX:UNIQ. PT Ulima Nitra Tbk is an Indonesian service company that works on mining and construction projects. The company makes money by charging for contracted services, equipment use, and project-based work. That means its revenue depends on the amount of work it wins and how much equipment and labor it can keep busy. What makes the business easy to understand is that it sits in the middle of the project chain: it does the hands-on field work that many customers prefer to buy from a specialist instead of building in-house. The information on this site, and in its related newsletters, is not intended to be, nor does it constitute, investment advice or recommendations. Stock intrinsic value is the real worth of a company's stock, based on its financial health and performance. By focusing on the company's actual financial strength, like its earnings and debts, we can make better decisions about which stocks to buy and when.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "UNIQ Ulima Nitra Tbk. website resmi investor relation annual report pdf",
+      "title": "Reports and Presentations - UNIQA Group",
+      "url": "https://www.uniqagroup.com/grp/investor-relations/publications/reports-presentations.en.html",
+      "content": "Here you can find the latest publications concerning Investor Relations as downloads. You can also find the Group Report of UNIQA Group here.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "UNIQ Ulima Nitra Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 009/CORSEC-UN/III/2026 PT Ulima Nitra Tbk UNIQ 2 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202603/210be32203_7babc65bcd.pdf",
+      "content": "Dokumen ini merupakan dokumen resmi PT Ulima Nitra Tbk yang tidak memerlukan tanda tangan karena dihasilkan.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "UNIQ Ulima Nitra Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Laporan Tahunan | Annual Report 2023 PT Ulima Nitra Tbk ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202404/80a442a76e_9e78e6c2f4.pdf",
+      "content": "Laporan Tahunan 2023 PT Ulima Nitra Tbk disusun untuk memenuhi ketentuan pelaporan hasil kinerja. Perseroan pada periode 1 Januari 2023 sampai.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "UNIQ Ulima Nitra Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT ULIMA NITRA Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202205/1d16b94a48_69b4c9d030.pdf",
+      "content": "PT ULIMA NITRA, Tbk I LAPORAN BERKELANJUTAN 2021 I SUSTAINABILITY REPORT 2021 ... financial year in the Annual Report to be submittedat theGMS. Board of",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "UNIQ Ulima Nitra Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT Ulima Nitra Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/191de22a9d_4154e6a073.pdf",
+      "content": "Laporan Tahunan ini memuat pernyataan terkait tujuan, kebijakan, rencana strategi, serta hasil operasi dan keuangan yang disusun berdasarkan.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "UNIQ Ulima Nitra Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 9d64bff173_8920e178f9.pdf - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/9d64bff173_8920e178f9.pdf",
+      "content": "PT Ulima Nitra Tbk Laporan Berkelanjutan 2024 Sustainability Report. 2 ... the Annual Report to be submitted at the GMS. Performance Assessment of the",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "UNIQ Ulima Nitra Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "[PDF] 2025 Laporan Tahunan & Laporan Keberlanjutan - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202604/e197ce81f5_2587357050.pdf",
+      "content": "Laporan Tahunan 2025 PT Ulima Nitra Tbk disusun untuk memenuhi ketentuan pelaporan hasil kinerja. Perseroan pada periode 1 Januari 2025",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "UNIQ Ulima Nitra Tbk. financial report 2025 pdf official",
+      "title": "[PDF] 008/CORSEC-UN/III/2025 PT Ulima Nitra Tbk UNIQ 2 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202503/25de0a344d_839cf68c3d.pdf",
+      "content": "008/CORSEC-UN/III/2025. PT Ulima Nitra Tbk. UNIQ. 2. Advertisement Submission of Information on Annual Financial Report. Go To Indonesian Page.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "UNIQ Ulima Nitra Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT Ulima Nitra Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202410/20241029134458-48608-0/UNIQ%20TW%20III%202024.pdf",
+      "content": "Laporan Arus Kas/Statements of Cash Flows. 5. Catatan atas Laporan Keuangan/Notes to Financial Statements. 6. Page 3. Page 4. PT ULIMA NITRA Tbk.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "UNIQ Ulima Nitra Tbk. annual report 2025 pdf official",
+      "title": "PT. Ulima Nitra Tbk [UNIQ] - IDNFinancials.com",
+      "url": "https://www.idnfinancials.com/uniq/pt-ulima-nitra-tbk",
+      "content": "Shareholders Last Update: Dec 31, 2025 ; Ulung Wijaya, 706.818.395 (Shares), 1.413.636.790 (IDR) ; Public (each below 5%), 626.509.000 (Shares)",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    }
+  ],
+  "documents": [
+    {
+      "url": "https://ulimanitra.co.id/pdf/poa/suratkuasa2023.pdf",
+      "title": "[PDF] RAPAT UMUM PEMEGANG SAHAM PT ULIMA NITRA Tbk TAHUN ...",
+      "pdf_path": "/opt/idx-official-data/documents/UNIQ/suratkuasa2023.pdf",
+      "text_path": "/opt/idx-official-data/extracted/UNIQ/suratkuasa2023.txt",
+      "bytes": 120357
+    }
+  ],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/UNIQ/suratkuasa2023.pdf",
+        "shareholders": "SHAREHOLDERS PT ULIMA NITRA Tbk FOR FINANCIAL YAER 2022 SURAT KUASA/POWER OF ATTORNEY Yang bertandatangan di bawah ini/herein undersigned: Nama/Name : Alamat/Address : No. Identitas/No. Identity : Dalam hal ini bertindak selaku Pemegang Saham dengan rincian/herein act on behalf of shareholder with the details: Nama Saham Perusahaan/Company’s Share name : UNIQ Jumlah Saham/share amounts : ( %) Selanjutnya disebut “Pemberi Kuasa” /Hereinafer referred to “Principal” Bersama ini memberikan kuasa kepada Petugas yang ditunjuk oleh PT Adimitra Jasa Korpora/Herewith give a power to Officer who appointed by PT Admitra Jasa Korpora: Nama/Name : ALEXANDER HAN’S SATYO Alamat/Address : JL KESEDERHANAAN NO 35 A RT/RW 007/004 KELURAHAN KEAGUNGAN KECAMATAN TAMAN SARI JAKARTA BARAT No. KTP/ No. Identity : 3173033005011002 Selanjutnya disebut Penerima Kuasa/Hereinafter referred to “Proxy” - K H U S U S/SPECIAL Untuk mewakili Pemberi Kuasa untuk hadir dan menyampaikan suara selaku Pemegang Saham dalam Rapat Umum Pemegang Saham PT Ulima Nitra Tbk Tahun Buku 2021 (“Rapat”) yang diselenggarakan oleh/For and behalf of Princial to attend and deliver the voting as Shareholder to Annual General Meeting of Shareholders PT Ulima Nitra Tbk for Financial Year 2021 (“Meeting”) organized by: Perusahaan/Company : PT Ulima NItra Tbk Yang diselengarakan pada tanggal/Date : 30 Juni 2023/June 30th 2023 Penerima Kuasa wajib menyampaikan suara untuk setiap mata acara Rapat dari Pemberi Kuasa selaku Pemegang Saham sebagaimana dibawah ini/ The Proxy shall deliver the right in each agenda from the Principal as the shareholder as the hereunder stipulated: Mohon diisi dengan tanda [ ] No. MATA ACARA RAPAT/MEETING sesuai pilihan/Please to be filled with AGENDAS mark [ ] SETUJU TIDAK SETUJU ABSTAIN AFFIRMATIVE DISAPPROVING ABSTAIN 1 Persetujuan dan pengesahan Laporan Tahunan Perseroan untuk tahun buku yang berakhir pada tanggal 31 Desember 2022 termasuk didalamnya Laporan Kegiatan Perseroan, Laporan Pengawasan Dewan Komisaris dan Laporan Keuangan tahun buku yang berakhir pada tanggal 31 Desember 2022, serta pemberian pelunasan dan pembebasan tanggung jawab sepenuhnya (acquit et de charge) kepada Dewan Komisaris dan Direksi Perseroan atas tindakan pengawasan dan pengurusan yang mereka lakukan dalam tahun buku yang berakhir pada tanggal 31 Desember 2022 Approval and ratification of the Company's Annual Report for the financial year ending 31 December 2022 including the Company's Activity Report, the Board of Commissioners' Supervisory Report and Financial Report for the financial year ending 31 December 2022, as well as granting full settlement and discharge of responsibilities (acquit et al. de charge) to the Board of Commissioners and the Board of Directors of the Company for their supervisory and management actions during the financial year ended December 31, 2022 Pertanyaan/Query (ies) 2 Penetapan penggunaan hasil usaha Perseroan untuk tahun buku berakhir pada 31 Desember 2022 Approval of the use of incomes of the company's activities for the financial year ended on December 31, 2022 Pertanyaan/Query (ies) 3 Persetujuan penujukkan Akuntan Publik Perseroan untuk tahun buku 2023 oleh Dewan Komisaris Perseroan Approval for the appointment of the Company's Public Accountant for the fiscal year 2023 by Board of Commissioners Pertanyaan/Query (ies) 4 Penetapan Gaji/Honorarium, Tunjangan Lainnya dan Tantiem Bagi Anggota Dewan Komisaris oleh Komite Nominasi & Remunerasi Perseroan dan Penetapan Gaji/Honorarium, Tunjangan Lainnya dan Tantiem Bagi Anggota Dewan Direksi Perseroan oleh Dewan Komisaris Determination of Salary/Honorarium, Other Benefits and Tantiem for Members of the Board of Commissioners by Nomination and Remuneration Committee and Determ",
+        "free_float": ""
+      }
+    ]
+  },
+  "management": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/UNIQ/suratkuasa2023.pdf",
+        "directors": "Board of Directors of the Company for their supervisory and management actions during the financial year ended December 31, 2022 Pertanyaan/Query (ies) 2 Penetapan penggunaan hasil usaha Perseroan untuk tahun buku berakhir pada 31 Desember 2022 Approval of the use of incomes of the company's activities for the financial year ended on December 31, 2022 Pertanyaan/Query (ies) 3 Persetujuan penujukkan Akuntan Publik Perseroan untuk tahun buku 2023 oleh Dewan Komisaris Perseroan Approval for the appointment of the Company's Public Accountant for the fiscal year 2023 by Board of Commissioners Pertanyaan/Query (ies) 4 Penetapan Gaji/Honorarium, Tunjangan Lainnya dan Tantiem Bagi Anggota Dewan Komisaris oleh Komite Nominasi & Remunerasi Perseroan dan Penetapan Gaji/Honorarium, Tunjangan Lainnya dan Tantiem Bagi Anggota Dewan Direksi Perseroan oleh Dewan Komisaris Determination of Salary/Honorarium, Other Benefits and Tantiem for Members of the Board of Commissioners by Nomination and Remuneration Committee and Determination of Salary/Honorarium, Other Benefits and Tantiem for Members of the Board Directors by Board of Commissioners Pertanyaan/Query (ies) 5 Pelaporan penggunaan dana hasil penawaran umum Report on the use of proceeds of right issue Pertanyaan/Query (ies) Penerima kuasa wajib menyampaikan keputusan sesuai dengan pilihan Pemberi Kuasa selaku Pemegang Saham, pada setiap mata acara Rapat dalam Rapat Umum Pemegang Saham/The Proxy shall deliver the voting resolution in accordance with the choice of Principal, in each Meeting agenda in General Meeting of Shareholders. Pemberi kuasa dengan ini menyatakan dan/atau menguatkan bahwa suara dalam mata acara Rapat yang disampaikan berdasarkan surat kuasa ini adalah sah dan benar dan surat kuasa ini dapat digunakan sebagai bukti dimana akan diperlukan/The Principal hereby states and/or strengthenes the voting in Meeting’s agendas which delivered in accordance to this power of attorney is valid and true and this power of attorney might be used as the evidence where it will be needed. Kuasa ini Tunduk terhadap ketentuan Peraturan Perundang-Undangan yang berlaku di Negara Republik Indonesia/This Power is governed under the applicable law and regulation in Republic of Indonesia. Palembang, 30 Juni 2023/Palembang, June, 30th 2023 Pemberi Kuasa/Principal Penerima Kuasa/Proxy Meterai/Stamp Duty Rp. 10.000,- Nama/Name: Nama/Name: Alexander Han’s Satyo Mengetahui/Acknowledge PT Adimitra Jasa Korpora Biro Administrasi Efek/Shares Administer Bureau Nama/Name : Jabatan/Position :",
+        "commissioners": "Board of Commissioners and the Board of Directors of the Company for their supervisory and management actions during the financial year ended December 31, 2022 Pertanyaan/Query (ies) 2 Penetapan penggunaan hasil usaha Perseroan untuk tahun buku berakhir pada 31 Desember 2022 Approval of the use of incomes of the company's activities for the financial year ended on December 31, 2022 Pertanyaan/Query (ies) 3 Persetujuan penujukkan Akuntan Publik Perseroan untuk tahun buku 2023 oleh Dewan Komisaris Perseroan Approval for the appointment of the Company's Public Accountant for the fiscal year 2023 by Board of Commissioners Pertanyaan/Query (ies) 4 Penetapan Gaji/Honorarium, Tunjangan Lainnya dan Tantiem Bagi Anggota Dewan Komisaris oleh Komite Nominasi & Remunerasi Perseroan dan Penetapan Gaji/Honorarium, Tunjangan Lainnya dan Tantiem Bagi Anggota Dewan Direksi Perseroan oleh Dewan Komisaris Determination of Salary/Honorarium, Other Benefits and Tantiem for Members of the Board of Commissioners by Nomination and Remuneration Committee and Determination of Salary/Honorarium, Other Benefits and Tantiem for Members of the Board Directors by Board of Commissioners Pertanyaan/Query (ies) 5 Pelaporan penggunaan dana hasil penawaran umum Report on the use of proceeds of right issue Pertanyaan/Query (ies) Penerima kuasa wajib menyampaikan keputusan sesuai dengan pilihan Pemberi Kuasa selaku Pemegang Saham, pada setiap mata acara Rapat dalam Rapat Umum Pemegang Saham/The Proxy shall deliver the voting resolution in accordance with the choice of Principal, in each Meeting agenda in General Meeting of Shareholders. Pemberi kuasa dengan ini menyatakan dan/atau menguatkan bahwa suara dalam mata acara Rapat yang disampaikan berdasarkan surat kuasa ini adalah sah dan benar dan surat kuasa ini dapat digunakan sebagai bukti dimana akan diperlukan/The Principal hereby states and/or strengthenes the voting in Meeting’s agendas which delivered in accordance to this power of attorney is valid and true and this power of attorney might be used as the evidence where it will be needed. Kuasa ini Tunduk terhadap ketentuan Peraturan Perundang-Undangan yang berlaku di Negara Republik Indonesia/This Power is governed under the applicable law and regulation in Republic of Indonesia. Palembang, 30 Juni 2023/Palembang, June, 30th 2023 Pemberi Kuasa/Principal Penerima Kuasa/Proxy Meterai/Stamp Duty Rp. 10.000,- Nama/Name: Nama/Name: Alexander Han’s Satyo Mengetahui/Acknowledge PT Adimitra Jasa Korpora Biro Administrasi Efek/Shares Administer Bureau Nama/Name : Jabatan/Position :"
+      }
+    ]
+  },
+  "evidence": {},
+  "processing_status": "selesai",
+  "processing_reasons": []
+}

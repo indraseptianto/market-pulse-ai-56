@@ -1,0 +1,143 @@
+{
+  "code": "WIRG",
+  "company_name": "WIR ASIA Tbk.",
+  "scraped_at": "2026-05-26T06:25:19.474120+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "WIRG WIR ASIA Tbk. annual report 2024 pdf official",
+      "title": "WIR ASIA Annual 2024 Financial Report - Celedog",
+      "url": "https://www.celedog.id/reports/UqzCLMHu8MQ",
+      "content": "WIR ASIA Annual 2024 Financial Report — Financial Statement — Annual & Financial Reports • Information Technology • by WIR ASIA Tbk. • 3-4. Read on Celedog.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "WIRG WIR ASIA Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] No.: 047/CORSEC/WIRG/ IV/2026 Kepada Yth./To. Otoritas Jasa ...",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202604/9efdd1dff7_996ea2e1a6.pdf",
+      "content": "(“Perseroan”)/Submission of the Integrated Annual Report and. Sustainability Report for the Financial Year 2025 of PT WIR ASIA Tbk. (the",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "WIRG WIR ASIA Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT WIR ASIA Tbk WIRG 1 Penyampaian Keterbukaan Informasi - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202512/c86cda8dd8_1a7a41f979.pdf",
+      "content": "konsolidasi laporan keuangan VMT, dan mencatat sisa kepemilikan sebagai aset keuangan atau entitas asosiasi. 2. Perseroan akan mengakui gain",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "WIRG WIR ASIA Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] tentang laporan 2023 pt wir asia tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202404/4ffefd0744_5aa8cc51e7.pdf",
+      "content": "Buku ini memuat Laporan Tahunan dan Laporan Keberlanjutan. (selanjutnya kedua laporan tersebut dapat juga disebut sebagai. “Laporan”) PT WIR ASIA Tbk",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "WIRG WIR ASIA Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT WIR ASIA Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202601/b024c32acd_061bf00f54.pdf",
+      "content": "LAPORAN KEPEMILIKAN EFEK YANG MENCAPAI 5 % ATAU LEBIH DARI SAHAM ... sesuai Peraturan Mentri Keuangan Republik Indonesia No.123/PMK.03/2020.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "WIRG WIR ASIA Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 045/CORSEC/WIRG/IV/2025 PT WIR ASIA Tbk WIRG 3 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/60766a3aae_2ac30c6b8e.pdf",
+      "content": "Dokumen ini merupakan dokumen resmi PT WIR ASIA Tbk yang tidak memerlukan tanda tangan karena dihasilkan.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "WIRG WIR ASIA Tbk. annual report 2024 pdf official",
+      "title": "[PDF] Ringkasan Risalah Rapat Umum Para Pemegang Saham Tahunan",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202506/a04545eb20_2c3243ba29.pdf",
+      "content": "This is an official document of PT WIR ASIA Tbk that does not require a signature as it was generated electronically by the electronic reporting",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "WIRG WIR ASIA Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Perseroan dengan ini menyampaikan laporan keuangan untuk ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202505/20250501150426-54093-0/FinancialStatement-2025-I-WIRG.pdf",
+      "content": "Dokumen ini merupakan dokumen resmi PT WIR ASIA Tbk yang tidak memerlukan tanda tangan karena dihasilkan secara elektronik. ... Type of report on",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "WIRG WIR ASIA Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT WIR ASIA Tbk dan Entitas Anaknya/ and its Subsidiaries - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202403/20250329103544-51126-0/WIRG_LK%20Konsolidasian%2031%20Desember%202024.pdf",
+      "content": "Kami telah mengaudit laporan keuangan konsolidasian. PT WIR ASIA Tbk dan entitas anaknya (Grup), yang terdiri dari laporan posisi keuangan",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "WIRG WIR ASIA Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "[PDF] Laporan 2024 PT WIR ASIA TBK",
+      "url": "https://wir.group/wp-content/uploads/2025/04/WIRG_AR-SR-2024-Spreads-FINALE.pdf",
+      "content": "Key strategies to realize Smart Society include: LAPORAN KEBERLANJUTAN SUSTAINABILITY REPORT KILAS KINERJA PERFORMANCE HIGHLIGHTS PROFIL PERUSAHAAN COMPANY PROFILE UNIT PENDUKUNG BISNIS BUSINESS SUPPORT UNIT LAPORAN MANAJEMEN MANAGEMENT REPORT ANALISA DAN PEMBAHASAN MANAJEMEN MANAGEMENT ANALYSIS AND DISCUSSION LAPORAN KEBERLANJUTAN SUSTAINABILITY REPORT TATA KELOLA PERUSAHAAN CORPORATE GOVERNANCE 2 PT WIR ASIA TBK LAPORAN TAHUNAN & KEBERLANJUTAN 2024 ANNUAL & SUSTAINABILITY REPORT 2024 3 PT WIR ASIA TBK ANNUAL & SUSTAINABILITY REPORT 2024 3 PT WIR ASIA TBK 4 PT WIR ASIA TBK LAPORAN TAHUNAN & KEBERLANJUTAN 2024 LAPORAN KEBERLANJUTAN SUSTAINABILITY REPORT KILAS KINERJA PERFORMANCE HIGHLIGHTS PROFIL PERUSAHAAN COMPANY PROFILE UNIT PENDUKUNG BISNIS BUSINESS SUPPORT UNIT LAPORAN MANAJEMEN MANAGEMENT REPORT ANALISA DAN PEMBAHASAN MANAJEMEN MANAGEMENT DISCUSSION AND ANALYSIS LAPORAN KEBERLANJUTAN SUSTAINABILITY REPORT TATA KELOLA PERUSAHAAN CORPORATE GOVERNANCE ANNUAL & SUSTAINABILITY REPORT 2024 5 PT WIR ASIA TBK 1 8 36 164 2 4 10 12 16 17 18 126 126 127 128 18 19 34 38 46 18 69 70 91 91 92 95 96 114 124 128 150 166 168 129 DAFTAR ISI TABLE OF CONTENTS TENTANG LAPORAN 2024 PT WIR ASIA TBK ABOUT THE 2024 REPORT OF PT WIR ASIA TBK KILAS KINERJA LAPORAN MANAJEMEN ANALISA DAN PEMBAHASAN MANAJEMEN TEMA LAPORAN DAN PENJELASAN TEMA REPORT THEME AND EXPLANATION DAFTAR ISI TABLE OF CONTENTS PENCAPAIAN 2024 2024 ACHIEVEMENTS IKHTISAR KEUANGAN FINANCIAL HIGHLIGHTS IKHTISAR OPERASIONAL OPERATIONAL HIGHLIGHTS INFORMASI SAHAM STOCK INFORMATION AKSI KORPORASI CORPORATE ACTION INFORMASI PEMEGANG SAHAM UTAMA DAN PENGENDALI INFORMATION OF MAJOR AND CONTROLLING SHAREHOLDERS KOMPOSISI PEMEGANG SAHAM KEPEMILIKAN >5% SHAREHOLDERS COMPOSITION WITH >5% OWNERSHIP KEPEMILIKAN SAHAM DEWAN KOMISARIS DAN DIREKSI STOCK OWNERSHIP OF THE BOARD OF COMMISSIONERS AND BOARD OF DIRECTORS KEPEMILIKAN SAHAM BERDASARKAN KELOMPOK PEMEGANG SAHAM SHARE OWNERSHIP BY GROUP OF SHAREHOLDERS OBLIGASI DAN EFEK LAINNYA BOND AND OTHER SECURITIES PENGHENTIAN SEMENTARA PERDAGANGAN SAHAM/PENGHAPUSAN PENCATATAN SAHAM TEMPORARY SUSPENSION OF STOCK TRADING/ DELISTING PERISTIWA PENTING KEY EVENTS PENGHARGAAN AWARDS LAPORAN DEWAN KOMISARIS BOARD OF COMMISSIONERS’ REPORT LAPORAN DIREKSI BOARD",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    },
+    {
+      "query": "WIRG WIR ASIA Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "Laporan Tahunan - Wir Group",
+      "url": "https://wir.group/id/laporan-tahunan",
+      "content": "# LAPORAN TAHUNAN & LAPORAN BERKELANJUTAN. ### Laporan Tahunan 2021. ## we’re delivering the best customer experience. Indonesia-based Integrated AR-VR-AI Technology Group of Companies [ IDX: WIRG ]. * Jl. Panjang Raya 70 Jakarta 11530 Indonesia. Sudirman Central Business District (SCBD). Jl. Jend Sudirman Kav. 71 Jakarta 12190 Indonesia.",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    },
+    {
+      "query": "WIRG WIR ASIA Tbk. annual report 2024 pdf official",
+      "title": "Laporan Tahunan - annual report & sustainability report - Wir Group",
+      "url": "https://wir.group/en/laporan-tahunan",
+      "content": "ANNUAL REPORT & SUSTAINABILITY REPORT 2024 ... Download ... ANNUAL REPORT & SUSTAINABILITY REPORT 2023 ... Download ... Annual Report & Sustainability Report 2022.",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    }
+  ],
+  "documents": [
+    {
+      "url": "https://wir.group/wp-content/uploads/2025/04/WIRG_AR-SR-2024-Spreads-FINALE.pdf",
+      "title": "[PDF] Laporan 2024 PT WIR ASIA TBK",
+      "pdf_path": "/opt/idx-official-data/documents/WIRG/WIRG_AR-SR-2024-Spreads-FINALE.pdf",
+      "text_path": "/opt/idx-official-data/extracted/WIRG/WIRG_AR-SR-2024-Spreads-FINALE.txt",
+      "bytes": 18871303
+    }
+  ],
+  "financial_income_revenue": [],
+  "dividends": [
+    {
+      "document": "/opt/idx-official-data/documents/WIRG/WIRG_AR-SR-2024-Spreads-FINALE.pdf",
+      "evidence_text": "DIVIDEND POLICY REALISASI PENGGUNAAN DANA HASIL PENAWARAN 181 INFORMASI UMUM 58 CORPORATE WEBSITE PROMOTION AND ADVERTISING VIA AN UMUM GENERAL INFORMATION INTERACTIVE PLATFORM REALIZATION OF USE OF PROCEEDS FROM PUBLIC OFFERING DAFTAR KEANGGOTAAN ASOSIASI 60 PENGEMBANGAN APLIKASI PERANGKAT LUNAK 171 LIST OF ASSOCIATION MEMBERSHIP SOFTWARE APPLICATION DEVELOPMENT 4 PT WIR ASIA TBK LAPORAN TAHUNAN & KEBERLANJUTAN 2024 2024 ANNUAL & SUSTAINABILITY REPORT PT WIR ASIA TBK 5 KILAS KINERJA LAPORAN MANAJEMEN PROFIL PERUSAHAAN UNIT PENDUKUNG BISNIS ANALISA DAN PEMBAHASAN MANAJEMEN TATA KELOLA PERUSAHAAN LAPORAN KEBERLANJUTAN PERFORMANCE HIGHLIGHTS MANAGEMENT REPORT COMPANY PROFILE BUSINESS SUPPORT UNIT MANAGEMENT DISCUSSION AND ANALYSIS CORPORATE GOVERNANCE SUSTAINABILITY REPORT INFORMASI MATERIAL MENGENAI INVESTASI, EKSPANSI, 182 KEBERAGAMAN KOMPOSISI DEWAN KOMISARIS DAN 264 STRATEGI KEBERLANJUTAN 358 INOVASI DAN PENGEMBANGAN PRODUK 385 DIVESTASI, PENGGABUNGAN/PELEBURAN USAHA, DIREKSI SUSTAINABILITY STRATEGY PRODUCT INNOVATION AND DEVELOPMENT AKUISISI ATAU RESTRUKTURISASI UTANG/MODAL DIVERSITY ON THE COMPOSITION OF THE BOARD OF MATERIAL INFORMATION OF INVESTMENT, EXPANSION, COMMISSIONERS AND BOARD OF DIRECTORS IKHTISAR KINERJA KEBERLANJUTAN 366 KEPUASAN PELANGGAN 385 DIVESTMENT, MERGER/ACQUISITION, OR DEBT/CAPITAL SUSTAINABLE PERFORMANCE HIGHLIGHTS CUSTOMER SATISFACTION RESTRUCTURING NOMINASI & REMUNERASI DEWAN KOMISARIS DAN 269 DIREKSI HUBUNGAN DENGAN PEMANGKU KEPENTINGAN 369 INFORMASI TRANSAKSI MATERIAL YANG MENGANDUNG 182 NOMINATION & REMUNERATION OF THE BOARD OF RELATIONSHIP WITH STAKEHOLDERS BENTURAN KEPENTINGAN COMMISSIONERS AND BOARD OF DIRECTORS PERNYATAAN DEWAN KOMISARIS DAN DIREKSI TENTANG 388 MATERIAL TRANSACTIONS INFORMATION CONTAINING TANTANGAN MENERAPKAN OPERASIONAL 371 TANGGUNG JAWAB ATAS LAPORAN TAHUNAN 2024 PT WIR CONFLICT OF INTEREST HUBUNGAN AFILIASI 271 BERDASARKAN ASPEK KEBERLANJUTAN ASIA TBK AFFILIATIONS CHALLENGES IN IMPLEMENTING A SUSTAINABLE RESPONSIBILITY STATEMENT OF THE BOARD OF TRANSAKSI DENGAN PIHAK BERELASI 182 OPERATION COMMISSIONERS AND BOARD OF DIRECTORS FOR THE 2024 TRANSACTIONS WITH RELATED P"
+    }
+  ],
+  "latest_shareholders_freefloat_ownership": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/WIRG/WIRG_AR-SR-2024-Spreads-FINALE.pdf",
+        "shareholders": "SHAREHOLDERS OWNERSHIP OF COPYRIGHT, PATENT, INDUSTRIAL INVESTMENT SAHAM/PENGHAPUSAN PENCATATAN SAHAM DESIGN, AND TRADEMARK TEMPORARY SUSPENSION OF STOCK TRADING/ KOMPOSISI PEMEGANG SAHAM KEPEMILIKAN 126 INVESTASI BARANG MODAL YANG 179 DELISTING >5% INOVASI DAN PENGEMBANGAN 154 DIREALISASIKAN PADA TAHUN BUKU TERAKHIR SHAREHOLDERS COMPOSITION WITH >5% INNOVATION AND DEVELOPMENT CAPITAL GOODS INVESTMENT REALIZED IN THE OBLIGASI DAN EFEK LAINNYA 18 OWNERSHIP FINANCIAL YEAR BOND AND OTHER SECURITIES RENCANA 2025 159 KEPEMILIKAN SAHAM DEWAN KOMISARIS DAN 127 2025 PLANS INFORMASI DAN FAKTA MATERIAL YANG 179 PERISTIWA PENTING 19 DIREKSI TERJADI SETELAH TANGGAL LAPORAN KEY EVENTS STOCK OWNERSHIP OF THE BOARD OF AKUNTAN COMMISSIONERS AND BOARD OF DIRECTORS SUBSEQUENT EVENTS AFTER PENGHARGAAN AWARDS 34 KEPEMILIKAN SAHAM BERDASARKAN KELOMPOK PEMEGANG SAHAM 128 05 ANALISA DAN PEMBAHASAN MANAJEMEN MANAGEMENT DISCUSSION AND ANALYSIS 164 ACCOUNTING REPORT SUBMISSION DATE PROSPEK USAHA 179 SHARE OWNERSHIP BY GROUP OF TINJAUAN PEREKONOMIAN DAN INDUSTRI 166 BUSINESS PROSPECTS SHAREHOLDERS ECONOMIC AND INDUSTRIAL OVERVIEW 02 LAPORAN MANAJEMEN MANAGEMENT REPORT 36 KRONOLOGI PENCATATAN SAHAM DI BEI CHRONOLOGY OF SHARE LISTING ON THE IDX 128 TINJAUAN OPERASI PER SEGMEN USAHA OPERATIONAL REVIEW PER BUSINESS SEGMENT 168",
+        "free_float": ""
+      }
+    ]
+  },
+  "management": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/WIRG/WIRG_AR-SR-2024-Spreads-FINALE.pdf",
+        "directors": "BOARD OF DIRECTORS SARANA KESEJAHTERAAN 146 CONSOLIDATED STATEMENT OF CASH FLOW WELFARE BENEFITS IKHTISAR KEUANGAN 12 PROFIL DEWAN KOMISARIS 96 KEMAMPUAN MEMBAYAR UTANG 177 FINANCIAL HIGHLIGHTS PROFILE OF THE BOARD OF COMMISSIONERS PELATIHAN DAN PENGEMBANGAN KARYAWAN 147 SOLVENCY EMPLOYEE TRAINING AND DEVELOPMENT IKHTISAR OPERASIONAL 16 PROFIL DIREKSI 114 TINGKAT KOLEKTIBILITAS PIUTANG 177 OPERATIONAL HIGHLIGHTS PROFILE OF THE BOARD OF DIRECTORS KESEHATAN DAN KESELAMATAN KERJA 150 RECEIVABLES COLLECTABILITY OCCUPATIONAL HEALTH AND SAFETY INFORMASI SAHAM 17 INFORMASI KEPEMILIKAN SAHAM 124 STRUKTUR MODAL 178 STOCK INFORMATION STOCK OWNERSHIP TEKNOLOGI INFORMASI 150 RECEIVABLES COLLECTABILITY INFORMATION TECHNOLOGY AKSI KORPORASI 18 INFORMASI PEMEGANG SAHAM UTAMA DAN 126 IKATAN MATERIAL UNTUK INVESTASI BARANG 178 CORPORATE ACTION PENGENDALI KEPEMILIKAN HAK CIPTA, PATEN, DESAIN 151 MODAL INFORMATION OF MAJOR AND CONTROLLING INDUSTRI, DAN MEREK MATERIAL COMMITMENT FOR CAPITAL GOODS PENGHENTIAN SEMENTARA PERDAGANGAN 18 SHAREHOLDERS OWNERSHIP OF COPYRIGHT, PATENT, INDUSTRIAL INVESTMENT SAHAM/PENGHAPUSAN PENCATATAN SAHAM DESIGN, AND TRADEMARK TEMPORARY SUSPENSION OF STOCK TRADING/ KOMPOSISI PEMEGANG SAHAM KEPEMILIKAN 126 INVESTASI BARANG MODAL YANG 179 DELISTING >5% INOVASI DAN PENGEMBANGAN 154 DIREALISASIKAN PADA TAHUN BUKU TERAKHIR SHAREHOLDERS COMPOSITION WITH >5% INNOVATION AND DEVELOPMENT CAPITAL GOODS INVESTMENT REALIZED IN THE OBLIGASI DAN EFEK LAINNYA 18 OWNERSHIP FINANCIAL YEAR BOND AND OTHER SECURITIES RENCANA 2025 159 KEPEMILIKAN SAHAM DEWAN KOMISARIS DAN 127 2025 PLANS INFORMASI DAN FAKTA MATERIAL YANG 179 PERISTIWA PENTING 19",
+        "commissioners": "BOARD OF COMMISSIONERS AND LAPORAN ARUS KAS KONSOLIDASIAN 176 2024 ACHIEVEMENTS BOARD OF DIRECTORS SARANA KESEJAHTERAAN 146 CONSOLIDATED STATEMENT OF CASH FLOW WELFARE BENEFITS IKHTISAR KEUANGAN 12 PROFIL DEWAN KOMISARIS 96 KEMAMPUAN MEMBAYAR UTANG 177 FINANCIAL HIGHLIGHTS PROFILE OF THE BOARD OF COMMISSIONERS PELATIHAN DAN PENGEMBANGAN KARYAWAN 147 SOLVENCY EMPLOYEE TRAINING AND DEVELOPMENT IKHTISAR OPERASIONAL 16 PROFIL DIREKSI 114 TINGKAT KOLEKTIBILITAS PIUTANG 177 OPERATIONAL HIGHLIGHTS PROFILE OF THE BOARD OF DIRECTORS KESEHATAN DAN KESELAMATAN KERJA 150 RECEIVABLES COLLECTABILITY OCCUPATIONAL HEALTH AND SAFETY INFORMASI SAHAM 17 INFORMASI KEPEMILIKAN SAHAM 124 STRUKTUR MODAL 178 STOCK INFORMATION STOCK OWNERSHIP TEKNOLOGI INFORMASI 150 RECEIVABLES COLLECTABILITY INFORMATION TECHNOLOGY AKSI KORPORASI 18 INFORMASI PEMEGANG SAHAM UTAMA DAN 126 IKATAN MATERIAL UNTUK INVESTASI BARANG 178 CORPORATE ACTION PENGENDALI KEPEMILIKAN HAK CIPTA, PATEN, DESAIN 151 MODAL INFORMATION OF MAJOR AND CONTROLLING INDUSTRI, DAN MEREK MATERIAL COMMITMENT FOR CAPITAL GOODS PENGHENTIAN SEMENTARA PERDAGANGAN 18 SHAREHOLDERS OWNERSHIP OF COPYRIGHT, PATENT, INDUSTRIAL INVESTMENT SAHAM/PENGHAPUSAN PENCATATAN SAHAM DESIGN, AND TRADEMARK TEMPORARY SUSPENSION OF STOCK TRADING/ KOMPOSISI PEMEGANG SAHAM KEPEMILIKAN 126 INVESTASI BARANG MODAL YANG 179 DELISTING >5% INOVASI DAN PENGEMBANGAN 154 DIREALISASIKAN PADA TAHUN BUKU TERAKHIR SHAREHOLDERS COMPOSITION WITH >5% INNOVATION AND DEVELOPMENT CAPITAL GOODS INVESTMENT REALIZED IN THE OBLIGASI DAN EFEK LAINNYA 18 OWNERSHIP FINANCIAL YEAR BOND AND OTHER SECURITIES RENCANA 2025 159 KEPEMILIKAN SAHAM D"
+      }
+    ]
+  },
+  "evidence": {
+    "WIRG_AR-SR-2024-Spreads-FINALE_financial": "Consolidated Statements of Profit or Loss dan Penghasilan Komprehensif Lain Konsolidasian and Other Comprehensive Income Untuk Tahun-Tahun yang Berakhir For the Years Ended 31 Desember 2024 dan 2023 December 31, 2024 and 2023 (Angka-angka Disajikan dalam Rupiah, (Figures are Presented in Rupiah, kecuali Dinyatakan Lain) unless Otherwise Stated) Catatan/ 2024 Notes 2023 PENDAPATAN NETO 2.602.278.328.490 24 2.491.597.048.794 NET REVENUES BEBAN POKOK PENDAPATAN 2.316.163.833.852 8,25 2.191.522.034.190 COST OF REVENUES LABA KOTOR 286.114.494.638 300.075.014.604 GROSS PROFIT BEBAN USAHA OPERATING EXPENSES Penjualan 42.576.611.668 26 41.803.507.703 Selling Umum dan administrasi 139.671.858.440 8,9,16a,18,27 150.911.779.349 General and administrative Total Beban Usaha 182.248.470.108 192.715.287.052 Total Operating Expenses LABA USAHA 103.866.024.530 107.359.727.552 OPERATING PROFIT PENGHASILAN (BEBAN) OTHER INCOME LAIN-LAIN (EXPENSES) Pemulihan (beban provisi) atas Reversal (provision) for expected kerugian kredit ekspetasian credit losses of trade piutang usaha - neto 7.478.300.764 5 (9.643.421.787 ) receivables - net Pendapatan keuangan 2.391.167.411 4 2.543.759.836 Finance income Keuntungan (kerugian) selisih kurs Gain (loss) on foreign exchange mata uang asing - neto 107.855.013 4,5,11,12,17 (159.629.601 ) - net Beban keuangan (4.046.031.294 ) 10,15,16,17 (3.543.708.339 ) Finance expenses Laba (rugi) penjualan (penghapusan) Gain (loss) on sale (disposal) of aset tetap (43.754.167 ) 8 22.436.192 property and equipment Lain-lain - neto 504.777.820 (256.694.434 ) Others - net Total penghasilan (Beban) Total Other Income Lain-lain - neto 6.392.315.547 (11.037.258.133 ) (Expense) - Net LABA SEBELUM PAJAK PENGHASILAN 110.258.340.077 96.322.469.419 INCOME BEFORE INCOME TAX BEBAN PAJAK PENGHASILAN - INCOME TAX EXPENSE NETO (31.083.365.012 ) 14c (27.817.605.203 ) - NET LABA TAHUN BERJALAN 79.174.975.065 68.504.864.216 NET INCOME FOR THE YEAR Lihat catatan atas laporan keuangan konsolidasian yang See accompanying notes to the consolidated financial merupakan bagian yang tidak terpisahkan dari laporan keuangan statements which are an integral part of the consolidated konsolidasian. financial statements. -4- PT WIR ASIA Tbk PT WIR ASIA Tbk DAN ENTITAS ANAKNYA AND ITS SUBSIDIARIES Laporan Laba Rugi Consolidated Statements of Profit or Loss dan Penghasilan Komprehensif Lain Konsolidasian and Other Comprehensive Income Untuk Tahun-Tahun yang Berakhir For the Years Ended 31 Desember 2024 dan 2023 December 31, 2024 and 2023 (Angka-angka Disajikan dalam Rupiah, (Figures are Presented in Rupiah, kecuali Dinyatakan Lain) unless Otherwise Stated) Catatan/ 2024 Notes 2023 PENGHASILAN (RUGI) OTHER COMPREHENSIVE KOMPREHENSIF LAIN INCOME (LOSS) Pos-pos yang tidak akan Items that will not be reclassified direklasifikasi ke laba rugi to profit or loss in periode berikutnya: subsequently: Pengukuran kembali liabilitas Remeasurement of employee imbalan kerja 5.502.736.793 18 (137.728.643 ) benefits liabilities Pajak penghasilan terkait (1.210.602.094 ) 14e 30.300.300 Related income tax PENGHASILAN (RUGI) OTHER COMPREHENSIVE KOMPREHENSIF LAIN - INCOME (LOSS) - NET OF PAJAK NETO 4.292.134.699 (107.428.343 ) TAX TOTAL PENGHASILAN TOTAL COMPREHENSIVE KOMPREHENSIF 83.467.109.764 68.397.435.873 INCOME Laba (rugi) tahun berjalan yang Net income (loss) for the year dapat diatribusikan kepada: attributable to: Pemilik Entitas Induk 73.920.990.082 69.017.284.028 Owners of the Company Kepentingan non-pengendali 5.253.984.983 (512.419.812 ) Non-controlling interests Total 79.174.975.065 68.504.864.216 Total Total penghasilan komprehensif yang dapat diatribusikan Total comprehensive income kepada: attributable to: Pemilik Entitas Induk 78.128.874.378 68.896.364.887 Owners of the Company Kepentingan non-pengendali 5.338.235.386 (498.929.014 ) Non-controlling interests Total 83.467.109.764 68.397.435.873 Total EARNINGS PER SHARE LABA PER SAHAM YANG ATTRIBUTABLE TO DIATRIBUSIKAN KEPADA OWNERS OF THE PEMILIK ENTITAS INDUK 31 COMPANY Dasar 6,19 5,80 Basic Dilusian - 5,68 Diluted Lihat catatan atas laporan keuangan konsolidasian yang See accompanying notes to the consolidated financial merupakan bagian yang tidak terpisahkan dari laporan keuangan statements which are an integral part of the consolidated konsolidasian. financial statements. -5- PT WIR ASIA Tbk"
+  },
+  "processing_status": "selesai",
+  "processing_reasons": []
+}

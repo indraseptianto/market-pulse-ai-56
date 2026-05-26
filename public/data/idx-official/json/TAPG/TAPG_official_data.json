@@ -1,0 +1,114 @@
+{
+  "code": "TAPG",
+  "company_name": "Triputra Agro Persada Tbk.",
+  "scraped_at": "2026-05-26T10:50:12.717690+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "TAPG Triputra Agro Persada Tbk. website resmi investor relation annual report pdf",
+      "title": "TAPG Investor Relations - Triputra Agro Persada Tbk PT",
+      "url": "https://www.alphaspread.com/security/idx/tapg/investor-relations",
+      "content": "Triputra Agro Persada Tbk PT (IDX:TAPG) investor relations materials: earnings calls, slides & PDFs, and shareholder letters.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "TAPG Triputra Agro Persada Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] triputra agro persada - : 009/tap/s-corsec-ho/iii/2026 - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202603/25d309d87a_d718d0f787.pdf",
+      "content": "Penyampaian Laporan Keuangan Tahunan [TAPG]. FinancialStatement-2025-Tahunan-TAPG.xlsx. inlineXBRL.zip instance.zip. Penyampaian TAPG LK Q4 2025",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TAPG Triputra Agro Persada Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Submission of PT Triputra Agro Persada Tbk Annual Report 2025",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202603/459cbf2870_b7d8bf91e5.pdf",
+      "content": "Laporan Keuangan Berkala Emiten Atau. Perusahaan Publik. Maka berikut kami sampaikan Laporan Tahunan. PT Triputra Agro Persada Tbk untuk tahun",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TAPG Triputra Agro Persada Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT TRIPUTRA AGRO PERSADA Tbk. - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/f2059f149c_ca260f545d.pdf",
+      "content": "Laporan Tahunan dan Laporan Keuangan Perseroan. MATA ACARA KEDUA. Penetapan Penggunaan Laba Perseroan Tahun Buku 2024. Penjelasan: Dasar",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TAPG Triputra Agro Persada Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Building Better Resilience - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202603/1da3354b55_18895768f3.pdf",
+      "content": "Laporan Tahunan ini memuat pernyataan kondisi keuangan, hasil operasi ... Triputra Agro Persada Tbk • Laporan Tahunan 2025 Annual Report ii. Page 3",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TAPG Triputra Agro Persada Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] triputra agro persada - : 010/tap/s-corsec-ho/iii/2026 - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202603/af49a8654c_a4e6e9630f.pdf",
+      "content": "Laporan Keuangan Tahunan (LKT) Konsolidasian the submission of the Consolidated Annual. Perseroan dan Entitas Anak Periode 31 Financial",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TAPG Triputra Agro Persada Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Nurturing Success Amidst Challenges - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202403/56da86aa34_a1bbce1031.pdf",
+      "content": "Laporan Keberlanjutan ini memuat kata “TAPG“ dan “Perseroan” yang didefinisikan sebagai PT. Triputra Agro Persada Tbk. Sedangkan untuk penulisan angka-angka",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TAPG Triputra Agro Persada Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "triputra agro persada - : 010/tap/s-corsec-ho/ii/2025",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202502/6bdb5516f2_ce75bf45e3.pdf",
+      "content": "Penyampaian Laporan Keuangan Tahunan [TAPG]. Financial Statement-2024 ... Hubungan Investor. 141300. Galeri Karir QEN ID. Mengembangkan",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TAPG Triputra Agro Persada Tbk. annual report 2025 pdf official",
+      "title": "[PDF] PT Triputra Agro Persada Tbk dan entitas anaknya/and its subsidiaries",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202503/20260316203449-60054-0/TAPG%20LK%20Q4%202025.pdf",
+      "content": "We have audited the accompanying consolidated financial statements of PT Triputra Agro Persada ... information included in the 2025 Annual Report.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TAPG Triputra Agro Persada Tbk. annual report 2024 pdf official",
+      "title": "[PDF] PT Triputra Agro Persada Tbk dan entitas anaknya/and its subsidiaries",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202402/20250227182701-49824-0/TAPG%20LK%20Q4%202024.pdf",
+      "content": "We have audited the accompanying consolidated financial statements of PT Triputra Agro Persada ... information included in the 2024 Annual Report.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TAPG Triputra Agro Persada Tbk. financial report 2025 pdf official",
+      "title": "[PDF] PT Triputra Agro Persada Tbk dan entitas anaknya/and its subsidiaries",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202510/20251028140007-58496-0/TAPG%20LK%20Q3%202025.pdf",
+      "content": "Interim consolidated financial statements as of September 30, 2025 and for the nine months period then ended (unaudited). Page 2. Page 3. The",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TAPG Triputra Agro Persada Tbk. shareholders dividend annual report pdf",
+      "title": "PT. Triputra Agro Persada Tbk [TAPG] | IDNFinancials",
+      "url": "https://www.idnfinancials.com/tapg/pt-triputra-agro-persada-tbk",
+      "content": "Market Hints Bonds Call People Net Foreign Stake Monitor 1%+ Valuable Stock. TAPG IDR 1.580 -40 (-2,47%). IDR 1.580 -40 (-2,47%). | **Offer** IDR 1.585 | **Bid** IDR 1.580 |. | IPO Date | {{ipo.ipo\\_dates.ipo\\_date | dateMoment}} |. | Offering Shares | {{ipo.ipo\\_dates.offering\\_shares | numberFormat}} |. | Founders' Shares | {{ipo.ipo\\_dates.company\\_listing | numberFormat}} |. | Percentage | {{ipo.ipo\\_dates.percentage | numberFormat(2)}}% |. | Offering Price | {{ipo.ipo\\_dates.offering\\_price | numberFormat}} *(IDR)* |. | {{row.name}} | {{row.listing\\_date | dateMoment('ll')}}  {{row.mature\\_date | dateMoment('ll')}} |  | {{row.interest | numberFormat(2)}}% |. | {{row.ratio}} | {{row.shares\\_issue | numberFormat}} | {{row.price | numberFormat}} *(IDR)* | {{row.fund\\_raise | numberFormat}} *(IDR)* | {{row.listing\\_date | dateMoment('ll')}} |. | {{row.year}} | {{row.dividend\\_shares | numberFormat(2)}} *({{row.currency}})* | {{row.payment\\_date | dateMoment(\"DD MMM YYYY\") }} | {{row.type}} |. | {{row.name}} | {{row.shares|numberFormat}} *(Shares)* | {{row.nominal|numberFormat}} *({{row.currency}})* | {{row.percentage|numberFormat(2)}}% |. | {{ row.percentage }} % | {{ row.shareholder|numberFormat }}  ({{formatDiff(row.different\\_shareholder)}}) | {{ row.period | dateMoment(\"DD MMM YYYY\") }} |. | {{row.asof\\_date}} | {{row.revenue|numberFormat}} *{{row.currency}}* | {{row.net\\_profit|numberFormat}} *{{row.currency}}* |.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {},
+  "processing_status": "partial",
+  "processing_reasons": [
+    "Tidak ada kandidat dokumen yang ditemukan dari pencarian."
+  ]
+}

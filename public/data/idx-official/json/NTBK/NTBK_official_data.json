@@ -1,0 +1,141 @@
+{
+  "code": "NTBK",
+  "company_name": "Nusatama Berkah Tbk.",
+  "scraped_at": "2026-05-26T06:50:21.642690+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "NTBK Nusatama Berkah Tbk. financial report 2025 pdf official",
+      "title": "[PDF] Daftar Isi - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202505/18ce0475fb_a09e58907e.pdf",
+      "content": "... Nusatama Berkah Tbk 7. Laporan Terintegrasi. Page 10. 2024. 48.143. 72.289. 2023. 2024. 95.098. 95.354. 2023. Liabilitas Perseroan tahun 2024 tumbuh Naik 52,23",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "NTBK Nusatama Berkah Tbk. financial report 2025 pdf official",
+      "title": "[PDF] PT Nusatama Berkah Tbk NTBK 1 Keterbukaan Informasi ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202506/02c40b0ac7_ca7359a15c.pdf",
+      "content": "This is an official document of PT Nusatama Berkah Tbk that does not require a signature as it was generated electronically by the electronic",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "NTBK Nusatama Berkah Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "[PDF] NUSATAMA Delivering Quality - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202510/7fc53b0dfe_49d6945319.pdf",
+      "content": "PP2/10-2025 tanggal 14 Oktober 2025 perihal. Permintaan Penjelasan Bursa, bersama ini PT Nusatama Berkah Tbk (\"Perseroan\") menyampaikan",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "NTBK Nusatama Berkah Tbk. shareholders dividend annual report pdf",
+      "title": "[PDF] Draft untuk tayang di Investor Daily - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202605/298d7f2ac8_6cc273f44c.pdf",
+      "content": "Approved and ratified the Annual Report for the financial year ended on ... shareholders of PT NUSATAMA BERKAH Tbk as of April 20, 2026, as",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "NTBK Nusatama Berkah Tbk. shareholders dividend annual report pdf",
+      "title": "PT. Nusatama Berkah Tbk [NTBK] | IDNFinancials",
+      "url": "https://www.idnfinancials.com/ntbk/pt-nusatama-berkah-tbk",
+      "content": "# IPO. | IPO Date | {{ipo.ipo\\_dates.ipo\\_date | dateMoment}} |. | Offering Shares | {{ipo.ipo\\_dates.offering\\_shares | numberFormat}} |. | Founders' Shares | {{ipo.ipo\\_dates.company\\_listing | numberFormat}} |. | Total Listed Shares | {{ipo.ipo\\_dates.total\\_listed\\_shares | numberFormat}} |. | Percentage | {{ipo.ipo\\_dates.percentage | numberFormat(2)}}% |. | Offering Price | {{ipo.ipo\\_dates.offering\\_price | numberFormat}} *(IDR)* |. | Fund Raised | {{ipo.ipo\\_dates.fund\\_raised | numberFormat}} *(IDR)* |. | {{row.name}} | {{row.listing\\_date | dateMoment('ll')}}  {{row.mature\\_date | dateMoment('ll')}} |  | {{row.interest | numberFormat(2)}}% |. | {{row.ratio}} | {{row.shares\\_issue | numberFormat}} | {{row.price | numberFormat}} *(IDR)* | {{row.fund\\_raise | numberFormat}} *(IDR)* | {{row.listing\\_date | dateMoment('ll')}} |. | {{row.year}} | {{row.dividend\\_shares | numberFormat(2)}} *({{row.currency}})* | {{row.payment\\_date | dateMoment(\"DD MMM YYYY\") }} | {{row.type}} |. | {{row.name}} | {{row.shares|numberFormat}} *(Shares)* | {{row.nominal|numberFormat}} *({{row.currency}})* | {{row.percentage|numberFormat(2)}}% |. | {{ row.percentage }} % | {{ row.shareholder|numberFormat }}  ({{formatDiff(row.different\\_shareholder)}}) | {{ row.period | dateMoment(\"DD MMM YYYY\") }} |. | {{row.asof\\_date}} | {{row.revenue|numberFormat}} *{{row.currency}}* | {{row.net\\_profit|numberFormat}} *{{row.currency}}* |.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "NTBK Nusatama Berkah Tbk. financial report 2025 pdf official",
+      "title": "42a797a5deb790373dc56f5b82...",
+      "url": "https://cdn.sanity.io/files/fbj5wnif/production/42a797a5deb790373dc56f5b82e50af2667f198d.pdf",
+      "content": "GALVA TECHNOLOGIES PT GALVA TECHNOLOGIES Tbk DAN ENTITAS ANAKNYA I AND ITS SUBSIDIARY Laporan Keuangan Konsolidasian I Consolidated Financial Statements 31 Desember 2025 dan untuk Tahun yang Berakhir pada Tanggal tersebut I December 31, 2025 and for the Year then Ended Dan Laporan Auditor lndependen I And Independent Auditors' Report Daftar Isi Table of Contents Halaman / P a g e Surat pernyataan direksi Laporan auditor independen Laporan posisi keuangan konsolidasian Laporan laba rugi dan penghasilan komprehensif lain konsolidasian Laporan perubahan ekuitas konsolidasian Laporan arus kas konsolidasian Catatan atas laporan keuangan konsolidasian 1 - 3 4 - 5 6 7 8 - 96 Directors’ statement Independent auditors’ report Consolidated statement of financial position Consolidated statement of profit or loss and other comprehensive income Consolidated statement of changes in equity Consolidated statement of cash flows Notes to the consolidated financial statements SURAT PERNYATAAN DIREKSI TENTAMG TANGGUNG JAWAB ATAS LAPORAM KEUANGAN KONSOLIDASIAN PT GALVA TECHNOLOGIES Tbk DAN ENTITAS ANAKNYA 31 DESEMBER 2025 DAN UNTUK TAHUN YANG BERAKHIR PADA TANGGAL TERSEBUT Kami yang bertanda tangan di bawah ini: GALVA TECHNOLOGIES DIRECTORS' STATEMENT ON THE RESPONSIBILITY FOR THE CONSOLIDATED FINANCIAL STATEMENTS OF PT GAL VA TECHNOLOGIES Tbk AND ITS SUBSIDIARY DECEMBER 31, 2025 AND FOR THE YEAR THEN ENDED We, the undersigned: 1.",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    },
+    {
+      "query": "NTBK Nusatama Berkah Tbk. shareholders dividend annual report pdf",
+      "title": "Annual Report - PT Nusatama Berkah Tbk",
+      "url": "https://nusatama.com/report-category/annual-report",
+      "content": "Explore our comprehensive review of financial performance, milestones, and future strategies. 2022. 2023. 2024. 2025. 2026. 04/22/2026. Annual Report NTBK",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    },
+    {
+      "query": "NTBK Nusatama Berkah Tbk. financial report 2025 pdf official",
+      "title": "Annual Report - PT Nusatama Berkah Tbk",
+      "url": "https://nusatama.com/id/report-category/annual-report",
+      "content": "Setahun Pertumbuhan dan Pencapaian · Annual Report NTBK 2025 · Laporan Tahunan 2024 · Laporan Tahunan 2023 · Laporan Tahunan 2022 · Laporan Tahunan 2021.",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    },
+    {
+      "query": "NTBK Nusatama Berkah Tbk. financial report 2025 pdf official",
+      "title": "Laporan Keuangan - PT Nusatama Berkah Tbk",
+      "url": "https://nusatama.com/id/report-category/financial-report",
+      "content": "Consolidated Financial Report PT Nusatama Berkah Q4 2025 (Audited) · Consolidated Financial Report PT Nusatama Berkah Q3 2025 · Consolidated Financial Report PT",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    },
+    {
+      "query": "NTBK Nusatama Berkah Tbk. shareholders dividend annual report pdf",
+      "title": "Laporan Keuangan PT Nusatama Berkah Tbk | PDF - Scribd",
+      "url": "https://id.scribd.com/document/784322913/FinancialStatement-2024-II-NTBK",
+      "content": "Nomor Surat S-143/NTBK-FINAT/VII/2024. Nama Emiten PT Nusatama Berkah Tbk. Kode Emiten NTBK Perihal Penyampaian Laporan Keuangan Interim Yang Tidak Diaudit.",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    },
+    {
+      "query": "NTBK Nusatama Berkah Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "Laporan Keuangan PT Nusatama Tbk Q3 2022 | PDF - Scribd",
+      "url": "https://id.scribd.com/document/685331748/FinancialStatement-2022-III-NTBK",
+      "content": "Dokumen ini merupakan laporan keuangan interim PT Nusatama Berkah Tbk untuk periode sembilan bulan yang berakhir pada 30 September 2022. Laporan keuangan",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    },
+    {
+      "query": "NTBK Nusatama Berkah Tbk. financial report 2025 pdf official",
+      "title": "Consolidated Financial Report PT Nusatama Berkah Q2 2025",
+      "url": "https://nusatama.com/id/report/consolidated-financial-report-pt-nusatama-berkah-q2-2025",
+      "content": "Consolidated Financial Report PT Nusatama Berkah Q2 2025. Membagikan: Other Financial Report. Selengkapnya · Laporan Keuangan. 06/15/2022",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    }
+  ],
+  "documents": [
+    {
+      "url": "https://cdn.sanity.io/files/fbj5wnif/production/42a797a5deb790373dc56f5b82e50af2667f198d.pdf",
+      "title": "42a797a5deb790373dc56f5b82...",
+      "pdf_path": "/opt/idx-official-data/documents/NTBK/42a797a5deb790373dc56f5b82e50af2667f198d.pdf",
+      "text_path": "/opt/idx-official-data/extracted/NTBK/42a797a5deb790373dc56f5b82e50af2667f198d.txt",
+      "bytes": 3930467
+    }
+  ],
+  "financial_income_revenue": [],
+  "dividends": [
+    {
+      "document": "/opt/idx-official-data/documents/NTBK/42a797a5deb790373dc56f5b82e50af2667f198d.pdf",
+      "evidence_text": "dividend (Catatan 24) - - - - (22.500) (22.500) - (22.500) (Note 24) Dividen tunai yang Cash dividend paid dibayarkan melalui through entitas anak subsidiary (Catatan 24) - - - - - - (6.300) (6.300) (Note 24) Laba neto tahun berjalan - - - - 76.209 76.209 11.993 88.202 Net profit for the year Rugi Other comprehensive komprehensif lain loss tahun berjalan - - (851) - - (851) - (851) for the year Saldo Balance as of 31 Desember 2024 75.000 50.576 879 15.000 257.507 398.962 52.022 450.984 December 31, 2024 Dividen tunai - Cash dividend (Catatan 24) - - - - (22.500) (22.500) (22.500) (Note 24) Dividen tunai yang Cash dividend paid dibayarkan melalui through entitas anak subsidiary (Catatan 24) - - - - - - (7.200) (7.200) (Note 24) Laba neto tahun berjalan - - - - 33.966 33.966 5.972 39.938 Net profit for the year Rugi Other comprehensive komprehensif lain"
+    }
+  ],
+  "latest_shareholders_freefloat_ownership": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/NTBK/42a797a5deb790373dc56f5b82e50af2667f198d.pdf",
+        "shareholders": "Shareholders, Board of Commissioners and Directors PT Galva Technologies Tbk PT Galva Technologies Tbk Opini Opinion Kami telah mengaudit laporan keuangan konsolidasian We have audited the consolidated financial statements of PT Galva Technologies Tbk dan entitas anaknya (secara PT Galva Technologies Tbk and its subsidiary (collectively kolektif disebut sebagai \"Grup\"), yang terdiri dari laporan referred to as the \"Group'}, which comprise the posisi keuangan konsolidasian tanggal 31 Desember 2025, consolidated statement of financial position as of serta laporan laba rugi dan penghasilan komprehensif lain December 31, 2025, and the consolidated statement of konsolidasian, laporan perubahan ekuitas konsolidasian, dan profit or loss and other comprehensive income, the laporan arus kas konsolidasian untuk tahun yang berakhir consolidated statement of changes in equity, and the pada tanggal tersebut, serta catatan atas laporan keuangan consolidated statement of cash flows for the year then konsolidasian, termasuk informasi kebijakan akuntansi material. ended, and notes to the consolidated financial statements, including material accounting policy information. Menurut opini kami, laporan keuangan konsolidasian In our opinion, the accompanying consolidated financial terlampir menyajikan secara wajar, dalam semua hal yang statements present fairly, in all material respects, the material, posisi keuangan konsolidasian Grup tanggal consolidated financial position of the Group as of 31 Desember 2025, serta kinerja keuangan konsolidasian dan December 31, 2025, and its consolidated financial arus kas konsolidasiannya untuk tahun yang berakhir pada performance and its consolidated cash flows for the year tanggal tersebut, sesuai dengan Standar Akuntansi then ended, in accordance with Indonesian Financial Keuangan di Indonesia. Accounting Standards. Basis Opini Basis for Opinion Kami melaksanakan audit kami berdasarkan Standar Audit We conducted our audit in accordance with Standards on yang ditetapkan oleh lnstitut Akuntan Publik Indonesia. Auditing established by the Indonesian Institute of Certified Tanggung jawab kami menurut standar tersebut diuraikan Public Accountants. Our responsibilities under those lebih lanjut dalam paragrafTanggung Jawab Auditor terhadap standards are further described in the Auditors' Audit atas Laporan Keuangan Konsolidasian pada laporan Responsibilities for the Audit of the Consolidated Financial kami. Kami independen terhadap Grup berdasarkan Statements paragraph of our report. We are independent ketentuan etika yang relevan dalam audit kami atas laporan of the Group in accordance with the ethical requirements keuangan konsolidasian di Indonesia, dan kami telah that are relevant to our audit of the consolidated financial memenuhi tanggung jawab etika lainnya berdasarkan statements in Indonesia, and we have fulfilled our other ketentuan tersebut. Kami yakin bahwa bukti audit yang telah kami peroleh adalah cukup dan tepat untuk menyediakan ethical responsibilities in accordance with these suatu basis bagi opini audit kami. requirements. We believe that the audit evidence we have obtained is sufficient and appropriate to provide a basis for our opinion. Hal Audit Utama Key Audit Matters Hal audit utama adalah hal-hal yang, menurut pertimbangan Key audit matters are those matters that, in our profesional kami, merupakan hal yang paling signifikan dalam professional judgment, were of most significance in our audit kami atas laporan keuangan konsolidasian periode kini. audit of the consolidated financial statements of the current Hal-hal tersebut disampaikan dalam konteks audit kami atas period.",
+        "free_float": ""
+      }
+    ]
+  },
+  "management": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/NTBK/42a797a5deb790373dc56f5b82e50af2667f198d.pdf",
+        "directors": "Board of Directors and Board of PT Libera Technologies Indonesia secara historis Commissioners of PT Libera Technologies mengendalikan keputusan strategis dan operasional Indonesia and has historically controlled the PT Libera Technologies Indonesia. strategic and operational decisions of PT Libera Technologies Indonesia. Berdasarkan pertimbangan tersebut, Perusahaan Based on these considerations, the Company menyimpulkan bahwa Perusahaan memiliki concluded that it has control over PT Libera pengendalian atas PT Libera Technologies Indonesia Technologies Indonesia in accordance with PSAK sesuai dengan PSAK 110 dan oleh karena itu laporan 110, and therefore, the financial statements of keuangan PT Libera Technologies Indonesia PT Libera Technologies Indonesia are dikonsolidasikan. consolidated. Asumsi utama masa depan dan sumber utama estimasi The key assumptions related to the future and the ketidakpastian lain pada tanggal pelaporan yang memiliki main sources of estimation uncertainty at the risiko signifikan bagi penyesuaian material terhadap reporting date that have a significant risk of material jumlah tercatat aset dan liabilitas untuk periode adjustments to the carrying amount of assets and berikutnya diungkapkan di bawah ini. Grup mendasarkan liabilities within the next period end are disclosed asumsi dan estimasi pada parameter yang tersedia pada below. The Group’s assumptions and estimates are saat laporan keuangan disusun. Asumsi dan situasi based on a reference available at the time the mengenai perkembangan masa depan mungkin berubah financial statements are prepared. Current situation akibat perubahan pasar atau situasi di luar kendali Grup. and assumptions regarding future developments, Perubahan tersebut tercermin dalam asumsi terkait pada may change due to market changes or saat terjadinya. circumstances beyond the control of the Group. These changes are reflected in the related assumptions as incurred. 37 The original consolidated financial statements included herein are in Indonesian language. PT GALVA TECHNOLOGIES Tbk PT GALVA TECHNOLOGIES Tbk DAN ENTITAS ANAKNYA AND ITS SUBSIDIARY CATATAN ATAS LAPORAN KEUANGAN NOTES TO THE CONSOLIDATED FINANCIAL KONSOLIDASIAN STATEMENTS 31 Desember 2025 December 31, 2025 Dan untuk Tahun yang Berakhir pada Tanggal tersebut And for the Year then Ended (Disajikan dalam Jutaan Rupiah, (Expressed in Millions of Rupiah, kecuali dinyatakan lain) unless otherwise stated) 3. ESTIMASI DAN PERTIMBANGAN AKUNTANSI YANG 3. SIGNIFICANT ACCOUNTING ESTIMATES AND SIGNIFIKAN (lanjutan) JUDGMENTS (continued) Sumber Estimasi Ketidakpastian (lanjutan) Sources of Estimation Uncertainty (continued) Mengestimasi Masa Manfaat Aset Tetap Estimation of Useful Lives of Fixed Assets Biaya perolehan aset tetap disusutkan dengan The costs of fixed assets are depreciated on a menggunakan metode garis lurus berdasarkan taksiran straight-line basis over the fixed assets’ estimated masa manfaat ekonomisnya. Manajemen mengestimasi economic useful lives. Management estimates the masa manfaat ekonomis aset tetap antara 4 sampai useful lives of these fixed assets to be within dengan 8 tahun, suatu kisaran yang umumnya 4 to 8 years. These are common life expectancies diperkirakan dalam industri sejenis. Perubahan dalam applied in the industry. Changes in the expected pola pemakaian dan tingkat perkembangan teknologi level of usage and technological developments dapat memengaruhi masa manfaat ekonomis serta nilai",
+        "commissioners": "Board of Commissioners and Directors PT Galva Technologies Tbk PT Galva Technologies Tbk Opini Opinion Kami telah mengaudit laporan keuangan konsolidasian We have audited the consolidated financial statements of PT Galva Technologies Tbk dan entitas anaknya (secara PT Galva Technologies Tbk and its subsidiary (collectively kolektif disebut sebagai \"Grup\"), yang terdiri dari laporan referred to as the \"Group'}, which comprise the posisi keuangan konsolidasian tanggal 31 Desember 2025, consolidated statement of financial position as of serta laporan laba rugi dan penghasilan komprehensif lain December 31, 2025, and the consolidated statement of konsolidasian, laporan perubahan ekuitas konsolidasian, dan profit or loss and other comprehensive income, the laporan arus kas konsolidasian untuk tahun yang berakhir consolidated statement of changes in equity, and the pada tanggal tersebut, serta catatan atas laporan keuangan consolidated statement of cash flows for the year then konsolidasian, termasuk informasi kebijakan akuntansi material. ended, and notes to the consolidated financial statements, including material accounting policy information. Menurut opini kami, laporan keuangan konsolidasian In our opinion, the accompanying consolidated financial terlampir menyajikan secara wajar, dalam semua hal yang statements present fairly, in all material respects, the material, posisi keuangan konsolidasian Grup tanggal consolidated financial position of the Group as of 31 Desember 2025, serta kinerja keuangan konsolidasian dan December 31, 2025, and its consolidated financial arus kas konsolidasiannya untuk tahun yang berakhir pada performance and its consolidated cash flows for the year tanggal tersebut, sesuai dengan Standar Akuntansi then ended, in accordance with Indonesian Financial Keuangan di Indonesia. Accounting Standards. Basis Opini Basis for Opinion Kami melaksanakan audit kami berdasarkan Standar Audit We conducted our audit in accordance with Standards on yang ditetapkan oleh lnstitut Akuntan Publik Indonesia. Auditing established by the Indonesian Institute of Certified Tanggung jawab kami menurut standar tersebut diuraikan Public Accountants. Our responsibilities under those lebih lanjut dalam paragrafTanggung Jawab Auditor terhadap standards are further described in the Auditors' Audit atas Laporan Keuangan Konsolidasian pada laporan Responsibilities for the Audit of the Consolidated Financial kami. Kami independen terhadap Grup berdasarkan Statements paragraph of our report. We are independent ketentuan etika yang relevan dalam audit kami atas laporan of the Group in accordance with the ethical requirements keuangan konsolidasian di Indonesia, dan kami telah that are relevant to our audit of the consolidated financial memenuhi tanggung jawab etika lainnya berdasarkan statements in Indonesia, and we have fulfilled our other ketentuan tersebut. Kami yakin bahwa bukti audit yang telah kami peroleh adalah cukup dan tepat untuk menyediakan ethical responsibilities in accordance with these suatu basis bagi opini audit kami. requirements. We believe that the audit evidence we have obtained is sufficient and appropriate to provide a basis for our opinion. Hal Audit Utama Key Audit Matters Hal audit utama adalah hal-hal yang, menurut pertimbangan Key audit matters are those matters that, in our profesional kami, merupakan hal yang paling signifikan dalam professional judgment, were of most significance in our audit kami atas laporan keuangan konsolidasian periode kini. audit of the consolidated financial statements of the current Hal-hal tersebut disampaikan dalam konteks audit kami atas period. These matters"
+      }
+    ]
+  },
+  "evidence": {},
+  "processing_status": "selesai",
+  "processing_reasons": []
+}

@@ -1,0 +1,74 @@
+{
+  "code": "PTPS",
+  "company_name": "Pulau Subur Tbk.",
+  "scraped_at": "2026-05-25T20:50:13.278427+00:00",
+  "source": "Official/company/IDX documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "PTPS Pulau Subur Tbk. annual report 2024 pdf official",
+      "title": "[PDF] pt pulau subur, tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202507/20250731190503-56678-0/LK%20PTPS%20Kuartal%20II%202025.pdf",
+      "content": "the 2024 financial year. Page 69. The original financial statements included herein are in the Indonesian language. PT PULAU SUBUR Tbk."
+    },
+    {
+      "query": "PTPS Pulau Subur Tbk. annual report 2024 pdf official",
+      "title": "Financial Statements Full Year 2024 of PTPS",
+      "url": "https://www.indopremier.com/ipotnews/newsDetail.php?jdl=Financial_Statements_Full_Year_2024_of_PTPS&news_id=461727&group_news=RESEARCHNEWS&news_date=&taging_subtype=COMPANYUPDATE&name=&search=y_general&q=Financial+Statements&halaman=1",
+      "content": "| Gross Profit | 36,4 | 16,6 | 10,1 | **204,6** | 34,5 | **5,5** |. | Net Profit | 27,1 | 12,4 | 8,5 | **276,9** | 26,2 | **3,4** |. |  | Dana yang siap untuk digunakan untuk pembelian reksadana dan penarikan dana. |  | Dana yang siap untuk digunakan untuk pembelian saham tanpa menimbulkan pembiayaan talangan. Tetapi berpotensi menimbulkan pembiayaan talangan apabila digunakan untuk pembelian reksadana atau penarikan kas. |  | Batas dana yang ditambah dengan valuasi saham sebagai jaminan sementara yang dapat digunakan untuk pembelian dan penarikan dana pada hari yang sama (*same-day*). #### Dana Tersedia + Talangan Sementara. Yang dapat digunakan untuk pembelian dan penarikan dana pada hari yang sama (*same-day*). |  | Dana yang berasal dari valuasi saham sebagai jaminan sementara yang dapat digunakan untuk pembelian dan penarikan dana pada hari yang sama (same-day). Penggunaan Limit Fasilitas **berpotensi menimbulkan pembiayaan talangan dan *forced-sell*** atas saham yang dijaminkan tersebut. |  | Dana Tersedia - IPOTFUND + Talangan Sementara + Fasilitas |."
+    },
+    {
+      "query": "PTPS Pulau Subur Tbk. annual report 2024 pdf official",
+      "title": "Annual Reports | Subur Tiasa Holdings Berhad 常豐控股",
+      "url": "https://www.suburtiasa.com/about-us/annual-reports",
+      "content": "## Annual Reports. ## Annual Report 2025. ### SUBUR TIASA ANNUAL REPORT 2025.pdf (14.4MB). ## Annual Report 2024. ### SUBUR TIASA ANNUAL REPORT 2024 PART 1.pdf (2.89MB). ### SUBUR TIASA ANNUAL REPORT 2024 PART 2.pdf (2.47MB). ### SUBUR TIASA CIRCULAR 2024.pdf (1.00MB). ## Annual Report 2023. ### SUBUR TIASA ANNUAL REPORT 2023 PART 1.pdf (2.51MB). ### SUBUR TIASA ANNUAL REPORT 2023 PART 2.pdf (1.34MB). ### SUBUR TIASA CIRCULAR 2023.pdf (0.62MB). ## Annual Report 2022. ### SUBUR TIASA ANNUAL REPORT 2022 Part 1.pdf (2.51MB). ### SUBUR TIASA ANNUAL REPORT 2022 Part 2.pdf (1.34MB). ### SUBUR TIASA CIRCULAR 2022.pdf (0.62MB). ## Annual Report 2021. ### SUBUR TIASA ANNUAL REPORT 2021 Part 1.pdf (2.90MB). ### SUBUR TIASA ANNUAL REPORT 2021 Part 2.pdf (1.47MB). ### SUBUR TIASA CIRCULAR 2021.pdf (0.73MB). ## Annual Report 2020. ### SUBUR TIASA AR2020 Part 1.pdf (2.78MB). ### SUBUR TIASA AR2020 Part 2.pdf (2.65MB). ### SUBUR TIASA CIRCULAR 2020.pdf (0.70MB)."
+    },
+    {
+      "query": "PTPS Pulau Subur Tbk. annual report 2024 pdf official",
+      "title": "PT. Pulau Subur Tbk [PTPS] | IDNFinancials",
+      "url": "https://www.idnfinancials.com/ptps/pt-pulau-subur-tbk",
+      "content": "# IPO. | IPO Date | {{ipo.ipo\\_dates.ipo\\_date | dateMoment}} |. | Offering Shares | {{ipo.ipo\\_dates.offering\\_shares | numberFormat}} |. | Founders' Shares | {{ipo.ipo\\_dates.company\\_listing | numberFormat}} |. | Total Listed Shares | {{ipo.ipo\\_dates.total\\_listed\\_shares | numberFormat}} |. | Percentage | {{ipo.ipo\\_dates.percentage | numberFormat(2)}}% |. | Offering Price | {{ipo.ipo\\_dates.offering\\_price | numberFormat}} *(IDR)* |. | Fund Raised | {{ipo.ipo\\_dates.fund\\_raised | numberFormat}} *(IDR)* |. | {{row.name}} | {{row.listing\\_date | dateMoment('ll')}}  {{row.mature\\_date | dateMoment('ll')}} |  | {{row.interest | numberFormat(2)}}% |. | {{row.ratio}} | {{row.shares\\_issue | numberFormat}} | {{row.price | numberFormat}} *(IDR)* | {{row.fund\\_raise | numberFormat}} *(IDR)* | {{row.listing\\_date | dateMoment('ll')}} |. | {{row.year}} | {{row.dividend\\_shares | numberFormat(2)}} *({{row.currency}})* | {{row.payment\\_date | dateMoment(\"DD MMM YYYY\") }} | {{row.type}} |. | {{row.fiscal\\_year}} | {{row.total\\_bonus\\_shares}} {{row.recording\\_date | dateMoment(\"DD MMM YYYY\") }} | {{row.payment\\_date | dateMoment(\"DD MMM YYYY\") }} | |. | {{row.name}} | {{row.shares|numberFormat}} *(Shares)* | {{row.nominal|numberFormat}} *({{row.currency}})* | {{row.percentage|numberFormat(2)}}% |. | {{ row.percentage }} % | {{ row.shareholder|numberFormat }}  ({{formatDiff(row.different\\_shareholder)}}) | {{ row.period | dateMoment(\"DD MMM YYYY\") }} |."
+    },
+    {
+      "query": "PTPS Pulau Subur Tbk. annual report 2024 pdf official",
+      "title": "Laporan Tahunan | PULAUSUBUR.COM",
+      "url": "https://www.pulausubur.com/Hubungan-Investor/Laporan-Tahunan_3795_38.htm",
+      "content": "Hubungan Investor. Home · / Hubungan Investor. RUPS. 2023 · 2024 · 2025 · 2026. Prospektus. Prospektus. Laporan Keuangan."
+    },
+    {
+      "query": "PTPS Pulau Subur Tbk. financial report 2025 pdf official",
+      "title": "Financial Statements 1Q 2025 of PTPS",
+      "url": "https://www.ipotnews.com/ipotnews/newsDetail.php?jdl=Financial_Statements_1Q_2025_of_PTPS&news_id=463811&group_news=RESEARCHNEWS&taging_subtype=COMPANYUPDATE&name=&search=y_general&q=Financial+Statements&halaman=1",
+      "content": "PT Pulau Subur Tbk (PTPS) membukukan laba bersih pada Quarter 1 2025 sebesar Rp 9,6 miliar ... EBITDA/IntExp. 247,61. Full akses : Klik pdf"
+    },
+    {
+      "query": "PTPS Pulau Subur Tbk. financial report 2025 pdf official",
+      "title": "[PDF] Ringkasan Risalah Rapat Umum Para Pemegang Saham Tahunan",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202505/59e1567a2c_aa39f4c160.pdf",
+      "content": "19-05-2025 14:23. Attachment. 1. ringkasan risalah RUPST 2025.pdf. This is an official document of PT Pulau Subur Tbk. that does not require a"
+    },
+    {
+      "query": "PTPS Pulau Subur Tbk. financial report 2025 pdf official",
+      "title": "Financial Statements Full Year 2025 of PTPS - Indo Premier Sekuritas",
+      "url": "https://www.indopremier.com/module/newsDetail.php?jdl=Financial_Statements_Full_Year_2025_of_PTPS&news_id=486945&group_news=RESEARCHNEWS&taging_subtype=RESULT&name=&search=y_general&q=Financial+Statements&halaman=1",
+      "content": ") membukukan laba bersih pada tahun 2025 sebesar Rp 18,1 miliar. Menurun bila dibandingkan dengan periode yang sama di tahun 2024 sebesar Rp 27,"
+    },
+    {
+      "query": "PTPS Pulau Subur Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "Financial Statements Full Year 2025 of PTPS - IndoPremier",
+      "url": "https://www.indopremier.com/module/newsDetail.php?jdl=Financial_Statements_Full_Year_2025_of_PTPS&news_id=486945&group_news=RESEARCHNEWS&taging_subtype=PTPS&name=&search=y_general&q=Financial+Statements&halaman=1",
+      "content": ") membukukan laba bersih pada tahun 2025 sebesar Rp 18,1 miliar. Menurun bila dibandingkan dengan periode yang sama di tahun 2024 sebesar Rp 27,"
+    },
+    {
+      "query": "PTPS Pulau Subur Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "PT Pulau Subur Tbk (IDX:PTPS) Financials & Income Statement",
+      "url": "https://stockanalysis.com/quote/idx/PTPS/financials",
+      "content": "Fiscal year is Jan - Dec. | Revenue Growth (YoY) | -14.55% | 11.10% | 3.12% | -4.11% | 27.87% | 85.81% |. | Other Operating Expenses | 1,086 | 1,086 | 990.4 | 471.6 | 289.91 | 63.98 |. | Operating Income | 14,792 | 25,929 | 32,957 | 32,777 | 34,722 | 20,384 |. | Net Income Growth | -75.89% | -33.35% | 3.61% | -5.36% | 84.62% | 54.77% |. | Shares Outstanding (Basic) | 2,165 | 2,168 | 2,168 | 2,168 | 0 | 0 |. | Free Cash Flow Per Share | 6.89 | 11.41 | -7.27 | 1.96 | 983937.28 | 857033.34 |. | Operating Margin | 24.19% | 36.71% | 51.84% | 53.16% | 54.00% | 40.54% |. | Free Cash Flow Margin | 24.39% | 35.01% | -24.79% | 6.88% | 43.38% | 48.32% |. | EBIT Margin | 24.19% | 36.71% | 51.84% | 53.16% | 54.00% | 40.54% |."
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {}
+}

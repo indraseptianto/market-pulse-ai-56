@@ -1,0 +1,99 @@
+{
+  "code": "HGII",
+  "company_name": "Hero Global Investment Tbk.",
+  "scraped_at": "2026-05-25T16:20:11.973364+00:00",
+  "source": "Official/company/IDX documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "HGII Hero Global Investment Tbk. annual report 2025 pdf official",
+      "title": "[PDF] 2024 Annual Report & Sustainability Report",
+      "url": "https://heroglobalinvestment.com/wp-content/uploads/2025/05/FINAL2_30042025-CR-HERO-2024_compressed.pdf",
+      "content": "PT Hero Global Investment Tbk has achieved its most robust position to date, marking a significant milestone in the Company's 12-year trajectory"
+    },
+    {
+      "query": "HGII Hero Global Investment Tbk. annual report 2025 pdf official",
+      "title": "Financial Statements 2Q 2025 of HGII - Indo Premier Sekuritas",
+      "url": "https://www.indopremier.com/ipotnews/newsDetail.php?jdl=Financial_Statements_2Q_2025_of_HGII&news_id=469985&group_news=RESEARCHNEWS&news_date=&taging_subtype=COMPANYUPDATE&name=&search=y_general&q=Financial+Statements&halaman=1",
+      "content": "PT Hero Global Investment Tbk (HGII) membukukan laba bersih pada Quarter 2 2025 sebesar Rp 11,2 miliar. Menurun bila dibandingkan dengan"
+    },
+    {
+      "query": "HGII Hero Global Investment Tbk. annual report 2025 pdf official",
+      "title": "[PDF] PT Hero Global Investment Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202506/2a49abba35_97cddd26ff.pdf",
+      "content": "Operating Revenue Declines 7.1% YoY until March 2025. 30. Operating. Revenue. Gross Profit. 1Q 2025 -8.76% YoY to IDR17.4 bn. 1Q 2025 -14.39%"
+    },
+    {
+      "query": "HGII Hero Global Investment Tbk. annual report 2025 pdf official",
+      "title": "PT. Hero Global Investment Tbk [HGII] - IDNFinancials.com",
+      "url": "https://www.idnfinancials.com/hgii/pt-hero-global-investment-tbk",
+      "content": "IPO Date, January 9, 2025 ; Offering Shares, 1.300.000.000 ; Founders' Shares, 5.200.000.000 ; Total Listed Shares, 6.500.000.000 ; Percentage, 20,00%."
+    },
+    {
+      "query": "HGII Hero Global Investment Tbk. annual report 2025 pdf official",
+      "title": "[PDF] Nomor Surat Nama Perusahaan Kode Emiten Lampiran ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/8b6526c039_bf18d91372.pdf",
+      "content": "Official Submission - HGII 2024 Annual Report ... This is an official document of PT Hero Global Investment Tbk that does not require a signature"
+    },
+    {
+      "query": "HGII Hero Global Investment Tbk. financial report 2025 pdf official",
+      "title": "IDX:HGII Income Statement - Financials - Stock Analysis",
+      "url": "https://stockanalysis.com/quote/idx/HGII/financials",
+      "content": "Detailed annual and quarterly financials and income statement for PT Hero Global Investment Tbk (IDX:HGII) ... FY 2025, FY 2024, FY 2023, FY 2022, FY 2021."
+    },
+    {
+      "query": "HGII Hero Global Investment Tbk. financial report 2025 pdf official",
+      "title": "Laporan Keuangan - HERO GLOBAL INVESTMENT",
+      "url": "https://heroglobalinvestment.com/hubungan-investor/laporan-keuangan",
+      "content": "HGII Financial Statement Q1 2025 · HGII Financial Statement Q2 2025 · HGII Financial Statement Q3 2025 · HGII Financial Statement Audited Year Book 2025."
+    },
+    {
+      "query": "HGII Hero Global Investment Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "PT. Hero Global Investment Tbk [HGII] - IDNFinancials.com",
+      "url": "https://www.idnfinancials.com/id/hgii/pt-hero-global-investment-tbk",
+      "content": "IPO Date, 9 Januari 2025 ; Saham Penawaran, 1.300.000.000 ; Saham Pendiri, 5.200.000.000 ; Total Saham Terdaftar, 6.500.000.000 ; Persentase, 20,00%."
+    },
+    {
+      "query": "HGII Hero Global Investment Tbk. shareholders dividend annual report pdf",
+      "title": "[PDF] Hero Global Investment (HGII IJ) - IDX",
+      "url": "https://www.idx.co.id/Media/an5jxoig/lre-hgii-id-en-ai-260107.pdf",
+      "content": "Highlights. • HGII's 9M25 net profit plunged 52.6% yoy due to a prolonged drought. Laba bersih HGII 9M25 menurun 52,6% yoy, akibat kemarau."
+    }
+  ],
+  "documents": [
+    {
+      "url": "https://heroglobalinvestment.com/wp-content/uploads/2025/05/FINAL2_30042025-CR-HERO-2024_compressed.pdf",
+      "title": "[PDF] 2024 Annual Report & Sustainability Report",
+      "pdf_path": "/opt/idx-official-data/documents/HGII/FINAL2_30042025-CR-HERO-2024_compressed.pdf",
+      "text_path": "/opt/idx-official-data/extracted/HGII/FINAL2_30042025-CR-HERO-2024_compressed.txt",
+      "bytes": 5489395
+    }
+  ],
+  "financial_income_revenue": [],
+  "dividends": [
+    {
+      "document": "/opt/idx-official-data/documents/HGII/FINAL2_30042025-CR-HERO-2024_compressed.pdf",
+      "evidence_text": "Dividend Policy 51 Nama Pemegang Saham dan Persentase Kepemilikan Saham Shareholder Names and Percentage of Share Ownership 92 Informasi dan Fakta Material yang Terjadi Setelah Tanggal Laporan Akuntan 54 Bidang Usaha Material Information and Facts Occurring After the Auditor’s Report Date Business Activities [OJK C4] 93 Informasi Material Mengenai Investasi, Ekspansi, Divestasi, 55 Keanggotaan dalam Asosiasi Penggabungan/Peleburan Usaha, Akuisisi, dan Restrukturisasi Membership in Association [OJK C5] Utang/Modal Perubahan Perseroan yang Bersifat Signifikan Material Information Regarding Investments, Expansions, Divestitures, 55 Mergers/Consolidations, Acquisitions, and Debt/Capital Restructuring Significant Changes in the Company [OJK C6] Struktur Organisasi 94 Informasi Transaksi Material yang Mengandung Benturan 56 Kepentingan dan/atau Transaksi dengan Pihak Afiliasi Organizational Structure Material Information on Transactions Involving Conflict of Interest and/or Transactions with Affiliated Parties 4 Accelerating Sustainable ENERGY Transition | 2024 Annual Report & Sustainability Report 04 05 06 07 ANALISIS & PEMBAHASAN MANAJEMEN TATA KELOLA PERUSAHAAN TANGGUNG JAWAB SOSIAL & KEBERLANJUTAN LAPORAN KEUANGAN Management Discussion & Analysis Good Corporate Governance Social Responsibility & Sustainability Audited Financial Report 95 Prospek Usaha 152 Unit Audit Internal Business Prospects Internal Audit Unit 96 Aspek Pemasaran 156 Akuntan Publik Marketing Aspect Public Accountant 97 Perubahan Peraturan Perundang-undangan yang Berpengaruh 157 Sistem Pengendalian Internal Signifikan terhadap Perseroan Internal Control System Significant Changes in Laws and Regulations Affecting the Company 158 Sistem Manajemen Risiko 97 Perubahan Kebijakan Akuntansi dan Dampaknya terhadap Perseroan Risk Management System Changes in Accounting Policies and Their Impact on the Company 161 Perkara Penting Important Cases 05 161 Akses Informasi dan Data Perusahaan Tata Kelola Perusahaan Access to Company Information and Data Good Corporate Governance 162 Kode Etik Code of Conduct 163 Pakta Integritas 100 Penerapan Tata Kelola Perusahaan Integrity Pact Corporate Governance Implementation 164 Sistem Pelaporan Pelanggaran 100 Tujuan Penerapan Tata Kelola Perusahaan Whistleblowing System Objectives of C"
+    }
+  ],
+  "latest_shareholders_freefloat_ownership": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/HGII/FINAL2_30042025-CR-HERO-2024_compressed.pdf",
+        "shareholders": "Shareholders 166 Penanggung Jawab Penerapan Usaha Berkelanjutan 106 Mekanisme Pelaksanaan RUPS Responsibility for the Implementation of Sustainable Business Practices Mechanism for Conducting the General Meeting of Shareholders 109 Pelaksanaan RUPS pada Tahun 2024 dan Tindak Lanjutnya 06 Implementation of the General Meeting of Shareholders in 2024 and Subsequent Actions Tanggung Jawab Sosial Perusahaan 110 Dewan Komisaris Corporate Social Responsibility Board of Commissioners 121 Komisaris Independen 170 Strategi Keberlanjutan Independent Commissioner Strategi Keberlanjutan 122 Direksi 171 Dukungan pada Tujuan Pembangunan Berkelanjutan (TPB) Board of Directors Our Support for the Sustainable Development Goals (SDGs) 129 Remunerasi Dewan Komisaris 173 Kegiatan Membangun Budaya Keberlanjutan Board of Commissioners Remuneration Kegiatan Membangun Budaya Keberlanjutan 129 Remunerasi Direksi 174 Kinerja Ekonomi Board of Directors Remuneration Economic Performance 131 Pengungkapan Hubungan Afiliasi Dewan Komisaris dan Direksi, 174 Kinerja Lingkungan serta Pemegang Saham Environmental Performance Disclosure of Affiliate Relationship of the Board of Commissioners, Board of Directors, and Shareholders 177 Kinerja Sosial Social Performance 132 Pengungkapan Rangkap Jabatan Dewan Komisaris dan Direksi Disclosure of Concurrent Positions of the Board of Commissioners and 178 Aspek Ketenagakerjaan Board of Directors Employment Aspect 133 Pengungkapan Kepemilikan Saham Perseroan dan Perusahaan 179 Aspek Masyarakat Lain oleh Dewan Komisaris dan Direksi Community Aspect Disclosure of Share Ownership in the Company and Other Entities by the Board of Commissioners and the Board of Directors 181 Lembar Umpan Balik Feedback Sheet [OJK G.2] 134 Organ Pendukung Dewan Komisaris Supporting Organs of the Board of Commissioners 182 Daftar Pengungkapan sesuai Peraturan Otoritas Jasa Keuangan Nomor 51/POJK.03/2017 134 Komite Audit Disclosure List in Accordance with Financial Services Authority Regulation Audit Committee No. 51/POJK.03/2017 [OJK G4] 142 Komite Nominasi dan Remunerasi Nomination and Remuneration Committee 148 Sekretaris Perusahaan Corporate Secretary Laporan Keuangan Audited Financial Report 07 Accelerating Sustainable ENERGY Transition | Laporan Tahunan & Keberlanjutan 2024 5 Tentang Laporan About The Report Kilas Kinerja Performance Highlights Laporan Manajemen Management Report Profil Perusahaan Company Profile Analisis dan Pembahasan Manajemen Management Discussion and An",
+        "free_float": ""
+      }
+    ]
+  },
+  "management": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/HGII/FINAL2_30042025-CR-HERO-2024_compressed.pdf",
+        "directors": "Board of Directors 62 Daftar Entitas Anak List of Subsidiaries Ikhtisar Kinerja 2024 2024 Performance Overview 01 62 Kantor Akuntan Publik Public Accounting Firm Sumber Daya Manusia 63 Human Resources 8 Ikhtisar Kinerja Performance Overview 65 Akses Publik terhadap Perseroan Public Access to the Company 11 Ikhtisar Data Keuangan Penting Key Financial Highlights 66 Teknologi Informasi Information Technology 13 Ikhtisar Saham Stock Highlights 66 Pendidikan dan/atau Pelatihan Dewan Komisaris, Direksi, Komite- Komite, Sekretaris Perusahaan, dan Unit Audit Internal 14 Penghargaan dan Sertifikasi Education and/or Training of the Board of Commissioners, Board of Awards and Certifications Directors, Committees, Corporate Secretary, and Internal Audit Unit 16 Peristiwa Penting Important Events Analisis & Pembahasan Manajemen Management Discussion & Analysis 04 Laporan Manajemen Management Report 02 72 Tinjauan Kondisi Perekonomian Overview of Economic Conditions Laporan Dewan Komisaris 73 Tinjauan Industri Energi Terbarukan 20 Overview of the Renewable Energy Industry Board of Commissioners’ Report Laporan Direksi 76 Tinjauan Operasi per Segmen Usaha 28 Operational Review by Business Segment Board of Directors’ Report Surat Pernyataan Anggota Direksi dan Anggota Dewan Komisaris 80 Tinjauan Keuangan 40 Financial Review Tentang Tanggung Jawab Atas Laporan Tahunan 2024 Statement of Responsibility by Members of the Board of Directors and the Laporan Laba Rugi dan Penghasilan Komprehensif Lain Board of Commissioners regarding the 2024 Annual Report 84 Statements of Profit or Loss and Other Comprehensive Income 86 Laporan Arus Kas Statements of Cash Flows Profil Perusahaan Company Profile 03 87 88 Kemampuan Membayar Utang Solvency Tingkat Kolektibilitas Piutang",
+        "commissioners": "Board of Commissioners 4 Daftar Isi 59 Profil Direksi Table of Content Profile of the Board of Directors 62 Daftar Entitas Anak List of Subsidiaries Ikhtisar Kinerja 2024 2024 Performance Overview 01 62 Kantor Akuntan Publik Public Accounting Firm Sumber Daya Manusia 63 Human Resources 8 Ikhtisar Kinerja Performance Overview 65 Akses Publik terhadap Perseroan Public Access to the Company 11 Ikhtisar Data Keuangan Penting Key Financial Highlights 66 Teknologi Informasi Information Technology 13 Ikhtisar Saham Stock Highlights 66 Pendidikan dan/atau Pelatihan Dewan Komisaris, Direksi, Komite- Komite, Sekretaris Perusahaan, dan Unit Audit Internal 14 Penghargaan dan Sertifikasi Education and/or Training of the Board of Commissioners, Board of Awards and Certifications Directors, Committees, Corporate Secretary, and Internal Audit Unit 16 Peristiwa Penting Important Events Analisis & Pembahasan Manajemen Management Discussion & Analysis 04 Laporan Manajemen Management Report 02 72 Tinjauan Kondisi Perekonomian Overview of Economic Conditions Laporan Dewan Komisaris 73 Tinjauan Industri Energi Terbarukan 20 Overview of the Renewable Energy Industry Board of Commissioners’ Report Laporan Direksi 76 Tinjauan Operasi per Segmen Usaha 28 Operational Review by Business Segment Board of Directors’ Report Surat Pernyataan Anggota Direksi dan Anggota Dewan Komisaris 80 Tinjauan Keuangan 40 Financial Review Tentang Tanggung Jawab Atas Laporan Tahunan 2024 Statement of Responsibility by Members of the Board of Directors and the Laporan Laba Rugi dan Penghasilan Komprehensif Lain Board of Commissioners regarding the 2024 Annual Report 84 Statements of Profit or Loss and Other Comprehensive Income 86 Laporan Arus Kas Statements of Cash Flows Profil Perusahaan Company Profile 03 87 88 Kemampuan Membayar Utang"
+      }
+    ]
+  },
+  "evidence": {
+    "FINAL2_30042025-CR-HERO-2024_compressed_financial": "Consolidated Statements of Profit or Loss and Other Comprehensive Income 4 Laporan Perubahan Ekuitas Konsolidasian / Consolidated Statements of Changes in Equity 5 Laporan Arus Kas Konsolidasian / Consolidated Statements of Cash Flows 6 Catatan atas Laporan Keuangan Konsolidasian / Notes to the Consolidated Financial Statements 7 - 70 PT HERO GLOBAL INVESTMENT Tbk PT HERO GLOBAL INVESTMENT Tbk DAN ENTITAS ANAK AND SUBSIDIARIES Laporan posisi keuangan konsolidasian Consolidated statements of financial position Pada tanggal 31 Desember 2024 dan 2023 As at 31 December 2024 and 2023 (Disajikan dalam ribuan Rupiah, kecuali dinyatakan lain) (Expressed in thousands Rupiah, unless otherwise stated) Catatan/ Notes 2024 2023 ASET ASSETS Aset lancar Current assets Kas dan bank 5 17.675.528 19.016.995 Cash and banks Piutang usaha Trade receivables - Pihak ketiga 6 10.372.874 693.750 Third party - Piutang lain-lain 7 Other receivables - Pihak berelasi 25 375.000 35.625.583 Related parties - - Pihak ketiga 462.300 548.308 Third parties - Aset keuangan dari proyek Financial assets from konsesi concession project - Bagian lancar 8 84.231.867 89.305.222 Current portion - Pajak dibayar di muka 83.600 752.642 Prepaid taxes Uang muka 142.000 50.903 Advances Biaya dibayar di muka 9 3.207.105 506.748 Prepaid expenses Jumlah aset lancar 116.550.274 146.500.151 Total current assets Aset tidak lancar Non-current assets Uang muka - 498.715 Advances Aset tetap 10 7.404.862 6.388.826 Fixed assets Aset keuangan dari proyek Financial assets from konsesi concession project - Bagian tidak lancar 8 591.427.866 612.497.490 Non-current portion - Investasi pada entitas asosiasi 11 180.000 180.000 Investment in associate Aset pajak tangguhan 15c 187.169 158.302 Deferred tax assets Jumlah aset tidak lancar 599.199.897 619.723.333 Total non-current assets JUMLAH ASET 715.750.171 766.223.484 TOTAL ASSETS Catatan atas laporan keuangan konsolidasian The accompanying notes to the consolidated financial merupakan bagian yang tidak terpisahkan dari laporan statements form an integral part of these consolidated keuangan konsolidasian ini secara keseluruhan. financial statements. 1 PT HERO GLOBAL INVESTMENT Tbk PT HERO GLOBAL INVESTMENT Tbk DAN ENTITAS ANAK AND SUBSIDIARIES Laporan posisi keuangan konsolidasian Consolidated statements of financial position (lanjutan) (continued) Pada tanggal 31 Desember 2024 dan 2023 As at 31 December 2024 and 2023 (Disajikan dalam ribuan Rupiah, kecuali dinyatakan lain) (Expressed in thousands Rupiah, unless otherwise stated) Catatan/ Notes 2024 2023 LIABILITAS LIABILITIES Liabilitas jangka pendek Current liabilities Utang usaha Trade payables - Pihak ketiga 12 63.559 8.180.177 Third parties - Utang lain-lain 13 Other payables - Pihak berelasi 25 7.125.830 40.072.031 Related parties - - Pihak ketiga 2.700.000 2.804.832 Third parties - Utang pajak 15a 4.832.224 3.728.857 Taxes payable Akrual 16 1.124.169 1.010.073 Accruals Liabilitas jangka panjang yang Current maturities of jatuh tempo dalam satu tahun: long-term liabilities: - Utang sewa Finance lease - pembiayaan 14 499.107 513.514 payables - Liabilitas sewa 102.852 - Lease liabilities - - Pinjaman bank 17 27.286.555 161.971.367 Bank loans - Jumlah liabilitas jangka Total current pendek 43.734.296 218.280.851 liabilities Liabilitas jangka Non-current panjang liabilities Utang lain-lain Other payables - Pihak berelasi 13 8.350.355 - Related parties - Liabilitas jangka panjang, setelah Long-term liabilities, dikurangi bagian yang jatuh net of current tempo dalam satu tahun: maturities: - Utang sewa Financial lease - Pembiayaan 14 536.939 970.138 payables - Liabilitas sewa 398.438 - Lease liabilities - - Pinjaman bank 17 93.481.406 7.132.923 Bank loans - Liabilitas imbalan kerja 18 3.477.092 3.236.137 Employee benefit liabilities Liabilitas pajak tangguhan 15c 84.615.188 83.468.883 Deferred tax liabilities Jumlah liabilitas jangka Total non-current panjang 190.859.418 94.808.081 liabilities JUMLAH LIABILITAS 234.593.714 313.088.932 TOTAL LIABILITIES Catatan atas laporan keuangan konsolidasian The accompanying notes to the consolidated financial merupakan bagian yang tidak terpisahkan dari laporan statements for"
+  }
+}

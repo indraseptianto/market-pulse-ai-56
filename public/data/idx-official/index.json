@@ -1,0 +1,1950 @@
+{
+  "generated_at": "2026-05-26T12:03:57.354618+00:00",
+  "count": 243,
+  "items": [
+    {
+      "code": "AADI",
+      "company_name": "Adaro Andalan Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/AADI/AADI_official_data.json",
+      "excel": "/data/idx-official/excel/AADI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "ACRO",
+      "company_name": "Samcro Hyosung Adilestari Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/ACRO/ACRO_official_data.json",
+      "excel": "/data/idx-official/excel/ACRO_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "ADCP",
+      "company_name": "Adhi Commuter Properti Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/ADCP/ADCP_official_data.json",
+      "excel": "/data/idx-official/excel/ADCP_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "ADMR",
+      "company_name": "Adaro Minerals Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/ADMR/ADMR_official_data.json",
+      "excel": "/data/idx-official/excel/ADMR_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "AEGS",
+      "company_name": "Anugerah Spareparts Sejahtera",
+      "status": "unknown",
+      "json": "/data/idx-official/json/AEGS/AEGS_official_data.json",
+      "excel": "/data/idx-official/excel/AEGS_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "ALII",
+      "company_name": "Ancara Logistics Indonesia Tbk",
+      "status": "unknown",
+      "json": "/data/idx-official/json/ALII/ALII_official_data.json",
+      "excel": "/data/idx-official/excel/ALII_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "AMMN",
+      "company_name": "Amman Mineral Internasional Tb",
+      "status": "unknown",
+      "json": "/data/idx-official/json/AMMN/AMMN_official_data.json",
+      "excel": "/data/idx-official/excel/AMMN_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "AMMS",
+      "company_name": "Agung Menjangan Mas Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/AMMS/AMMS_official_data.json",
+      "excel": "/data/idx-official/excel/AMMS_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "ARCI",
+      "company_name": "Archi Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/ARCI/ARCI_official_data.json",
+      "excel": "/data/idx-official/excel/ARCI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "AREA",
+      "company_name": "Dunia Virtual Online Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/AREA/AREA_official_data.json",
+      "excel": "/data/idx-official/excel/AREA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "ARKO",
+      "company_name": "Arkora Hydro Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/ARKO/ARKO_official_data.json",
+      "excel": "/data/idx-official/excel/ARKO_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "ASHA",
+      "company_name": "Cilacap Samudera Fishing Indus",
+      "status": "unknown",
+      "json": "/data/idx-official/json/ASHA/ASHA_official_data.json",
+      "excel": "/data/idx-official/excel/ASHA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "ASLC",
+      "company_name": "Autopedia Sukses Lestari Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/ASLC/ASLC_official_data.json",
+      "excel": "/data/idx-official/excel/ASLC_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "ASLI",
+      "company_name": "Asri Karya Lestari Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/ASLI/ASLI_official_data.json",
+      "excel": "/data/idx-official/excel/ASLI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "ATLA",
+      "company_name": "Atlantis Subsea Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/ATLA/ATLA_official_data.json",
+      "excel": "/data/idx-official/excel/ATLA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "AVIA",
+      "company_name": "Avia Avian Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/AVIA/AVIA_official_data.json",
+      "excel": "/data/idx-official/excel/AVIA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "AWAN",
+      "company_name": "Era Digital Media Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/AWAN/AWAN_official_data.json",
+      "excel": "/data/idx-official/excel/AWAN_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "AXIO",
+      "company_name": "Tera Data Indonusa Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/AXIO/AXIO_official_data.json",
+      "excel": "/data/idx-official/excel/AXIO_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "AYAM",
+      "company_name": "Janu Putra Sejahtera Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/AYAM/AYAM_official_data.json",
+      "excel": "/data/idx-official/excel/AYAM_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BABY",
+      "company_name": "Multitrend Indo Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BABY/BABY_official_data.json",
+      "excel": "/data/idx-official/excel/BABY_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BAIK",
+      "company_name": "Bersama Mencapai Puncak Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BAIK/BAIK_official_data.json",
+      "excel": "/data/idx-official/excel/BAIK_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BANK",
+      "company_name": "Bank Aladin Syariah Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BANK/BANK_official_data.json",
+      "excel": "/data/idx-official/excel/BANK_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BATR",
+      "company_name": "Benteng Api Technic Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BATR/BATR_official_data.json",
+      "excel": "/data/idx-official/excel/BATR_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BAUT",
+      "company_name": "Mitra Angkasa Sejahtera Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BAUT/BAUT_official_data.json",
+      "excel": "/data/idx-official/excel/BAUT_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BDKR",
+      "company_name": "Berdikari Pondasi Perkasa Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BDKR/BDKR_official_data.json",
+      "excel": "/data/idx-official/excel/BDKR_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BEBS",
+      "company_name": "Berkah Beton Sadaya Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BEBS/BEBS_official_data.json",
+      "excel": "/data/idx-official/excel/BEBS_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BEER",
+      "company_name": "Jobubu Jarum Minahasa Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BEER/BEER_official_data.json",
+      "excel": "/data/idx-official/excel/BEER_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BELI",
+      "company_name": "Global Digital Niaga Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BELI/BELI_official_data.json",
+      "excel": "/data/idx-official/excel/BELI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BIKE",
+      "company_name": "Sepeda Bersama Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BIKE/BIKE_official_data.json",
+      "excel": "/data/idx-official/excel/BIKE_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BINO",
+      "company_name": "Perma Plasindo Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BINO/BINO_official_data.json",
+      "excel": "/data/idx-official/excel/BINO_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BLES",
+      "company_name": "Superior Prima Sukses Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BLES/BLES_official_data.json",
+      "excel": "/data/idx-official/excel/BLES_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BMBL",
+      "company_name": "Lavender Bina Cendikia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BMBL/BMBL_official_data.json",
+      "excel": "/data/idx-official/excel/BMBL_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BMHS",
+      "company_name": "Bundamedik Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BMHS/BMHS_official_data.json",
+      "excel": "/data/idx-official/excel/BMHS_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BOAT",
+      "company_name": "Newport Marine Services Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BOAT/BOAT_official_data.json",
+      "excel": "/data/idx-official/excel/BOAT_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BOBA",
+      "company_name": "Formosa Ingredient Factory Tbk",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BOBA/BOBA_official_data.json",
+      "excel": "/data/idx-official/excel/BOBA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BREN",
+      "company_name": "Barito Renewables Energy Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BREN/BREN_official_data.json",
+      "excel": "/data/idx-official/excel/BREN_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BRRC",
+      "company_name": "Raja Roti Cemerlang Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BRRC/BRRC_official_data.json",
+      "excel": "/data/idx-official/excel/BRRC_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BSBK",
+      "company_name": "Wulandari Bangun Laksana Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BSBK/BSBK_official_data.json",
+      "excel": "/data/idx-official/excel/BSBK_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BSML",
+      "company_name": "Bintang Samudera Mandiri Lines",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BSML/BSML_official_data.json",
+      "excel": "/data/idx-official/excel/BSML_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BUAH",
+      "company_name": "Segar Kumala Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BUAH/BUAH_official_data.json",
+      "excel": "/data/idx-official/excel/BUAH_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "BUKA",
+      "company_name": "Bukalapak.com Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/BUKA/BUKA_official_data.json",
+      "excel": "/data/idx-official/excel/BUKA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "CBDK",
+      "company_name": "Bangun Kosambi Sukses Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/CBDK/CBDK_official_data.json",
+      "excel": "/data/idx-official/excel/CBDK_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "CBPE",
+      "company_name": "Citra Buana Prasida Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/CBPE/CBPE_official_data.json",
+      "excel": "/data/idx-official/excel/CBPE_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "CBRE",
+      "company_name": "Cakra Buana Resources Energi T",
+      "status": "unknown",
+      "json": "/data/idx-official/json/CBRE/CBRE_official_data.json",
+      "excel": "/data/idx-official/excel/CBRE_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "CBUT",
+      "company_name": "Citra Borneo Utama Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/CBUT/CBUT_official_data.json",
+      "excel": "/data/idx-official/excel/CBUT_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "CGAS",
+      "company_name": "Citra Nusantara Gemilang Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/CGAS/CGAS_official_data.json",
+      "excel": "/data/idx-official/excel/CGAS_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "CHEM",
+      "company_name": "Chemstar Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/CHEM/CHEM_official_data.json",
+      "excel": "/data/idx-official/excel/CHEM_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "CHIP",
+      "company_name": "Pelita Teknologi Global Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/CHIP/CHIP_official_data.json",
+      "excel": "/data/idx-official/excel/CHIP_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "CMNT",
+      "company_name": "Cemindo Gemilang Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/CMNT/CMNT_official_data.json",
+      "excel": "/data/idx-official/excel/CMNT_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "CMRY",
+      "company_name": "Cisarua Mountain Dairy Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/CMRY/CMRY_official_data.json",
+      "excel": "/data/idx-official/excel/CMRY_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "CNMA",
+      "company_name": "Nusantara Sejahtera Raya Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/CNMA/CNMA_official_data.json",
+      "excel": "/data/idx-official/excel/CNMA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "COAL",
+      "company_name": "Black Diamond Resources Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/COAL/COAL_official_data.json",
+      "excel": "/data/idx-official/excel/COAL_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "CRAB",
+      "company_name": "Toba Surimi Industries Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/CRAB/CRAB_official_data.json",
+      "excel": "/data/idx-official/excel/CRAB_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "CRSN",
+      "company_name": "Carsurin Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/CRSN/CRSN_official_data.json",
+      "excel": "/data/idx-official/excel/CRSN_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "CUAN",
+      "company_name": "Petrindo Jaya Kreasi Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/CUAN/CUAN_official_data.json",
+      "excel": "/data/idx-official/excel/CUAN_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "CYBR",
+      "company_name": "ITSEC Asia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/CYBR/CYBR_official_data.json",
+      "excel": "/data/idx-official/excel/CYBR_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "DAAZ",
+      "company_name": "Daaz Bara Lestari Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/DAAZ/DAAZ_official_data.json",
+      "excel": "/data/idx-official/excel/DAAZ_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "DATA",
+      "company_name": "Remala Abadi Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/DATA/DATA_official_data.json",
+      "excel": "/data/idx-official/excel/DATA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "DCII",
+      "company_name": "DCI Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/DCII/DCII_official_data.json",
+      "excel": "/data/idx-official/excel/DCII_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "DEPO",
+      "company_name": "Caturkarda Depo Bangunan Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/DEPO/DEPO_official_data.json",
+      "excel": "/data/idx-official/excel/DEPO_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "DEWI",
+      "company_name": "Dewi Shri Farmindo Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/DEWI/DEWI_official_data.json",
+      "excel": "/data/idx-official/excel/DEWI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "DGNS",
+      "company_name": "Diagnos Laboratorium Utama Tbk",
+      "status": "unknown",
+      "json": "/data/idx-official/json/DGNS/DGNS_official_data.json",
+      "excel": "/data/idx-official/excel/DGNS_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "DGWG",
+      "company_name": "Delta Giri Wacana Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/DGWG/DGWG_official_data.json",
+      "excel": "/data/idx-official/excel/DGWG_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "DOOH",
+      "company_name": "Era Media Sejahtera Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/DOOH/DOOH_official_data.json",
+      "excel": "/data/idx-official/excel/DOOH_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "DOSS",
+      "company_name": "Global Sukses Digital Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/DOSS/DOSS_official_data.json",
+      "excel": "/data/idx-official/excel/DOSS_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "DRMA",
+      "company_name": "Dharma Polimetal Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/DRMA/DRMA_official_data.json",
+      "excel": "/data/idx-official/excel/DRMA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "EDGE",
+      "company_name": "Indointernet Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/EDGE/EDGE_official_data.json",
+      "excel": "/data/idx-official/excel/EDGE_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "ELIT",
+      "company_name": "Data Sinergitama Jaya Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/ELIT/ELIT_official_data.json",
+      "excel": "/data/idx-official/excel/ELIT_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "ELPI",
+      "company_name": "Pelayaran Nasional Ekalya Purn",
+      "status": "unknown",
+      "json": "/data/idx-official/json/ELPI/ELPI_official_data.json",
+      "excel": "/data/idx-official/excel/ELPI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "ENAK",
+      "company_name": "Champ Resto Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/ENAK/ENAK_official_data.json",
+      "excel": "/data/idx-official/excel/ENAK_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "ERAL",
+      "company_name": "Sinar Eka Selaras Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/ERAL/ERAL_official_data.json",
+      "excel": "/data/idx-official/excel/ERAL_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "EURO",
+      "company_name": "Estee Gold Feet Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/EURO/EURO_official_data.json",
+      "excel": "/data/idx-official/excel/EURO_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "FAPA",
+      "company_name": "FAP Agri Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/FAPA/FAPA_official_data.json",
+      "excel": "/data/idx-official/excel/FAPA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "FIMP",
+      "company_name": "Fimperkasa Utama Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/FIMP/FIMP_official_data.json",
+      "excel": "/data/idx-official/excel/FIMP_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "FLMC",
+      "company_name": "Falmaco Nonwoven Industri Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/FLMC/FLMC_official_data.json",
+      "excel": "/data/idx-official/excel/FLMC_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "FOLK",
+      "company_name": "Multi Garam Utama Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/FOLK/FOLK_official_data.json",
+      "excel": "/data/idx-official/excel/FOLK_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "FUTR",
+      "company_name": "Lini Imaji Kreasi Ekosistem Tb",
+      "status": "unknown",
+      "json": "/data/idx-official/json/FUTR/FUTR_official_data.json",
+      "excel": "/data/idx-official/excel/FUTR_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "FWCT",
+      "company_name": "Wijaya Cahaya Timber Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/FWCT/FWCT_official_data.json",
+      "excel": "/data/idx-official/excel/FWCT_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "GOLF",
+      "company_name": "Intra Golflink Resorts Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/GOLF/GOLF_official_data.json",
+      "excel": "/data/idx-official/excel/GOLF_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "GOTO",
+      "company_name": "GoTo Gojek Tokopedia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/GOTO/GOTO_official_data.json",
+      "excel": "/data/idx-official/excel/GOTO_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "GPSO",
+      "company_name": "Geoprima Solusi Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/GPSO/GPSO_official_data.json",
+      "excel": "/data/idx-official/excel/GPSO_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "GRIA",
+      "company_name": "Ingria Pratama Capitalindo Tbk",
+      "status": "unknown",
+      "json": "/data/idx-official/json/GRIA/GRIA_official_data.json",
+      "excel": "/data/idx-official/excel/GRIA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "GRPH",
+      "company_name": "Griptha Putra Persada Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/GRPH/GRPH_official_data.json",
+      "excel": "/data/idx-official/excel/GRPH_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "GRPM",
+      "company_name": "Graha Prima Mentari Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/GRPM/GRPM_official_data.json",
+      "excel": "/data/idx-official/excel/GRPM_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "GTRA",
+      "company_name": "Grahaprima Suksesmandiri Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/GTRA/GTRA_official_data.json",
+      "excel": "/data/idx-official/excel/GTRA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "GTSI",
+      "company_name": "GTS Internasional Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/GTSI/GTSI_official_data.json",
+      "excel": "/data/idx-official/excel/GTSI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "GULA",
+      "company_name": "Aman Agrindo Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/GULA/GULA_official_data.json",
+      "excel": "/data/idx-official/excel/GULA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "GUNA",
+      "company_name": "Gunanusa Eramandiri Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/GUNA/GUNA_official_data.json",
+      "excel": "/data/idx-official/excel/GUNA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "HAIS",
+      "company_name": "Hasnur Internasional Shipping",
+      "status": "unknown",
+      "json": "/data/idx-official/json/HAIS/HAIS_official_data.json",
+      "excel": "/data/idx-official/excel/HAIS_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "HAJJ",
+      "company_name": "Arsy Buana Travelindo Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/HAJJ/HAJJ_official_data.json",
+      "excel": "/data/idx-official/excel/HAJJ_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "HALO",
+      "company_name": "Haloni Jane Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/HALO/HALO_official_data.json",
+      "excel": "/data/idx-official/excel/HALO_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "HATM",
+      "company_name": "Habco Trans Maritima Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/HATM/HATM_official_data.json",
+      "excel": "/data/idx-official/excel/HATM_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "HBAT",
+      "company_name": "Minahasa Membangun Hebat Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/HBAT/HBAT_official_data.json",
+      "excel": "/data/idx-official/excel/HBAT_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "HGII",
+      "company_name": "Hero Global Investment Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/HGII/HGII_official_data.json",
+      "excel": "/data/idx-official/excel/HGII_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "HILL",
+      "company_name": "Hillcon Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/HILL/HILL_official_data.json",
+      "excel": "/data/idx-official/excel/HILL_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "HOPE",
+      "company_name": "Harapan Duta Pertiwi Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/HOPE/HOPE_official_data.json",
+      "excel": "/data/idx-official/excel/HOPE_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "HUMI",
+      "company_name": "Humpuss Maritim Internasional",
+      "status": "unknown",
+      "json": "/data/idx-official/json/HUMI/HUMI_official_data.json",
+      "excel": "/data/idx-official/excel/HUMI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "HYGN",
+      "company_name": "Ecocare Indo Pasifik Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/HYGN/HYGN_official_data.json",
+      "excel": "/data/idx-official/excel/HYGN_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "IBOS",
+      "company_name": "Indo Boga Sukses Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/IBOS/IBOS_official_data.json",
+      "excel": "/data/idx-official/excel/IBOS_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "IDEA",
+      "company_name": "Idea Indonesia Akademi Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/IDEA/IDEA_official_data.json",
+      "excel": "/data/idx-official/excel/IDEA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "IKPM",
+      "company_name": "Ikapharmindo Putramas Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/IKPM/IKPM_official_data.json",
+      "excel": "/data/idx-official/excel/IKPM_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "INET",
+      "company_name": "Sinergi Inti Andalan Prima Tbk",
+      "status": "unknown",
+      "json": "/data/idx-official/json/INET/INET_official_data.json",
+      "excel": "/data/idx-official/excel/INET_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "IOTF",
+      "company_name": "Sumber Sinergi Makmur Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/IOTF/IOTF_official_data.json",
+      "excel": "/data/idx-official/excel/IOTF_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "IPAC",
+      "company_name": "Era Graharealty Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/IPAC/IPAC_official_data.json",
+      "excel": "/data/idx-official/excel/IPAC_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "IPPE",
+      "company_name": "Indo Pureco Pratama Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/IPPE/IPPE_official_data.json",
+      "excel": "/data/idx-official/excel/IPPE_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "IRSX",
+      "company_name": "Aviana Sinar Abadi Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/IRSX/IRSX_official_data.json",
+      "excel": "/data/idx-official/excel/IRSX_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "ISAP",
+      "company_name": "Isra Presisi Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/ISAP/ISAP_official_data.json",
+      "excel": "/data/idx-official/excel/ISAP_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "ISEA",
+      "company_name": "Indo American Seafoods Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/ISEA/ISEA_official_data.json",
+      "excel": "/data/idx-official/excel/ISEA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "JARR",
+      "company_name": "Jhonlin Agro Raya Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/JARR/JARR_official_data.json",
+      "excel": "/data/idx-official/excel/JARR_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "JATI",
+      "company_name": "Informasi Teknologi Indonesia",
+      "status": "unknown",
+      "json": "/data/idx-official/json/JATI/JATI_official_data.json",
+      "excel": "/data/idx-official/excel/JATI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "KDTN",
+      "company_name": "Puri Sentul Permai Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/KDTN/KDTN_official_data.json",
+      "excel": "/data/idx-official/excel/KDTN_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "KETR",
+      "company_name": "Ketrosden Triasmitra Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/KETR/KETR_official_data.json",
+      "excel": "/data/idx-official/excel/KETR_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "KING",
+      "company_name": "Hoffmen Cleanindo Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/KING/KING_official_data.json",
+      "excel": "/data/idx-official/excel/KING_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "KKES",
+      "company_name": "Kusuma Kemindo Sentosa Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/KKES/KKES_official_data.json",
+      "excel": "/data/idx-official/excel/KKES_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "KLAS",
+      "company_name": "Pelayaran Kurnia Lautan Semest",
+      "status": "unknown",
+      "json": "/data/idx-official/json/KLAS/KLAS_official_data.json",
+      "excel": "/data/idx-official/excel/KLAS_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "KLIN",
+      "company_name": "Klinko Karya Imaji Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/KLIN/KLIN_official_data.json",
+      "excel": "/data/idx-official/excel/KLIN_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "KOCI",
+      "company_name": "Kokoh Exa Nusantara Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/KOCI/KOCI_official_data.json",
+      "excel": "/data/idx-official/excel/KOCI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "KOKA",
+      "company_name": "Koka Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/KOKA/KOKA_official_data.json",
+      "excel": "/data/idx-official/excel/KOKA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "KRYA",
+      "company_name": "Bangun Karya Perkasa Jaya Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/KRYA/KRYA_official_data.json",
+      "excel": "/data/idx-official/excel/KRYA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "KSIX",
+      "company_name": "Kentanix Supra International T",
+      "status": "unknown",
+      "json": "/data/idx-official/json/KSIX/KSIX_official_data.json",
+      "excel": "/data/idx-official/excel/KSIX_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "KUAS",
+      "company_name": "Ace Oldfields Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/KUAS/KUAS_official_data.json",
+      "excel": "/data/idx-official/excel/KUAS_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "LABA",
+      "company_name": "Green Power Group Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/LABA/LABA_official_data.json",
+      "excel": "/data/idx-official/excel/LABA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "LABS",
+      "company_name": "UBC Medical Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/LABS/LABS_official_data.json",
+      "excel": "/data/idx-official/excel/LABS_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "LAJU",
+      "company_name": "Jasa Berdikari Logistics Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/LAJU/LAJU_official_data.json",
+      "excel": "/data/idx-official/excel/LAJU_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "LFLO",
+      "company_name": "Imago Mulia Persada Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/LFLO/LFLO_official_data.json",
+      "excel": "/data/idx-official/excel/LFLO_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "LIVE",
+      "company_name": "Homeco Victoria Makmur Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/LIVE/LIVE_official_data.json",
+      "excel": "/data/idx-official/excel/LIVE_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "LMAX",
+      "company_name": "Lupromax Pelumas Indonesia Tbk",
+      "status": "unknown",
+      "json": "/data/idx-official/json/LMAX/LMAX_official_data.json",
+      "excel": "/data/idx-official/excel/LMAX_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "LOPI",
+      "company_name": "Logisticsplus International Tb",
+      "status": "unknown",
+      "json": "/data/idx-official/json/LOPI/LOPI_official_data.json",
+      "excel": "/data/idx-official/excel/LOPI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "LUCY",
+      "company_name": "Lima Dua Lima Tiga Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/LUCY/LUCY_official_data.json",
+      "excel": "/data/idx-official/excel/LUCY_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MAHA",
+      "company_name": "Mandiri Herindo Adiperkasa Tbk",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MAHA/MAHA_official_data.json",
+      "excel": "/data/idx-official/excel/MAHA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MANG",
+      "company_name": "Manggung Polahraya Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MANG/MANG_official_data.json",
+      "excel": "/data/idx-official/excel/MANG_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MASB",
+      "company_name": "Bank Multiarta Sentosa Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MASB/MASB_official_data.json",
+      "excel": "/data/idx-official/excel/MASB_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MAXI",
+      "company_name": "Maxindo Karya Anugerah Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MAXI/MAXI_official_data.json",
+      "excel": "/data/idx-official/excel/MAXI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MBMA",
+      "company_name": "Merdeka Battery Materials Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MBMA/MBMA_official_data.json",
+      "excel": "/data/idx-official/excel/MBMA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MCOL",
+      "company_name": "Prima Andalan Mandiri Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MCOL/MCOL_official_data.json",
+      "excel": "/data/idx-official/excel/MCOL_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MDIY",
+      "company_name": "Daya Intiguna Yasa Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MDIY/MDIY_official_data.json",
+      "excel": "/data/idx-official/excel/MDIY_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MEDS",
+      "company_name": "Hetzer Medical Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MEDS/MEDS_official_data.json",
+      "excel": "/data/idx-official/excel/MEDS_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MEJA",
+      "company_name": "Harta Djaya Karya Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MEJA/MEJA_official_data.json",
+      "excel": "/data/idx-official/excel/MEJA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MENN",
+      "company_name": "Menn Teknologi Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MENN/MENN_official_data.json",
+      "excel": "/data/idx-official/excel/MENN_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MGLV",
+      "company_name": "Panca Anugrah Wisesa Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MGLV/MGLV_official_data.json",
+      "excel": "/data/idx-official/excel/MGLV_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MHKI",
+      "company_name": "Multi Hanna Kreasindo Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MHKI/MHKI_official_data.json",
+      "excel": "/data/idx-official/excel/MHKI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MKAP",
+      "company_name": "Multikarya Asia Pasifik Raya T",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MKAP/MKAP_official_data.json",
+      "excel": "/data/idx-official/excel/MKAP_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MKTR",
+      "company_name": "Menthobi Karyatama Raya Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MKTR/MKTR_official_data.json",
+      "excel": "/data/idx-official/excel/MKTR_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MMIX",
+      "company_name": "Multi Medika Internasional Tbk",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MMIX/MMIX_official_data.json",
+      "excel": "/data/idx-official/excel/MMIX_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MORA",
+      "company_name": "Mora Telematika Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MORA/MORA_official_data.json",
+      "excel": "/data/idx-official/excel/MORA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MPIX",
+      "company_name": "Mitra Pedagang Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MPIX/MPIX_official_data.json",
+      "excel": "/data/idx-official/excel/MPIX_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MPXL",
+      "company_name": "MPX Logistics International Tb",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MPXL/MPXL_official_data.json",
+      "excel": "/data/idx-official/excel/MPXL_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MSIE",
+      "company_name": "Multisarana Intan Eduka Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MSIE/MSIE_official_data.json",
+      "excel": "/data/idx-official/excel/MSIE_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MSJA",
+      "company_name": "Multi Spunindo Jaya Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MSJA/MSJA_official_data.json",
+      "excel": "/data/idx-official/excel/MSJA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MSTI",
+      "company_name": "Mastersystem Infotama Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MSTI/MSTI_official_data.json",
+      "excel": "/data/idx-official/excel/MSTI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MTEL",
+      "company_name": "Dayamitra Telekomunikasi Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MTEL/MTEL_official_data.json",
+      "excel": "/data/idx-official/excel/MTEL_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MTMH",
+      "company_name": "Murni Sadar Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MTMH/MTMH_official_data.json",
+      "excel": "/data/idx-official/excel/MTMH_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "MUTU",
+      "company_name": "Mutuagung Lestari Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/MUTU/MUTU_official_data.json",
+      "excel": "/data/idx-official/excel/MUTU_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "NAIK",
+      "company_name": "Adiwarna Anugerah Abadi Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/NAIK/NAIK_official_data.json",
+      "excel": "/data/idx-official/excel/NAIK_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "NANO",
+      "company_name": "Nanotech Indonesia Global Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/NANO/NANO_official_data.json",
+      "excel": "/data/idx-official/excel/NANO_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "NASI",
+      "company_name": "Wahana Inti Makmur Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/NASI/NASI_official_data.json",
+      "excel": "/data/idx-official/excel/NASI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "NAYZ",
+      "company_name": "Hassana Boga Sejahtera Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/NAYZ/NAYZ_official_data.json",
+      "excel": "/data/idx-official/excel/NAYZ_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "NCKL",
+      "company_name": "Trimegah Bangun Persada Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/NCKL/NCKL_official_data.json",
+      "excel": "/data/idx-official/excel/NCKL_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "NEST",
+      "company_name": "Esta Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/NEST/NEST_official_data.json",
+      "excel": "/data/idx-official/excel/NEST_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "NETV",
+      "company_name": "MDTV Media Technologies Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/NETV/NETV_official_data.json",
+      "excel": "/data/idx-official/excel/NETV_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "NICE",
+      "company_name": "Adhi Kartiko Pratama Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/NICE/NICE_official_data.json",
+      "excel": "/data/idx-official/excel/NICE_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "NICL",
+      "company_name": "PAM Mineral Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/NICL/NICL_official_data.json",
+      "excel": "/data/idx-official/excel/NICL_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "NINE",
+      "company_name": "Techno9 Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/NINE/NINE_official_data.json",
+      "excel": "/data/idx-official/excel/NINE_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "NPGF",
+      "company_name": "Nusa Palapa Gemilang Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/NPGF/NPGF_official_data.json",
+      "excel": "/data/idx-official/excel/NPGF_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "NSSS",
+      "company_name": "Nusantara Sawit Sejahtera Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/NSSS/NSSS_official_data.json",
+      "excel": "/data/idx-official/excel/NSSS_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "NTBK",
+      "company_name": "Nusatama Berkah Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/NTBK/NTBK_official_data.json",
+      "excel": "/data/idx-official/excel/NTBK_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "OBAT",
+      "company_name": "Brigit Biofarmaka Teknologi Tb",
+      "status": "unknown",
+      "json": "/data/idx-official/json/OBAT/OBAT_official_data.json",
+      "excel": "/data/idx-official/excel/OBAT_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "OBMD",
+      "company_name": "OBM Drilchem Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/OBMD/OBMD_official_data.json",
+      "excel": "/data/idx-official/excel/OBMD_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "OILS",
+      "company_name": "Indo Oil Perkasa Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/OILS/OILS_official_data.json",
+      "excel": "/data/idx-official/excel/OILS_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "OLIV",
+      "company_name": "Oscar Mitra Sukses Sejahtera T",
+      "status": "unknown",
+      "json": "/data/idx-official/json/OLIV/OLIV_official_data.json",
+      "excel": "/data/idx-official/excel/OLIV_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "OMED",
+      "company_name": "Jayamas Medica Industri Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/OMED/OMED_official_data.json",
+      "excel": "/data/idx-official/excel/OMED_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "PACK",
+      "company_name": "Abadi Nusantara Hijau Investam",
+      "status": "unknown",
+      "json": "/data/idx-official/json/PACK/PACK_official_data.json",
+      "excel": "/data/idx-official/excel/PACK_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "PADA",
+      "company_name": "Personel Alih Daya Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/PADA/PADA_official_data.json",
+      "excel": "/data/idx-official/excel/PADA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "PART",
+      "company_name": "Cipta Perdana Lancar Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/PART/PART_official_data.json",
+      "excel": "/data/idx-official/excel/PART_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "PDPP",
+      "company_name": "Primadaya Plastisindo Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/PDPP/PDPP_official_data.json",
+      "excel": "/data/idx-official/excel/PDPP_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "PEVE",
+      "company_name": "Penta Valent Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/PEVE/PEVE_official_data.json",
+      "excel": "/data/idx-official/excel/PEVE_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "PGEO",
+      "company_name": "Pertamina Geothermal Energy Tb",
+      "status": "unknown",
+      "json": "/data/idx-official/json/PGEO/PGEO_official_data.json",
+      "excel": "/data/idx-official/excel/PGEO_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "PIPA",
+      "company_name": "Multi Makmur Lemindo Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/PIPA/PIPA_official_data.json",
+      "excel": "/data/idx-official/excel/PIPA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "PPRI",
+      "company_name": "Paperocks Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/PPRI/PPRI_official_data.json",
+      "excel": "/data/idx-official/excel/PPRI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "PRAY",
+      "company_name": "Famon Awal Bros Sedaya Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/PRAY/PRAY_official_data.json",
+      "excel": "/data/idx-official/excel/PRAY_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "PTMP",
+      "company_name": "Mitra Pack Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/PTMP/PTMP_official_data.json",
+      "excel": "/data/idx-official/excel/PTMP_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "PTMR",
+      "company_name": "Master Print Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/PTMR/PTMR_official_data.json",
+      "excel": "/data/idx-official/excel/PTMR_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "PTPS",
+      "company_name": "Pulau Subur Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/PTPS/PTPS_official_data.json",
+      "excel": "/data/idx-official/excel/PTPS_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "RAAM",
+      "company_name": "Tripar Multivision Plus Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/RAAM/RAAM_official_data.json",
+      "excel": "/data/idx-official/excel/RAAM_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "RAFI",
+      "company_name": "Sari Kreasi Boga Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/RAFI/RAFI_official_data.json",
+      "excel": "/data/idx-official/excel/RAFI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "RATU",
+      "company_name": "Raharja Energi Cepu Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/RATU/RATU_official_data.json",
+      "excel": "/data/idx-official/excel/RATU_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "RCCC",
+      "company_name": "Utama Radar Cahaya Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/RCCC/RCCC_official_data.json",
+      "excel": "/data/idx-official/excel/RCCC_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "RELF",
+      "company_name": "Graha Mitra Asia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/RELF/RELF_official_data.json",
+      "excel": "/data/idx-official/excel/RELF_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "RGAS",
+      "company_name": "Kian Santang Muliatama Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/RGAS/RGAS_official_data.json",
+      "excel": "/data/idx-official/excel/RGAS_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "RMKE",
+      "company_name": "RMK Energy Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/RMKE/RMKE_official_data.json",
+      "excel": "/data/idx-official/excel/RMKE_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "RMKO",
+      "company_name": "Royaltama Mulia Kontraktorindo",
+      "status": "unknown",
+      "json": "/data/idx-official/json/RMKO/RMKO_official_data.json",
+      "excel": "/data/idx-official/excel/RMKO_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "RSCH",
+      "company_name": "Charlie Hospital Semarang Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/RSCH/RSCH_official_data.json",
+      "excel": "/data/idx-official/excel/RSCH_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "RSGK",
+      "company_name": "Kedoya Adyaraya Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/RSGK/RSGK_official_data.json",
+      "excel": "/data/idx-official/excel/RSGK_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "RUNS",
+      "company_name": "Global Sukses Solusi Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/RUNS/RUNS_official_data.json",
+      "excel": "/data/idx-official/excel/RUNS_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "SAGE",
+      "company_name": "Saptausaha Gemilangindah Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/SAGE/SAGE_official_data.json",
+      "excel": "/data/idx-official/excel/SAGE_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "SBMA",
+      "company_name": "Surya Biru Murni Acetylene Tbk",
+      "status": "unknown",
+      "json": "/data/idx-official/json/SBMA/SBMA_official_data.json",
+      "excel": "/data/idx-official/excel/SBMA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "SEMA",
+      "company_name": "Semacom Integrated Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/SEMA/SEMA_official_data.json",
+      "excel": "/data/idx-official/excel/SEMA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "SICO",
+      "company_name": "Sigma Energy Compressindo Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/SICO/SICO_official_data.json",
+      "excel": "/data/idx-official/excel/SICO_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "SMGA",
+      "company_name": "Sumber Mineral Global Abadi Tb",
+      "status": "unknown",
+      "json": "/data/idx-official/json/SMGA/SMGA_official_data.json",
+      "excel": "/data/idx-official/excel/SMGA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "SMIL",
+      "company_name": "Sarana Mitra Luas Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/SMIL/SMIL_official_data.json",
+      "excel": "/data/idx-official/excel/SMIL_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "SMKM",
+      "company_name": "Sumber Mas Konstruksi Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/SMKM/SMKM_official_data.json",
+      "excel": "/data/idx-official/excel/SMKM_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "SMLE",
+      "company_name": "Sinergi Multi Lestarindo Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/SMLE/SMLE_official_data.json",
+      "excel": "/data/idx-official/excel/SMLE_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "SNLK",
+      "company_name": "Sunter Lakeside Hotel Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/SNLK/SNLK_official_data.json",
+      "excel": "/data/idx-official/excel/SNLK_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "SOLA",
+      "company_name": "Xolare RCR Energy Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/SOLA/SOLA_official_data.json",
+      "excel": "/data/idx-official/excel/SOLA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "SOUL",
+      "company_name": "Mitra Tirta Buwana Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/SOUL/SOUL_official_data.json",
+      "excel": "/data/idx-official/excel/SOUL_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "SPRE",
+      "company_name": "Soraya Berjaya Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/SPRE/SPRE_official_data.json",
+      "excel": "/data/idx-official/excel/SPRE_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "STAA",
+      "company_name": "Sumber Tani Agung Resources Tb",
+      "status": "unknown",
+      "json": "/data/idx-official/json/STAA/STAA_official_data.json",
+      "excel": "/data/idx-official/excel/STAA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "STRK",
+      "company_name": "Lovina Beach Brewery Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/STRK/STRK_official_data.json",
+      "excel": "/data/idx-official/excel/STRK_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "SUNI",
+      "company_name": "Sunindo Pratama Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/SUNI/SUNI_official_data.json",
+      "excel": "/data/idx-official/excel/SUNI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "SURI",
+      "company_name": "Maja Agung Latexindo Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/SURI/SURI_official_data.json",
+      "excel": "/data/idx-official/excel/SURI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "SWID",
+      "company_name": "Saraswanti Indoland Developmen",
+      "status": "unknown",
+      "json": "/data/idx-official/json/SWID/SWID_official_data.json",
+      "excel": "/data/idx-official/excel/SWID_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "TAPG",
+      "company_name": "Triputra Agro Persada Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/TAPG/TAPG_official_data.json",
+      "excel": "/data/idx-official/excel/TAPG_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "TAYS",
+      "company_name": "Jaya Swarasa Agung Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/TAYS/TAYS_official_data.json",
+      "excel": "/data/idx-official/excel/TAYS_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "TGUK",
+      "company_name": "Platinum Wahab Nusantara Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/TGUK/TGUK_official_data.json",
+      "excel": "/data/idx-official/excel/TGUK_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "TLDN",
+      "company_name": "Teladan Prima Agro Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/TLDN/TLDN_official_data.json",
+      "excel": "/data/idx-official/excel/TLDN_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "TOOL",
+      "company_name": "Rohartindo Nusantara Luas Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/TOOL/TOOL_official_data.json",
+      "excel": "/data/idx-official/excel/TOOL_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "TOSK",
+      "company_name": "Topindo Solusi Komunika Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/TOSK/TOSK_official_data.json",
+      "excel": "/data/idx-official/excel/TOSK_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "TRGU",
+      "company_name": "Cerestar Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/TRGU/TRGU_official_data.json",
+      "excel": "/data/idx-official/excel/TRGU_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "TRON",
+      "company_name": "Teknologi Karya Digital Nusa T",
+      "status": "unknown",
+      "json": "/data/idx-official/json/TRON/TRON_official_data.json",
+      "excel": "/data/idx-official/excel/TRON_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "TRUE",
+      "company_name": "Triniti Dinamik Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/TRUE/TRUE_official_data.json",
+      "excel": "/data/idx-official/excel/TRUE_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "TYRE",
+      "company_name": "King Tire Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/TYRE/TYRE_official_data.json",
+      "excel": "/data/idx-official/excel/TYRE_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "UDNG",
+      "company_name": "Agro Bahari Nusantara Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/UDNG/UDNG_official_data.json",
+      "excel": "/data/idx-official/excel/UDNG_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "UFOE",
+      "company_name": "Damai Sejahtera Abadi Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/UFOE/UFOE_official_data.json",
+      "excel": "/data/idx-official/excel/UFOE_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "UFOE",
+      "company_name": "Damai Sejahtera Abadi Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/UFOE/UFOE_official_data_partial.json",
+      "excel": "/data/idx-official/excel/UFOE_official_data_partial.xlsx",
+      "partial": true
+    },
+    {
+      "code": "UNIQ",
+      "company_name": "Ulima Nitra Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/UNIQ/UNIQ_official_data.json",
+      "excel": "/data/idx-official/excel/UNIQ_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "UNTD",
+      "company_name": "Terang Dunia Internusa Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/UNTD/UNTD_official_data.json",
+      "excel": "/data/idx-official/excel/UNTD_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "UVCR",
+      "company_name": "Trimegah Karya Pratama Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/UVCR/UVCR_official_data.json",
+      "excel": "/data/idx-official/excel/UVCR_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "VAST",
+      "company_name": "Vastland Indonesia Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/VAST/VAST_official_data.json",
+      "excel": "/data/idx-official/excel/VAST_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "VERN",
+      "company_name": "Verona Indah Pictures Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/VERN/VERN_official_data.json",
+      "excel": "/data/idx-official/excel/VERN_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "VISI",
+      "company_name": "Satu Visi Putra Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/VISI/VISI_official_data.json",
+      "excel": "/data/idx-official/excel/VISI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "VKTR",
+      "company_name": "VKTR Teknologi Mobilitas Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/VKTR/VKTR_official_data.json",
+      "excel": "/data/idx-official/excel/VKTR_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "VTNY",
+      "company_name": "Venteny Fortuna International",
+      "status": "unknown",
+      "json": "/data/idx-official/json/VTNY/VTNY_official_data.json",
+      "excel": "/data/idx-official/excel/VTNY_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "WGSH",
+      "company_name": "Wira Global Solusi Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/WGSH/WGSH_official_data.json",
+      "excel": "/data/idx-official/excel/WGSH_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "WIDI",
+      "company_name": "Widiant Jaya Krenindo Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/WIDI/WIDI_official_data.json",
+      "excel": "/data/idx-official/excel/WIDI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "WIFI",
+      "company_name": "Solusi Sinergi Digital Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/WIFI/WIFI_official_data.json",
+      "excel": "/data/idx-official/excel/WIFI_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "WINE",
+      "company_name": "Hatten Bali Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/WINE/WINE_official_data.json",
+      "excel": "/data/idx-official/excel/WINE_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "WINR",
+      "company_name": "Winner Nusantara Jaya Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/WINR/WINR_official_data.json",
+      "excel": "/data/idx-official/excel/WINR_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "WIRG",
+      "company_name": "WIR ASIA Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/WIRG/WIRG_official_data.json",
+      "excel": "/data/idx-official/excel/WIRG_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "WMPP",
+      "company_name": "Widodo Makmur Perkasa Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/WMPP/WMPP_official_data.json",
+      "excel": "/data/idx-official/excel/WMPP_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "WMUU",
+      "company_name": "Widodo Makmur Unggas Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/WMUU/WMUU_official_data.json",
+      "excel": "/data/idx-official/excel/WMUU_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "YOII",
+      "company_name": "Asuransi Digital Bersama Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/YOII/YOII_official_data.json",
+      "excel": "/data/idx-official/excel/YOII_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "ZATA",
+      "company_name": "Bersama Zatta Jaya Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/ZATA/ZATA_official_data.json",
+      "excel": "/data/idx-official/excel/ZATA_official_data.xlsx",
+      "partial": false
+    },
+    {
+      "code": "ZYRX",
+      "company_name": "Zyrexindo Mandiri Buana Tbk.",
+      "status": "unknown",
+      "json": "/data/idx-official/json/ZYRX/ZYRX_official_data.json",
+      "excel": "/data/idx-official/excel/ZYRX_official_data.xlsx",
+      "partial": false
+    }
+  ]
+}

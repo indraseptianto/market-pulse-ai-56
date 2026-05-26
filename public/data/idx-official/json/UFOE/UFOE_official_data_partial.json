@@ -1,0 +1,116 @@
+{
+  "code": "UFOE",
+  "company_name": "Damai Sejahtera Abadi Tbk.",
+  "scraped_at": "2026-05-26T11:35:12.901056+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "UFOE Damai Sejahtera Abadi Tbk. annual report 2025 pdf official",
+      "title": "Investors - Annual Report - Fore Coffee",
+      "url": "https://fore.coffee/investors-annual-report",
+      "content": "Financial Information and Presentation · FORE Financial Report 1Q26 (Unaudited). Download · FORE Financial Report FY 2025 (Audited). Download · FORE Financial",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "UFOE Damai Sejahtera Abadi Tbk. website resmi investor relation annual report pdf",
+      "title": "Investor Relations | PT. Bumi Resources Tbk",
+      "url": "https://www.bumiresources.com/investor-relations",
+      "content": "# Overview of Financial Statements, Annual Report and Sustainability Reports, Stock Performance, Corporate Action, and Credit & Analyst Report. ## FINANCIAL STATEMENTS. * ## Bumi Resources Financial Statements as per 31 March 2026. Updated On April 30, 2026. * ## BUMI Financial Statements as of September 30, 2025. Updated On October 31, 2025. * ## BUMI Financial Statement as of March 31, 2025. Updated On December 2, 2024. Updated On May 2, 2023. * ## Financial Statement Half Year Report June 2025. Updated On July 31, 2025. Updated On August 31, 2022. * ## Bumi Resources Financial Statement Full Year 2025. Updated On March 30, 2026. * ## BUMI Financial Statement December Full Year 2024. ## ANNUAL REPORTS. ## Trustee Agreement of BUMI OWK. ## First Amendment Trustee Agreement of BUMI OWK. ## Second Amendment Trustee Agreement of BUMI OWK. ## ANNOUNCEMENT TO HOLDERS OF MANDATORY CONVERTIBLE BONDS (OWK) PT BUMI RESOURCES Tbk. ## Samuel Sekuritas. ## OCBC Sekuritas.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "UFOE Damai Sejahtera Abadi Tbk. website resmi investor relation annual report pdf",
+      "title": "Investor Relations - Annual Report - PT. Fortune Mate Indonesia Tbk",
+      "url": "http://www.fmiindo.com/index.php/en/investor/pdf/id/55/slug/annual-report",
+      "content": "Laporan Tahunan ; Annual Report 2016, PDF File - 2.49 MB, Published date: 02 May 2018 ; Annual Report 2017, PDF File - 1.96 MB, Published date: 02 May 2018.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "UFOE Damai Sejahtera Abadi Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "IDX Investor: UFOE - Q4 2025 - PT Damai Sejahtera Abadi Tbk.",
+      "url": "http://idx-investor.blogspot.com/2026/04/ufoe-q4-2025-pt-damai-sejahtera-abadi.html",
+      "content": "UFOE - Q4 2025 - PT Damai Sejahtera Abadi Tbk. - Analisis Laporan Keuangan. - April 04, 2026 · Kirimkan Ini lewat EmailBlogThis!",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "UFOE Damai Sejahtera Abadi Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "Financial Report PT Damai Sejahtera Abadi Tbk (UFOE) 2020 - ticmi",
+      "url": "https://ticmi.co.id/index.php/datapasarmodal/ED/fr/viewsingle/122386/financial-report-pt-damai-sejahtera-abadi-tbk-ufoe-2020",
+      "content": "Financial Report PT Damai Sejahtera Abadi Tbk (UFOE) 2020 ... *Mengunduh 1 data sama dengan berlangganan 1 paket data. Bulanan; Tahunan. Value.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "UFOE Damai Sejahtera Abadi Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PDF - Laporan Ojk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-21042026-9013-00.pdf-0.pdf",
+      "content": "Nama Perusahaan Tbk. : UFOE - DAMAI SEJAHTERA ABADI Tbk, PT. Jumlah Saham Sebelum Transaksi. : 25.401.472,00 Unit. Hak Suara Sebelum Transaksi.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "UFOE Damai Sejahtera Abadi Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Laporan Tahunan 2024 Annual Report - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/d9a634ad8b_acfc0f2ede.pdf",
+      "content": "Laporan Tahunan / Annual Report PT Gaya Abadi Sempurna Tbk 2024. 2 ... • PT Damai Sejahtera Abadi (UFO Grup) (2019);. • PT Bintang Jasa",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "UFOE Damai Sejahtera Abadi Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] FONDASI YANG LEBIH KUAT - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202107/3decfdc153_38526b4eac.pdf",
+      "content": "Laporan ini memuat kata “UFO Electronics + Furniture”,. “Perseroan”, dan “Perusahaan” mengacu pada. PT. Damai Sejahtera Abadi Tbk yang bergerak",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "UFOE Damai Sejahtera Abadi Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] ANNUAL REPORT 2024 - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/ed3454376d_66b371b9d4.pdf",
+      "content": "To facilitate stakeholders, the 2024 Annual Report can be accessed and downloaded through www.ufoecommerce.com. PT. Damai Sejahtera Abadi Tbk (“UFO Elektronika”",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "UFOE Damai Sejahtera Abadi Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Sustainability Report - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202405/14819f8ec4_0091ac99e9.pdf",
+      "content": "Sepanjang tahun 2023, PT. Damai Sejahtera Abadi,. Tbk. (“Perseroan”) berkomitmen terhadap keseimbangan antara pertumbuhan ekonomi, tanggung jawab sosial dan",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "UFOE Damai Sejahtera Abadi Tbk. annual report 2024 pdf official",
+      "title": "[PDF] 2024 Sustainable Report - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/a8ac9e8a7a_bfc2247bed.pdf",
+      "content": "Damai Sejahtera Abadi, tbk is available in the. Company Profile chapter in the Annual Report of PT. Damai Sejahtera Abadi, tbk 2024. in the Annual Report of",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "UFOE Damai Sejahtera Abadi Tbk. financial report 2025 pdf official",
+      "title": "[PDF] 04/Corsec-DSA/VI/2025 PT Damai Sejahtera Abadi Tbk UFOE ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202506/d41a9170b5_bd953688fa.pdf",
+      "content": "Dokumen ini merupakan dokumen resmi PT Damai Sejahtera Abadi Tbk yang tidak memerlukan tanda tangan karena dihasilkan secara elektronik oleh",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {},
+  "partial_llm_fallback": {
+    "enabled": true,
+    "status": "failed",
+    "error": "no_text_documents_for_llm",
+    "data": null
+  }
+}

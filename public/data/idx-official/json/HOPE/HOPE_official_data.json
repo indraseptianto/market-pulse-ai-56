@@ -1,0 +1,114 @@
+{
+  "code": "HOPE",
+  "company_name": "Harapan Duta Pertiwi Tbk.",
+  "scraped_at": "2026-05-26T10:30:13.788184+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "HOPE Harapan Duta Pertiwi Tbk. website resmi investor relation annual report pdf",
+      "title": "Annual Report - Duta Pertiwi",
+      "url": "https://www.dutapertiwi.com/investor/annual",
+      "content": "Annual Reports(EN). 2025. pdf. Annual Report 2025. 30 Apr 2026, 10:30 PM. 30 Apr 2026, 10:30 PM. ViewDownload. 2025. pdf. Annual Report 2025.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "HOPE Harapan Duta Pertiwi Tbk. website resmi investor relation annual report pdf",
+      "title": "Annual Report PT Harapan Duta Pertiwi Tbk (HOPE) 2022 - ticmi",
+      "url": "https://www.ticmi.co.id/datapasarmodal/ED/ar/viewsingle/139104/annual-report-pt-harapan-duta-pertiwi-tbk-hope-2022",
+      "content": "Annual Report. Annual Report PT Harapan Duta Pertiwi Tbk (HOPE) 2022. Upss, kamu belum berlangganan Data Paket, kami bantuin pilihkan paket data terbaik",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "HOPE Harapan Duta Pertiwi Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] LAPORAN TAHUNAN - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202205/1a3c5ffbcb_5e0ff9a13b.pdf",
+      "content": "PT. Harapan Duta Pertiwi Tbk. WWW.HOPE.CO.ID. INTEGRATED ANNUAL REPORT. Produk Luar Biasa, Komitmen Tinggi.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "HOPE Harapan Duta Pertiwi Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Produk Luar Biasa, Komitmen Tinggi - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202604/84bc26b04e_9fb7ca7264.pdf",
+      "content": "PT Harapan Duta Pertiwi Tbk. Produk Luar Biasa, Komitmen Tinggi. Excellent Product, High Commitment. Laporan Tahunan Terintegrasi. Integrated Annual Report",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "HOPE Harapan Duta Pertiwi Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT Harapan Duta Pertiwi Tbk. HOPE 1 Informasi Tambahan Atas - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202510/66e6d889e4_4dc3661d18.pdf",
+      "content": "INTAM KI TM HOPE 23102025.16.36.pdf. This is an official document of PT Harapan Duta Pertiwi Tbk. that does not require a signature as it was",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "HOPE Harapan Duta Pertiwi Tbk. website resmi investor relation annual report pdf",
+      "title": "[PDF] Produk Luar Biasa, Komitmen Tinggi - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202505/5d386d428b_94a734a8c8.pdf",
+      "content": "PT Harapan Duta Pertiwi Tbk. Laporan Tahunan 2024 Annual Report. 33. RIWAYAT SINGKAT. BRIEF HISTORY. PT Harapan Duta Pertiwi Tbk. didirikan berdasarkan. Akta",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "HOPE Harapan Duta Pertiwi Tbk. annual report 2024 pdf official",
+      "title": "[PDF] 2023 - Laporan Tahunan - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202404/38483f6c7f_0fd5a4a38f.pdf",
+      "content": "Tangerang, April 2024. The undersigned, hereby declare that all information in the 2023 Annual Report of PT Harapan Duta Pertiwi. Tbk. has",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "HOPE Harapan Duta Pertiwi Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "[PDF] PT HARAPAN DUTA PERTIWI Tbk DAN ENTITAS ANAK / AND ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202503/20260316212533-59969-0/LK%20AUDITED%20HOPE%20DES%2025.pdf",
+      "content": "Laporan keuangan konsolidasian PT Harapan Duta. Pertiwi Tbk dan ... dalam Laporan Tahunan 2025 (“Laporan Tahunan”), tetapi tidak",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "HOPE Harapan Duta Pertiwi Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Perseroan dengan ini menyampaikan laporan keuangan untuk ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202510/20251030183706-57733-0/FinancialStatement-2025-III-HOPE.pdf",
+      "content": "PT Harapan Duta Pertiwi Tbk. bertanggung jawab penuh atas informasi tertera di dalam dokumen ini. Nomor Surat. 023/HDP/DIR/X/2025. Nama Emiten.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "HOPE Harapan Duta Pertiwi Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT HARAPAN DUTA PERTIWI Tbk DAN ENTITAS ANAK - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202411/20241101090951-48933-0/HOPE%20(Report-Billingual)%2030%20Sept%202024.pdf",
+      "content": "Laporan Keuangan konsolidasian Grup telah disusun sesuai dengan Standar Akuntansi. Keuangan di Indonesia yang meliputi Pernyataan dan Interpretasi yang",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "HOPE Harapan Duta Pertiwi Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT HARAPAN DUTA PERTIWI Tbk DAN ENTITAS ANAKNYA - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202404/20250409122246-51605-0/LK%20FINAL%20PT%20HDP%20Tbk%20dan%20Entitas%20Anak%2031%20Des%202024.pdf",
+      "content": "Laporan Keuangan konsolidasian Grup telah disusun sesuai dengan Standar Akuntansi. Keuangan di Indonesia yang meliputi Pernyataan dan Interpretasi yang",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "HOPE Harapan Duta Pertiwi Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Perseroan dengan ini menyampaikan laporan keuangan untuk ... - IDX",
+      "url": "https://www.idx.co.id/primary/search/url?id=ba02b5f7ebfb41dca8bb93d5827bf8f8&redirect=https%3A%2F%2Fwww.idx.co.id%2FPortals%2F0%2FStaticData%2FListedCompanies%2FCorporate_Actions%2FNew_Info_JSX%2FJenis_Informasi%2F01_Laporan_Keuangan%2F02_Soft_Copy_Laporan_Keuangan%2F%2FLaporan+Keuangan+Tahun+2022%2FTW1%2FHOPE%2FFinancialStatement-2022-I-HOPE.pdf",
+      "content": "PT Harapan Duta Pertiwi Tbk. bertanggung jawab penuh atas informasi tertera di dalam dokumen ini. Nomor Surat. 013/HDP/DIR/VI/2022. Nama",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {},
+  "processing_status": "partial",
+  "processing_reasons": [
+    "Tidak ada kandidat dokumen yang ditemukan dari pencarian."
+  ]
+}

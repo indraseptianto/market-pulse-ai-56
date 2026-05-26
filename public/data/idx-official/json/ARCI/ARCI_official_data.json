@@ -1,0 +1,114 @@
+{
+  "code": "ARCI",
+  "company_name": "Archi Indonesia Tbk.",
+  "scraped_at": "2026-05-26T10:10:12.599775+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "ARCI Archi Indonesia Tbk. website resmi investor relation annual report pdf",
+      "title": "Investor Relations - Archi Indonesia",
+      "url": "https://archiindonesia.com/investor-relations",
+      "content": "Annual Reports; General Meeting Shareholders; – AGMS · – EGMS · Dividend · Stock Information · Annual Reports; General ... Copyright © 2025 PT Archi Indonesia",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ARCI Archi Indonesia Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "Laporan Tahunan - Archi Indonesia",
+      "url": "https://archiindonesia.com/hubungan-investor/laporan-tahunan",
+      "content": "Laporan Tahunan 2025 – PT Archi Indonesia Tbk · Laporan Tahunan 2024 – PT Archi Indonesia Tbk · Laporan Tahunan 2023 – PT Archi Indonesia Tbk · Laporan Tahunan",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ARCI Archi Indonesia Tbk. annual report 2025 pdf official",
+      "title": "Annual Reports - Archi Indonesia",
+      "url": "https://archiindonesia.com/investor-relations/annual-reports",
+      "content": "### Read More. # Investor Relations. ## Annual Reports. ### Annual Report 2025 – PT Archi Indonesia Tbk. ### Annual Report 2021 – PT Archi Indonesia Tbk. Terms and Conditions – Privacy Policy – Disclaimer. Copyright © 2025 PT Archi Indonesia Tbk.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ARCI Archi Indonesia Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "Laporan Keuangan - Archi Indonesia",
+      "url": "https://archiindonesia.com/hubungan-investor/laporan-keuangan",
+      "content": "Hubungan Investor Laporan Keuangan LK Audit_PT Archi Indonesia Tbk_31 Mar 2026_Bilingual (Konsol) Baca Unduh LK Audit_PT Archi Indonesia Tbk_31 Des.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ARCI Archi Indonesia Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "Materi Presentasi - Archi Indonesia",
+      "url": "https://archiindonesia.com/hubungan-investor/materi-presentasi",
+      "content": "Hubungan Investor Materi Presentasi PT Archi Indonesia Tbk – Paparan Publik ... – Laporan Keuangan · – Rilis Kinerja Keuangan · Ikhtisar Utama Investasi",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ARCI Archi Indonesia Tbk. website resmi investor relation annual report pdf",
+      "title": "Archi Indonesia Tbk PT Investor Relations - IDX:ARCI - Alpha Spread",
+      "url": "https://www.alphaspread.com/security/idx/arci/investor-relations",
+      "content": "Archi Indonesia Tbk PT (IDX:ARCI) investor relations materials: earnings calls, slides & PDFs, and shareholder letters.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ARCI Archi Indonesia Tbk. website resmi investor relation annual report pdf",
+      "title": "Financial Statements - Investor Relations - Archi Indonesia",
+      "url": "https://archiindonesia.com/investor-relations/financial-statements",
+      "content": "Investor Relations Financial Statements Audited FS_PT Archi Indonesia Tbk_31 Mar 2026_Bilingual (Consol) Read Download Audited FS_PT Archi Indonesia Tbk_31.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ARCI Archi Indonesia Tbk. website resmi investor relation annual report pdf",
+      "title": "Investor Presentations - Archi Indonesia",
+      "url": "https://archiindonesia.com/investor-relations/investor-presentations",
+      "content": "Investor Relations Investor Presentations PT Archi Indonesia Tbk – Public ... Annual Reports; General Meeting Shareholders; – AGMS · – EGMS · Dividend · Stock",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ARCI Archi Indonesia Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 0038/ARCHI/6/2022/G PT Archi Indonesia Tbk ARCI 3 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202306/112f26630c_9d3f969075.pdf",
+      "content": "dalam Laporan Tahunan dan Laporan Keuangan Perseroan untuk tahun buku yang berakhir pada tanggal 31 Desember 2022. Agenda 2. Kuorum Kehadiran.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ARCI Archi Indonesia Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Nomor Surat Nama Perusahaan Kode Emiten Lampiran ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202505/d10a8812db_7713243b9c.pdf",
+      "content": "ARCI - Annual Report 2024.pdf. This is an official document of PT Archi Indonesia Tbk that does not require a signature as it was generated.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ARCI Archi Indonesia Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Nomor Surat Nama Perusahaan Kode Emiten Lampiran ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202505/cbb5d0a271_8cb7f55854.pdf",
+      "content": "- Jenis Laporan Keuangan ... ARCI - Financial Statement Mar 2025.pdf. Lampiran. Dokumen ini merupakan dokumen resmi PT Archi Indonesia Tbk yang tidak memerlukan",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ARCI Archi Indonesia Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Nomor Surat Nama Perusahaan Kode Emiten Lampiran Perihal ...",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/98ce620dfd_209a864adc.pdf",
+      "content": "ARCI - Annual Report 2024.pdf. Lampiran. Dokumen ini merupakan dokumen resmi PT Archi Indonesia Tbk yang tidak memerlukan tanda tangan karena.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {},
+  "processing_status": "partial",
+  "processing_reasons": [
+    "Tidak ada kandidat dokumen yang ditemukan dari pencarian."
+  ]
+}

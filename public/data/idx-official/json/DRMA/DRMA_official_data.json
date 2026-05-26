@@ -1,0 +1,114 @@
+{
+  "code": "DRMA",
+  "company_name": "Dharma Polimetal Tbk.",
+  "scraped_at": "2026-05-26T07:25:16.313924+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "DRMA Dharma Polimetal Tbk. annual report 2025 pdf official",
+      "title": "Hubungan Investor - Dharma Group",
+      "url": "https://dharmagroup.co.id/hubunganinvestor",
+      "content": "Mengapa Berinvestasi di PT Dharma Polimetal Tbk ? Kinerja Perusahaan. Laporan Tahunan. Informasi Pemegang Saham. Informasi Dividen. Presentasi. Prospektus",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "DRMA Dharma Polimetal Tbk. annual report 2025 pdf official",
+      "title": "Annual Report PT Dharma Polimetal Tbk (DRMA) 2021 - ticmi",
+      "url": "https://www.ticmi.co.id/datapasarmodal/ED/ar/viewsingle/135296/annual-report-pt-dharma-polimetal-tbk-drma-2021",
+      "content": "Annual Report. Annual Report PT Dharma Polimetal Tbk (DRMA) 2021. Upss, kamu belum berlangganan Data Paket, kami bantuin pilihkan paket data terbaik",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "DRMA Dharma Polimetal Tbk. annual report 2025 pdf official",
+      "title": "[PDF] Sangkalan dan Batasan Tanggung Jawab - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202603/26d61f0a74_b5a3df5f81.pdf",
+      "content": "Laporan Keberlanjutan 2025. PT Dharma Polimetal Tbk. 2. Laporan Keberlanjutan 2025. Page 3. PT Dharma Polimetal Tbk (DRMA) memiliki semangat untuk terus",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "DRMA Dharma Polimetal Tbk. annual report 2024 pdf official",
+      "title": "[PDF] 2023 Laporan Tahunan - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202404/ae5d80bdcf_d89411fb0e.pdf",
+      "content": "This Annual Report will use the name “DRMA” or “Company” as reference of PT Dharma Polimetal Tbk. Keep Growing &. Shining Together. 2023 Laporan Tahunan. Annual",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "DRMA Dharma Polimetal Tbk. annual report 2024 pdf official",
+      "title": "[PDF] PT Dharma Polimetal Tbk. (“DRMA”) - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202411/651e16f281_baa0214ca4.pdf",
+      "content": "This presentation may contain forward looking statements including statements regarding our intent, belief or current expectations with respect to DRMA",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "DRMA Dharma Polimetal Tbk. shareholders dividend annual report pdf",
+      "title": "[PDF] Sangkalan dan Batasan Tanggung Jawab - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202503/5c4138e774_4e935c0dfc.pdf",
+      "content": "In this Annual Report, PT Dharma Polimetal Tbk hereinafter is referred to as “DRMA” or Company. This annual report contains statements, data, and",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "DRMA Dharma Polimetal Tbk. annual report 2025 pdf official",
+      "title": "[PDF] PT DHARMA POLIMETAL Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202503/20260313142352-59919-0/DRMA%202025.pdf",
+      "content": "contained in the 2025 annual report (the “annual report”) but does not include the consolidated financial statements and our auditor's",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "DRMA Dharma Polimetal Tbk. financial report 2025 pdf official",
+      "title": "[PDF] PT DHARMA POLIMETAL Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202510/20251027084428-58223-0/LK%20DRMA%200925.pdf",
+      "content": "... the consolidated financial statements and has agreed to issue the Company and its subsidiaries' financial statements on 27 October 2025.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "DRMA Dharma Polimetal Tbk. shareholders dividend annual report pdf",
+      "title": "PT. Dharma Polimetal Tbk [DRMA] - IDNFinancials.com",
+      "url": "https://www.idnfinancials.com/drma/pt-dharma-polimetal-tbk",
+      "content": "Market Hints Bonds Call People Net Foreign Stake Monitor 1%+ Valuable Stock. DRMA IDR 990 +5 (+0,51%). IDR 990 +5 (+0,51%). | **Market Cap. Rank in Industry** 5 of 16 | **Market Cap. Rank in All Companies** 236 of 958 |. The company is a subsidiary of Triputra Group which is engaged in automotive components manufacturing, especially for cars and motorcycles. | IPO Date | {{ipo.ipo\\_dates.ipo\\_date | dateMoment}} |. | Offering Shares | {{ipo.ipo\\_dates.offering\\_shares | numberFormat}} |. | Founders' Shares | {{ipo.ipo\\_dates.company\\_listing | numberFormat}} |. | Percentage | {{ipo.ipo\\_dates.percentage | numberFormat(2)}}% |. | Offering Price | {{ipo.ipo\\_dates.offering\\_price | numberFormat}} *(IDR)* |. | {{row.name}} | {{row.listing\\_date | dateMoment('ll')}}  {{row.mature\\_date | dateMoment('ll')}} |  | {{row.interest | numberFormat(2)}}% |. | {{row.ratio}} | {{row.shares\\_issue | numberFormat}} | {{row.price | numberFormat}} *(IDR)* | {{row.fund\\_raise | numberFormat}} *(IDR)* | {{row.listing\\_date | dateMoment('ll')}} |. | {{row.year}} | {{row.dividend\\_shares | numberFormat(2)}} *({{row.currency}})* | {{row.payment\\_date | dateMoment(\"DD MMM YYYY\") }} | {{row.type}} |. | {{row.name}} | {{row.shares|numberFormat}} *(Shares)* | {{row.nominal|numberFormat}} *({{row.currency}})* | {{row.percentage|numberFormat(2)}}% |.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "DRMA Dharma Polimetal Tbk. annual report 2025 pdf official",
+      "title": "Dharma Polimetal Tbk Annual Report 2023 | PDF | Dividend - Scribd",
+      "url": "https://www.scribd.com/document/722191866/Final-Report-DRMA-2023",
+      "content": "Final Report DRMA 2023 - Free download as PDF File (.pdf), Text File ( ... BRPT Interim Financial Report Q1 2025. 163 pages. Consolidated Financial",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    },
+    {
+      "query": "DRMA Dharma Polimetal Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "Laporan laba rugi PT Dharma Polimetal Tbk – IDX:DRMA",
+      "url": "https://id.tradingview.com/symbols/IDX-DRMA/financials-income-statement",
+      "content": "Laporan keuangan, termasuk pendapatan, pengeluaran, dan laba. Total pendapatan untuk kuartal terakhir adalah sebesar ‪1,55 T‬ IDR, dan ini merupakan 0,00%",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    },
+    {
+      "query": "DRMA Dharma Polimetal Tbk. financial report 2025 pdf official",
+      "title": "Financial Statements Full Year 2025 of DRMA",
+      "url": "https://www.ipotnews.com/ipotnews/newsDetail.php?jdl=Financial_Statements_Full_Year_2025_of_DRMA&news_id=485921&group_news=RESEARCHNEWS&taging_subtype=RESULT&name=&search=y_general&q=Financial+Statements&halaman=1",
+      "content": "PT Dharma Polimetal Tbk (DRMA) membukukan laba bersih pada tahun 2025 sebesar Rp 652,6 miliar. Naik bila dibandingkan dengan periode yang",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {},
+  "processing_status": "partial",
+  "processing_reasons": [
+    "Tidak ada kandidat dokumen yang ditemukan dari pencarian."
+  ]
+}

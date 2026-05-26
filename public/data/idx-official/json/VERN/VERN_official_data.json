@@ -1,0 +1,44 @@
+{
+  "code": "VERN",
+  "company_name": "Verona Indah Pictures Tbk.",
+  "scraped_at": "2026-05-25T17:05:13.520152+00:00",
+  "source": "Official/company/IDX documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "VERN Verona Indah Pictures Tbk. annual report 2024 pdf official",
+      "title": "Verona Indah Pictures Tbk - Sustainability Reports",
+      "url": "https://www.sustainabilityreports.com/verona-indah-pictures",
+      "content": "Available reports. 2 total. Years. 20242 reports. 2024. 2 reports. Sustainability Report. Annual Report. EN-ID•268 pages · Annual Report. Financial Statements."
+    },
+    {
+      "query": "VERN Verona Indah Pictures Tbk. annual report 2024 pdf official",
+      "title": "[PDF] 2024 - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/9af8e1928f_c9aca6a019.pdf",
+      "content": "The year 2024 represents a meaningful milestone for PT Verona Indah Pictures Tbk. The year in which the. Company successfully listed its"
+    },
+    {
+      "query": "VERN Verona Indah Pictures Tbk. annual report 2024 pdf official",
+      "title": "PT. Verona Indah Pictures Tbk [VERN] | IDNFinancials",
+      "url": "https://www.idnfinancials.com/vern/pt-verona-indah-pictures-tbk",
+      "content": "# IPO. | IPO Date | {{ipo.ipo\\_dates.ipo\\_date | dateMoment}} |. | Offering Shares | {{ipo.ipo\\_dates.offering\\_shares | numberFormat}} |. | Founders' Shares | {{ipo.ipo\\_dates.company\\_listing | numberFormat}} |. | Total Listed Shares | {{ipo.ipo\\_dates.total\\_listed\\_shares | numberFormat}} |. | Percentage | {{ipo.ipo\\_dates.percentage | numberFormat(2)}}% |. | Offering Price | {{ipo.ipo\\_dates.offering\\_price | numberFormat}} *(IDR)* |. | Fund Raised | {{ipo.ipo\\_dates.fund\\_raised | numberFormat}} *(IDR)* |. | {{row.name}} | {{row.listing\\_date | dateMoment('ll')}}  {{row.mature\\_date | dateMoment('ll')}} |  | {{row.interest | numberFormat(2)}}% |. | {{row.ratio}} | {{row.shares\\_issue | numberFormat}} | {{row.price | numberFormat}} *(IDR)* | {{row.fund\\_raise | numberFormat}} *(IDR)* | {{row.listing\\_date | dateMoment('ll')}} |. | {{row.year}} | {{row.dividend\\_shares | numberFormat(2)}} *({{row.currency}})* | {{row.payment\\_date | dateMoment(\"DD MMM YYYY\") }} | {{row.type}} |. | {{row.fiscal\\_year}} | {{row.total\\_bonus\\_shares}} {{row.recording\\_date | dateMoment(\"DD MMM YYYY\") }} | {{row.payment\\_date | dateMoment(\"DD MMM YYYY\") }} | |. | {{row.name}} | {{row.shares|numberFormat}} *(Shares)* | {{row.nominal|numberFormat}} *({{row.currency}})* | {{row.percentage|numberFormat(2)}}% |. | {{ row.percentage }} % | {{ row.shareholder|numberFormat }}  ({{formatDiff(row.different\\_shareholder)}}) | {{ row.period | dateMoment(\"DD MMM YYYY\") }} |."
+    },
+    {
+      "query": "VERN Verona Indah Pictures Tbk. annual report 2024 pdf official",
+      "title": "PT Verona Indah Pictures Tbk Income Statement - Gainify.io",
+      "url": "https://www.gainify.io/stocks/idx/vern/financials/income-statement",
+      "content": "Get the full quarterly/annual income statement for PT Verona Indah Pictures Tbk (IDX:VERN). Analyze and visualize the revenue, expenses and net profit over the"
+    },
+    {
+      "query": "VERN Verona Indah Pictures Tbk. financial report 2025 pdf official",
+      "title": "Verona Indah Pictures Financials | VERN - Barron's",
+      "url": "https://www.barrons.com/market-data/stocks/vern/financials?countrycode=id",
+      "content": "Verona Indah Pictures detailed financials by Barron's. View VERN business summary and company performance, for a clear financial breakdown."
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {}
+}

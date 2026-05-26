@@ -1,0 +1,91 @@
+{
+  "code": "AWAN",
+  "company_name": "Era Digital Media Tbk.",
+  "scraped_at": "2026-05-25T23:45:12.103782+00:00",
+  "source": "Official/company/IDX documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "AWAN Era Digital Media Tbk. annual report 2024 pdf official",
+      "title": "[PDF] The Era of Data Sovereignty - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202505/fa1d31691d_706bde201a.pdf",
+      "content": "... ANNUAL. REPORT 2024. Page 4. 4. PT Era Digital Media Tbk • ANNUAL REPORT 2024 ... Awan pada 1 Maret 2024 dengan kepemilikan saham sebesar 70"
+    },
+    {
+      "query": "AWAN Era Digital Media Tbk. annual report 2024 pdf official",
+      "title": "PT. Era Digital Media Tbk [AWAN] - IDNFinancials.com",
+      "url": "https://www.idnfinancials.com/awan/pt-era-digital-media-tbk",
+      "content": "PT Era Digital Media Tbk (AWAN) started in 2015 in Jakarta. The company provides VAS (value-added services) and integrated solutions for telecommunication"
+    },
+    {
+      "query": "AWAN Era Digital Media Tbk. annual report 2024 pdf official",
+      "title": "Annual Report - PT Enseval Putera Megatrading Tbk",
+      "url": "https://www.enseval.com/annual-report",
+      "content": "2024 Download. Accelerating Digital Excellence for Sustainable business. 2023 Download. Digital Advantage and Strategic Collaboration for Sustainable Growth."
+    },
+    {
+      "query": "AWAN Era Digital Media Tbk. financial report 2025 pdf official",
+      "title": "014/EDM/CRSC/IV/2025 PT Era Digital Media Tbk AWAN 3 ...",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/6d618d067d_39d73a4a6e.pdf",
+      "content": "The company hereby announce the Submission of Financial Report as follows: ... AWAN - LKTT Q1 2025.pdf. 2. AWAN - Penjelasan Liabilitas Q1 2025."
+    },
+    {
+      "query": "AWAN Era Digital Media Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "[PDF] PT ERA DIGITAL MEDIA Tbk DAN ENTITAS ANAK - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202507/20250731162950-56893-0/AWAN%20-%20LKTT%20Q2%202025.pdf",
+      "content": "laporan posisi keuangan pada tanggal 30 Juni 2025 dan 31 Desember 2024: Nilai Tercatat. Nilai Wajar. Aset Keuangan. Kas dan bank. 1.656.015.993."
+    },
+    {
+      "query": "AWAN Era Digital Media Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "Financial Statements Full Year 2024 of AWAN - IndoPremier",
+      "url": "https://www.indopremier.com/ipotnews/newsDetail.php?jdl=Financial_Statements_Full_Year_2024_of_AWAN&news_id=461951&group_news=RESEARCHNEWS&news_date=&taging_subtype=AWAN&name=&search=y_general&q=Financial+Statements&halaman=1",
+      "content": "PT Era Digital Media Tbk (AWAN) membukukan laba bersih pada tahun 2024 sebesar Rp 664,2 juta. Naik bila dibandingkan dengan periode yang"
+    },
+    {
+      "query": "AWAN Era Digital Media Tbk. shareholders dividend annual report pdf",
+      "title": "[PDF] 2023 - PT Era Digital Media Tbk",
+      "url": "https://ptedm.com/wp-content/uploads/2024/04/AWAN-AR-Dan-SR-2023-PT.-Era-Digital-Media-Tbk.pdf",
+      "content": "This report is the 2023 Annual Report and Sustainability. Report of PT Era Digital Media Tbk (the \"Company\"). Where this report is published"
+    },
+    {
+      "query": "AWAN Era Digital Media Tbk. shareholders dividend annual report pdf",
+      "title": "Era Digital Media will... - IDNFinancials.com",
+      "url": "https://www.idnfinancials.com/announcement/12839/era-digital-media-hold-annual-extraordinary-shareholders-meeting-june-4-2024",
+      "content": "Era Digital Media will hold annual and extraordinary shareholders meeting on June 4, 2024. 14 May 2024 09:55. Source: Source #1 Source #2."
+    }
+  ],
+  "documents": [
+    {
+      "url": "https://ptedm.com/wp-content/uploads/2024/04/AWAN-AR-Dan-SR-2023-PT.-Era-Digital-Media-Tbk.pdf",
+      "title": "[PDF] 2023 - PT Era Digital Media Tbk",
+      "pdf_path": "/opt/idx-official-data/documents/AWAN/AWAN-AR-Dan-SR-2023-PT.-Era-Digital-Media-Tbk.pdf",
+      "text_path": "/opt/idx-official-data/extracted/AWAN/AWAN-AR-Dan-SR-2023-PT.-Era-Digital-Media-Tbk.txt",
+      "bytes": 7118926
+    }
+  ],
+  "financial_income_revenue": [],
+  "dividends": [
+    {
+      "document": "/opt/idx-official-data/documents/AWAN/AWAN-AR-Dan-SR-2023-PT.-Era-Digital-Media-Tbk.pdf",
+      "evidence_text": "Dividend Policy and Distribution 84 Prospek Usaha 93 Informasi Material Business prospect Material Information 88 Strategi Pemasaran 93 Tinjauan Keuangan Marketing Strategy Financial Review 91 Struktur Modal Capital Structure 06 TATA KELOLA PERUSAHAAN | Corporate Governance 102 Tata Kelola Perusahaan 131 Komite Audit Corporate Governance Audit Committee 102 Landasan Penerapan GCG 139 Komite Nominasi dan Remunerasi Foundation In Implementing GCG Nomination and Remuneration Committee 103 Prinsip-Prinsip GCG dan Penerapannya 142 Sekretaris Perusahaan GCG Principles and Implementation Corporate Secretary 104 Struktur GCG 145 Audit Internal GCG Structure Internal Audit 105 Rapat Umum Pemegang Saham 150 Sistem Pengendalian Internal General Meeting of Shareholders Internal Control System 113 Dewan Komisaris 151 Kantor Akuntan Publik Board of Commissioners Public Accounting Firm 121 Direksi 152 Manajemen Risiko Board of Directors Risk Management 127 Penilaian Kinerja Dewan Komisaris dan Direksi 155 Perkara Hukum Berdampak Material Performance Assessment of The Board Legal Proceedings With Material Impact of Commissioners and Board of Directors 155 Informasi Sanksi Administratif 129 Nominasi dan Remunerasi Dewan Komisaris dan Direksi Information on Administrative Sanctions Nomination and Remuneration of The Board of Commissioners and Board of Directors 07 LAPORAN KEBERLANJUTAN | Sustainability Report 158 Strategi Keberlanjutan 163 Tata Kelola Keberlanjutan Sustainability Strategy [OJK A.1] Sustainable Governance 160 Budaya Keberlanjutan 166 Aspek Ekonomi Sustainability Culture [OJK A.2] Economic Aspect 161 Ikhtisar Kinerja Keberlanjutan 166 Aspek Lingkungan Sustainability Performance Highlights Environment Aspect 170 Aspek Sosial Social Aspect 08 LAIN-LAIN DAN LAPORAN KEUANGAN | Others and Financial Statements 178 Verifikasi Tertulis dari Pihak Independen 180 Tanggapan Terhadap Umpan Balik Laporan Keberlanjutan Written Verification from an Independent Party [G.1] Tahun Sebelumnya Responses to the Feedback of Previous Year Report [G.3] 178 Lembar Umpan Balik Feedback Form [G.2] 180 Daftar Pengungkapan Sesuai Peraturan Otoritas Jasa Keuangan Nomor 51/POJK.03/2017 List of Disclosures in Accordance With POJK 51/2017 [G.4] PT Era Digital Media Tbk Annual Report 2023 7 KILAS KINERJA 2023 2023 PERFORMANCE HIGHLIGHTS 8 PT Era Digital Media Tbk Laporan Tahunan 2023 Kilas Kinerja 2023 2023 Performance Highlights PT Era Digital Media Tbk Annual Report 2023 9 Kilas Kinerja 2023 2023 Performance Highlights Pada tahun 2023, Perseroan terus mengembangkan In 2023, the Company continuously developed the usaha entitas anak pada cloud lokal dan berinovasi business of its subsidiary in local cloud and innovation pada produk layanan Nilai Tambah (Value Added on Value Added Services (VAS) products. The following Services/VAS). Berikut adalah pengembangan produk are the service product developments launched by layanan yang diluncurkan oleh Perseroan sampai the Company until the end of 2023. dengan akhir 2023. PRODUK DAN LAYANAN PRODUCTS AND SERVICES No EDM EAD 1 Mobile Games Infrastruktur as a service (IaaS) Xtriv"
+    }
+  ],
+  "latest_shareholders_freefloat_ownership": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/AWAN/AWAN-AR-Dan-SR-2023-PT.-Era-Digital-Media-Tbk.pdf",
+        "shareholders": "Shareholders Composition 6 PT Era Digital Media Tbk Laporan Tahunan 2023 Pendahuluan Introduction 77 Keanggotaan Asosiasi 78 Lembaga dan/atau Profesi Penunjang Pasar Modal Association Membership [OJK C.5] Capital Market Supporting Institutions and/or Professions 77 Perubahan Yang Bersifat Signifikan 79 Wilayah Operasional Significant Changes [OJK C.6] Operation Area [OJK C.3] 05 ANALISIS DAN PEMBAHASAN MANAJEMEN | Management Discussion and Analysis 82 Analisis dan Pembahasan Manajemen 91 Kebijakan Distribusi Dividen Management Discussion and Analysis Dividend Policy and Distribution 84 Prospek Usaha 93 Informasi Material Business prospect Material Information 88 Strategi Pemasaran 93 Tinjauan Keuangan Marketing Strategy Financial Review 91 Struktur Modal Capital Structure 06 TATA KELOLA PERUSAHAAN | Corporate Governance 102 Tata Kelola Perusahaan 131 Komite Audit Corporate Governance Audit Committee 102 Landasan Penerapan GCG 139 Komite Nominasi dan Remunerasi Foundation In Implementing GCG Nomination and Remuneration Committee 103 Prinsip-Prinsip GCG dan Penerapannya 142 Sekretaris Perusahaan GCG Principles and Implementation Corporate Secretary 104 Struktur GCG 145 Audit Internal GCG Structure Internal Audit 105 Rapat Umum Pemegang Saham 150 Sistem Pengendalian Internal General Meeting of Shareholders Internal Control System 113 Dewan Komisaris 151 Kantor Akuntan Publik Board of Commissioners Public Accounting Firm 121 Direksi 152 Manajemen Risiko Board of Directors Risk Management 127 Penilaian Kinerja Dewan Komisaris dan Direksi 155 Perkara Hukum Berdampak Material Performance Assessment of The Board Legal Proceedings With Material Impact of Commissioners and Board of Directors 155 Informasi Sanksi Administratif 129 Nominasi dan Remunerasi Dewan Komisaris dan Direksi Information on Administrative Sanctions Nomination and Remuneration of The Board of Commissioners and Board of Directors 07 LAPORAN KEBERLANJUTAN | Sustainability Report 158 Strategi Keberlanjutan 163 Tata Kelola Keberlanjutan Sustainability Strategy [OJK A.1] Sustainable Governance 160 Budaya Keberlanjutan 166 Aspek Ekonomi Sustainability Culture [OJK A.2] Economic Aspect 161 Ikhtisar Kinerja Keberlanjutan 166 Aspek Lingkungan Sustainability Performance Highlights Environment Aspect 170 Aspek Sosial Social Aspect 08 LAIN-LAIN DAN LAPORAN KEUANGAN | Others and Financial Statements 178 Verifikasi Tertulis dari Pihak Independen 180 Tanggapan Terhadap Umpan Balik Laporan Keberlanjutan Written Verification from an Independent Party [G.1] Tahun Sebelumnya Responses to the Feedback of Previous Year Report [G.3] 178 Lembar Umpan Balik Feedback Form [G.2] 180 Daftar Pengungkapan Sesuai Peraturan Otoritas Jasa Keuangan Nomor 51/POJK.03/2017 List of Disclosures in Accordance With POJK 51/2017 [G.4] PT Era Digital Media Tbk Annual Report 2023 7 KILAS KINERJA 2023 2023 PERFORMANCE HIGHLIGHTS 8 PT Era Digital Media Tbk Laporan Tahunan 2023 Kilas Kinerja 2023 2023 Performanc",
+        "free_float": "Free Float 2. Socialization of Free Float Provisions and Reporting 3. Sosialisasi OJK Peraturan kepada Emiten Baru 3. Socialization of OJK Regulations to New Issuers PENILAIAN KINERJA KOMITE- ASSESSMENT OF THE KOMITE DI BAWAH DIREKSI PERFORMANCE OF THE COMMITTEES UNDER THE BOARD OF DIRECTORS Hingga akhir tahun 2023, Perseroan tidak memiliki Until the end of 2023, the Company does not have komite di bawah Direksi. a committee under the Board of Directors. Penilaian Kinerja Dewan Komisaris dan Direksi Performance Assessment of The Board of Commissioners and Board of Directors MEKANISME PENILAIAN KINERJA BOARD OF COMMISSIONERS DEWAN KOMISARIS DAN DIREKSI AND BOARD OF DIRECTORS PERFORMANCE ASSESSMENT MECHANISM Penilaian kinerja Dewan Komisaris dilakukan oleh The performance assessment of the Board of pemegang saham dalam Rapat Umum Pemegang Commissioners is conducted by the shareholders in Saham (RUPS) sementara penilaian kinerja Direksi the General Meeting of Shareholders (GMS) while the dilakukan oleh Dewan Komisaris yang juga akan performance assessment of the Board of Directors is melaporkan fungsi pengawasannya dalam RUPS. conducted by the Board of Commissioners who will also report on its supervisory function in the GMS. PT Era Digital Media Tbk Annual Report 2023 127 KRITERIA PENILAIAN KINERJA PERFORMANCE ASSESSMENT DEWAN KOMISARIS DAN DIREKSI CRITERIA OF THE BOARD OF COMMISSIONERS AND BOARD OF DIRECTORS Dalam melakukan penilaian kinerja Dewan Komisaris, In assessing the performance of the Board of tolok ukur atau indikator utama yang digunakan Commissioners, the main benchmarks or indicators sebagai dasar penilaian adalah pelaksanaan tugas used as the basis for assessment are implementation dan tanggung jawab Dewan Komisaris dalam of the duties and responsibilities of the Board of melakukan fungsi pengawasan terhadap pengelolaan Commissioners in carrying out the supervisory function Perseroan yang dijalankan oleh Direksi, kegadiran of the management of the Comp"
+      }
+    ]
+  },
+  "management": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/AWAN/AWAN-AR-Dan-SR-2023-PT.-Era-Digital-Media-Tbk.pdf",
+        "directors": "Board of Directors on the Report of The Board of Directors Responsibility for the 2023 Annual Report of PT Era Digital Media 04 PROFIL PERUSAHAAN | Company Profile Analisis dan Pembahasan Manajemen 44 Identitas Perusahaan 60 Komposisi Pemegang Saham Management Discussion and Company Identity Analysis Berdasarkan Status Kepemilikan 45 Sekilas Tentang Perseroan dan Composition of Shareholder by Ownership Status Jejak Langkah 60 Kepemilikan Saham Company at a Glance and Milestones Dewan Komisaris dan Direksi Share Ownership of The Board of Commissioners 47 Visi, Misi dan Nilai Perusahaan and Board of Directors Vision, Mission, and Corporate Values [OJK C.1] 61 Pemegang Saham Pengendali Tata Kelola Perusahaan Controlling Shareholder Corporate Governance 49 Kegiatan Usaha Business Activities [OJK C.4] 61 Informasi Tentang Entitas Anak Information on Subsidiary 50 Struktur Organisasi Organization Structure 68 Produk dan Layanan Entitas Anak Subsidiary Products and Services 51 Susunan Dewan Komisaris dan Direksi dan Perubahannya di 72 Sumber Daya Manusia Tahun 2023 Human Resources Tanggung Jawab Composition of The Board of Sosial Perusahaan 72 Demografi Karyawan Commissioners and Board of Corporate Social Directors and its Changes in PT Era Digital Media Tbk Responsibility 2023 Employee Demographic [Ojk C.3] 53 Perubahan Susunan Dewan 74 Demografi Karyawan Komisaris Setelah Tahun Buku PT Era Awan Digital 2023 Employee Demographic PT Era Digital Media Changes in The Composition of Tbk. [OJK C.3] The Board of Commissioners and Board of Directors After 76 Pengembangan Teknologi Informasi Lain-lain dan Financial Year of 2023 Information Demographic PT Era Awan Digital Laporan Keuangan 76 Kronologi Pencatatan Saham Others and 54 Profil Dewan Komisaris Financial Statements Profile of The Board of Share Listing Chronology Commissioners 77 Kronologi Penerbitan dan Pencatatan Obligasi, 56 Profil Direksi Sukuk (Obligasi Syariah) atau Obligasi Konversi Profile of The Board of Directors Bond, Sukuk (Sharia Bond) and Convertible Bond Issuance and Listing Chronology 59 Komposisi Pemegang Saham Shareholders Composition 6 PT Era Digital Media Tbk Laporan Tahunan 2023 Pendahuluan Introduction 77 Keanggotaan Asosiasi 78 Lembaga dan/atau Profesi Penunjang Pasar Modal Association Membership [OJK C.5] Capital Market Supporting Institutions and/or Professions 77 Perubahan Yan",
+        "commissioners": "Board of Commissioners 34 Laporan Direksi and the Board of Directors on the Report of The Board of Directors Responsibility for the 2023 Annual Report of PT Era Digital Media 04 PROFIL PERUSAHAAN | Company Profile Analisis dan Pembahasan Manajemen 44 Identitas Perusahaan 60 Komposisi Pemegang Saham Management Discussion and Company Identity Analysis Berdasarkan Status Kepemilikan 45 Sekilas Tentang Perseroan dan Composition of Shareholder by Ownership Status Jejak Langkah 60 Kepemilikan Saham Company at a Glance and Milestones Dewan Komisaris dan Direksi Share Ownership of The Board of Commissioners 47 Visi, Misi dan Nilai Perusahaan and Board of Directors Vision, Mission, and Corporate Values [OJK C.1] 61 Pemegang Saham Pengendali Tata Kelola Perusahaan Controlling Shareholder Corporate Governance 49 Kegiatan Usaha Business Activities [OJK C.4] 61 Informasi Tentang Entitas Anak Information on Subsidiary 50 Struktur Organisasi Organization Structure 68 Produk dan Layanan Entitas Anak Subsidiary Products and Services 51 Susunan Dewan Komisaris dan Direksi dan Perubahannya di 72 Sumber Daya Manusia Tahun 2023 Human Resources Tanggung Jawab Composition of The Board of Sosial Perusahaan 72 Demografi Karyawan Commissioners and Board of Corporate Social Directors and its Changes in PT Era Digital Media Tbk Responsibility 2023 Employee Demographic [Ojk C.3] 53 Perubahan Susunan Dewan 74 Demografi Karyawan Komisaris Setelah Tahun Buku PT Era Awan Digital 2023 Employee Demographic PT Era Digital Media Changes in The Composition of Tbk. [OJK C.3] The Board of Commissioners and Board of Directors After 76 Pengembangan Teknologi Informasi Lain-lain dan Financial Year of 2023 Information Demographic PT Era Awan Digital Laporan Keuangan 76 Kronologi Pencatatan Saham Others and 54 Profil Dewan Komisaris Financial Statements Profile of The Board of Share Listing Chronology Commissioners 77 Kronologi Penerbitan dan Pencatatan Obligasi, 56 Profil Direksi Sukuk (Obligasi Syariah) atau Obligasi Konversi Profile of The Board of Directors Bond, Sukuk (Sharia Bond) and Convertible Bond Issuance and Listing Chronology 59 Komposisi Pemegang Saham Shareholders Composition 6 PT Era Digital Media Tbk Laporan Tahunan 2023 Pendahuluan Introduction 77 Keanggotaan Asosiasi 78 Lembaga dan/atau Profesi Penunjang Pasar Modal Association Membership"
+      }
+    ]
+  },
+  "evidence": {}
+}

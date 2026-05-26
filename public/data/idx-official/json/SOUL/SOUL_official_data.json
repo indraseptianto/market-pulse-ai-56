@@ -1,0 +1,50 @@
+{
+  "code": "SOUL",
+  "company_name": "Mitra Tirta Buwana Tbk.",
+  "scraped_at": "2026-05-26T02:30:10.689621+00:00",
+  "source": "Official/company/IDX documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "SOUL Mitra Tirta Buwana Tbk. annual report 2024 pdf official",
+      "title": "[PDF] 011/Dir-MTB/VI-2025 PT Mitra Tirta Buwana Tbk SOUL 1 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202506/d1fc743900_db262868a0.pdf",
+      "content": "The company hereby announce the Submission of Financial Report as follows: ... 31 Des 2024.pdf. This is an official document of PT Mitra Tirta"
+    },
+    {
+      "query": "SOUL Mitra Tirta Buwana Tbk. annual report 2024 pdf official",
+      "title": "[PDF] 2024 Annual Report - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202506/268d8c2915_1ce36c8af7.pdf",
+      "content": "2024 Annual Report of PT Mitra Tirta Buwana Tbk and that we are fully responsible for the accountability of the content. The Declaration has."
+    },
+    {
+      "query": "SOUL Mitra Tirta Buwana Tbk. annual report 2024 pdf official",
+      "title": "Financial Statements Full Year 2024 of SOUL",
+      "url": "https://www.indopremier.com/ipotnews/newsDetail.php?jdl=Financial_Statements_Full_Year_2024_of_SOUL&news_id=467650&group_news=RESEARCHNEWS&news_date=&taging_subtype=SOUL&name=&search=y_general&q=Financial+Statements&halaman=1",
+      "content": "| Revenue | 3,6 | - | 2,0 | - | 4,8 | **-25,0** |. | Gross Profit | 1,5 | - | 0,8 | - | 2,5 | **-40,0** |. | Net Profit | -4,0 | - | -1,1 | - | -3,3 | **21,2** |. |  | Dana yang siap untuk digunakan untuk pembelian reksadana dan penarikan dana. |  | Dana yang siap untuk digunakan untuk pembelian saham tanpa menimbulkan pembiayaan talangan. |  | Batas dana yang ditambah dengan valuasi saham sebagai jaminan sementara yang dapat digunakan untuk pembelian dan penarikan dana pada hari yang sama (*same-day*). #### Dana Tersedia + Talangan Sementara. Yang dapat digunakan untuk pembelian dan penarikan dana pada hari yang sama (*same-day*). |  | Dana yang berasal dari valuasi saham sebagai jaminan sementara yang dapat digunakan untuk pembelian dan penarikan dana pada hari yang sama (same-day). |  | Dana Tersedia - IPOTFUND + Talangan Sementara + Fasilitas |."
+    },
+    {
+      "query": "SOUL Mitra Tirta Buwana Tbk. annual report 2024 pdf official",
+      "title": "PT Mitra Tirta Buwana Tbk (IDX:SOUL) Financials & Income Statement",
+      "url": "https://stockanalysis.com/quote/idx/SOUL/financials",
+      "content": "Detailed annual and quarterly financials and income statement for PT Mitra Tirta Buwana Tbk (IDX:SOUL) ... FY 2024, FY 2023, FY 2022, FY 2021. Period Ending. Jun '"
+    },
+    {
+      "query": "SOUL Mitra Tirta Buwana Tbk. financial report 2025 pdf official",
+      "title": "Financial Statements 2Q 2025 of SOUL - Indo Premier Sekuritas",
+      "url": "https://www.indopremier.com/ipotnews/newsDetail.php?jdl=Financial_Statements_2Q_2025_of_SOUL&news_id=474892&group_news=RESEARCHNEWS&news_date=&taging_subtype=RESULT&name=&search=y_general&q=Financial+Statements&halaman=1",
+      "content": "PT Mitra Tirta Buwana Tbk (SOUL) membukukan rugi bersih pada Quarter 2 2025 sebesar Rp 807,3 juta ... EBITDA/IntExp. 0,00. Full akses : Klik pdf"
+    },
+    {
+      "query": "SOUL Mitra Tirta Buwana Tbk. shareholders dividend annual report pdf",
+      "title": "PT. Mitra Tirta Buwana Tbk [SOUL] - IDNFinancials.com",
+      "url": "https://www.idnfinancials.com/soul/pt-mitra-tirta-buwana-tbk",
+      "content": "| **Market Cap. Rank in Industry** 11 of 11 | **Market Cap. Rank in All Companies** 930 of 958 |. # IPO. | IPO Date | {{ipo.ipo\\_dates.ipo\\_date | dateMoment}} |. | Offering Shares | {{ipo.ipo\\_dates.offering\\_shares | numberFormat}} |. | Founders' Shares | {{ipo.ipo\\_dates.company\\_listing | numberFormat}} |. | Total Listed Shares | {{ipo.ipo\\_dates.total\\_listed\\_shares | numberFormat}} |. | Percentage | {{ipo.ipo\\_dates.percentage | numberFormat(2)}}% |. | Offering Price | {{ipo.ipo\\_dates.offering\\_price | numberFormat}} *(IDR)* |. | Fund Raised | {{ipo.ipo\\_dates.fund\\_raised | numberFormat}} *(IDR)* |. | {{row.name}} | {{row.listing\\_date | dateMoment('ll')}}  {{row.mature\\_date | dateMoment('ll')}} |  | {{row.interest | numberFormat(2)}}% |. | {{row.ratio}} | {{row.shares\\_issue | numberFormat}} | {{row.price | numberFormat}} *(IDR)* | {{row.fund\\_raise | numberFormat}} *(IDR)* | {{row.listing\\_date | dateMoment('ll')}} |. | {{row.year}} | {{row.dividend\\_shares | numberFormat(2)}} *({{row.currency}})* | {{row.payment\\_date | dateMoment(\"DD MMM YYYY\") }} | {{row.type}} |. | {{row.name}} | {{row.shares|numberFormat}} *(Shares)* | {{row.nominal|numberFormat}} *({{row.currency}})* | {{row.percentage|numberFormat(2)}}% |. | {{ row.percentage }} % | {{ row.shareholder|numberFormat }}  ({{formatDiff(row.different\\_shareholder)}}) | {{ row.period | dateMoment(\"DD MMM YYYY\") }} |."
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {}
+}

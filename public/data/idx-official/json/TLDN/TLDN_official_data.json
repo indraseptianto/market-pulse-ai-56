@@ -1,0 +1,110 @@
+{
+  "code": "TLDN",
+  "company_name": "Teladan Prima Agro Tbk.",
+  "scraped_at": "2026-05-26T06:10:13.145564+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "TLDN Teladan Prima Agro Tbk. website resmi investor relation annual report pdf",
+      "title": "PT Teladan Prima Agro Tbk Investor Relations - Gainify.io",
+      "url": "https://www.gainify.io/stocks/idx/tldn/investor-relations",
+      "content": "Access PT Teladan Prima Agro Tbk's (IDX:TLDN) official earnings reports, SEC filings, and shareholder updates. Stay informed with the latest financial",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "TLDN Teladan Prima Agro Tbk. website resmi investor relation annual report pdf",
+      "title": "Company Reports - Teladan Prima Agro",
+      "url": "https://www.teladanprima.com/en/hubungan-investor/company-reports",
+      "content": "Financial Highlights 3M-2026. Financial Performance; Financial Position. Revenue. 1.37. Rp Trillion. EBITDA. 322.31. Rp Billion. Profit. 181.77. Rp Billion",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "TLDN Teladan Prima Agro Tbk. annual report 2025 pdf official",
+      "title": "Laporan Perusahaan - Teladan Prima Agro",
+      "url": "https://www.teladanprima.com/hubungan-investor/laporan-perusahaan",
+      "content": "Laporan Tahunan. Financial Statement 31 March 2026. Unduh. 2025 Annual Report ... TELADAN PRIMA AGRO. Berfokus pada pengelolaan perkebunan dan pabrik kelapa",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "TLDN Teladan Prima Agro Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "Teladan Prima (TLDN) Patok Pertumbuhan Kinerja Segini di 2025",
+      "url": "https://investortrust.id/market/63946/teladan-prima-tldn-patok-pertumbuhan-kinerja-segini-di-2025",
+      "content": "Secara kinerja keuangan, TLDN mencatatkan laba usaha dari Rp 710,02 miliar menjadi Rp 1,11 triliun tahun 2024. Laba tahun berjalan yang dapat diatribusikan",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "TLDN Teladan Prima Agro Tbk. shareholders dividend annual report pdf",
+      "title": "[PDF] Nurturing a Better Growth - IDX",
+      "url": "https://idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202205/3be01619f5_5d4cef115e.pdf",
+      "content": "... Annual Report | PT Teladan Prima Agro Tbk. Sejak memulai operasinya pada ... Shareholders Information. 73. Informasi Pemegang Saham Utama dan. Pengendali.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TLDN Teladan Prima Agro Tbk. website resmi investor relation annual report pdf",
+      "title": "[PDF] Forging Resilience Strategic Advancement - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202404/a976bc8474_89d4923ca3.pdf",
+      "content": "Page 1. 2023 Laporan Tahunan / Annual Report. PT Teladan Prima Agro Tbk. Forging Resilience. Strategic Advancement. Through. PT Teladan Prima",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TLDN Teladan Prima Agro Tbk. annual report 2025 pdf official",
+      "title": "[PDF] Sanggahan dan Batasan Tanggung Jawab - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202603/289f32ecf1_5924ee2990.pdf",
+      "content": "Laporan Tahunan 2025 PT Teladan Prima Agro Tbk (yang selanjutnya disebut “TPA” atau “Perseroan”) ini disusun untuk memenuhi ketentuan pelaporan hasil",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TLDN Teladan Prima Agro Tbk. annual report 2025 pdf official",
+      "title": "[PDF] Circular Economy and Climate Impact - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/d993db25cf_d768fadc53.pdf",
+      "content": "... Annual Report. PT Teladan Prima Agro Tbk. Circular Economy and Climate Impact. PT Teladan Prima Agro Tbk. 1. Page 4. Perseroan menerapkan",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TLDN Teladan Prima Agro Tbk. annual report 2024 pdf official",
+      "title": "PT. Teladan Prima Agro Tbk [TLDN] - IDNFinancials.com",
+      "url": "https://www.idnfinancials.com/tldn/pt-teladan-prima-agro-tbk",
+      "content": "| **Market Cap. Rank in Industry** 16 of 57 | **Market Cap. Rank in All Companies** 196 of 958 |. The company was initiated in 2004 as a subsidiary of PT Teladan Resources. # IPO. | IPO Date | {{ipo.ipo\\_dates.ipo\\_date | dateMoment}} |. | Offering Shares | {{ipo.ipo\\_dates.offering\\_shares | numberFormat}} |. | Founders' Shares | {{ipo.ipo\\_dates.company\\_listing | numberFormat}} |. | Total Listed Shares | {{ipo.ipo\\_dates.total\\_listed\\_shares | numberFormat}} |. | Percentage | {{ipo.ipo\\_dates.percentage | numberFormat(2)}}% |. | Offering Price | {{ipo.ipo\\_dates.offering\\_price | numberFormat}} *(IDR)* |. | Fund Raised | {{ipo.ipo\\_dates.fund\\_raised | numberFormat}} *(IDR)* |. | {{row.name}} | {{row.listing\\_date | dateMoment('ll')}}  {{row.mature\\_date | dateMoment('ll')}} |  | {{row.interest | numberFormat(2)}}% |. | {{row.ratio}} | {{row.shares\\_issue | numberFormat}} | {{row.price | numberFormat}} *(IDR)* | {{row.fund\\_raise | numberFormat}} *(IDR)* | {{row.listing\\_date | dateMoment('ll')}} |. | {{row.year}} | {{row.dividend\\_shares | numberFormat(2)}} *({{row.currency}})* | {{row.payment\\_date | dateMoment(\"DD MMM YYYY\") }} | {{row.type}} |. | {{row.name}} | {{row.shares|numberFormat}} *(Shares)* | {{row.nominal|numberFormat}} *({{row.currency}})* | {{row.percentage|numberFormat(2)}}% |.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TLDN Teladan Prima Agro Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "Penjualan CPO menguat, laba TLDN naik 34% pada 2025",
+      "url": "https://www.idnfinancials.com/id/news/62099/penjualan-cpo-menguat-laba-tldn-naik-34-pada-2025",
+      "content": "Penjualan minyak sawit mendorong pendapatan TLDN Rp5,42 triliun dan laba bersih naik 34,03%. TLDN - PT. Teladan Prima Agro Tbk. Rp 550. +20 (+3,",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TLDN Teladan Prima Agro Tbk. annual report 2025 pdf official",
+      "title": "financial report Arsip - Teladan Prima Agro",
+      "url": "https://www.teladanprima.com/en/tag/financial-report",
+      "content": "JAKARTA – PT Teladan Prima Agro Tbk (TLDN) recorded a net profit of IDR 561.28 billion in the first half of 2025, doubling or increasing by 108.6% compared to",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    },
+    {
+      "query": "TLDN Teladan Prima Agro Tbk. website resmi investor relation annual report pdf",
+      "title": "Annual Report Arsip - Teladan Prima Agro",
+      "url": "https://www.teladanprima.com/jenis_report/annual-report",
+      "content": "Jenis Report: Annual Report · Financial Statement 31 March 2026 · 2025 Annual Report · Information Disclosure on Material and Affiliated Transaction with PT",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {}
+}

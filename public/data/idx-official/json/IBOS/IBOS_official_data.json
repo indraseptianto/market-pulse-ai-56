@@ -1,0 +1,110 @@
+{
+  "code": "IBOS",
+  "company_name": "Indo Boga Sukses Tbk.",
+  "scraped_at": "2026-05-26T05:55:19.891147+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "IBOS Indo Boga Sukses Tbk. annual report 2024 pdf official",
+      "title": "PT. Inti Bangun Sejahtera, Tbk.",
+      "url": "https://www.ibstower.com/investors",
+      "content": "# Annual Report & Sustainability Report. ## 2025 Sustainability Report. ## 2025 Annual Report. ## 2023 Annual and Sustainability Report. \"Advancing Telecommunication Network for Indonesia\". \"Committed to Grow Beyond the Expectation\". \"Growing Higher Values to Optimize Stakeholders Interest\". \"Resilient Effort for the Best Achievement\". \"Delivering Best Service to Customer\".",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "IBOS Indo Boga Sukses Tbk. annual report 2024 pdf official",
+      "title": "Annual Report - Indofood",
+      "url": "https://www.indofood.com/investor-relation/annual-report",
+      "content": "- Capital Market Supporting Institutions/Professionals. - Communication with Shareholders and Investors. - Climate Change and GHG Emissions. - Packaging and Plastic Waste Management. + Resilience in Delivering Food for All. - Product Safety, Quality, and Halal. - Products with Improved Nutritional Level. + Stronger Together with Our People and Communities. - Labor Practices and People Development. - Ensuring Occupational Health and Safety. PT Indofood Sukses Makmur Tbk. P : (+62-21) 5795 8822. F : (+62-21) 5793 7373. E : daniel.budiono@indofood.co.id. Copyright © 2025 PT INDOFOOD SUKSES MAKMUR Tbk. E : corporate.secretary@indofood.co.id. Resilience in Delivering Food for All. Stronger Together with Our People and Communities. Contact Us /Sitemap /Terms & Condition /.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "IBOS Indo Boga Sukses Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 028/IBS-DIR/IX/2022 PT Indo Boga Sukses Tbk IBOS 3 ... - IDX",
+      "url": "https://idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202209/1f60b16d89_10a30d6f66.pdf",
+      "content": "Dokumen ini merupakan dokumen resmi PT Indo Boga Sukses Tbk yang tidak memerlukan tanda tangan karena dihasilkan secara elektronik oleh",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "IBOS Indo Boga Sukses Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PDF - Laporan Ojk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-30012026-9510-00.pdf-0.pdf",
+      "content": "Nama Perusahaan Tbk. : IBOS - INDO BOGA SUKSES Tbk, PT. Jumlah Saham Sebelum Transaksi. : 3.689.075.937,00 Unit. Hak Suara Sebelum Transaksi.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "IBOS Indo Boga Sukses Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 015/IBS-DIR/VII/2022 PT Indo Boga Sukses Tbk IBOS 1 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202207/81d032b4a4_80410eb0fa.pdf",
+      "content": "Menyetujui dan mengesahkan Laporan Tahunan Perseroan untuk Tahun Buku. 2021 yang telah disiapkan dan dilaporkan oleh Direksi Perseroan,",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "IBOS Indo Boga Sukses Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] annual report - 2023 - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202406/52700dabd3_23a0e0961b.pdf",
+      "content": "All of the Company's shares are listed and traded on the Indonesia Stock. Exchange with the share code \"IBOS\" starting April 25 2022. ... INDO BOGA SUKSES TBK.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "IBOS Indo Boga Sukses Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 117/IBS-DIR/V/2024 PT Indo Boga Sukses Tbk IBOS 1 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202405/1ece97c3ed_e483a704b5.pdf",
+      "content": "1. Persetujuan Laporan Tahunan dan Laporan Keuangan. Tahunan. 2. Persetujuan Penggunaan Laba Bersih. 3. Penetapan remunerasi serta tunjangan",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "IBOS Indo Boga Sukses Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] TEST-E013RR-09112024 PT Indo Boga Sukses Tbk IBOS 1 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202411/e8f722046a_a8ed14a594.pdf",
+      "content": "RUPS Tahunan. Rapat Umum Pemegang Saham dihadiri oleh pemegang saham yang mewakili 100 saham atau 100% dari seluruh.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "IBOS Indo Boga Sukses Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "[PDF] PT INDO BOGA SUKSES TBK - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202510/1c11c061a7_d7754075d0.pdf",
+      "content": "Merujuk pada Surat Perseroan nomor 182/IBS-DIR/IX/2025 tanggal 20 September 2025. Perihal Revisi Penyampaian Laporan Keuangan Audit Tahun Buku Yang Berakhir.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "IBOS Indo Boga Sukses Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "[PDF] Perseroan dengan ini menyampaikan laporan keuangan untuk ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/20260405002502-61032-0/FinancialStatement-2025-Tahunan-IBOS.pdf",
+      "content": "Dokumen ini merupakan dokumen resmi PT Indo Boga Sukses Tbk yang tidak memerlukan tanda tangan karena dihasilkan secara elektronik. PT. Indo",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "IBOS Indo Boga Sukses Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT INDO BOGA SUKSES TBK DAN ENTITAS ANAK - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202307/20240720171618-46086-0/Audit%20Report%20IBS%2031%20Desember%202023%20Konsolidasi.pdf",
+      "content": "2. Laporan keuangan konsolidasi perusahaan telah disusun dan disajkan sesuai dengan. Standar Akuntansi Keuangan di Indonesia. / The company's consolidated",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "IBOS Indo Boga Sukses Tbk. annual report 2024 pdf official",
+      "title": "[PDF] PT INDO BOGA SUKSES TBK AND SUBSIDIARIES ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202404/20250404132654-51562-0/Audit%20Report%20IBS%2031%20Desember%202024%20Konsolidasi.pdf",
+      "content": "Boga Sukses Tbk and Subsrdiar'es as of December 31, 2024, and the ... When we read the annual report, if we conclude that there is a material.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {}
+}
