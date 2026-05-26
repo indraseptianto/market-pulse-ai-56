@@ -1,0 +1,116 @@
+{
+  "code": "TAMA",
+  "company_name": "Lancartama Sejati Tbk.",
+  "scraped_at": "2026-05-26T15:55:12.850550+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "TAMA Lancartama Sejati Tbk. website resmi investor relation annual report pdf",
+      "title": "Investor Relations - Itama",
+      "url": "https://itama.co.id/investors/openness",
+      "content": "| GMS Rules PT Itama Ranoraya Tbk 2025 | View | Download |. | Public Expose 2026 Material PT Itama Ranoraya Tbk | View | Download |. | Public Expose 2025 Material PT Itama Ranoraya Tbk | View | Download |. | Annual Public Expose Implementation Report 2025 PT Itama Ranoraya Tbk | View | Download |. | Public Expose 2024 Material PT Itama Ranoraya Tbk | View | Download |. | Annual Public Expose Implementation Report 2024 PT Itama Ranoraya Tbk | View | Download |. | Public Expose 2023 Material PT Itama Ranoraya Tbk | View | Download |. | Annual Public Expose Implementation Report 2023 PT Itama Ranoraya Tbk | View | Download |. | Public Expose Material 2022 PT Itama Ranoraya Tbk | View | Download |. | Annual Public Expose Implementation Report 2022  PT Itama Ranoraya Tbk | View | Download |. | Disclosure of Information on Additions of Business Activities of PT Itama Ranoraya Tbk | View | Download |.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "TAMA Lancartama Sejati Tbk. annual report 2025 pdf official",
+      "title": "Laporan Tahunan dan Keberlanjutan -",
+      "url": "https://sema.id/hubungan-investor/laporan-tahunan",
+      "content": "## Annual Report & Sustainable Report. With the theme Expanding Green Energy for the Nation” in the 2024 annual report, the Company continues to work to achieve the best performance in order to present environmentally friendly EBT (New Renewable Energy) to the. ## **Sustainable Report**. ## Sustainable Report 2024. The Company continues to improve sustainability practices, both in terms of social, environmental, humanity, by setting measurable goals, and reporting progress transparently. ### Sustainable Report 2023. ### Sustainable Report 2022. ### Sustainable Report 2021. * **Jl. Intan I No. 8, RT 001/001 Kp. Poncol Desa Curug Gunung Sindur, Kab. Bogor Jawa Barat, Indonesia**/@-6.4102033,106.725039,17z/data=! ##### Kami terbuka untuk bekerja sama dalam industri ketenagalistrikan dan energi baru terbarukan dan senantiasa mencari proyek-proyek baru yang menjanjikan. Kami mengundang semua pihak yang tertarik untuk mengeksplorasi lebih jauh tentang kesempatan yang ada di sektor bisnis energi baru terbarukan dan ketenagalistrikan di Indonesia untuk berdiskusi lebih jauh dengan kami.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "TAMA Lancartama Sejati Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PDF - Laporan Ojk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-30032026-0175-00.pdf-0.pdf",
+      "content": "Nama Perusahaan Tbk. : TAMA - LANCARTAMA SEJATI Tbk, PT. Jumlah Saham Sebelum Transaksi. : 70.629.000,00 Unit. Hak Suara Sebelum Transaksi. : 5",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TAMA Lancartama Sejati Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Laporan Tahunan GET IN TOUCH Annual Report - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202106/64f6e46ad3_b09ff8feae.pdf",
+      "content": "overall financial statement presentation. Page 13. Annual Report 2020 PT. Lancartama Sejati Tbk. Laporan Tahunan 2020 PT. Lancartama Sejati Tbk.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TAMA Lancartama Sejati Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 015/LTS-CORSEC/IV/2026 PT Lancartama Sejati Tbk. TAMA 1 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202604/99c751edb4_f6efcbb388.pdf",
+      "content": "Laporan Keuangan Tahunan. 2025. Website Perseroan. 31 Maret 2026. Laporan Keuangan Tahunan. 2025. Website PT Bursa Efek Indonesia. 31 Maret 2026.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TAMA Lancartama Sejati Tbk. website resmi investor relation annual report pdf",
+      "title": "[PDF] LANGKAH PASTI DI TENGAH DINAMIKA - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/388e09eb65_a2b6cdf961.pdf",
+      "content": "Directors of PT Lancartama Sejati Tbk as of. December 31, 2023, is presented in the 2024. Annual Report of PT Lancartama Sejati Tbk. The",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TAMA Lancartama Sejati Tbk. annual report 2024 pdf official",
+      "title": "[PDF] Cvr update - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202404/c89e60afb6_f192212285.pdf",
+      "content": "Lancartama is optimistic about the year 2024 with the belief that the industrial sector in. Indonesia will continue to offer lucrative",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TAMA Lancartama Sejati Tbk. financial report 2025 pdf official",
+      "title": "[PDF] 008/LTS/IV/2025 PT Lancartama Sejati Tbk. TAMA 1 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/9985cf0674_7b640a9407.pdf",
+      "content": "The company hereby announce the Submission of Financial Report as follows: ... This is an official document of PT Lancartama Sejati Tbk.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TAMA Lancartama Sejati Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT LANCARTAMA SEJATI Tbk LAPORAN KEUANGAN/FINANCIAL ...",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202308/20230801114004-39271-0/TAMA%20LKWT%202023.pdf",
+      "content": "Amandemen. PSAK No. 71 mengatur bahwa aset keuangan dengan fitur pelunasan dipercepat yang dapat mengakibatkan kompensasi negatif memenuhi.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TAMA Lancartama Sejati Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Perseroan dengan ini menyampaikan laporan keuangan untuk ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202308/20230801114004-39271-0/FinancialStatement-2023-II-TAMA.pdf",
+      "content": "Lancartama Sejati Tbk. bertanggung jawab penuh atas informasi tertera di dalam dokumen ini. Nomor Surat. 040/LTS/VII/2023. Nama Emiten. PT",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TAMA Lancartama Sejati Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT Lancartama Sejati 31 Desember 2021 - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202104/20220405121536-29095-0/3.%20LKA%20PT%20Lancartama%20Sejati%20Tbk%2031%20Desember%202021.pdf",
+      "content": "PT LANCARTAMA SEJATI Tbk. LAPORAN KEUANGAN/FINANCIAL STATEMENTS. Pada dan Untuk Tahun yang Berakhir Tanggal 31 Desember 2021/. As of and For",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "TAMA Lancartama Sejati Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "PT LANCARTAMA SEJATI Tbk LAPORAN KEUANGAN/ ...",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202510/20251031165908-58883-0/PT%20Lancartama%20Sejati%20Tbk%2030%20September%2025%20-%20TW%20III.pdf",
+      "content": "Kas dan bank. 229.322.096. 3d,3e,5,29. 669.555.341. Cash and banks. Piutang usaha. Trade receivables. Pihak ketiga. 1.429.924.941. 3d,6,29.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {},
+  "partial_llm_fallback": {
+    "enabled": true,
+    "status": "failed",
+    "error": "no_text_documents_for_llm",
+    "data": null
+  }
+}

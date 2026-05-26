@@ -1,0 +1,118 @@
+{
+  "code": "CASH",
+  "company_name": "Cashlez Worldwide Indonesia Tb",
+  "scraped_at": "2026-05-26T14:30:15.099453+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "CASH Cashlez Worldwide Indonesia Tb website resmi investor relation annual report pdf",
+      "title": "Investor - Cashlez",
+      "url": "https://www.cashlez.com/investor.html",
+      "content": "Informasi Keuangan · Laporan Tahunan · Prospektus · Keterbukaan Informasi · RUPS.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "CASH Cashlez Worldwide Indonesia Tb website resmi investor relation annual report pdf",
+      "title": "Investor - Cashlez",
+      "url": "https://www.cashlez.com/en/investor.html",
+      "content": "Annual Report 2019 · Annual Report 2020 · Annual Report 2021 · 2022 Annual Report & 2022 Sustainability Report · 2023 Annual Report & 2023 Sustainability Report.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "CASH Cashlez Worldwide Indonesia Tb annual report 2024 pdf official",
+      "title": "Annual Report | Black Diamond",
+      "url": "https://bdrcoal.co.id/investor-relations/annual-report",
+      "content": "# Annual Report & Sustainability Report 2024. # Annual Report. We strive to create a work environment of professionalism, trust and respect that will continue to provide motivation, challenge and professional growth to our staff in order to achieve the company's goal of providing a source of energy for society and the world. Centennial Tower 21st Floor Jl. Gatot Subroto No.24-25, Jakarta 12930. © Copyright 2026 PT Black Diamond Resources.Tbk.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "CASH Cashlez Worldwide Indonesia Tb website resmi investor relation annual report pdf",
+      "title": "Annual Report | Indoritel",
+      "url": "https://www.indoritel.co.id/en/investor-relations/annual-report",
+      "content": "Company Overview Organizational Structure Vision & Mission Milestone Board of Commisioners & Directors Awards. Audit Committee Nomination & Remuneration Committee Corporate Secretary Internal Audit Capital Market Institutions & Supporting Professions Code of Conduct Risk Management System Whistleblowing System Anti Corruption Policy Communication with Shareholders & Investors Policy Corporate Social Responsibility. Disclosures Financial Statements Annual Report Financial Highlights Shareholders Composition Subsidiaries, Associated Entities & Joint Venture General Meeting of Shareholders Share Listing Chronology Prospectus. ## Profile. ## Corporate Governance. ## Investor Relations. ## Annual Report.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "CASH Cashlez Worldwide Indonesia Tb website resmi investor relation annual report pdf",
+      "title": "Financial Report - Cashlez",
+      "url": "https://home.cashlez.upsense.co.id/report?category=Annual+Report",
+      "content": "Financial Report. Financial Report. As a public corporation, P.T. Cashlez Worldwide Indonesia became fully aware that the current business development",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "CASH Cashlez Worldwide Indonesia Tb hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "Laporan Keuangan - Cashlez",
+      "url": "https://home.cashlez.upsense.co.id/report?category=Annual+Report&lang=id",
+      "content": "Sebagai perusahaan publik, PT Cashlez Worldwide Indonesia Tbk menyadari sepenuhnya bahwa perkembangan bisnis saat ini menuntut komitmen yang lebih kuat pada",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "CASH Cashlez Worldwide Indonesia Tb annual report 2024 pdf official",
+      "title": "Financial Report - Cashlez",
+      "url": "https://home.cashlez.upsense.co.id/report?category=Annual+Report&lang=en",
+      "content": "Financial Report. Financial Report. As a public corporation, P.T. Cashlez Worldwide Indonesia became fully aware that the current business development",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "CASH Cashlez Worldwide Indonesia Tb annual report 2025 pdf official",
+      "title": "Annual Report PT Cashlez Worldwide Indonesia Tbk (CASH) 2021",
+      "url": "https://www.ticmi.co.id/datapasarmodal/ED/ar/viewsingle/135245/annual-report-pt-cashlez-worldwide-indonesia-tbk-cash-2021",
+      "content": "Annual Report PT Cashlez Worldwide Indonesia Tbk (CASH) 2021 ... *Mengunduh 1 data sama dengan berlangganan 1 paket data. Bulanan; Tahunan. Value.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "CASH Cashlez Worldwide Indonesia Tb site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT Cashlez Worldwide Indonesia, Tbk. - IDX",
+      "url": "https://www.idx.co.id/media/8590/cash_prospektus-ipo-2020.pdf",
+      "content": "PENAWARAN UMUM INI DILAKUKAN OLEH EMITEN DENGAN ASET SKALA MENENGAH, SESUAI DENGAN PERATURAN OTORITAS JASA KEUANGAN ... LAPORAN DAN KEJUJURAN",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "CASH Cashlez Worldwide Indonesia Tb site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Laporan Tahunan 2020 | IDX",
+      "url": "https://www.idx.co.id/media/20221199/laporan-tahunan-2020.pdf",
+      "content": "Sebagai dampak dari pandemi COVID-19, pasar saham di seluruh dunia mengalami gejolak volatilitas yang tinggi. Indeks Harga Saham. Gabungan (IHSG) di Bursa Efek",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "CASH Cashlez Worldwide Indonesia Tb site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Accelerating Progress Navigating Business Strategies - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202404/4b8bc59cd7_2b302a3392.pdf",
+      "content": "Laporan Tahunan dan Keberlanjutan PT Cashlez Worldwide. Indonesia Tbk untuk tahun 2023 menyediakan informasi mendalam mengenai kinerja keuangan dan",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "CASH Cashlez Worldwide Indonesia Tb site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] BERLANDASKAN PADA INTEGRITAS, TERGERAK OLEH ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202604/17223884c0_e5bf00b546.pdf",
+      "content": "• Komisaris Independen PT Cashlez Worldwide Indonesia Tbk (2023-2024) ... Laporan Keuangan Tahunan Perseroan dan biaya jasa audit dan non",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {},
+  "partial_llm_json_path": "/opt/idx-official-data/extracted/CASH/CASH_official_data_partial.json",
+  "partial_llm_excel_path": "/opt/idx-official-data/excel/CASH_official_data_partial.xlsx",
+  "partial_llm_status": "failed",
+  "partial_llm_error": "no_text_documents_for_llm",
+  "processing_status": "partial",
+  "processing_reasons": [
+    "Tidak ada kandidat dokumen yang ditemukan dari pencarian."
+  ]
+}

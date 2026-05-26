@@ -1,0 +1,118 @@
+{
+  "code": "ASPI",
+  "company_name": "Andalan Sakti Primaindo Tbk.",
+  "scraped_at": "2026-05-26T15:35:15.700425+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "ASPI Andalan Sakti Primaindo Tbk. website resmi investor relation annual report pdf",
+      "title": "Investor Info - Ansa Land",
+      "url": "https://ansa-land.com/investor-info",
+      "content": "ANNUAL REPORT & EXTRAORDINARY GENERAL MEETING. 2020. 090320 – PENGUMUMAN ... © 2019 – 2023 PT ANDALAN SAKTI PRIMAINDO. All Rights Reserved. Lorem ipsum",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ASPI Andalan Sakti Primaindo Tbk. annual report 2025 pdf official",
+      "title": "Hubungan Investor - PT. Andalan Perkasa Abadi Tbk",
+      "url": "https://www.andalanperkasaabadi.co.id/investor",
+      "content": "Laporan Tahunan 2021, Unduh. 2022, Laporan Tahunan 2022, Unduh. 2023, Laporan Tahunan 2023, Unduh. 2024, Laporan Tahunan 2024, Unduh. 2025, Laporan Tahunan 2025",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ASPI Andalan Sakti Primaindo Tbk. annual report 2025 pdf official",
+      "title": "Laporan Tahunan - ASPI Indonesia",
+      "url": "https://aspi-indonesia.or.id/berita-info/laporan-tahunan",
+      "content": "###### Laporan Tahunan ASPI 2024. ###### Informasi Lengkap. ## Informasi seputar kinerja dan kegiatan organisasi. # Laporan Tahunan. ###### Laporan Tahunan ASPI 2023. ###### Laporan Tahunan ASPI 2022. ###### Laporan Tahunan ASPI 2021. ###### Laporan Tahunan ASPI 2020. ###### Laporan Tahunan ASPI 2019. ##### Hubungi Kami. ASPI berperan, bertugas dan berfungsi dalam lingkup mikro dan teknis untuk membuat ketentuan dalam industri sistem pembayaran yang mampu mewadahi berbagai perubahan dan dinamika yang terjadi dengan tetap memperhatikan peraturan dan kebijakan Bank Indonesia. Gd. Graha Mandiri Lt. 18,. Jl. Imam Bonjol No.61, Jakarta Pusat 10310. Copyright © 2021 Asosiasi Sistem Pembayaran Indonesia – ASPI.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ASPI Andalan Sakti Primaindo Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "Laporan Tahunan | Hubungan Investor - PT. Primarindo Asia Infrastructure Tbk",
+      "url": "https://mail.primarindo.co.id/relation/annual-report.html",
+      "content": "### Kontak. ### CSR. ### Hubungan Investor. ### GCG. ### Lokasi. ### Produk. ### Profil. ### Beranda. # Live Chat. # KANTOR PUSAT. Gedung Dana Pensiun - Bank Mandiri Lt 3 A. Jl. Tanjung Karang No. 3-4 A. | E-mail | : | corsec@primarindo.com |. Jl. Raya Ranca Bolang No.98. Fax    : 62-22-756-2406. # Hubungan Investor > Laporan Tahunan. | Annual Report 2010 | Annual Report 2011 | Annual Report 2012 | Annual Report 2013 |  |. | Annual Report 2014 | Annual Report 2015 | Annual Report 2016 | Annual Report 2017 |  |. | Annual Report 2018 | Annual Report 2019 | Annual Report 2020 | Annual Report 2021 |  |. | Annual Report 2022 | Annual Report 2023 | Annual Report 2024 |  |  |. Copyright © 2011 PT Primarindo Asia Infrastructure Tbk. All rights reserved.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ASPI Andalan Sakti Primaindo Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "Laporan Tahunan - Mineral Sumberdaya Mandiri Tbk",
+      "url": "https://www.msdm.co.id/index.php/hubungan-investor/laporan-tahunan",
+      "content": "PT Mineral Sumberdaya Mandiri TbkPT Mineral Sumberdaya Mandiri TbkPT Mineral Sumberdaya Mandiri Tbk. ## Hubungan Investor. ### Laporan Tahunan. ## Annual Report 2018. PT Majapahit Inti Corpora - Annual Report 2018.pdf.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ASPI Andalan Sakti Primaindo Tbk. annual report 2024 pdf official",
+      "title": "Annual Report PT Andalan Sakti Primaindo Tbk. (ASPI) 2021 - ticmi",
+      "url": "https://www.ticmi.co.id/datapasarmodal/ED/ar/viewsingle/135157/annual-report-pt-andalan-sakti-primaindo-tbk-aspi-2021",
+      "content": "Annual Report. Annual Report PT Andalan Sakti Primaindo Tbk. (ASPI) 2021. Upss, kamu belum berlangganan Data Paket, kami bantuin pilihkan paket data terbaik",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ASPI Andalan Sakti Primaindo Tbk. website resmi investor relation annual report pdf",
+      "title": "Financial Report PT Andalan Sakti Primaindo Tbk. (ASPI) 2021 - ticmi",
+      "url": "https://ticmi.co.id/index.php/datapasarmodal/ED/fr/viewsingle/139473/financial-report-pt-andalan-sakti-primaindo-tbk-aspi-2021",
+      "content": "Financial Report PT Andalan Sakti Primaindo Tbk. (ASPI) 2021 ... *Mengunduh 1 data sama dengan berlangganan 1 paket data. Bulanan; Tahunan. Value.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ASPI Andalan Sakti Primaindo Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT. ANDALAN SAKTI PRIMAINDO Tbk. - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202003/bc1acf65cd_552d7f1360.pdf",
+      "content": "Dengan keseluruhan tersebut diatas, pihak perseroan pada tahun 2019 masih mencatatkan kerugiannya sebesar Rp. 2,9 Milyard dalam laporan keuangannya, namun",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ASPI Andalan Sakti Primaindo Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 0276ASPI PT Andalan Sakti Primaindo Tbk. ASPI 1 Rencana ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/d77fd9ffc4_14d3dddbad.pdf",
+      "content": "ASPI REPORT TRIWULAN I-2025.pdf. This is an official document of PT Andalan Sakti Primaindo Tbk. that does not require a signature as it was.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ASPI Andalan Sakti Primaindo Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] LAPORAN TAHUNAN - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/7c3aeb598a_e17fb79063.pdf",
+      "content": "Laporan Tahunan ini memuat kata “Perseroan” dan. “Perusahaan” yang didefinisikan sebagai PT Andalan. Sakti Primaindo Tbk yang menjalankan kegiatan usaha di.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ASPI Andalan Sakti Primaindo Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 051ASPI PT Andalan Sakti Primaindo Tbk. ASPI 1 Perubahan ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202102/fdc3a1c396_76f973bbd4.pdf",
+      "content": "Sebelumnya untuk audit laporan keuangan, Perseroan menggunakan jasa Kantor Akuntan Publik Heliantono & Rekan yang telah melakukan audit",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ASPI Andalan Sakti Primaindo Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 017ASPI PT Andalan Sakti Primaindo Tbk. ASPI 1 Laporan ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202005/7ea760c729_59facc5854.pdf",
+      "content": "Dampak dari pandemi Covid -19 pada perseroan : 1. proyek Arkamaya Residence terhenti, dikarena larangan pemerintah daerah .",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {},
+  "partial_llm_json_path": "/opt/idx-official-data/extracted/ASPI/ASPI_official_data_partial.json",
+  "partial_llm_excel_path": "/opt/idx-official-data/excel/ASPI_official_data_partial.xlsx",
+  "partial_llm_status": "failed",
+  "partial_llm_error": "no_text_documents_for_llm",
+  "processing_status": "partial",
+  "processing_reasons": [
+    "Tidak ada kandidat dokumen yang ditemukan dari pencarian."
+  ]
+}

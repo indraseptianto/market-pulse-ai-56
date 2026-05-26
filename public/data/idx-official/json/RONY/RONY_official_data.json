@@ -1,0 +1,148 @@
+{
+  "code": "RONY",
+  "company_name": "Aesler Grup Internasional Tbk.",
+  "scraped_at": "2026-05-26T14:55:14.472271+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "RONY Aesler Grup Internasional Tbk. website resmi investor relation annual report pdf",
+      "title": "[PDF] PT Aesler Grup Internasional Tbk - INDO CAPITAL SEKURITAS",
+      "url": "http://indocapital.co.id/Aesler_Prospektus_Final.pdf",
+      "content": "JADWAL. Tanggal Efektif. : 1 April 2020. Masa Penawaran Umum. : 3 April 2020. Tanggal Penjatahan. : 7 April 2020.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "RONY Aesler Grup Internasional Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "[PDF] No. Peng-PK-00009/BEI.PLP/02-2025 PENGUMUMAN BURSA Efek ...",
+      "url": "https://evergreensekuritas.co.id/assets/uploads/files/Pemantauan_Khusus_-_Pengenaan_-_19_Februari_2025_20250218171445.pdf",
+      "content": "PT Aesler Grup. Internasional Tbk ... Laporan Keuangan Auditan terakhir mendapatkan opini tidak menyatakan pendapat (disclaimer).",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "RONY Aesler Grup Internasional Tbk. website resmi investor relation annual report pdf",
+      "title": "Financial Report PT Aesler Grup Internasional Tbk (RONY) 2020",
+      "url": "https://ticmi.co.id/datapasarmodal/ED/frx/viewsingle/132054/financial-report-pt-aesler-grup-internasional-tbk-rony-2020",
+      "content": "Financial Report PT Aesler Grup Internasional Tbk (RONY) 2020. Upss, kamu belum berlangganan Data Paket, kami bantuin pilihkan paket data terbaik *Mengunduh 1",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "RONY Aesler Grup Internasional Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] No. TEST-RONY-B031-20250222-1 PENGUMUMAN BURSA ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202502/9fdaf6b1ce_930d329f47.pdf",
+      "content": "PT Aesler Grup. Internasional Tbk ... Tidak membukukan pendapatan atau tidak terdapat perubahan pendapatan pada laporan keuangan terakhir.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "RONY Aesler Grup Internasional Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT. AESLER GRUP INTERNASIONAL Tbk Noble House #36 - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202307/4abc26cdc9_0f7f54ba9f.pdf",
+      "content": "Laporan Keuangan 30 September 2022.. Jawaban: Terkait saldo piutang usaha per laporan 30 September 2022 di bagian notes no. 5 terdapat",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "RONY Aesler Grup Internasional Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] No. Peng-PK-00026/BEI.PLP/05-2025. PENGUMUMAN BURSA ...",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202505/616351ec83_d316f1c819.pdf",
+      "content": "PT Aesler Grup. Internasional Tbk ... Laporan Keuangan Auditan terakhir mendapatkan opini tidak menyatakan pendapat (disclaimer).",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "RONY Aesler Grup Internasional Tbk. annual report 2025 pdf official",
+      "title": "[PDF] F12//AGI/HNR/IV/2025 PT Aesler Grup Internasional Tbk ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/7c62e4eece_166f7e9aa1.pdf",
+      "content": "This is an official document of PT Aesler Grup Internasional Tbk that does not require a signature as it was generated electronically by the",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "RONY Aesler Grup Internasional Tbk. annual report 2024 pdf official",
+      "title": "[PDF] PT AESLER GRUP INTERNASIONAL TBK - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202405/21188acd7a_4e4582bba8.pdf",
+      "content": "The financial statements were authorized to be issued by the Board of Directors on May 06, 2024. 2. IKHTISAR KEBIJAKAN AKUNTANSI. YANG",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "RONY Aesler Grup Internasional Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "[PDF] Nomor Surat Nama Perusahaan Kode Emiten Lampiran ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202505/4f979aa1ee_a35b5d85c0.pdf",
+      "content": "Aesler Q1 2025 signed.pdf. Lampiran. Dokumen ini merupakan dokumen resmi PT Aesler Grup Internasional Tbk yang tidak memerlukan tanda tangan.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "RONY Aesler Grup Internasional Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Perseroan dengan ini menyampaikan laporan keuangan untuk ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202411/20241120145906-49395-0/FinancialStatement-2024-III-RONY.pdf",
+      "content": "PT Aesler Grup Internasional Tbk bertanggung jawab penuh atas informasi tertera di dalam dokumen ini. Nomor Surat. 017/AESLER/OJK-IDX/X/2024.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "RONY Aesler Grup Internasional Tbk. laporan keuangan 2025 pdf resmi",
+      "title": "[PDF] pt aesler grup internasional tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202505/20250506100516-54329-0/6.%20PT.%20Aesler%20Q1%202025%20signed.pdf",
+      "content": "PT AESLER GRUP INTERNASIONAL TBK. LAPORAN PERUBAHAN EKUITAS. Untuk tahun-tahun yang berakhir pada. 31 Maret 2025 dan 2024.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "RONY Aesler Grup Internasional Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT AESLER GRUP INTERNASIONAL TBK - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/201909/20200930182340-22526-0/LHA%20PT%20Aesler%20Grup%20International%20Tbk.pdf",
+      "content": "here in are in lndonesian language. PT AESLER GRUP INTERNASIONAL TBK. LAPORAN KEUANGAN DAN. FINANCIAL SIAIEMEAIISAND. LAPORAN AUDITOR INDEPENDEN.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    }
+  ],
+  "documents": [
+    {
+      "url": "http://indocapital.co.id/Aesler_Prospektus_Final.pdf",
+      "title": "[PDF] PT Aesler Grup Internasional Tbk - INDO CAPITAL SEKURITAS",
+      "pdf_path": "/opt/idx-official-data/documents/RONY/Aesler_Prospektus_Final.pdf",
+      "text_path": "/opt/idx-official-data/extracted/RONY/Aesler_Prospektus_Final.txt",
+      "bytes": 10348865
+    },
+    {
+      "url": "https://evergreensekuritas.co.id/assets/uploads/files/Pemantauan_Khusus_-_Pengenaan_-_19_Februari_2025_20250218171445.pdf",
+      "title": "[PDF] No. Peng-PK-00009/BEI.PLP/02-2025 PENGUMUMAN BURSA Efek ...",
+      "error": "HTTPSConnectionPool(host='evergreensekuritas.co.id', port=443): Max retries exceeded with url: /assets/uploads/files/Pemantauan_Khusus_-_Pengenaan_-_19_Februari_2025_20250218171445.pdf (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:992)')))"
+    }
+  ],
+  "financial_income_revenue": [],
+  "dividends": [
+    {
+      "document": "/opt/idx-official-data/documents/RONY/Aesler_Prospektus_Final.pdf",
+      "evidence_text": "dividend or mencakup dividen atau bunga yang diperoleh interest earned on the financial assets. Fair dari aset keuangan. Nilai wajar ditentukan value is determined in the manner described in dengan cara seperti dijelaskan pada Catatan Note 24. 24. Aset keuangan tersedia untuk dijual (AFS) Available for sale (AFS) Aset keuangan selain aset keuangan yang Financial assets that are not classified as held dimiliki hingga jatuh tempo diukur pada nilai to maturity, measured at fair value through profit wajar melalui laba rugi atau pinjaman dan or loss, or loans and receivables classified as piutang yang diklasifikasikan sebagai aset available-for-sale financial assets are measured keuangan tersedia untuk dijual diukur pada at fair value plus attributable transaction costs. nilai wajarnya ditambah biaya transaksi yang Furthermore, financial assets are measured at dapat diatribusikan. Selanjutnya aset fair value. keuangan diukur pada nilai wajarnya. Keuntungan atau kerugian yang timbul dari Gains and losses arising from changes in fair perubahan nilai wajar diakui dalam value are recognized in other comprehensive penghasilan komprehensif lainnya dan income and in equity as accumulated in AFS akumulasi revaluasi investasi AFS di ekuitas Investment Revaluation, with the exception of kecuali untuk kerugian penurunan nilai, bunga impairment losses, interest calculated using the yang dihitung dengan metode suku bunga effective interest method, and foreign exchange efektif dan laba rugi selisih kurs atas aset gains and losses on monetary assets, which are moneter yang diakui pada laba rugi. Jika recognized in profit or loss. Where the investasi dilepas atau mengalami penurunan investment is disposed of or is determined to be nilai, akumulasi laba atau rugi yang impaired, the cumulative gain or loss previously sebelumnya diakumulasi pada revaluasi accumulated in AFS Investment revaluation is investasi AFS, direklasifikasi ke laba rugi. reclassified to profit or loss. Investasi dalam instrumen ekuitas pada Investments in equity instruments in a non- Perusahaan non-publik dengan kepemilikan public Company with ownership interest of less kurang dari 20% diukur dengan biaya than 20% are measured at cost less any perolehan dikurangi penurunan nilai karena impairment because the stock has no quotes in saham tidak memiliki kuotasi di pasar aktif the active market or its fair value can not be atau nilai wajarnya tidak dapat diukur secara measured reliably. andal. Dividen atas instrumen ekuitas AFS, jika ada, Dividends on AFS equity instruments, if any, are diakui pada laba rugi pada saat hak recognized in profit or loss when the Company’s Perusahaan untuk memperoleh pembayaran right to receive the dividends are established. dividen ditetapkan. 183 The original financial statements included herein are in Indonesian language. PT AESLER GRUP INTERNASIONAL TBK CATATAN ATAS LAPORAN KEUANGAN INTERIM NOTES TO THE INTERIM FINANCIAL STATEMENTS Untuk Periode Sembilan Bulan yang Berakhir For the Nine-Months Period Then Ended pada 30 SEPTEMBER 2019 (Diaudit) dan SEPTEMBER 30, 2019 (Audited) and 2018 (Tidak Diaudit) 2018 (Unaudited) Dan untuk Tahun-Tahun yang Berakhir pada And for the Years Ended 31 DESEMBER 2018 dan 2017 (Diaudit) DECEMBER 31, 2018 and 2017 (Audited) (Disajikan dalam Rupiah"
+    }
+  ],
+  "latest_shareholders_freefloat_ownership": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/RONY/Aesler_Prospektus_Final.pdf",
+        "shareholders": "shareholders as 30 September 2019, 31 Desember 2018, dan 2017 of September 30, 2019, December 31, 2018, and adalah sebagai berikut: 2017 as follows: 30 September 2019 / September 30, 2019 Jumlah saham ditempatkan dan Persentase disetor penuh / kepemilikan (%) / Number of shares Percentage of Jumlah modal / issued and fully paid ownership (%) Total share capital PT Nakula Investama Indonesia 550.000.000 55% 5.500.000.000 Jang Rony Yuwono 450.000.000 45% 4.500.000.000 Jumlah modal saham / Total share capital 1.000.000.000 100% 10.000.000.000 Anggaran Perusahaan mengalami perubahan, The Company’s article of association have been berdasarkan akta No. 59 tertanggal 30 Agustus 2019 amended by Deed No. 59 dated August 30, 2019 by oleh Esther Mercia Sulaiman, S.H. Notaris di Jakarta. Esther Mercia Sulaiman S.H., Notary in Jakarta. The Akta tersebut menyetujui adanya peningkatan modal Deed approved the increased in issued and fully paid ditempatkan dan modal disetor dari sebelum sebesar shares previously amounted to Rp 100.000.000 to Rp 100.000.000 menjadi Rp 10.000.000.000. Akta Rp 10.000.000.000. The deed was approved by the tersebut telah disetujui oleh Menteri Hukum dan Hak Minister of Law and Human Rights of the Republic of Asasi Republik Indonesia No. AHU-0066888.AH.01.02 Indonesia No. AHU-0066888.AH.01.02 TAHUN 2019 TAHUN 2019 tertanggal 9 September 2019. dated September 9, 2019. 207 The original financial statements included herein are in Indonesian language. PT AESLER GRUP INTERNASIONAL TBK CATATAN ATAS LAPORAN KEUANGAN INTERIM NOTES TO THE INTERIM FINANCIAL STATEMENTS Untuk Periode Sembilan Bulan yang Berakhir For the Nine-Months Period Then Ended pada 30 SEPTEMBER 2019 (Diaudit) dan SEPTEMBER 30, 2019 (Audited) and 2018 (Tidak Diaudit) 2018 (Unaudited) Dan untuk Tahun-Tahun yang Berakhir pada And for the Years Ended 31 DESEMBER 2018 dan 2017 (Diaudit) DECEMBER 31, 2018 and 2017 (Audited) (Disajikan dalam Rupiah, kecuali dinyatakan lain) (Expressed in Rupiah, unless otherwise stated) 18. MODAL SAHAM (LANJUTAN) 18. SHARE CAPITAL (CONTINUED) Susunan pemegang saham Perusahaan pada tanggal The composition of the Company’s shareholders as 30 September 2019, 31 Desember 2018, dan 2017 of September 30, 2019, December 31, 2018, and adalah sebagai berikut: 2017 as follows: 31 Desember 2018 dan 2017 / December 31, 2018 and 2017 Jumlah saham ditempatkan dan Persentase disetor penuh / kepemilikan (%) / Number of shares Percentage of Jumlah modal / issued and fully paid ownership (%) Total share capital PT Nakula Investama Indonesia 550.000 55 55.000.000 Jang Rony Yuwono 450.000 45 45.000.000 Jumlah modal saham / Total share capital 1.000.000 100 100.000.000 19. PENDAPATAN 19. REVENUE 30 September / September 30, 31 Desember / December 31, (Tidak diaudit/ Unaudited) 2019 2018 2",
+        "free_float": "SAHAM PUBLIK 10 IV. IKHTISAR DATA KEUANGAN PENTING Calon investor harus membaca ikhtisar data keuangan penting yang disajikan di bawah ini bersamaan dengan laporan keuangan Perseroan beserta catatan atas laporan keuangan yang tercantum dalam Prospektus ini. Calon investor juga harus membaca Bab mengenai Analisis dan Pembahasan oleh Manajemen. Tabel di bawah ini menyajikan ikhtisar data keuangan penting Perseroan yang disusun berdasarkan laporan posisi keuangan per 30 September 2019, 31 Desember 2018, dan 31 Desember 2017, dan laporan laba rugi dan penghasilan komprehensif lain Perseroan untuk periode Sembilan bulan yang berakhir pada 30 September 2019 dan untuk tahun-tahun yang berakhir pada 31 Desember 2018 dan 2017. Data keuangan penting tersebut berasal dari Laporan Keuangan Perseroan per 30 September 2019, 31 Desember 2018, dan 31 Desember 2017, dan untuk periode Sembilan bulan yang berakhir pada 30 September 2019 dan untuk tahun-tahun yang berakhir pada 31 Desember 2018, dan 31 Desember 2017, yang telah diaudit oleh KAP Herman, Dody, Tanumihardja dan Rekan berdasarkan Standar Audit yang ditetapkan oleh Institut Akuntan Publik Indonesia (IAPI), dengan opini tanpa modifikasian, yang ditandatangani oleh Ivan Kanel, S.E., M.Ak., M.M., Ak., BKP., CPA., CA., CPMA., CMA., ACPA., CTA. Laporan Posisi Keuangan 30 September 31 Desember 2019 2018 2017 ASET ASET LANCAR Kas dan setara kas 1.277.304.511 689.584.432 2.033.942 Piutang usaha Pihak berelasi 5.456.324.160 2.370.878.190 - Pihak ketiga - - - Piutang lain-lain Pihak berelasi - 100.000.000 100.000.000 Pihak ketiga - - - Beban tangguhan 501.400.000 262.964.792 - Biaya dibayar dimuka dan uang muka jangka pendek 175.742.200 165.500.000 - Pajak dibayar di muka 36.129.744 63.529.532 - JUMLAH ASET LANCAR 7.446.900.615 3.652.456.946 102.033.942 ASET TIDAK LANCAR Uang muka jangka panjang 1.009.776.000 - - Aset tetap – setelah dikurangi akumulasi penyusutan sebesar Rp 762.623.096, dan Rp 11.738.204 ada tahun 2019 dan 2018 9.557.759.754 53.872.096 - Uang jaminan 5.000.000 5.000.000"
+      }
+    ]
+  },
+  "management": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/RONY/Aesler_Prospektus_Final.pdf",
+        "directors": "Board of Directors and Board of Commissioners adalah sebagai berikut : was as follows : 30 September 2019 / September 30, 2019 Dewan direksi Board of Directors Direktur Utama : Jang Rony Yuwono : President Director Direktur : Tan Handy Chandra Tantono : Director Dewan Komisaris Board of Commissioners Komisaris Utama Handojo Koentoro Setyadi President Commisioner Komisaris : Ferry Yuwono : Commissioner 31 Desember 2018 dan 2017/ December 31, 2018 and 2017 Dewan direksi Board of Directors Direktur : Jang Rony Yuwono : Director Dewan Komisaris Board of Commissioners Komisaris Utama Dwi Djatmiko Sulistyo President Commisioner Komisaris : Ferry Yuwono : Commissioner Per tanggal 30 September 2019, As of September 30, 2019, December 31, 2018, 31 Desember 2018, dan 2017, Perusahaan and 2017, the Company has 27, 28, and 16 masing-masing memiliki 27, 28, dan 16 karyawan permanent employees, respectively. tetap. c. Penerbitan laporan keuangan c. Publishing of financial statements Laporan keuangan ini telah di otorisasi untuk The financial statements were in the diterbitkan oleh Dewan Direksi Perusahaan, authorization for issue by the Board of Directors selaku pihak yang bertanggung jawab atas of the Company, as the party responsible for the penyusunan dan penyelesaian laporan keuangan, preparation and completion of financial pada tanggal 24 Maret 2020. statements, on March 24, 2020. 173 The original financial statements included herein are in Indonesian language. PT AESLER GRUP INTERNASIONAL TBK CATATAN ATAS LAPORAN KEUANGAN INTERIM NOTES TO THE INTERIM FINANCIAL STATEMENTS Untuk Periode Sembilan Bulan yang Berakhir For the Nine-Months Period Then Ended pada 30 SEPTEMBER 2019 (Diaudit) dan SEPTEMBER 30, 2019 (Audited) and 2018 (Tidak Diaudit) 2018 (Unaudited) Dan untuk Tahun-Tahun yang Berakhir pada And for the Years Ended 31 DESEMBER 2018 dan 2017 (Diaudit) DECEMBER 31, 2018 and 2017 (Audited) (Disajikan dalam Rupiah, kecuali dinyatakan lain) (Expressed in Rupiah, unless otherwise stated) 2. IKHTISAR KEBIJAKAN AKUNTANSI 2. SUMMARY OF SIGNIFICANT ACCOUNTING POLICIES a. Dasar penyajian laporan keuangan a. Basis of financial statements Laporan keuangan telah disusun dan The financial statements have been prepared disajikan sesuai dengan Standar Akuntansi and presented in accordance with Financial Keuangan (SAK) di Indonesia yang meliputi Accounting Standards (SAK) in Indonesia, Pernyataan Standar Akuntansi Keuangan which include the Statement of Financial (PSAK) dan Interpretasi Standar Akuntansi Accounting Standards (PSAK) and The Keuangan (ISAK) yang diterbitkan oleh Interpretation of Financial Accounting Dewan Standar Akuntansi Keuangan Ikatan Standards (ISAK) issued by the Financial Akuntan Indonesia (DSAK-IAI) serta Acco",
+        "commissioners": "Board of Commissioners, Board of Director, Karyawan and Employees Pada tanggal 30 September 2019, As of September 30, 2019, December 31, 2018, 31 Desember 2018, dan 2017 susunan Dewan and 2017 the composition of the Company’s Direksi dan Dewan Komisaris Perusahaan Board of Directors and Board of Commissioners adalah sebagai berikut : was as follows : 30 September 2019 / September 30, 2019 Dewan direksi Board of Directors Direktur Utama : Jang Rony Yuwono : President Director Direktur : Tan Handy Chandra Tantono : Director Dewan Komisaris Board of Commissioners Komisaris Utama Handojo Koentoro Setyadi President Commisioner Komisaris : Ferry Yuwono : Commissioner 31 Desember 2018 dan 2017/ December 31, 2018 and 2017 Dewan direksi Board of Directors Direktur : Jang Rony Yuwono : Director Dewan Komisaris Board of Commissioners Komisaris Utama Dwi Djatmiko Sulistyo President Commisioner Komisaris : Ferry Yuwono : Commissioner Per tanggal 30 September 2019, As of September 30, 2019, December 31, 2018, 31 Desember 2018, dan 2017, Perusahaan and 2017, the Company has 27, 28, and 16 masing-masing memiliki 27, 28, dan 16 karyawan permanent employees, respectively. tetap. c. Penerbitan laporan keuangan c. Publishing of financial statements Laporan keuangan ini telah di otorisasi untuk The financial statements were in the diterbitkan oleh Dewan Direksi Perusahaan, authorization for issue by the Board of Directors selaku pihak yang bertanggung jawab atas of the Company, as the party responsible for the penyusunan dan penyelesaian laporan keuangan, preparation and completion of financial pada tanggal 24 Maret 2020. statements, on March 24, 2020. 173 The original financial statements included herein are in Indonesian language. PT AESLER GRUP INTERNASIONAL TBK CATATAN ATAS LAPORAN KEUANGAN INTERIM NOTES TO THE INTERIM FINANCIAL STATEMENTS Untuk Periode Sembilan Bulan yang Berakhir For the Nine-Months Period Then Ended pada 30 SEPTEMBER 2019 (Diaudit) dan SEPTEMBER 30, 2019 (Audited) and 2018 (Tidak Diaudit) 2018 (Unaudited) Dan untuk Tahun-Tahun yang Berakhir pada And for the Years Ended 31 DESEMBER 2018 dan 2017 (Diaudit) DECEMBER 31, 2018 and 2017 (Audited) (Disajikan dalam Rupiah, kecuali dinyatakan lain) (Expressed in Rupiah, unless otherwise stated) 2. IKHTISAR KEBIJAKAN AKUNTANSI 2. SUMMARY OF SIGNIFICANT ACCOUNTING POLICIES a. Dasar penyajian laporan keuangan a. Basis of financial statements Laporan keuangan telah disusun dan The financial statements have been prepared disajikan sesuai dengan Standar Akuntansi and presented in accordance with Financial Keuangan (SAK) di Indonesia yang meliputi Accounting Standards (SAK) in Indonesia, Pernyataan Standar Akuntansi Keuangan"
+      }
+    ]
+  },
+  "evidence": {
+    "Aesler_Prospektus_Final_financial": "STATEMENTS OF PROFIT OR LOSS KOMPREHENSIF LAIN INTERIM AND OTHER COMPREHENSIVE INCOME Untuk Periode Sembilan Bulan yang Berakhir For the Nine-Months Period Then Ended pada 30 SEPTEMBER 2019 (Diaudit) dan SEPTEMBER 30, 2019 (Audited) and 2018 (Tidak Diaudit) 2018 (Unaudited) Dan untuk Tahun-Tahun yang Berakhir pada And for the Years Ended 31 DESEMBER 2018 dan 2017 (Diaudit) DECEMBER 31, 2018 and 2017 (Audited) (Disajikan dalam Rupiah, kecuali dinyatakan lain) (Expressed in Rupiah, unless otherwise stated) 30 September / September 30, 31 Desember / December 31, (Tidak diaudit/ Catatan / Unaudited) Notes 2019 2018 2018 2017 PENDAPATAN 2a, 2k, 19 9.780.304.524 3.541.739.705 6.459.519.001 - REVENUE BEBAN POKOK COST OF PENDAPATAN 2a, 2k, 20 (2.338.385.858) (2.275.963.950) (3.021.121.332) - REVENUE LABA KOTOR 7.441.918.666 1.265.775.755 3.438.397.669 - GROSS PROFIT OPERATING BEBAN OPERASI EXPENSES Pendapatan Other operating operasional lainnya - - - - income General and Beban umum dan administration adminstrasi 2a, 2k, 21 (1.992.779.559) (914.439.717) (1.018.531.386) (1.134.505.214) expenses Selling and Beban penjualan dan marketing pemasaran 2a, 2k (214.334.180) (18.922.603) (20.332.963) (10.000.000) expenses Beban operasional Other operating lainnya - - - - expenses (2.207.113.739) (933.362.320) (1.038.864.349) (1.144.505.214) OPERATING LABA (RUGI) INCOME OPERASI 5.234.804.927 332.413.435 2.399.533.320 (1.144.505.214) (LOSS) PENDAPATAN OTHER INCOME (BEBAN) LAIN (EXPENSES) Pendapatan Financial keuangan 2a, 2k, 22 4.592.281 563.065 1.188.741 - income Financial Beban keuangan (14.043.803) (2.741.332) (4.298.173) (336.500) expenses (9.451.522) (2.178.267) (3.109.432) (336.500) LABA (RUGI) INCOME (LOSS) SEBELUM PAJAK 5.225.353.405 330.235.168 2.396.423.888 (1.144.841.714) BEFORE TAX INCOME TAX MANFAAT (BEBAN) BENEFIT PAJAK (EXPENSES) Beban pajak Corporate income penghasilan kini- 2a, 2k, 2l, tax – current – Final 11c (586.818.271) (212.504.382) (387.571.140) - Final Corporate income (Beban) manfaat tax (expense) pajak penghasilan benefit – tangguhan 2a, 2k, 2l - - - - deferred (586.818.271) (212.504.382) (387.571.140) - LABA (RUGI) CURRENT YEAR BERSIH TAHUN NET INCOME BERJALAN 4.638.535.134 117.730.786 2.008.852.748 (1.144.841.714) (LOSS) Catatan atas laporan keuangan interim terlampir merupakan The accompanying notes to interim financial statement form an bagian yang tidak terpisahkan dari laporan keuangan interim integral part of these interim financial statements as a whole. secara keseluruhan. 167 The original financial statements included herein are in Indonesian language. PT AESLER GRUP INTERNASIONAL TBK LAPORAN LABA RUGI DAN PENGHASILAN INTERIM STATEMENTS OF PROFIT OR LOSS KOMPREHENSIF LAIN INTERIM AND OTHER COMPREHENSIVE INCOME (LANJUTAN) (CONTINUED) Untuk Periode Sembilan Bulan yang Berakhir For the Nine-Months Period Then Ended pada 30 SEPTEMBER 2019 (Diaudit) dan SEPTEMBER 30, 2019 (Audited) and 2018 (Tidak Diaudit) 2018 (Unaudited) Dan untuk Tahun-Tahun yang Berakhir pada And for the Years Ended 31 DESEMBER 2018 dan 2017 (Diaudit) DECEMBER 31, 2018 and 2017 (Audited) (Disajikan dalam Rupiah, kecuali dinyatakan lain) (Expressed in Rupiah, unless otherwise stated) 30 September / September 30, 31 Desember / December 31, (Tidak diaudit/ Catatan / Unaudited) Notes 2019 2018 2018 2017 CURRENT YEAR LABA (RUGI) BERSIH NET INCOME TAHUN BERJALAN 4.638.535.134 117.730.786 2.008.852.748 (1.144.841.714) (LOSS) PENGHASILAN OTHER KOMPREHENSIF COMPREHENSIVE LAIN: INCOME Pos yang akan Item that will be direklasifikasi ke laba reclassified to rugi pada periode"
+  },
+  "processing_status": "selesai",
+  "processing_reasons": []
+}

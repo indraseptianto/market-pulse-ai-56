@@ -1,0 +1,148 @@
+{
+  "code": "AMOR",
+  "company_name": "Ashmore Asset Management Indon",
+  "scraped_at": "2026-05-26T16:40:18.341187+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "AMOR Ashmore Asset Management Indon website resmi investor relation annual report pdf",
+      "title": "Investor relations - Ashmore Group",
+      "url": "https://www.ashmoregroup.com/id-id/about-aami/investor-relations",
+      "content": "## Main navigation. ###### The “no war, no peace, no oil” status lives on. ## Tentang Ashmore Indonesia. PT Ashmore Asset Management Indonesia Tbk currently operates as an investment manager focusing on three main investment products: stocks, bonds - both local (Rupiah) denominated and denominated in other foreign currencies- and money market. The Company has so far established a strong track record of superior fund performance since its inception. PT Ashmore  Asset Management Indonesia Tbk is an Indonesia Stock Exchange listed company. Registered office and company details:. Current financial overview in the form of a summary of financial position (balance sheet), income statement and ratio. ## What type of investor are you? ## Terms & Conditions. Please read our terms & conditions and click to proceed. ولا تشكّل أو تكوّن المعلومات الواردة في هذا الموقع الإلكتروني جزءاً من أي عرض لبيع أو شراء أو الاكتتاب أو الاستثمار في وحدات أو أسهم في أي من صناديق شركة أشمور.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "AMOR Ashmore Asset Management Indon site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Nomor Surat Nama Perusahaan Kode Emiten Lampiran ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202507/28e03a1085_ae8eb7fb60.pdf",
+      "content": "PT Ashmore Asset Management Indonesia Tbk. AMOR. 1. Asset under Management Annual Report 2024/2025. Go To Indonesian Page. The company hereby",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "AMOR Ashmore Asset Management Indon site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] AGILITY AND ADAPTABILITY - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202310/ce44f36871_8d29899a47.pdf",
+      "content": "... Annual Report of PT Ashmore Asset Management Indonesia Tbk. 39. 2. PT Ashmore Asset Management Indonesia Tbk / Laporan Tahunan 2022/2023. Page 5",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "AMOR Ashmore Asset Management Indon site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Meeting Challenges with Continued Focus - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202009/a025a98ff9_6bda08aa9e.pdf",
+      "content": "Laporan keuangan PT Ashmore Asset Management. Indonesia Tbk (“Ashmore” atau “Perseroan”) telah disusun dan disajikan sesuai dengan Standar",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "AMOR Ashmore Asset Management Indon site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 2021",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202209/c3960253b5_a9fb8dca33.pdf",
+      "content": "Annual Report of PT Ashmore Asset Management Indonesia. Tbk for the year 2021 has been presented in its entirety, and that we assume full responsibility for",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "AMOR Ashmore Asset Management Indon website resmi investor relation annual report pdf",
+      "title": "[PDF] INNOVATIONS TO EMPOWER - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202409/355eb6ca92_c75d521dc8.pdf",
+      "content": "The 2023/2024 Annual Report of PT Ashmore Asset Management Indonesia Tbk (hereinafter referred to as “Company”, “Ashmore”) is prepared to",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "AMOR Ashmore Asset Management Indon financial report 2025 pdf official",
+      "title": "[PDF] Nomor Surat Nama Perusahaan Kode Emiten Lampiran ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202602/93879bed4d_fe8ad69096.pdf",
+      "content": "FS 31 Dec 2025_AuM Statement.pdf. This is an official document of PT Ashmore Asset Management Indonesia Tbk. that does not require a",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "AMOR Ashmore Asset Management Indon laporan keuangan 2025 pdf resmi",
+      "title": "[PDF] PT Ashmore Asset Management Indonesia Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202602/5865342f0b_cb0e602cda.pdf",
+      "content": "Quarter ending 31 December 2025. • Assets under management (“AuM”) increased sharply over the period, by 37% Q/Q and 26% Y/Y, to Rp 34.4.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "AMOR Ashmore Asset Management Indon site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT ASHMORE ASSET MANAGEMENT INDONESIA TBK - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202109/20220902084035-32162-0/FS_AAMI_30%20June%202022.pdf",
+      "content": "Kami telah mengaudit laporan keuangan PT Ashmore. Asset Management Indonesia Tbk (\"Perseroan\") terlampir yang terdiri dari laporan posisi keuangan tanggal",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "AMOR Ashmore Asset Management Indon website resmi investor relation annual report pdf",
+      "title": "PT. Ashmore Asset Management Indonesia Tbk [AMOR]",
+      "url": "https://www.idnfinancials.com/amor/pt-ashmore-asset-management-indonesia-tbk",
+      "content": "This company engages in investment management service, especially in various types of mutual funds, both for retailer and institution investors.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "AMOR Ashmore Asset Management Indon website resmi investor relation annual report pdf",
+      "title": "[PDF] Annual Report and Accounts 2024 - Ashmore Investor Relations",
+      "url": "https://ir.ashmoregroup.com/sites/ir/files/2024-09/Ashmore-Group-plc-2024-Annual-Report-web-1.pdf",
+      "content": "160 Ashmore Group plc Annual Report and Accounts 2024 AGM Annual General Meeting AIFMD Alternative Investment Fund Managers Directive ANZ The Australia and New Zealand Banking Group Limited APM Non-GAAP financial alternative performance measures Ashmore Ashmore Group plc AuM Assets under management CEMBI BD J.P. Morgan Corporate Emerging Markets Bond Index Broad Diversified Core Index CEO Chief Executive Officer CO2e Carbon dioxide equivalent Code 2018 UK Corporate Governance Code Companies Act UK Companies Act 2006 Company Ashmore Group plc CPI Consumer Price Index CSCI Consolidated statement of comprehensive income DEFRA UK Government’s Department for Environment, Food & Rural Affairs DTR FCA’s Disclosure Guidance and Transparency Rules EBIT Earnings before interest and tax EBITDA Earnings before interest, tax, depreciation and amortisation EBT Ashmore 2004 Employee Benefit Trust EBVCT Earnings before variable compensation and tax EM Emerging Markets EMBI GD J.P. Morgan Emerging Market Bond Index Global Diversified EPS Earnings per share ESEF European Single Electronic Format Regulation ESG Environmental, social and governance ESGC ESG Committee FCA Financial Conduct Authority of the United Kingdom Fed Federal Reserve of the United States of America FRC Financial Reporting Council FTE Full-time equivalent FVTPL Fair value through profit or loss FX Foreign exchange GAAP Generally Accepted Accounting Principle GBI-EM GD J.P. Morgan Government Bond Index – Emerging Markets Global Diversified GBP British pound sterling, the official currency of the United Kingdom and its territories GDPR General Data Protection Regulations GFD Group Finance Director GHG Greenhouse gas Group Ashmore Group plc and its subsidiaries Glossary Strategic report Governance Financial statements Ashmore Group plc Annual Report and Accounts 2024\b 161 Guidance FRC’s Guidance on Risk Management, Internal Control and Related Financial and Business Reporting 2014 HY High yield IC Investment Committee ICARA Internal Capital Adequacy and Risk Assessment IEA International Energy Agency IFPR Investment Firms Prudential Regime IFRS International Financial Reporting Standards IG Investment grade ISAE 3402 International Standards on Assurance Engagements 3402 KPI Key performance indicators",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    },
+    {
+      "query": "AMOR Ashmore Asset Management Indon financial report 2025 pdf official",
+      "title": "[PDF] Ashmore Dana Pasar Uang Nusantara - SMBC Indonesia",
+      "url": "https://www.smbci.com/pdf/sinaya/investment-product/2025-03/ffs--ashmore--dana--pasar--uang--nusantara--feb-25--eng.pdf",
+      "content": "PT Ashmore Asset Management Indonesia Tbk is officially listed in. Indonesia Stock Exchange on January 14, 2020. Investment Policy. Fund. Money Market and/or",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    }
+  ],
+  "documents": [
+    {
+      "url": "https://ir.ashmoregroup.com/sites/ir/files/2024-09/Ashmore-Group-plc-2024-Annual-Report-web-1.pdf",
+      "title": "[PDF] Annual Report and Accounts 2024 - Ashmore Investor Relations",
+      "pdf_path": "/opt/idx-official-data/documents/AMOR/Ashmore-Group-plc-2024-Annual-Report-web-1.pdf",
+      "text_path": "/opt/idx-official-data/extracted/AMOR/Ashmore-Group-plc-2024-Annual-Report-web-1.txt",
+      "bytes": 22492255
+    },
+    {
+      "url": "https://www.smbci.com/pdf/sinaya/investment-product/2025-03/ffs--ashmore--dana--pasar--uang--nusantara--feb-25--eng.pdf",
+      "title": "[PDF] Ashmore Dana Pasar Uang Nusantara - SMBC Indonesia",
+      "pdf_path": "/opt/idx-official-data/documents/AMOR/ffs--ashmore--dana--pasar--uang--nusantara--feb-25--eng.pdf",
+      "text_path": "/opt/idx-official-data/extracted/AMOR/ffs--ashmore--dana--pasar--uang--nusantara--feb-25--eng.txt",
+      "bytes": 138309
+    }
+  ],
+  "financial_income_revenue": [],
+  "dividends": [
+    {
+      "document": "/opt/idx-official-data/documents/AMOR/Ashmore-Group-plc-2024-Annual-Report-web-1.pdf",
+      "evidence_text": "Dividends per share £128.1m 13.6p 16.9p 2023: £111.8m 2023: 12.2p 2023: 16.9p +15% YoY +12% YoY Specialism delivers Emerging Strategic report Markets insights The size, scale and diversity of Emerging Markets are often misunderstood Governance and underappreciated. Ashmore’s specialist, active approach exploits this inefficiency to deliver long-term investment performance for clients. 10 Economic resilience Financial statements Emerging countries have been extraordinarily resilient in the face of profound shocks in recent years, due to the quality and effectiveness of policy responses 14 Ashmore’s proven approach Ashmore’s established investment processes have managed Emerging Markets assets for more than three decades. Over this period, the Group has participated in the development of a large, diverse and highly attractive investment universe 12 16 2 Investment Local At a glance opportunities presence Ashmore’s purpose is More than 70 Ashmore’s network to deliver long-term emerging countries of local offices source investment offer a diverse array and invest capital outperformance for of opportunities in domestically, and clients and to generate equity and fixed provide insights to value for shareholders income markets the global ICs over market cycles Ashmore Group plc Annual Report and Accounts 2024\b 1 At a glance Understanding Ashmore Ashmore is a specialist Emerging Markets investment manager that has successfully managed its clients’ capital for more than 30 years. Its purpose is to deliver long-term investment outperformance for clients and to generate value for shareholders over market cycles. Ashmore’s Emerging Markets investments and worldwide network Emerging Markets invested Ashmore presence 11 office locations 283 employees Substantial long-term Emerging Markets consistently deliver superior GDP growth (%) growth opportunities 8 Emerging Markets are expected to continue to 7 deliver superior economic growth, underpinned 6 by powerful convergence trends, a propensity to 5 reform and structural changes such as a shift to 4 local currency funding. This growth profile, and 3 the consequent investment opportunities, support 2 Ashmore’s strategic focus on delivering long-term growth and value for clients and shareholders. 1 0 See more on page 12 -1 -2 -3 -4 -5 2024f"
+    }
+  ],
+  "latest_shareholders_freefloat_ownership": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/AMOR/Ashmore-Group-plc-2024-Annual-Report-web-1.pdf",
+        "shareholders": "shareholders 159 2024 highlights Glossary 161 AuM AuM outperforming Adjusted EBITDA benchmarks (3 years) margin US$49.3bn 59% 41% 2023: US$55.9bn 2023: 69% 2023: 54% -12% YoY Profit before tax Diluted EPS Dividends per share £128.1m 13.6p 16.9p 2023: £111.8m 2023: 12.2p 2023: 16.9p +15% YoY +12% YoY Specialism delivers Emerging Strategic report Markets insights The size, scale and diversity of Emerging Markets are often misunderstood Governance and underappreciated. Ashmore’s specialist, active approach exploits this inefficiency to deliver long-term investment performance for clients. 10 Economic resilience Financial statements Emerging countries have been extraordinarily resilient in the face of profound shocks in recent years, due to the quality and effectiveness of policy responses 14 Ashmore’s proven approach Ashmore’s established investment processes have managed Emerging Markets assets for more than three decades. Over this period, the Group has participated in the development of a large, diverse and highly attractive investment universe 12 16 2 Investment Local At a glance opportunities presence Ashmore’s purpose is More than 70 Ashmore’s network to deliver long-term emerging countries of local offices source investment offer a diverse array and invest capital outperformance for of opportunities in domestically, and clients and to generate equity and fixed provide insights to value for shareholders income markets the global ICs over market cycles Ashmore Group plc Annual Report and Accounts 2024\b 1 At a glance Understanding Ashmore Ashmore is a specialist Emerging Markets investment manager that has successfully managed its clients’ capital for more than 30 years. Its purpose is to deliver long-term investment outperformance for clients and to generate value for shareholders over market cycles. Ashmore’s Emerging Markets investments and worldwide network Emerging Markets invested Ashmore presence 11 office locations 283 employees Substantial long-term Emerging Markets consistently deliver superior GDP growth (%) growth opportunities 8 Emerging Markets are expected to continue to 7 deliver superior economic growth, underpinned 6 by powerful convergence trends, a propensity to 5 reform and structural changes such as a shift to 4 local currency funding. This growth profile, and 3 the consequent investment opportunities, support 2 Ashmore’s strategic focus on delivering long-term growth and value for clients and shareholders. 1 0 See more on page 12 -1",
+        "free_float": ""
+      }
+    ]
+  },
+  "management": {
+    "evidence": [
+      {
+        "document": "/opt/idx-official-data/documents/AMOR/Ashmore-Group-plc-2024-Annual-Report-web-1.pdf",
+        "directors": "Board of Directors 56 Corporate governance report 58 Audit and Risk Committee report 66 Nominations Committee report 70 Remuneration report 72 Statement of Directors’ responsibilities 91 Directors’ report 92 Financial statements Independent auditor’s report 96 Consolidated financial statements 104 Company financial statements 108 Notes to the financial statements 111 Five-year summary 152 Alternative performance measures 153 Mandatory GHG reporting and SECR 156 requirements Information for shareholders 159 2024 highlights Glossary 161 AuM AuM outperforming Adjusted EBITDA benchmarks (3 years) margin US$49.3bn 59% 41% 2023: US$55.9bn 2023: 69% 2023: 54% -12% YoY Profit before tax Diluted EPS Dividends per share £128.1m 13.6p 16.9p 2023: £111.8m 2023: 12.2p 2023: 16.9p +15% YoY +12% YoY Specialism delivers Emerging Strategic report Markets insights The size, scale and diversity of Emerging Markets are often misunderstood Governance and underappreciated. Ashmore’s specialist, active approach exploits this inefficiency to deliver long-term investment performance for clients. 10 Economic resilience Financial statements Emerging countries have been extraordinarily resilient in the face of profound shocks in recent years, due to the quality and effectiveness of policy responses 14 Ashmore’s proven approach Ashmore’s established investment processes have managed Emerging Markets assets for more than three decades. Over this period, the Group has participated in the development of a large, diverse and highly attractive investment universe 12 16 2 Investment Local At a glance opportunities presence Ashmore’s purpose is More than 70 Ashmore’s network to deliver long-term emerging countries of local offices source investment offer a diverse array and invest capital outperformance for of opportunities in domestically, and clients and to generate equity and fixed provide insights to value for shareholders income markets the global ICs over market cycles Ashmore Group plc Annual Report and Accounts 2024\b 1 At a glance Understanding Ashmore Ashmore is a specialist Emerging Markets investment manager that has successfully managed its clients’ capital for more than 30 years. Its purpose is to d",
+        "commissioners": ""
+      }
+    ]
+  },
+  "evidence": {},
+  "processing_status": "selesai",
+  "processing_reasons": []
+}

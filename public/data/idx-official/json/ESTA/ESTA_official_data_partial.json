@@ -1,0 +1,116 @@
+{
+  "code": "ESTA",
+  "company_name": "Esta Multi Usaha Tbk.",
+  "scraped_at": "2026-05-26T15:30:14.397574+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "ESTA Esta Multi Usaha Tbk. website resmi investor relation annual report pdf",
+      "title": "Laporan Keuangan - PT Esta Indonesia",
+      "url": "https://www.estaindonesia.co.id/laporan-keuangan",
+      "content": "Informasi Investor. Prospektus · Presentasi Perusahaan · Informasi Saham · Laporan Tahunan dan Laporan Keberlanjutan · Pengumuman · RUPS · Hubungan Investor",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ESTA Esta Multi Usaha Tbk. website resmi investor relation annual report pdf",
+      "title": "Annual Report PT Esta Multi Usaha Tbk (ESTA) 2021 - ticmi",
+      "url": "https://www.ticmi.co.id/datapasarmodal/ED/ar/viewsingle/135317/annual-report-pt-esta-multi-usaha-tbk-esta-2021",
+      "content": "Annual Report. Annual Report PT Esta Multi Usaha Tbk (ESTA) 2021. Upss, kamu belum berlangganan Data Paket, kami bantuin pilihkan paket data terbaik",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "ESTA Esta Multi Usaha Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PDF - Laporan Ojk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-16022026-1689-00.pdf-0.pdf",
+      "content": "Nama Perusahaan Tbk. : ESTA - ESTA MULTI USAHA Tbk, PT. Jumlah Saham Sebelum Transaksi. : 22.100,00 Unit. Hak Suara Sebelum Transaksi. : 0,0009",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ESTA Esta Multi Usaha Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PDF - Laporan Ojk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_KSEI/LK-12022026-9443-00.pdf-0.pdf",
+      "content": "Nama Perusahaan Tbk. : ESTA - ESTA MULTI USAHA Tbk, PT. Jumlah Saham Sebelum Transaksi. : 58.762.050,00 Unit. Hak Suara Sebelum Transaksi. : 2,",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ESTA Esta Multi Usaha Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] the new normAl - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202008/1fc8d37d2b_e4be49e64d.pdf",
+      "content": "The 2019 Annual Report of PT Esta Multi Usaha Tbk is a comprehensive source of documentation and information on the Company's performance for one year.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ESTA Esta Multi Usaha Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 055/EMU/IDXOJK/X/2021 PT Esta Multi Usaha Tbk. ESTA 1 Laporan ...",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202110/fcfacdcb4a_56ef82570d.pdf",
+      "content": "Esta - Laporan Keuangan Triwulan III 2021.pdf. Dokumen ini merupakan dokumen resmi PT Esta Multi Usaha Tbk. yang tidak memerlukan tanda",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ESTA Esta Multi Usaha Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT ESTA MULTI USAHA Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202308/20230808084708-39353-0/ESTA%20-%20LKTT%202023.pdf",
+      "content": "Laporan keuangan konsolidasian PT Esta Multi Usaha Tbk dan Entitas Anaknya disusun berdasarkan ... PSAK 71 (Penyesuaian Tahunan 2020), “Instrumen Keuangan”.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ESTA Esta Multi Usaha Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] Perseroan dengan ini menyampaikan laporan keuangan untuk ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202410/20241031235829-49262-0/FinancialStatement-2024-III-ESTA.pdf",
+      "content": "Esta Multi Usaha Tbk. bertanggung jawab penuh atas informasi tertera di dalam dokumen ini. Nomor Surat. 050/EMU/IDXOJK/X/2024. Nama Emiten. PT",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ESTA Esta Multi Usaha Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT ESTA MULTI USAHA Tbk - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202411/20241105081742-49312-0/ESTA%20-%20Laporan%20Keuangan%20202409.pdf",
+      "content": "Laporan keuangan konsolidasian disusun dan disajikan berdasarkan asumsi kelangsungan usaha serta atas dasar akrual, kecuali laporan arus kas konsolidasian.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ESTA Esta Multi Usaha Tbk. website resmi investor relation annual report pdf",
+      "title": "[PDF] PT ESTA MULTI USAHA Tbk DAN ENTITAS ANAK PT ESTA ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202404/20250404060911-51472-0/EMU%20-%20Laporan%20Keuangan%20Audit%202024.pdf",
+      "content": "fiscal year, and annual report to be adjusted to the provisions of the Financial Services Authority. Regulation No. 14/POJK.04/2022 regarding.",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ESTA Esta Multi Usaha Tbk. annual report 2025 pdf official",
+      "title": "PT. Esta Multi Usaha Tbk [ESTA] - IDNFinancials.com",
+      "url": "https://www.idnfinancials.com/esta/pt-esta-multi-usaha-tbk",
+      "content": "Last Update: Dec 31, 2025. Shareholder Name, Number of Shares, Paid-up Capital, Percentage. PT Esta Utama Corpora, 1.545.970.799 (Shares), 154.597.079.900 (IDR)",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "ESTA Esta Multi Usaha Tbk. website resmi investor relation annual report pdf",
+      "title": "Annual Report PT Esta Multi Usaha TBK 2019 | PDF - Scribd",
+      "url": "https://www.scribd.com/document/667163826/Annual-Report-PT-Esta-Multi-Usaha-TBK-2019",
+      "content": "Annual Report PT Esta Multi Usaha TBK 2019 - Free download as PDF File (.pdf), Text File (.txt) or read online for free.",
+      "source_priority": 3,
+      "source_tier": "official_annual_report"
+    }
+  ],
+  "documents": [],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {},
+  "partial_llm_fallback": {
+    "enabled": true,
+    "status": "failed",
+    "error": "no_text_documents_for_llm",
+    "data": null
+  }
+}

@@ -1,18 +1,20 @@
 {
-  "generated_at": "2026-05-26T14:15:14.798177+00:00",
-  "count": 262,
+  "generated_at": "2026-05-26T16:49:18.672540+00:00",
+  "count": 289,
   "summary": {
     "universe_total": 951,
-    "processed_total": 99,
-    "remaining_total": 852,
-    "published_total": 262,
+    "processed_total": 126,
+    "remaining_total": 825,
+    "published_total": 289,
     "status_counts": {
-      "selesai": 224,
-      "partial": 38
+      "selesai": 235,
+      "partial": 53,
+      "partial_llm": 1
     },
     "sheet_status_counts": {
-      "selesai": 61,
-      "partial": 38
+      "selesai": 72,
+      "partial": 53,
+      "partial_llm": 1
     }
   },
   "items": [
@@ -83,6 +85,17 @@
       "has_llm_fallback": false
     },
     {
+      "code": "AMAN",
+      "company_name": "Makmur Berkah Amanda Tbk.",
+      "status": "selesai",
+      "json": "/data/idx-official/json/AMAN/AMAN_official_data.json",
+      "excel": "/data/idx-official/excel/AMAN_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T15:16:18.154074+00:00",
+      "error": null,
+      "has_llm_fallback": false
+    },
+    {
       "code": "AMMN",
       "company_name": "Amman Mineral Internasional Tb",
       "status": "selesai",
@@ -101,6 +114,17 @@
       "excel": "/data/idx-official/excel/AMMS_official_data.xlsx",
       "partial": false,
       "scraped_at": "2026-05-26T04:51:40.726270+00:00",
+      "error": null,
+      "has_llm_fallback": false
+    },
+    {
+      "code": "AMOR",
+      "company_name": "Ashmore Asset Management Indon",
+      "status": "selesai",
+      "json": "/data/idx-official/json/AMOR/AMOR_official_data.json",
+      "excel": "/data/idx-official/excel/AMOR_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T16:40:18.341187+00:00",
       "error": null,
       "has_llm_fallback": false
     },
@@ -171,6 +195,17 @@
       "has_llm_fallback": false
     },
     {
+      "code": "ASPI",
+      "company_name": "Andalan Sakti Primaindo Tbk.",
+      "status": "partial",
+      "json": "/data/idx-official/json/ASPI/ASPI_official_data.json",
+      "excel": "/data/idx-official/excel/ASPI_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T15:35:15.700425+00:00",
+      "error": "Tidak ada kandidat dokumen yang ditemukan dari pencarian. | LLM fallback: no_text_documents_for_llm",
+      "has_llm_fallback": false
+    },
+    {
       "code": "ATAP",
       "company_name": "Trimitra Prawara Goldland Tbk.",
       "status": "selesai",
@@ -234,6 +269,17 @@
       "partial": false,
       "scraped_at": "2026-05-25T20:05:10.707406+00:00",
       "error": null,
+      "has_llm_fallback": false
+    },
+    {
+      "code": "AYLS",
+      "company_name": "Agro Yasa Lestari Tbk.",
+      "status": "partial_llm",
+      "json": "/data/idx-official/json/AYLS/AYLS_official_data.json",
+      "excel": "/data/idx-official/excel/AYLS_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T15:45:13.432316+00:00",
+      "error": "Financial/income/revenue tidak terbaca dari dokumen. | Informasi dividend tidak ditemukan/terbaca. | Informasi shareholders/free float/ownership tidak ditemukan/terbaca. | LLM fallback saved",
       "has_llm_fallback": false
     },
     {
@@ -303,6 +349,17 @@
       "has_llm_fallback": false
     },
     {
+      "code": "BBSS",
+      "company_name": "Bumi Benowo Sukses Sejahtera T",
+      "status": "partial",
+      "json": "/data/idx-official/json/BBSS/BBSS_official_data.json",
+      "excel": "/data/idx-official/excel/BBSS_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T14:35:14.145315+00:00",
+      "error": "Tidak ada kandidat dokumen yang ditemukan dari pencarian. | LLM fallback: no_text_documents_for_llm",
+      "has_llm_fallback": false
+    },
+    {
       "code": "BDKR",
       "company_name": "Berdikari Pondasi Perkasa Tbk.",
       "status": "selesai",
@@ -344,6 +401,28 @@
       "partial": false,
       "scraped_at": "2026-05-26T03:15:19.567796+00:00",
       "error": null,
+      "has_llm_fallback": false
+    },
+    {
+      "code": "BESS",
+      "company_name": "Batulicin Nusantara Maritim Tb",
+      "status": "selesai",
+      "json": "/data/idx-official/json/BESS/BESS_official_data.json",
+      "excel": "/data/idx-official/excel/BESS_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T15:25:15.057477+00:00",
+      "error": null,
+      "has_llm_fallback": false
+    },
+    {
+      "code": "BHAT",
+      "company_name": "Bhakti Multi Artha Tbk.",
+      "status": "partial",
+      "json": "/data/idx-official/json/BHAT/BHAT_official_data.json",
+      "excel": "/data/idx-official/excel/BHAT_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T14:40:15.163180+00:00",
+      "error": "Tidak ada kandidat dokumen yang ditemukan dari pencarian. | LLM fallback: no_text_documents_for_llm",
       "has_llm_fallback": false
     },
     {
@@ -490,6 +569,28 @@
       "has_llm_fallback": false
     },
     {
+      "code": "CARE",
+      "company_name": "Metro Healthcare Indonesia Tbk",
+      "status": "selesai",
+      "json": "/data/idx-official/json/CARE/CARE_official_data.json",
+      "excel": "/data/idx-official/excel/CARE_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T15:20:18.850804+00:00",
+      "error": null,
+      "has_llm_fallback": false
+    },
+    {
+      "code": "CASH",
+      "company_name": "Cashlez Worldwide Indonesia Tb",
+      "status": "partial",
+      "json": "/data/idx-official/json/CASH/CASH_official_data.json",
+      "excel": "/data/idx-official/excel/CASH_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T14:30:15.099453+00:00",
+      "error": "Tidak ada kandidat dokumen yang ditemukan dari pencarian. | LLM fallback: no_text_documents_for_llm",
+      "has_llm_fallback": false
+    },
+    {
       "code": "CBDK",
       "company_name": "Bangun Kosambi Sukses Tbk.",
       "status": "selesai",
@@ -497,6 +598,17 @@
       "excel": "/data/idx-official/excel/CBDK_official_data.xlsx",
       "partial": false,
       "scraped_at": "2026-05-25T16:08:00.937805+00:00",
+      "error": null,
+      "has_llm_fallback": false
+    },
+    {
+      "code": "CBMF",
+      "company_name": "Cahaya Bintang Medan Tbk.",
+      "status": "selesai",
+      "json": "/data/idx-official/json/CBMF/CBMF_official_data.json",
+      "excel": "/data/idx-official/excel/CBMF_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T14:45:20.301939+00:00",
       "error": null,
       "has_llm_fallback": false
     },
@@ -633,6 +745,17 @@
       "has_llm_fallback": false
     },
     {
+      "code": "CSMI",
+      "company_name": "Cipta Selera Murni Tbk.",
+      "status": "partial",
+      "json": "/data/idx-official/json/CSMI/CSMI_official_data.json",
+      "excel": "/data/idx-official/excel/CSMI_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T14:50:15.889212+00:00",
+      "error": "Tidak ada kandidat dokumen yang ditemukan dari pencarian. | LLM fallback: no_text_documents_for_llm",
+      "has_llm_fallback": false
+    },
+    {
       "code": "CUAN",
       "company_name": "Petrindo Jaya Kreasi Tbk.",
       "status": "selesai",
@@ -663,6 +786,17 @@
       "partial": false,
       "scraped_at": "2026-05-25T16:55:09.303372+00:00",
       "error": null,
+      "has_llm_fallback": false
+    },
+    {
+      "code": "DADA",
+      "company_name": "Diamond Citra Propertindo Tbk.",
+      "status": "partial",
+      "json": "/data/idx-official/json/DADA/DADA_official_data.json",
+      "excel": "/data/idx-official/excel/DADA_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T15:40:14.986721+00:00",
+      "error": "Tidak ada kandidat dokumen yang ditemukan dari pencarian. | LLM fallback: no_text_documents_for_llm",
       "has_llm_fallback": false
     },
     {
@@ -728,6 +862,17 @@
       "excel": "/data/idx-official/excel/DGWG_official_data.xlsx",
       "partial": false,
       "scraped_at": "2026-05-25T16:10:15.020403+00:00",
+      "error": null,
+      "has_llm_fallback": false
+    },
+    {
+      "code": "DMND",
+      "company_name": "Diamond Food Indonesia Tbk.",
+      "status": "selesai",
+      "json": "/data/idx-official/json/DMND/DMND_official_data.json",
+      "excel": "/data/idx-official/excel/DMND_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T16:30:15.711115+00:00",
       "error": null,
       "has_llm_fallback": false
     },
@@ -820,6 +965,17 @@
       "has_llm_fallback": false
     },
     {
+      "code": "EPAC",
+      "company_name": "Megalestari Epack Sentosaraya",
+      "status": "partial",
+      "json": "/data/idx-official/json/EPAC/EPAC_official_data.json",
+      "excel": "/data/idx-official/excel/EPAC_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T14:20:14.287317+00:00",
+      "error": "Tidak ada kandidat dokumen yang ditemukan dari pencarian. | LLM fallback: no_text_documents_for_llm",
+      "has_llm_fallback": false
+    },
+    {
       "code": "ERAL",
       "company_name": "Sinar Eka Selaras Tbk.",
       "status": "selesai",
@@ -828,6 +984,17 @@
       "partial": false,
       "scraped_at": "2026-05-25T21:45:08.908307+00:00",
       "error": null,
+      "has_llm_fallback": false
+    },
+    {
+      "code": "ESTA",
+      "company_name": "Esta Multi Usaha Tbk.",
+      "status": "partial",
+      "json": "/data/idx-official/json/ESTA/ESTA_official_data.json",
+      "excel": "/data/idx-official/excel/ESTA_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T15:30:14.397574+00:00",
+      "error": "Tidak ada kandidat dokumen yang ditemukan dari pencarian. | LLM fallback: no_text_documents_for_llm",
       "has_llm_fallback": false
     },
     {
@@ -1161,6 +1328,17 @@
       "has_llm_fallback": false
     },
     {
+      "code": "IKAN",
+      "company_name": "Era Mandiri Cemerlang Tbk.",
+      "status": "partial",
+      "json": "/data/idx-official/json/IKAN/IKAN_official_data.json",
+      "excel": "/data/idx-official/excel/IKAN_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T15:50:14.224636+00:00",
+      "error": "Tidak ada kandidat dokumen yang ditemukan dari pencarian. | LLM fallback: no_text_documents_for_llm",
+      "has_llm_fallback": false
+    },
+    {
       "code": "IKPM",
       "company_name": "Ikapharmindo Putramas Tbk.",
       "status": "selesai",
@@ -1168,6 +1346,17 @@
       "excel": "/data/idx-official/excel/IKPM_official_data.xlsx",
       "partial": false,
       "scraped_at": "2026-05-25T20:10:10.454858+00:00",
+      "error": null,
+      "has_llm_fallback": false
+    },
+    {
+      "code": "INDO",
+      "company_name": "Royalindo Investa Wijaya Tbk.",
+      "status": "selesai",
+      "json": "/data/idx-official/json/INDO/INDO_official_data.json",
+      "excel": "/data/idx-official/excel/INDO_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T16:45:32.974161+00:00",
       "error": null,
       "has_llm_fallback": false
     },
@@ -1267,6 +1456,17 @@
       "excel": "/data/idx-official/excel/JATI_official_data.xlsx",
       "partial": false,
       "scraped_at": "2026-05-25T23:30:14.233295+00:00",
+      "error": null,
+      "has_llm_fallback": false
+    },
+    {
+      "code": "KBAG",
+      "company_name": "Karya Bersama Anugerah Tbk.",
+      "status": "selesai",
+      "json": "/data/idx-official/json/KBAG/KBAG_official_data.json",
+      "excel": "/data/idx-official/excel/KBAG_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T15:00:16.882008+00:00",
       "error": null,
       "has_llm_fallback": false
     },
@@ -2151,6 +2351,28 @@
       "has_llm_fallback": false
     },
     {
+      "code": "PTPW",
+      "company_name": "Pratama Widya Tbk.",
+      "status": "partial",
+      "json": "/data/idx-official/json/PTPW/PTPW_official_data.json",
+      "excel": "/data/idx-official/excel/PTPW_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T16:22:17.122502+00:00",
+      "error": "Tidak ada kandidat dokumen yang ditemukan dari pencarian. | LLM fallback: no_text_documents_for_llm",
+      "has_llm_fallback": false
+    },
+    {
+      "code": "PURA",
+      "company_name": "Putra Rajawali Kencana Tbk.",
+      "status": "partial",
+      "json": "/data/idx-official/json/PURA/PURA_official_data.json",
+      "excel": "/data/idx-official/excel/PURA_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T16:25:17.514075+00:00",
+      "error": "Tidak ada kandidat dokumen yang ditemukan dari pencarian. | LLM fallback: no_text_documents_for_llm",
+      "has_llm_fallback": false
+    },
+    {
       "code": "PURI",
       "company_name": "Puri Global Sukses Tbk.",
       "status": "partial",
@@ -2261,6 +2483,17 @@
       "has_llm_fallback": false
     },
     {
+      "code": "RONY",
+      "company_name": "Aesler Grup Internasional Tbk.",
+      "status": "selesai",
+      "json": "/data/idx-official/json/RONY/RONY_official_data.json",
+      "excel": "/data/idx-official/excel/RONY_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T14:55:14.472271+00:00",
+      "error": null,
+      "has_llm_fallback": false
+    },
+    {
       "code": "RSCH",
       "company_name": "Charlie Hospital Semarang Tbk.",
       "status": "selesai",
@@ -2302,6 +2535,28 @@
       "partial": false,
       "scraped_at": "2026-05-26T00:30:14.318493+00:00",
       "error": null,
+      "has_llm_fallback": false
+    },
+    {
+      "code": "SAMF",
+      "company_name": "Saraswanti Anugerah Makmur Tbk",
+      "status": "selesai",
+      "json": "/data/idx-official/json/SAMF/SAMF_official_data.json",
+      "excel": "/data/idx-official/excel/SAMF_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T15:10:22.592910+00:00",
+      "error": null,
+      "has_llm_fallback": false
+    },
+    {
+      "code": "SBAT",
+      "company_name": "Sejahtera Bintang Abadi Textil",
+      "status": "partial",
+      "json": "/data/idx-official/json/SBAT/SBAT_official_data.json",
+      "excel": "/data/idx-official/excel/SBAT_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T15:05:14.416430+00:00",
+      "error": "Tidak ada kandidat dokumen yang ditemukan dari pencarian. | LLM fallback: no_text_documents_for_llm",
       "has_llm_fallback": false
     },
     {
@@ -2525,6 +2780,17 @@
       "has_llm_fallback": false
     },
     {
+      "code": "TAMA",
+      "company_name": "Lancartama Sejati Tbk.",
+      "status": "partial",
+      "json": "/data/idx-official/json/TAMA/TAMA_official_data.json",
+      "excel": "/data/idx-official/excel/TAMA_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T15:55:12.850550+00:00",
+      "error": "Tidak ada kandidat dokumen yang ditemukan dari pencarian. | LLM fallback: no_text_documents_for_llm",
+      "has_llm_fallback": false
+    },
+    {
       "code": "TAPG",
       "company_name": "Triputra Agro Persada Tbk.",
       "status": "partial",
@@ -2544,6 +2810,17 @@
       "partial": false,
       "scraped_at": "2026-05-26T08:05:13.235902+00:00",
       "error": "Tidak ada kandidat dokumen yang ditemukan dari pencarian.",
+      "has_llm_fallback": false
+    },
+    {
+      "code": "TECH",
+      "company_name": "Indosterling Technomedia Tbk.",
+      "status": "partial",
+      "json": "/data/idx-official/json/TECH/TECH_official_data.json",
+      "excel": "/data/idx-official/excel/TECH_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T14:25:12.963026+00:00",
+      "error": "Tidak ada kandidat dokumen yang ditemukan dari pencarian. | LLM fallback: no_text_documents_for_llm",
       "has_llm_fallback": false
     },
     {
@@ -2613,6 +2890,17 @@
       "has_llm_fallback": false
     },
     {
+      "code": "TRIN",
+      "company_name": "Perintis Triniti Properti Tbk.",
+      "status": "selesai",
+      "json": "/data/idx-official/json/TRIN/TRIN_official_data.json",
+      "excel": "/data/idx-official/excel/TRIN_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T16:35:14.552830+00:00",
+      "error": null,
+      "has_llm_fallback": false
+    },
+    {
       "code": "TRJA",
       "company_name": "Transkon Jaya Tbk.",
       "status": "partial",
@@ -2654,6 +2942,17 @@
       "partial": false,
       "scraped_at": "2026-05-25T23:41:09.484182+00:00",
       "error": null,
+      "has_llm_fallback": false
+    },
+    {
+      "code": "UANG",
+      "company_name": "Pakuan Tbk.",
+      "status": "partial",
+      "json": "/data/idx-official/json/UANG/UANG_official_data.json",
+      "excel": "/data/idx-official/excel/UANG_official_data.xlsx",
+      "partial": false,
+      "scraped_at": "2026-05-26T14:15:15.257336+00:00",
+      "error": "Kandidat ditemukan, tetapi tidak ada PDF yang berhasil didownload. | Sebagian dokumen gagal didownload/diekstrak; cek sheet documents di Excel. | LLM fallback: no_text_documents_for_llm",
       "has_llm_fallback": false
     },
     {

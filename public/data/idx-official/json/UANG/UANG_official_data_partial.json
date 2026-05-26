@@ -1,0 +1,122 @@
+{
+  "code": "UANG",
+  "company_name": "Pakuan Tbk.",
+  "scraped_at": "2026-05-26T14:15:15.257336+00:00",
+  "source": "Prioritized official issuer/IDX/annual-report documents discovered via Tavily + PDF extraction",
+  "search_candidates": [
+    {
+      "query": "UANG Pakuan Tbk. annual report 2024 pdf official",
+      "title": "[PDF] Laporan Tahunan 2024 Annual Report",
+      "url": "https://cp.co.id/wp-content/uploads/2025/04/Annual-Report-CPIN-2024.pdf",
+      "content": "PT CHAROEN POKPHAND INDONESIA Tbk, 2024 Annual Report 1. Laporan Tahunan 2024 Annual Report. Page 2. PT CHAROEN POKPHAND INDONESIA Tbk, 2024",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "UANG Pakuan Tbk. website resmi investor relation annual report pdf",
+      "title": "Investor_Relations_temp | PT Pakuan Tbk.",
+      "url": "https://ptpakuan.com/investor_relations",
+      "content": "Annual Report 2020. Read More. Annual Report 2021. Read More. Sustainability Report 2021. Read More. Annual Report 2022.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "UANG Pakuan Tbk. website resmi investor relation annual report pdf",
+      "title": "Investor_Relations OLD | PT Pakuan Tbk.",
+      "url": "https://ptpakuan.com/investor_relations-old",
+      "content": "[FORMULIR SURAT KUASA & PERTANYAAN RUPSLB 2020 PT. [PDF]](http://ptpakuan.com/wp-content/uploads/Formulir_Surat_Kuasa_&%20Pertanyaan_RUPSLB_PT%20Pakuan_Tbk.pdf). [PEMANGGILAN RAPAT UMUM PEMEGANG SAHAM TAHUN 2020 PT. [PDF]](http://ptpakuan.com/wp-content/uploads/PT_Pakuan_Tbk_Pemanggilan_RUPS_2020.pdf). [PEMBERITAHUAN RUPS TAHUN 2020 PT. [PDF]](http://ptpakuan.com/wp-content/uploads/PT_Pakuan_Tbk_Pemberitahuan_RUPS_2020.pdf). PAKUAN Tbk. JUNI 2020 [PDF]](http://ptpakuan.com/wp-content/uploads/Buku_Prospektus_Pakuan_Juni_2020.pdf). - JANUARI 2020 RELEASED [PDF]](http://ptpakuan.com/wp-content/uploads/Report_PT_Pakuan_Januari_2020_released.pdf). [LAPORAN KEUANGAN INTERIM KUARTAL 3 (TANPA AUDIT) 2020 PT. [PDF]](http://ptpakuan.com/wp-content/uploads/PT_Pakuan_Laporan_Keuangan_Interim_Kuartal3_2020_(Tanpa_Audit).pdf). Pengumuman Rapat Umum Pemegang Saham Luar Biasa 25 Maret 2021. Pemanggilan Rapat Umum Pemegang Saham Luar Biasa 09 April 2021. Pengumuman Risalah Rapat RUPSLB PT. Laporan Tahunan PT Pakuan Tbk Tahun Buku 2020. PENGUMUMAN RUPST DAN RUPSLB PT. Pemanggilan RUPST dan LB PT Pakuan Tbk 05 Agustus 2021. Keterbukaan Informasi Perihal Akusisi PT. Tambahan KETERBUKAAN INFORMASI Pengambilalihan PT. Laporan Keuangan Tahunan Audit 2021 PT Pakuan Tbk dan Entitas Anak. pengumuman RUPS LUAR BIASA PT. SURAT KETERANGAN NOTARIS ATAS RUPSLUAR BISA PT PAKUAN TBK 29 JULI 2022. SURAT KETERANGAN NOTARIS ATAS RUPS TAHUNAN PT PAKUAN TBK 29 JULI 2022. Pemanggilan RUPS LUAR BIASA PT. PEMBATALAN RUPS LUAR BIASA PT. SUSTAINABILITY REPORT PT.PAKUAN TBK. ANNUAL REPORT PT.PAKUAN TBK.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "UANG Pakuan Tbk. website resmi investor relation annual report pdf",
+      "title": "Investor Relations",
+      "url": "https://www.meituan.com/en-US/investor/reports",
+      "content": "###### Annual Report. ###### Interim Report.",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "UANG Pakuan Tbk. hubungan investor laporan tahunan laporan keuangan pdf",
+      "title": "Hubungan Investor",
+      "url": "https://about.bukalapak.com/id/investor-relations",
+      "content": "Laporan Keuangan. Download PDF · Presentasi. Download PDF · Presentasi (Video) ... Allo Fresh - Presentasi untuk Investor. Download PDF · Allo Fresh",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "UANG Pakuan Tbk. website resmi investor relation annual report pdf",
+      "title": "Annual Report PT Pakuan Tbk (UANG) 2021 - ticmi",
+      "url": "https://www.ticmi.co.id/datapasarmodal/ED/ar/viewsingle/135086/annual-report-pt-pakuan-tbk-uang-2021",
+      "content": "Annual Report. Annual Report PT Pakuan Tbk (UANG) 2021. Upss, kamu belum berlangganan Data Paket, kami bantuin pilihkan paket data terbaik",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "UANG Pakuan Tbk. shareholders dividend annual report pdf",
+      "title": "Financial Report PT Pakuan Tbk (UANG) 2022 - ticmi",
+      "url": "https://ticmi.co.id/amp/datapasarmodal/ED/fr/viewsingle/137232/financial-report-pt-pakuan-tbk-uang-2022",
+      "content": "Financial Report. Financial Report PT Pakuan Tbk (UANG) 2022. Upss, kamu belum berlangganan Data Paket, kami bantuin pilihkan paket data terbaik",
+      "source_priority": 1,
+      "source_tier": "issuer_official_website"
+    },
+    {
+      "query": "UANG Pakuan Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT Pakuan, Tbk. - IDX",
+      "url": "https://www.idx.co.id/media/8774/uang-prospektus-ipo-2020.pdf",
+      "content": "Mata uang pelaporan yang digunakan dalam penyusunan laporan keuangan adalah Rupiah, yang merupakan mata uang fungsional Perusahaan. Untuk",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "UANG Pakuan Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] 004/DIR-LGL/PAKUAN/I/2025 PT Pakuan Tbk UANG 1 ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202501/7b0e372983_64c9d2e770.pdf",
+      "content": "Revisi Laporan Keuangan sehubungan dengan reverse atas akun ... Financial Report as of 31 December 2022. Impact of event, material",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "UANG Pakuan Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT Pakuan Tbk UANG 5 Penyampaian Revisi Laporan ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202501/a4385ce20e_02587c9532.pdf",
+      "content": "Penyampaian Revisi Laporan Keuangan Periode Q1, Q2, Q3 tahun 2023 dan ... 3Q23_FS Pakuan Revisi September 2023.pdf. 2. 2Q23_FS Pakuan Revisi",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "UANG Pakuan Tbk. site:idx.co.id pdf laporan keuangan annual report",
+      "title": "[PDF] PT PAKUAN Tbk PT PAKUAN Tbk DAN ENTITAS ANAK AND ... - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202501/b2bb8b73b2_5df2707cff.pdf",
+      "content": "Laporan. Keuangan. Konsolidasian e. Completion of Consolidated Financial Statements. Laporan keuangan konsolidasian PT Pakuan Tbk dan. Entitas",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    },
+    {
+      "query": "UANG Pakuan Tbk. website resmi investor relation annual report pdf",
+      "title": "[PDF] Daftar Isi - IDX",
+      "url": "https://www.idx.co.id/StaticData/NewsAndAnnouncement/ANNOUNCEMENTSTOCK/From_EREP/202504/92b468589f_fcac16ab7b.pdf",
+      "content": "within the 2024 Annual Report of PT Pakuan Tbk has been fully disclosed and we assume full responsibility for the accuracy of the content",
+      "source_priority": 2,
+      "source_tier": "idx_bei_official_source"
+    }
+  ],
+  "documents": [
+    {
+      "url": "https://cp.co.id/wp-content/uploads/2025/04/Annual-Report-CPIN-2024.pdf",
+      "title": "[PDF] Laporan Tahunan 2024 Annual Report",
+      "error": "HTTPSConnectionPool(host='cp.co.id', port=443): Max retries exceeded with url: /wp-content/uploads/2025/04/Annual-Report-CPIN-2024.pdf (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:992)')))"
+    }
+  ],
+  "financial_income_revenue": [],
+  "dividends": [],
+  "latest_shareholders_freefloat_ownership": {},
+  "management": {},
+  "evidence": {},
+  "partial_llm_fallback": {
+    "enabled": true,
+    "status": "failed",
+    "error": "no_text_documents_for_llm",
+    "data": null
+  }
+}
