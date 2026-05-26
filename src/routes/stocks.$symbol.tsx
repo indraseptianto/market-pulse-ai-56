@@ -24,7 +24,7 @@ import { OwnershipCard } from "@/components/stock/OwnershipCard";
 import { OwnershipIntelligencePanel } from "@/components/ownership/OwnershipIntelligencePanel";
 import { LivePriceBadge } from "@/components/common/LivePriceBadge";
 import { Skeleton } from "@/components/ui/skeleton";
-import { ArrowLeft, Building2, LineChart, Activity, TrendingUp, TrendingDown } from "lucide-react";
+import { ArrowLeft, Building2, LineChart, Activity, TrendingUp, TrendingDown, FileText, ExternalLink } from "lucide-react";
 import { fmtPrice, fmtPct, fmtCompact, changeClass } from "@/lib/formatters";
 import { findMockEquity } from "@/lib/mock-data";
 import { evaluateValuation } from "@/lib/valuation";
@@ -56,6 +56,25 @@ function StockDetailPage() {
   const equitiesV2Fn = useServerFn(getStockEquitiesV2);
   const tradesFn    = useServerFn(getInvestorActivity);
   const newsFn      = useServerFn(getDSNews);
+
+  const officialData = useQuery({
+    queryKey: ["idx-official-data", sym],
+    queryFn: async () => {
+      const paths = [
+        `/data/idx-official/json/${sym}/${sym}_official_data.json`,
+        `/data/idx-official/json/${sym}/${sym}_official_data_partial.json`,
+      ];
+
+      for (const path of paths) {
+        const res = await fetch(path);
+        if (res.ok) return (await res.json()) as OfficialData;
+      }
+
+      return null;
+    },
+    staleTime: 600_000,
+    retry: false,
+  });
 
   // ── Existing queries ──────────────────────────────────────────────────────
   const detail = useQuery({
@@ -302,6 +321,12 @@ function StockDetailPage() {
           />
         )}
 
+        <OfficialDataCard
+          data={officialData.data ?? null}
+          isLoading={officialData.isLoading}
+          symbol={sym}
+        />
+
         {/* ── Price chart + Fair Value ── */}
         <div className="grid gap-3 lg:grid-cols-3">
           <GlassCard className="lg:col-span-2">
@@ -384,6 +409,171 @@ function StockDetailPage() {
       </div>
     </PageTransition>
   );
+}
+
+
+type OfficialData = {
+  code?: string;
+  company_name?: string;
+  status?: string;
+  scraped_at?: string;
+  source?: string;
+  search_candidates?: Array<{ title?: string; url?: string; content?: string }>;
+  documents?: Array<{ title?: string; url?: string; pdf_path?: string; text_path?: string }>;
+  financial_income_revenue?: unknown[];
+  dividends?: unknown[];
+  latest_shareholders_freefloat_ownership?: unknown;
+  management?: unknown;
+  llm_extraction?: Record<string, unknown>;
+  evidence?: Record<string, unknown>;
+};
+
+type OfficialMetric = {
+  label: string;
+  value: string;
+  evidence?: string;
+};
+
+function OfficialDataCard({ data, isLoading, symbol }: { data: OfficialData | null; isLoading: boolean; symbol: string }) {
+  if (isLoading) return <Skeleton className="h-36 rounded-2xl" />;
+  if (!data) return null;
+
+  const metrics = buildOfficialMetrics(data);
+  const documents = data.documents ?? [];
+  const candidates = data.search_candidates ?? [];
+  const primarySource = documents[0]?.url ?? candidates.find((candidate) => candidate.url)?.url;
+
+  return (
+    <GlassCard>
+      <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <div className="flex items-center gap-2 text-sm font-medium">
+            <FileText className="h-4 w-4 text-primary" /> Official IDX Data
+          </div>
+          <div className="mt-1 text-xs text-muted-foreground">
+            Data hasil pipeline official untuk {data.code ?? symbol} langsung dari JSON, tanpa perlu buka Excel.
+          </div>
+        </div>
+        <div className="flex flex-wrap items-center gap-2 text-xs">
+          <span className="rounded-full bg-accent/50 px-2 py-1 uppercase tracking-wide text-muted-foreground">
+            {data.status ?? "official"}
+          </span>
+          {primarySource && (
+            <a
+              href={primarySource}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 rounded-full border border-border/60 px-2 py-1 text-primary hover:bg-primary/10"
+            >
+              Source <ExternalLink className="h-3 w-3" />
+            </a>
+          )}
+        </div>
+      </div>
+
+      {metrics.length > 0 ? (
+        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+          {metrics.map((metric) => (
+            <div key={metric.label} className="rounded-xl bg-background/40 p-3">
+              <div className="text-[10px] uppercase tracking-wider text-muted-foreground">{metric.label}</div>
+              <div className="mt-1 line-clamp-3 text-sm font-semibold leading-5">{metric.value}</div>
+              {metric.evidence && <div className="mt-2 line-clamp-3 text-xs text-muted-foreground">{metric.evidence}</div>}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="rounded-xl bg-background/40 p-3 text-sm text-muted-foreground">
+          Official JSON tersedia, tetapi field ringkasan belum cukup terstruktur untuk ditampilkan.
+        </div>
+      )}
+
+      {documents.length > 0 && (
+        <div className="mt-4 border-t border-border/50 pt-3">
+          <div className="mb-2 text-[10px] uppercase tracking-wider text-muted-foreground">Dokumen sumber</div>
+          <div className="space-y-2">
+            {documents.slice(0, 3).map((doc, index) => (
+              <a
+                key={`${doc.url ?? doc.pdf_path ?? index}`}
+                href={doc.url}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-between gap-3 rounded-lg bg-background/30 px-3 py-2 text-xs hover:bg-background/60"
+              >
+                <span className="line-clamp-1">{doc.title ?? doc.url ?? doc.pdf_path ?? `Dokumen ${index + 1}`}</span>
+                {doc.url && <ExternalLink className="h-3 w-3 shrink-0 text-primary" />}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </GlassCard>
+  );
+}
+
+function buildOfficialMetrics(data: OfficialData): OfficialMetric[] {
+  const llm = data.llm_extraction ?? {};
+  const metrics: OfficialMetric[] = [];
+  const revenue = firstValue(llm, ["revenue", "financial_income_revenue"]) ?? summarizeUnknown(data.financial_income_revenue?.[0]);
+  const netIncome = firstValue(llm, ["net_income", "netIncome"]);
+  const dividend = firstValue(llm, ["dividend", "deviden", "dividends"]) ?? summarizeUnknown(data.dividends?.[0]);
+  const shareholders = firstValue(llm, ["shareholders"])
+    ?? summarizeUnknown(data.latest_shareholders_freefloat_ownership);
+  const freefloat = firstValue(llm, ["freefloat", "free_float"]);
+  const directors = firstValue(llm, ["directors", "director"])
+    ?? summarizeUnknown(data.management);
+
+  addMetric(metrics, "Revenue", revenue);
+  addMetric(metrics, "Net Income", netIncome);
+  addMetric(metrics, "Dividend", dividend);
+  addMetric(metrics, "Shareholders", shareholders);
+  addMetric(metrics, "Free Float", freefloat);
+  addMetric(metrics, "Director", directors);
+
+  const evidence = firstValue(llm, ["source_evidence", "evidence"]) ?? summarizeUnknown(data.evidence);
+  addMetric(metrics, "Source Evidence", evidence);
+
+  return metrics;
+}
+
+function addMetric(metrics: OfficialMetric[], label: string, value: string | null) {
+  if (!value) return;
+  metrics.push({ label, value: clipText(value, 320) });
+}
+
+function firstValue(source: Record<string, unknown>, keys: string[]): string | null {
+  for (const key of keys) {
+    const value = source[key];
+    const summary = summarizeUnknown(value);
+    if (summary) return summary;
+  }
+  return null;
+}
+
+function summarizeUnknown(value: unknown): string | null {
+  if (value == null) return null;
+  if (typeof value === "string") return value.trim() || null;
+  if (typeof value === "number" || typeof value === "boolean") return String(value);
+  if (Array.isArray(value)) {
+    const items = value.map(summarizeUnknown).filter(Boolean).slice(0, 3);
+    return items.length ? items.join("; ") : null;
+  }
+  if (typeof value === "object") {
+    const entries = Object.entries(value as Record<string, unknown>)
+      .filter(([, item]) => item != null && summarizeUnknown(item))
+      .slice(0, 4)
+      .map(([key, item]) => `${humanizeKey(key)}: ${summarizeUnknown(item)}`);
+    return entries.length ? entries.join("; ") : null;
+  }
+  return null;
+}
+
+function clipText(value: string, maxLength: number) {
+  const normalized = value.replace(/\s+/g, " ").trim();
+  return normalized.length > maxLength ? `${normalized.slice(0, maxLength - 1)}…` : normalized;
+}
+
+function humanizeKey(key: string) {
+  return key.replace(/_/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
 function num(n: number | null): string {
