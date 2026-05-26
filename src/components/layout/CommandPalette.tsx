@@ -1,6 +1,6 @@
-﻿import { useNavigate } from "@tanstack/react-router";
+import { useNavigate } from "@tanstack/react-router";
 import { useEffect, useState, useCallback, useRef } from "react";
-import { Search, Loader2, TrendingUp, Building2 } from "lucide-react";
+import { Search, Loader2, TrendingUp, Building2, Database } from "lucide-react";
 import {
   CommandDialog,
   CommandEmpty,
@@ -10,6 +10,7 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import { Button } from "@/components/ui/button";
+import { fetchOfficialIndex, type OfficialIndexItem } from "@/lib/idx-official";
 
 export interface SearchResult {
   id: string;
@@ -103,6 +104,7 @@ const POPULAR = ALL_STOCKS.filter(s => POPULAR_SYMBOLS.includes(s.symbol));
 
 const TYPE_BADGE: Record<string, string> = {
   stock: "bg-primary/15 text-primary",
+  official: "bg-emerald-500/15 text-emerald-400",
   index: "bg-blue-500/15 text-blue-400",
   warrant: "bg-yellow-500/15 text-yellow-400",
   etf: "bg-purple-500/15 text-purple-400",
@@ -116,6 +118,35 @@ function localSearch(query: string): SearchResult[] {
   const contains = ALL_STOCKS.filter(s => s.symbol.includes(q) && !s.symbol.startsWith(q));
   const byName   = ALL_STOCKS.filter(s => !s.symbol.includes(q) && s.description.toUpperCase().includes(q));
   return [...exact, ...starts, ...contains, ...byName].slice(0, 20);
+}
+
+function officialSearch(query: string, items: OfficialIndexItem[]): SearchResult[] {
+  if (!query) return [];
+  const q = query.toUpperCase().trim();
+  return items
+    .filter((item) => {
+      const code = item.code?.toUpperCase() ?? "";
+      const name = item.company_name?.toUpperCase() ?? "";
+      return code.includes(q) || name.includes(q);
+    })
+    .map((item) => ({
+      id: `official-${item.code}`,
+      symbol: item.code.toUpperCase(),
+      description: item.company_name || `${item.code.toUpperCase()} official IDX data`,
+      exchange: "IDX",
+      type: "official",
+    }))
+    .slice(0, 20);
+}
+
+function mergeResults(...groups: SearchResult[][]): SearchResult[] {
+  const seen = new Set<string>();
+  return groups.flat().filter((item) => {
+    const key = item.symbol.toUpperCase();
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 function useDebounce<T>(value: T, delay: number): T {
@@ -132,18 +163,25 @@ export function CommandPalette() {
   const [inputValue, setInputValue] = useState("");
   const [apiResults, setApiResults] = useState<SearchResult[]>([]);
   const [loading, setLoading] = useState(false);
+  const [officialItems, setOfficialItems] = useState<OfficialIndexItem[]>([]);
   const navigate = useNavigate();
   const abortRef = useRef<AbortController | null>(null);
   const debouncedQuery = useDebounce(inputValue.trim(), 400);
 
   const localResults = localSearch(inputValue.trim());
   const hasQuery = inputValue.trim().length > 0;
+  const officialResults = officialSearch(inputValue.trim(), officialItems);
 
   const displayResults = hasQuery
     ? apiResults.length > 0
-      ? [...apiResults, ...localResults.filter(l => !apiResults.some(a => a.symbol === l.symbol))].slice(0, 20)
-      : localResults
+      ? mergeResults(apiResults, localResults, officialResults).slice(0, 20)
+      : mergeResults(localResults, officialResults).slice(0, 20)
     : [];
+
+  useEffect(() => {
+    if (!open || officialItems.length > 0) return;
+    fetchOfficialIndex().then(setOfficialItems).catch(() => setOfficialItems([]));
+  }, [open, officialItems.length]);
 
   useEffect(() => {
     if (!open || debouncedQuery.length === 0) {
@@ -275,7 +313,11 @@ export function CommandPalette() {
                   className="flex items-center gap-3 py-2.5"
                 >
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent/40">
-                    <Building2 className="h-3.5 w-3.5 text-muted-foreground" />
+                    {r.type === "official" ? (
+                      <Database className="h-3.5 w-3.5 text-emerald-400" />
+                    ) : (
+                      <Building2 className="h-3.5 w-3.5 text-muted-foreground" />
+                    )}
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="font-mono font-bold text-sm text-foreground">{r.symbol}</div>

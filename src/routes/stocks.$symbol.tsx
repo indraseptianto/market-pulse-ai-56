@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import {
   getEquityDetail,
   getCandles,
@@ -57,7 +57,7 @@ function StockDetailPage() {
   const tradesFn    = useServerFn(getInvestorActivity);
   const newsFn      = useServerFn(getDSNews);
 
-  const officialData = useQuery({
+  const officialData = useQuery<OfficialData | null>({
     queryKey: ["idx-official-data", sym],
     queryFn: async () => {
       const paths = [
@@ -214,8 +214,8 @@ function StockDetailPage() {
     : null;
   const fair = valuationInput ? evaluateValuation(valuationInput) : null;
 
-  const earningsPayload = (earnings.data?.data ?? null) as Record<string, unknown> | null;
-  const equitiesV2Payload = (equitiesV2.data?.data ?? null) as Record<string, unknown> | null;
+  const earningsPayload = ((earnings.data as { data?: unknown } | undefined)?.data ?? null) as Record<string, unknown> | null;
+  const equitiesV2Payload = ((equitiesV2.data as { data?: unknown } | undefined)?.data ?? null) as Record<string, unknown> | null;
 
   return (
     <PageTransition>
@@ -231,12 +231,7 @@ function StockDetailPage() {
         {!equity && detail.isLoading ? (
           <Skeleton className="h-32 rounded-2xl" />
         ) : !equity ? (
-          <GlassCard>
-            <div className="text-sm font-medium">Data harga {sym} belum tersedia</div>
-            <div className="mt-1 text-xs text-muted-foreground">
-              DataSectors tidak mengembalikan harga terbaru. Pastikan `DATASECTORS_API_KEY` aktif untuk environment Production di Vercel.
-            </div>
-          </GlassCard>
+          <OfficialOnlyHeader data={officialData.data ?? null} symbol={sym} />
         ) : (
           <GlassCard>
             <div className="flex flex-wrap items-start gap-4">
@@ -314,9 +309,9 @@ function StockDetailPage() {
             equity={equity}
             technical={tech}
             fair={fair}
-            newsPayload={news.data?.data ?? null}
+            newsPayload={(news.data as { data?: unknown } | undefined)?.data ?? null}
             earningsPayload={earningsPayload}
-            peerPayload={insights.data?.data ?? null}
+            peerPayload={(insights.data as { data?: unknown } | undefined)?.data ?? null}
             trades={symbolTrades}
           />
         )}
@@ -382,7 +377,7 @@ function StockDetailPage() {
         )}
 
         <PeerInsightsCard
-          payload={insights.data?.data ?? null}
+          payload={(insights.data as { data?: unknown } | undefined)?.data ?? null}
           isLoading={insights.isLoading}
         />
 
@@ -434,7 +429,33 @@ type OfficialMetric = {
   evidence?: string;
 };
 
+function OfficialOnlyHeader({ data, symbol }: { data: OfficialData | null; symbol: string }) {
+  return (
+    <GlassCard>
+      <div className="flex flex-wrap items-start gap-4">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/15 text-primary">
+          <Building2 className="h-5 w-5" />
+        </div>
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-wrap items-baseline gap-3">
+            <h1 className="font-mono text-2xl font-semibold tracking-tight">{data?.code ?? symbol}</h1>
+            <span className="text-sm text-muted-foreground">{data?.company_name ?? "Official IDX data available"}</span>
+          </div>
+          <div className="mt-2 flex flex-wrap gap-2 text-xs">
+            <span className="rounded-full bg-primary/15 px-2 py-0.5 text-primary">Official JSON</span>
+            <span className="rounded-full bg-warning/15 px-2 py-0.5 text-warning">Harga pasar belum tersedia</span>
+          </div>
+          <div className="mt-2 text-xs text-muted-foreground">
+            DataSectors tidak mengembalikan harga/chart untuk kode ini, jadi halaman tetap dibuka dengan data official IDX dari pipeline JSON.
+          </div>
+        </div>
+      </div>
+    </GlassCard>
+  );
+}
+
 function OfficialDataCard({ data, isLoading, symbol }: { data: OfficialData | null; isLoading: boolean; symbol: string }) {
+  const [tab, setTab] = useState<"overview" | "evidence" | "documents">("overview");
   if (isLoading) return <Skeleton className="h-36 rounded-2xl" />;
   if (!data) return null;
 
@@ -442,6 +463,13 @@ function OfficialDataCard({ data, isLoading, symbol }: { data: OfficialData | nu
   const documents = data.documents ?? [];
   const candidates = data.search_candidates ?? [];
   const primarySource = documents[0]?.url ?? candidates.find((candidate) => candidate.url)?.url;
+  const evidenceMetrics = metrics.filter((metric) => metric.label === "Source Evidence");
+  const overviewMetrics = metrics.filter((metric) => metric.label !== "Source Evidence");
+  const tabs = [
+    { id: "overview", label: "Overview", count: overviewMetrics.length },
+    { id: "evidence", label: "Evidence", count: evidenceMetrics.length + candidates.length },
+    { id: "documents", label: "Documents", count: documents.length },
+  ] as const;
 
   return (
     <GlassCard>
@@ -471,13 +499,27 @@ function OfficialDataCard({ data, isLoading, symbol }: { data: OfficialData | nu
         </div>
       </div>
 
-      {metrics.length > 0 ? (
+      <div className="mb-4 flex flex-wrap gap-2 border-b border-border/50 pb-3">
+        {tabs.map((item) => (
+          <button
+            key={item.id}
+            type="button"
+            onClick={() => setTab(item.id)}
+            className={`rounded-full px-3 py-1 text-xs transition-colors ${
+              tab === item.id ? "bg-primary text-primary-foreground" : "bg-background/40 text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            {item.label} <span className="num opacity-70">{item.count}</span>
+          </button>
+        ))}
+      </div>
+
+      {tab === "overview" && (overviewMetrics.length > 0 ? (
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-          {metrics.map((metric) => (
+          {overviewMetrics.map((metric) => (
             <div key={metric.label} className="rounded-xl bg-background/40 p-3">
               <div className="text-[10px] uppercase tracking-wider text-muted-foreground">{metric.label}</div>
-              <div className="mt-1 line-clamp-3 text-sm font-semibold leading-5">{metric.value}</div>
-              {metric.evidence && <div className="mt-2 line-clamp-3 text-xs text-muted-foreground">{metric.evidence}</div>}
+              <div className="mt-1 line-clamp-4 text-sm font-semibold leading-5">{metric.value}</div>
             </div>
           ))}
         </div>
@@ -485,31 +527,52 @@ function OfficialDataCard({ data, isLoading, symbol }: { data: OfficialData | nu
         <div className="rounded-xl bg-background/40 p-3 text-sm text-muted-foreground">
           Official JSON tersedia, tetapi field ringkasan belum cukup terstruktur untuk ditampilkan.
         </div>
+      ))}
+
+      {tab === "evidence" && (
+        <div className="space-y-3">
+          {evidenceMetrics.map((metric) => (
+            <div key={metric.label} className="rounded-xl bg-background/40 p-3">
+              <div className="text-[10px] uppercase tracking-wider text-muted-foreground">{metric.label}</div>
+              <div className="mt-1 text-sm leading-6 text-foreground">{metric.value}</div>
+            </div>
+          ))}
+          {candidates.slice(0, 6).map((candidate, index) => (
+            <a
+              key={`${candidate.url ?? candidate.title ?? index}`}
+              href={candidate.url}
+              target="_blank"
+              rel="noreferrer"
+              className="block rounded-xl bg-background/40 p-3 text-sm hover:bg-background/60"
+            >
+              <div className="line-clamp-1 font-medium">{candidate.title ?? `Candidate ${index + 1}`}</div>
+              <div className="mt-1 line-clamp-2 text-xs text-muted-foreground">{candidate.content ?? candidate.url}</div>
+            </a>
+          ))}
+        </div>
       )}
 
-      {documents.length > 0 && (
-        <div className="mt-4 border-t border-border/50 pt-3">
-          <div className="mb-2 text-[10px] uppercase tracking-wider text-muted-foreground">Dokumen sumber</div>
-          <div className="space-y-2">
-            {documents.slice(0, 3).map((doc, index) => (
-              <a
-                key={`${doc.url ?? doc.pdf_path ?? index}`}
-                href={doc.url}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center justify-between gap-3 rounded-lg bg-background/30 px-3 py-2 text-xs hover:bg-background/60"
-              >
-                <span className="line-clamp-1">{doc.title ?? doc.url ?? doc.pdf_path ?? `Dokumen ${index + 1}`}</span>
-                {doc.url && <ExternalLink className="h-3 w-3 shrink-0 text-primary" />}
-              </a>
-            ))}
-          </div>
+      {tab === "documents" && (
+        <div className="space-y-2">
+          {documents.length > 0 ? documents.slice(0, 8).map((doc, index) => (
+            <a
+              key={`${doc.url ?? doc.pdf_path ?? index}`}
+              href={doc.url}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center justify-between gap-3 rounded-lg bg-background/30 px-3 py-2 text-xs hover:bg-background/60"
+            >
+              <span className="line-clamp-1">{doc.title ?? doc.url ?? doc.pdf_path ?? `Dokumen ${index + 1}`}</span>
+              {doc.url && <ExternalLink className="h-3 w-3 shrink-0 text-primary" />}
+            </a>
+          )) : (
+            <div className="rounded-xl bg-background/40 p-3 text-sm text-muted-foreground">Belum ada dokumen sumber tersimpan.</div>
+          )}
         </div>
       )}
     </GlassCard>
   );
 }
-
 function buildOfficialMetrics(data: OfficialData): OfficialMetric[] {
   const llm = data.llm_extraction ?? {};
   const metrics: OfficialMetric[] = [];

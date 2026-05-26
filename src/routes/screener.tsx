@@ -24,6 +24,7 @@ import { getOwnershipBySymbol, getSmartMoneySignals } from "@/services/ownership
 import { useScreenerPresets, useSaveScreenerPreset, useDeleteScreenerPreset } from "@/integrations/supabase/hooks";
 import { toast } from "sonner";
 import { isIDXTradingHours } from "@/hooks/use-live-price";
+import { fetchOfficialIndex, hasOfficialData } from "@/lib/idx-official";
 
 export const Route = createFileRoute("/screener")({
   head: () => ({
@@ -58,10 +59,38 @@ function ScreenerPage() {
     staleTime: 60_000,
     enabled: mounted,
   });
-  const baseUniverse = useMemo(
-    () => (data?.data?.length ? data.data : mockEquities),
-    [data?.data],
-  );
+  const officialIndex = useQuery({
+    queryKey: ["idx-official-index"],
+    queryFn: fetchOfficialIndex,
+    staleTime: 600_000,
+    enabled: mounted,
+  });
+
+  const baseUniverse = useMemo(() => {
+    const source = data?.data?.length ? data.data : mockEquities;
+    const seen = new Set(source.map((equity) => equity.symbol.toUpperCase()));
+    const officialOnly = (officialIndex.data ?? [])
+      .filter((item) => item.code && !seen.has(item.code.toUpperCase()))
+      .map((item) => ({
+        symbol: item.code.toUpperCase(),
+        name: item.company_name || `${item.code.toUpperCase()} official IDX data`,
+        price: 0,
+        change: 0,
+        change_pct: 0,
+        volume: 0,
+        market_cap: 0,
+        sector: "Official IDX",
+        industry: item.status ?? "Official data",
+        pe_ratio: null,
+        pb_ratio: null,
+        roe: null,
+        roa: null,
+        debt_to_equity: null,
+        dividend_yield: null,
+        shares_outstanding: null,
+      } satisfies Equity));
+    return [...source, ...officialOnly];
+  }, [data?.data, officialIndex.data]);
   const screenerSymbols = useMemo(
     () => baseUniverse.map((equity) => equity.symbol.toUpperCase()).slice(0, 60),
     [baseUniverse],
@@ -453,6 +482,13 @@ function ScreenerPage() {
                           <div className="truncate text-xs text-muted-foreground max-w-[180px]">
                             {e.name}
                           </div>
+                          {hasOfficialData(officialIndex.data, e.symbol) && (
+                            <div className="mt-0.5">
+                              <span className="rounded-full bg-primary/15 px-1.5 py-0.5 text-[9px] font-medium text-primary">
+                                Official IDX
+                              </span>
+                            </div>
+                          )}
                           {(() => {
                             const rec = getOwnershipBySymbol(e.symbol);
                             if (!rec) return null;
