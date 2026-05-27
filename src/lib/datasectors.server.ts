@@ -80,3 +80,57 @@ export function unwrapList<T>(payload: unknown): T[] {
   }
   return [];
 }
+
+// ── Cache layer for stale-while-revalidate ────────────────────────────────────
+
+interface CacheEntry<T> {
+  data: T;
+  timestamp: number;
+  ttl: number;
+}
+
+class ResponseCache {
+  private store = new Map<string, CacheEntry<unknown>>();
+
+  get<T>(key: string): T | null {
+    const entry = this.store.get(key) as CacheEntry<T> | undefined;
+    if (!entry) return null;
+    if (Date.now() - entry.timestamp > entry.ttl) {
+      this.store.delete(key);
+      return null;
+    }
+    return entry.data;
+  }
+
+  set<T>(key: string, data: T, ttlMs: number): void {
+    this.store.set(key, { data, timestamp: Date.now(), ttl: ttlMs });
+  }
+
+  clear(): void {
+    this.store.clear();
+  }
+}
+
+const cache = new ResponseCache();
+
+export interface CachedFetchOptions extends FetchOptions {
+  cacheTtlMs?: number;   // e.g. 120_000 = 2 min, 300_000 = 5 min
+  cacheKey?: string;     // custom cache key, defaults to URL
+}
+
+export async function dsFetchCached<T = unknown>(
+  path: string,
+  opts: CachedFetchOptions = {},
+): Promise<{ data: T | null; error: string | null; fromCache?: boolean }> {
+  const cacheKey = opts.cacheKey ?? path + JSON.stringify(opts.query ?? {});
+  const cached = cache.get<T>(cacheKey);
+  if (cached && !opts.query?.refresh) {
+    return { data: cached, error: null, fromCache: true };
+  }
+  const result = await dsFetch<T>(path, opts);
+  if (result.data && !result.error) {
+    cache.set(cacheKey, result.data, opts.cacheTtlMs ?? 120_000);
+  }
+  return result;
+}
+
