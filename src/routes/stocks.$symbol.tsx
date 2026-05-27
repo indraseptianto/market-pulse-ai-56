@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueries } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useCallback, useEffect } from "react";
 import {
   getEquityDetail,
   getCandles,
@@ -11,7 +11,9 @@ import {
   getStockEquitiesV2,
   getInvestorActivity,
   getDSNews,
+  type NewsArticle,
 } from "@/lib/datasectors.functions";
+import { getNewsSentiment } from "@/lib/ai.functions";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { GlassCard } from "@/components/common/GlassCard";
 import { PriceChart } from "@/components/stock/PriceChart";
@@ -25,9 +27,12 @@ import { DividendTab } from "@/components/stock/DividendTab";
 import { OwnershipIntelligencePanel } from "@/components/ownership/OwnershipIntelligencePanel";
 import { LivePriceBadge } from "@/components/common/LivePriceBadge";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { ArrowLeft, Building2, LineChart, Activity, TrendingUp, TrendingDown, FileText, ExternalLink, Calendar } from "lucide-react";
 import { fmtPrice, fmtPct, fmtCompact, changeClass } from "@/lib/formatters";
+import { scoreSentiment } from "@/routes/news";
+import { Star, StarOff } from "lucide-react";
 import { findMockEquity } from "@/lib/mock-data";
 import { evaluateValuation } from "@/lib/valuation";
 import { technicalSummary } from "@/lib/indicators";
@@ -121,6 +126,25 @@ function StockDetailPage() {
     staleTime: 300_000,
     retry: false,
   });
+
+  // ── Watchlist ──────────────────────────────────────────────────────────────
+  const [isWatched, setIsWatched] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined" || !sym) return;
+    try {
+      const list = JSON.parse(localStorage.getItem("stratum_watchlist") ?? "[]") as string[];
+      setIsWatched(list.includes(sym));
+    } catch { /* noop */ }
+  }, [sym]);
+  const toggleWatchlist = useCallback(() => {
+    if (typeof window === "undefined" || !sym) return;
+    try {
+      const list = JSON.parse(localStorage.getItem("stratum_watchlist") ?? "[]") as string[];
+      const next = isWatched ? list.filter(s => s !== sym) : [...list, sym];
+      localStorage.setItem("stratum_watchlist", JSON.stringify(next));
+      setIsWatched(!isWatched);
+    } catch { /* noop */ }
+  }, [sym, isWatched]);
 
   // Investor activity — filter by ticker if possible, else show all recent
   const trades = useQuery({
@@ -323,6 +347,10 @@ function StockDetailPage() {
         <Tabs defaultValue="overview" className="w-full">
           <TabsList className="mb-4">
             <TabsTrigger value="overview">Overview</TabsTrigger>
+            <TabsTrigger value="news" className="gap-1.5">
+              <TrendingUp className="h-3.5 w-3.5" />
+              News
+            </TabsTrigger>
             <TabsTrigger value="dividends" className="gap-1.5">
               <Calendar className="h-3.5 w-3.5" />
               Dividends
@@ -429,6 +457,10 @@ function StockDetailPage() {
             />
           </TabsContent>
 
+          <TabsContent value="news">
+            <StockNewsTab symbol={sym} name={equity?.name ?? sym} />
+          </TabsContent>
+
           <TabsContent value="dividends">
             {divData && <DividendTab data={divData} />}
           </TabsContent>
@@ -436,6 +468,176 @@ function StockDetailPage() {
       </div>
     </PageTransition>
   );
+}
+
+
+// ── StockNewsTab ─────────────────────────────────────────────────────────────────
+
+function StockNewsTab({ symbol }: { symbol: string; name: string }) {
+  const newsFn = useServerFn(getDSNews);
+  const sentimentFn = useServerFn(getNewsSentiment);
+  const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
+
+  const { data, isLoading } = useQuery({
+    queryKey: ["stock-news", symbol],
+    queryFn: () => newsFn({ data: { ticker: symbol, query: symbol, limit: 20 } }),
+    staleTime: 10 * 60_000,
+  });
+
+  const articles = (data?.data ?? []) as NewsArticle[];
+  const sentiments = articles.map(a => scoreSentiment(a.title + " " + a.description));
+  const bullish = sentiments.filter(s => s.sentiment === "bullish").length;
+  const bearish = sentiments.filter(s => s.sentiment === "bearish").length;
+  const neutral = sentiments.filter(s => s.sentiment === "neutral").length;
+  const total = articles.length || 1;
+  const dominant = bullish > bearish + 2
+    ? { label: "Bullish", color: "text-green-400", bg: "bg-green-500/15" }
+    : bearish > bullish + 2
+    ? { label: "Bearish", color: "text-red-400", bg: "bg-red-500/15" }
+    : { label: "Neutral", color: "text-muted-foreground", bg: "bg-muted/30" };
+
+  const toggleExpanded = (id: string) =>
+    setExpandedIds(prev => { const n = new Set(prev); n.has(id) ? n.delete(id) : n.add(id); return n; });
+
+  const expandedArticles = articles.filter(a => expandedIds.has(a.id));
+  const sentimentQueries = useQueries({
+    queries: expandedArticles.map(a => ({
+      queryKey: ["news-sentiment", a.id],
+      queryFn: () => sentimentFn({ data: { title: a.title, description: a.description, tickers: a.tickers } }),
+      staleTime: 60 * 60_000,
+    })),
+  });
+  const sentimentMap: Record<string, typeof sentiments[0]> = {};
+  articles.forEach((a, i) => { sentimentMap[a.id] = sentiments[i]; });
+
+  const sMap: Record<string, ReturnType<typeof scoreSentiment>> = {};
+  articles.forEach((a, i) => { sMap[a.id] = sentiments[i]; });
+
+  return (
+    <div className="space-y-4">
+      {/* Sentiment header */}
+      <GlassCard className="p-4">
+        <div className="flex items-center justify-between mb-3">
+          <div>
+            <h3 className="text-sm font-semibold">{symbol} News Sentiment</h3>
+            <p className="text-xs text-muted-foreground mt-0.5">{articles.length} recent articles</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-3 mb-3">
+          <div className={`rounded-lg px-3 py-1.5 text-xs font-semibold ${dominant.color} ${dominant.bg}`}>{dominant.label}</div>
+          <div className="flex-1">
+            <div className="flex h-2.5 rounded-full overflow-hidden gap-px">
+              <div className="bg-green-500" style={{ width: `${(bullish / total) * 100}%` }} />
+              <div className="bg-muted" style={{ width: `${(neutral / total) * 100}%` }} />
+              <div className="bg-red-500" style={{ width: `${(bearish / total) * 100}%` }} />
+            </div>
+          </div>
+          <div className="flex gap-2 text-[10px]">
+            <span className="text-green-400">🟢 {bullish}</span>
+            <span className="text-muted-foreground">⚪ {neutral}</span>
+            <span className="text-red-400">🔴 {bearish}</span>
+          </div>
+        </div>
+        {articles.length > 0 && (
+          <div className="flex items-center gap-2">
+            <span className="text-[9px] text-muted-foreground">7d</span>
+            <div className="flex-1 flex gap-px">
+              {articles.slice(0, 7).map((a, i) => {
+                const s = sentiments[i];
+                return (
+                  <div key={i}
+                    className={`flex-1 h-6 rounded-sm ${s.sentiment === "bullish" ? "bg-green-500" : s.sentiment === "bearish" ? "bg-red-500" : "bg-muted"}`}
+                    title={a.title.slice(0, 60)}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </GlassCard>
+
+      {/* Article list */}
+      {isLoading ? (
+        <Skeleton className="h-48 rounded-xl" />
+      ) : articles.length === 0 ? (
+        <GlassCard className="py-12 text-center">
+          <p className="text-muted-foreground">No recent news for {symbol}</p>
+        </GlassCard>
+      ) : (
+        <div className="space-y-2">
+          {articles.map((article) => {
+            const basicSent = sMap[article.id] ?? { sentiment: "neutral" as const };
+            const sentiment = basicSent.sentiment;
+            const expanded = expandedIds.has(article.id);
+            const aiResult = expanded ? sentimentQueries[expandedArticles.findIndex(a => a.id === article.id)]?.data : null;
+            const conf = aiResult?.confidence ?? Math.min(90, 40 + Math.abs(basicSent.score) * 5);
+
+            const sc = (["bullish", "bearish", "neutral"] as const).includes(sentiment as "bullish" | "bearish" | "neutral")
+              ? ({
+              bullish: { color: "text-green-400", bg: "bg-green-500/15", icon: "🟢" },
+              bearish: { color: "text-red-400", bg: "bg-red-500/15", icon: "🔴" },
+              neutral: { color: "text-muted-foreground", bg: "bg-muted/30", icon: "⚪" },
+            } as const)[sentiment as "bullish" | "bearish" | "neutral"]
+              : { color: "text-muted-foreground", bg: "bg-muted/30", icon: "⚪" };
+
+            return (
+              <GlassCard key={article.id} className="p-3">
+                <div className="cursor-pointer" onClick={() => toggleExpanded(article.id)}>
+                  <div className="flex items-start gap-2">
+                    {article.imageUrl && (
+                      <img src={article.imageUrl} alt="" className="w-12 h-12 rounded object-cover shrink-0" />
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium leading-snug line-clamp-2">{article.title}</p>
+                      <div className="flex items-center gap-2 mt-1.5 flex-wrap">
+                        <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded ${sc.color} ${sc.bg}`}>
+                          {sc.icon} {sentiment}{expanded && ` · ${Math.round(conf)}%`}
+                        </span>
+                        <span className="text-[10px] text-muted-foreground">{formatTimeAgo(article.publishedDate)}</span>
+                        {article.source && <Badge variant="outline" className="text-[9px] px-1 py-0">{article.source}</Badge>}
+                      </div>
+                      {expanded && (
+                        <div className="mt-2 pt-2 border-t border-border/30">
+                          {aiResult?.summary && <p className="text-xs text-muted-foreground italic">💡 {aiResult.summary}</p>}
+                          {aiResult?.keyFactors && aiResult.keyFactors.length > 0 && (
+                            <div className="flex flex-wrap gap-1 mt-1">
+                              {aiResult.keyFactors.slice(0, 3).map((f: string, i: number) => (
+                                <Badge key={i} variant="outline" className="text-[9px] px-1 py-0 bg-muted/50">{f}</Badge>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                {article.url && (
+                  <a href={article.url} target="_blank" rel="noopener noreferrer"
+                    className="block mt-2 pt-1.5 border-t border-border/20 text-[10px] text-muted-foreground hover:text-primary transition-colors">
+                    Baca lengkap →
+                  </a>
+                )}
+              </GlassCard>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function formatTimeAgo(dateStr: string): string {
+  if (!dateStr) return "";
+  try {
+    const d = new Date(dateStr);
+    const diff = Date.now() - d.getTime();
+    const hours = Math.floor(diff / 3600000);
+    if (hours < 1) return "Just now";
+    if (hours < 24) return `${hours}h ago`;
+    const days = Math.floor(hours / 24);
+    if (days < 7) return `${days}d ago`;
+    return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  } catch { return dateStr; }
 }
 
 
