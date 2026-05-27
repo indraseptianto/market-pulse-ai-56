@@ -1428,3 +1428,46 @@ function mapDSNewsArticle(r: Record<string, unknown>): NewsArticle {
     imageUrl: r.imageUrl ? String(r.imageUrl) : r.image ? String(r.image) : undefined,
   };
 }
+
+// ── Technical Indicators ──────────────────────────────────────────────────────
+
+export interface IndicatorInfo {
+  name: string;
+  displayName: string;
+  category: string;
+  description: string;
+  params?: Record<string, { default: number; min?: number; max?: number }>;
+}
+
+export const getIndicatorList = createServerFn({ method: "GET" })
+  .handler(async () => {
+    const { data: payload, error } = await dsFetch<{
+      success: boolean;
+      data: IndicatorInfo[];
+      count: number;
+    }>("/indicator/list");
+
+    if (error || !payload) {
+      return {
+        data: [
+          { name: "SMA", displayName: "Simple Moving Average", category: "Moving Average", description: "Average price over N periods" },
+          { name: "EMA", displayName: "Exponential Moving Average", category: "Moving Average", description: "Weighted average with exponential decay" },
+          { name: "RSI", displayName: "RSI", category: "Momentum", description: "Momentum oscillator 0-100" },
+          { name: "MACD", displayName: "MACD", category: "Momentum", description: "Moving Average Convergence Divergence" },
+          { name: "BB", displayName: "Bollinger Bands", category: "Volatility", description: "Price volatility bands" },
+          { name: "ATR", displayName: "ATR", category: "Volatility", description: "Market volatility measure" },
+          { name: "STOCH", displayName: "Stochastic", category: "Momentum", description: "Momentum relative to range" },
+          { name: "VWAP", displayName: "VWAP", category: "Volume", description: "Volume weighted average price" },
+          { name: "ADX", displayName: "ADX", category: "Trend", description: "Trend strength 0-100" },
+          { name: "CCI", displayName: "CCI", category: "Momentum", description: "Commodity channel oscillator" },
+          { name: "WILLR", displayName: "Williams %R", category: "Momentum", description: "Overbought/oversold oscillator" },
+          { name: "ROC", displayName: "ROC", category: "Momentum", description: "Percentage price change" },
+        ] as IndicatorInfo[],
+        source: "fallback" as const,
+        error: null,
+      };
+    }
+
+    const raw = Array.isArray(payload) ? payload : Array.isArray((payload as Record<string, unknown>).data) ? ((payload as Record<string, unknown>).data as IndicatorInfo[]) : [];
+    return { data: raw, source: "api" as const, error: null };
+  });
