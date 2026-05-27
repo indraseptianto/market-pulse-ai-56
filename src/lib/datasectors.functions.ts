@@ -1319,3 +1319,112 @@ export const getBatchPrices = createServerFn({ method: "GET" })
 
     return { data: prices, source: "api" as const, error: null };
   });
+
+// ── Finance News ─────────────────────────────────────────────────────────────
+
+export interface NewsArticle {
+  id: string;
+  title: string;
+  description: string;
+  content?: string;
+  url: string;
+  source: string;
+  publishedDate: string;
+  tickers: string[];
+  tags: string[];
+  sentiment?: "bullish" | "bearish" | "neutral";
+  sentimentScore?: number;
+  imageUrl?: string;
+}
+
+export const getDSNewsSearch = createServerFn({ method: "GET" })
+  .inputValidator(
+    z.object({
+      query: z.string().min(1),
+      limit: z.number().min(1).max(100).optional(),
+      dateFrom: z.string().optional(),
+      dateTo: z.string().optional(),
+    }),
+  )
+  .handler(async ({ data }) => {
+    const { data: payload, error } = await dsFetch<{ success: boolean; data: unknown }>(
+      "/news/search",
+      { query: { query: data.query, limit: data.limit ?? 50, dateFrom: data.dateFrom, dateTo: data.dateTo } },
+    );
+    if (error || !payload) return { data: [] as NewsArticle[], source: "error" as const, error };
+    const raw = Array.isArray(payload) ? payload : Array.isArray((payload as Record<string, unknown>).data) ? ((payload as Record<string, unknown>).data) : [];
+    return {
+      data: (raw as Record<string, unknown>[]).map(mapDSNewsArticle),
+      source: "api" as const,
+      error: null,
+    };
+  });
+
+export const getDSNewsLatest = createServerFn({ method: "GET" })
+  .inputValidator(
+    z.object({
+      market: z.string().optional(),
+      symbol: z.string().optional(),
+      limit: z.number().min(1).max(100).optional(),
+    }).optional(),
+  )
+  .handler(async ({ data }) => {
+    const { data: payload, error } = await dsFetch<{ success: boolean; data: unknown }>(
+      "/news/latest",
+      { query: { market: data?.market, symbol: data?.symbol, limit: data?.limit ?? 50 } },
+    );
+    if (error || !payload) return { data: [] as NewsArticle[], source: "error" as const, error };
+    const raw = Array.isArray(payload) ? payload : Array.isArray((payload as Record<string, unknown>).data) ? ((payload as Record<string, unknown>).data) : [];
+    return {
+      data: (raw as Record<string, unknown>[]).map(mapDSNewsArticle),
+      source: "api" as const,
+      error: null,
+    };
+  });
+
+export const getDSNewsCategories = createServerFn({ method: "GET" })
+  .handler(async () => {
+    const { data: payload, error } = await dsFetch<{ success: boolean; data: unknown }>("/news/categories");
+    if (error || !payload) return { data: [] as { name: string; count: number }[], source: "error" as const, error };
+    const raw = Array.isArray(payload) ? payload : Array.isArray((payload as Record<string, unknown>).data) ? ((payload as Record<string, unknown>).data) : [];
+    return {
+      data: (raw as Record<string, unknown>[]).map((r) => ({ name: String(r.name ?? r.category ?? ""), count: Number(r.count ?? r.articleCount ?? 0) })),
+      source: "api" as const,
+      error: null,
+    };
+  });
+
+export const getDSNewsTrending = createServerFn({ method: "GET" })
+  .inputValidator(z.object({ limit: z.number().min(1).max(50).optional() }).optional())
+  .handler(async ({ data }) => {
+    const { data: payload, error } = await dsFetch<{ success: boolean; data: unknown }>(
+      "/news/trending",
+      { query: { limit: data?.limit ?? 20 } },
+    );
+    if (error || !payload) return { data: [] as NewsArticle[], source: "error" as const, error };
+    const raw = Array.isArray(payload) ? payload : Array.isArray((payload as Record<string, unknown>).data) ? ((payload as Record<string, unknown>).data) : [];
+    return {
+      data: (raw as Record<string, unknown>[]).map(mapDSNewsArticle),
+      source: "api" as const,
+      error: null,
+    };
+  });
+
+function mapDSNewsArticle(r: Record<string, unknown>): NewsArticle {
+  const tickers = Array.isArray(r.tickers) ? r.tickers.map(String) : Array.isArray(r.symbols) ? r.symbols.map(String) : r.ticker ? [String(r.ticker)] : [];
+  const tags = Array.isArray(r.tags) ? r.tags.map(String) : Array.isArray(r.categories) ? r.categories.map(String) : [];
+  return {
+    id: String(r.id ?? r._id ?? Math.random()),
+    title: String(r.title ?? r.headline ?? ""),
+    description: String(r.description ?? r.summary ?? r.content ?? r.body ?? ""),
+    content: r.content ? String(r.content) : undefined,
+    url: String(r.url ?? r.link ?? "#"),
+    source: String(r.source ?? r.publisher ?? r.provider ?? ""),
+    publishedDate: String(r.publishedDate ?? r.published_date ?? r.date ?? r.publishedAt ?? ""),
+    tickers,
+    tags,
+    sentiment: r.sentiment ? String(r.sentiment) as "bullish" | "bearish" | "neutral" : undefined,
+    sentimentScore: r.sentimentScore ? Number(r.sentimentScore) : undefined,
+    imageUrl: r.imageUrl ? String(r.imageUrl) : r.image ? String(r.image) : undefined,
+  };
+}
