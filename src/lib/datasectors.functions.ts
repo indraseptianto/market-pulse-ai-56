@@ -535,23 +535,7 @@ export interface CalendarEvent {
   description: string | null;
 }
 
-function mapCalendarEvent(raw: Record<string, unknown>): CalendarEvent {
-  return {
-    id: String(raw.id ?? raw._id ?? Math.random()),
-    title: String(raw.title ?? raw.name ?? raw.event ?? ""),
-    country: String(raw.country ?? ""),
-    countryCode: String(raw.countryCode ?? raw.country_code ?? raw.cc ?? ""),
-    date: String(raw.date ?? raw.datetime ?? raw.time ?? ""),
-    time: String(raw.time ?? raw.eventTime ?? ""),
-    volatility: (raw.volatility ?? raw.impact ?? "NONE") as CalendarEvent["volatility"],
-    actual: raw.actual != null ? String(raw.actual) : null,
-    forecast: raw.forecast != null ? String(raw.forecast) : null,
-    previous: raw.previous != null ? String(raw.previous) : null,
-    unit: raw.unit != null ? String(raw.unit) : null,
-    currency: raw.currency != null ? String(raw.currency) : null,
-    description: raw.description != null ? String(raw.description) : null,
-  };
-}
+
 
 export const getEconomicCalendar = createServerFn({ method: "GET" })
   .inputValidator(
@@ -1472,23 +1456,7 @@ export const getIndicatorList = createServerFn({ method: "GET" })
     return { data: raw, source: "api" as const, error: null };
   });
 
-// ── Economic Calendar — Extended Endpoints ────────────────────────────────────
 
-export interface CalendarEvent {
-  id: string;
-  title: string;
-  country: string;
-  countryCode: string;
-  date: string;
-  time?: string;
-  volatility: "ALL" | "NONE" | "LOW" | "MEDIUM" | "HIGH";
-  actual?: string | null;
-  forecast?: string | null;
-  previous?: string | null;
-  unit?: string | null;
-  currency?: string | null;
-  description?: string | null;
-}
 
 export const getCalendarIndicators = createServerFn({ method: "GET" })
   .inputValidator(
@@ -1615,6 +1583,8 @@ export const getCalendarHistorical = createServerFn({ method: "GET" })
     return { data: (raw as Record<string, unknown>[]).map(mapCalendarEvent), source: "api" as const, error: null };
   });
 
+
+
 function mapCalendarEvent(raw: Record<string, unknown>): CalendarEvent {
   return {
     id: String(raw.id ?? raw._id ?? Math.random()),
@@ -1623,7 +1593,7 @@ function mapCalendarEvent(raw: Record<string, unknown>): CalendarEvent {
     countryCode: String(raw.countryCode ?? raw.country_code ?? raw.cc ?? ""),
     date: String(raw.date ?? raw.datetime ?? raw.time ?? ""),
     time: String(raw.time ?? raw.eventTime ?? ""),
-    volatility: (raw.volatility ?? raw.impact ?? "NONE") as CalendarEvent["volatility"],
+    volatility: (raw.volatility ?? raw.impact ?? "NONE") as "NONE" | "LOW" | "MEDIUM" | "HIGH",
     actual: raw.actual != null ? String(raw.actual) : null,
     forecast: raw.forecast != null ? String(raw.forecast) : null,
     previous: raw.previous != null ? String(raw.previous) : null,
