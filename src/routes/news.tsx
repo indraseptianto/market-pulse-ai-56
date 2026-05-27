@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import { getDSNewsSearch, getDSNewsLatest, getDSNewsCategories, getDSNewsTrending, type NewsArticle } from "@/lib/datasectors.functions";
+import { getNewsSentiment } from "@/lib/ai.functions";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { GlassCard } from "@/components/common/GlassCard";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -10,7 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Newspaper, Search, TrendingUp, Grid3X3, Clock } from "lucide-react";
+import { Newspaper, Search, TrendingUp, Grid3X3, Clock, Brain } from "lucide-react";
 import { DataSourceBadge } from "@/components/shared/DataSourceBadge";
 
 export const Route = createFileRoute("/news")({
@@ -87,6 +88,152 @@ function NewsCard({ article }: { article: NewsArticle }) {
   );
 }
 
+function NewsCardV2({ article }: { article: NewsArticle }) {
+  const sentimentFn = useServerFn(getNewsSentiment);
+  const [expanded, setExpanded] = useState(false);
+
+  const { data: aiSentiment } = useQuery({
+    queryKey: ["news-sentiment", article.id],
+    queryFn: () => sentimentFn({
+      data: {
+        title: article.title,
+        description: article.description,
+        tickers: article.tickers,
+        articleUrl: article.url,
+      },
+    }),
+    staleTime: 60 * 60_000, // 1 hour cache
+    enabled: expanded, // Only load when expanded
+  });
+
+  const basicSentiment = scoreSentiment(article.title + " " + article.description);
+  const sentiment = aiSentiment?.sentiment ?? basicSentiment.sentiment;
+  const confidence = aiSentiment?.confidence ?? Math.min(90, 40 + Math.abs(basicSentiment.score) * 5);
+  const isAI = !!aiSentiment;
+
+  const sentimentConfig = {
+    bullish: { color: "text-green-400", bg: "bg-green-500/15", border: "border-green-500/30", icon: "🟢", label: "Bullish" },
+    bearish: { color: "text-red-400", bg: "bg-red-500/15", border: "border-red-500/30", icon: "🔴", label: "Bearish" },
+    neutral: { color: "text-muted-foreground", bg: "bg-muted/30", border: "border-border", icon: "⚪", label: "Neutral" },
+  }[sentiment as "bullish" | "bearish" | "neutral"] ?? { color: "text-muted-foreground", bg: "bg-muted/30", border: "border-border", icon: "⚪", label: "Neutral" };
+
+  return (
+    <GlassCard className="group hover:bg-accent/30 transition-colors">
+      <div className="cursor-pointer" onClick={() => setExpanded(!expanded)}>
+        <div className="flex items-start gap-3">
+          {article.imageUrl && (
+            <img src={article.imageUrl} alt="" className="w-16 h-16 rounded-lg object-cover shrink-0" />
+          )}
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2">
+              <h3 className="font-medium text-sm leading-snug line-clamp-2 group-hover:text-primary transition-colors flex-1">
+                {article.title}
+              </h3>
+              {expanded && isAI && (
+                <Badge variant="outline" className="text-[9px] px-1.5 shrink-0 bg-primary/10 border-primary/30 text-primary">
+                  AI
+                </Badge>
+              )}
+            </div>
+            <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
+              {article.description}
+            </p>
+
+            {/* Sentiment + Confidence bar */}
+            <div className="flex flex-wrap items-center gap-2 mt-2">
+              {article.tickers.slice(0, 4).map((t) => (
+                <Badge key={t} variant="outline" className="text-[10px] px-1.5 py-0 font-mono">
+                  {t}
+                </Badge>
+              ))}
+
+              {/* Sentiment badge with confidence */}
+              <div className={`flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium ${sentimentConfig.color} ${sentimentConfig.bg} ${sentimentConfig.border}`}>
+                <span>{sentimentConfig.icon}</span>
+                <span>{sentimentConfig.label}</span>
+                {expanded && (
+                  <div className="flex items-center gap-1 ml-1">
+                    <div className="w-8 h-1.5 rounded-full bg-muted overflow-hidden">
+                      <div
+                        className={`h-full rounded-full ${sentiment === "bullish" ? "bg-green-400" : sentiment === "bearish" ? "bg-red-400" : "bg-muted-foreground"}`}
+                        style={{ width: `${confidence}%` }}
+                      />
+                    </div>
+                    <span className="text-[9px] opacity-75">{Math.round(confidence)}%</span>
+                  </div>
+                )}
+              </div>
+
+              <span className="text-[10px] text-muted-foreground ml-auto">{formatTimeAgo(article.publishedDate)}</span>
+            </div>
+
+            {/* Expanded: AI summary */}
+            {expanded && (
+              <div className="mt-2 pt-2 border-t border-border/30">
+                {aiSentiment?.summary ? (
+                  <p className="text-xs leading-relaxed text-muted-foreground italic">
+                    💡 {aiSentiment.summary}
+                  </p>
+                ) : (
+                  <div className="space-y-1.5">
+                    <Skeleton className="h-3 w-full" />
+                    <Skeleton className="h-3 w-3/4" />
+                  </div>
+                )}
+                {aiSentiment?.keyFactors && aiSentiment.keyFactors.length > 0 && (
+                  <div className="flex flex-wrap gap-1 mt-1.5">
+                    {aiSentiment.keyFactors.slice(0, 3).map((f: string, i: number) => (
+                      <Badge key={i} variant="outline" className="text-[9px] px-1 py-0 bg-muted/50">
+                        {f}
+                      </Badge>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+      {article.url && (
+        <a href={article.url} target="_blank" rel="noopener noreferrer" className="block mt-2 pt-2 border-t border-border/30 text-[10px] text-muted-foreground hover:text-primary transition-colors">
+          Baca lengkap →
+        </a>
+      )}
+    </GlassCard>
+  );
+}
+
+function MarketSentimentGauge({ articles }: { articles: NewsArticle[] }) {
+  const sentiments = articles.map(a => scoreSentiment(a.title + " " + a.description).sentiment);
+  const bullish = sentiments.filter(s => s === "bullish").length;
+  const bearish = sentiments.filter(s => s === "bearish").length;
+  const neutral = sentiments.filter(s => s === "neutral").length;
+  const total = sentiments.length || 1;
+
+  const bPct = Math.round((bullish / total) * 100);
+  const brPct = Math.round((bearish / total) * 100);
+  const nPct = 100 - bPct - brPct;
+
+  return (
+    <GlassCard className="p-4">
+      <div className="flex items-center justify-between mb-2">
+        <h3 className="text-sm font-semibold">Market Sentiment</h3>
+        <span className="text-[10px] text-muted-foreground">{articles.length} articles</span>
+      </div>
+      <div className="flex items-center gap-1 h-3 rounded-full overflow-hidden">
+        <div className="bg-green-500 h-full transition-all" style={{ width: `${bPct}%` }} title={`Bullish: ${bPct}%`} />
+        <div className="bg-muted h-full transition-all" style={{ width: `${nPct}%` }} title={`Neutral: ${nPct}%`} />
+        <div className="bg-red-500 h-full transition-all" style={{ width: `${brPct}%` }} title={`Bearish: ${brPct}%`} />
+      </div>
+      <div className="flex justify-between mt-1.5 text-[10px]">
+        <span className="text-green-400">🟢 {bPct}% Bullish</span>
+        <span className="text-muted-foreground">⚪ {nPct}% Neutral</span>
+        <span className="text-red-400">🔴 {brPct}% Bearish</span>
+      </div>
+    </GlassCard>
+  );
+}
+
 export function NewsPage() {
   const searchFn = useServerFn(getDSNewsSearch);
   const latestFn = useServerFn(getDSNewsLatest);
@@ -133,6 +280,17 @@ export function NewsPage() {
   const searchArticles = (searchData?.data ?? []) as NewsArticle[];
   const categories = (categoriesData?.data ?? []) as { name: string; count: number }[];
 
+  // Intelligence (batch AI analysis)
+  const intelligenceFn = useServerFn(({ data }: { data: { articles: Array<{ title: string; description: string; tickers: string[] }> } }) =>
+    import("@/lib/ai.functions").then(m => m.getNewsIntelligenceNote({ data }))
+  );
+  const { data: intelligenceData, isLoading: intelligenceLoading } = useQuery({
+    queryKey: ["news-intelligence", latestArticles.map(a => a.id)],
+    queryFn: () => intelligenceFn({ data: { articles: latestArticles.slice(0, 10).map(a => ({ title: a.title, description: a.description, tickers: a.tickers })) } }),
+    staleTime: 30 * 60_000,
+    enabled: activeTab === "intelligence" && latestArticles.length > 0,
+  });
+
   return (
     <PageTransition>
       <div className="space-y-4">
@@ -143,6 +301,9 @@ export function NewsPage() {
             <DataSourceBadge source="ds" />
           </p>
         </div>
+
+        {/* Market Sentiment Gauge */}
+        <MarketSentimentGauge articles={latestArticles} />
 
         <Tabs value={activeTab} onValueChange={setActiveTab}>
           <div className="flex flex-wrap items-center gap-3">
@@ -158,6 +319,10 @@ export function NewsPage() {
               <TabsTrigger value="trending" className="gap-1.5">
                 <TrendingUp className="h-3.5 w-3.5" />
                 Trending
+              </TabsTrigger>
+              <TabsTrigger value="intelligence" className="gap-1.5">
+                <Brain className="h-3.5 w-3.5" />
+                Intelligence
               </TabsTrigger>
               <TabsTrigger value="categories" className="gap-1.5">
                 <Grid3X3 className="h-3.5 w-3.5" />
@@ -184,7 +349,7 @@ export function NewsPage() {
               <Skeleton className="h-48 rounded-xl" />
             ) : latestArticles.length > 0 ? (
               <div className="space-y-3">
-                {latestArticles.map((a) => <NewsCard key={a.id} article={a} />)}
+                {latestArticles.map((a) => <NewsCardV2 key={a.id} article={a} />)}
               </div>
             ) : (
               <GlassCard className="py-12 text-center">
@@ -207,7 +372,7 @@ export function NewsPage() {
             ) : searchArticles.length > 0 ? (
               <div className="space-y-3">
                 <p className="text-xs text-muted-foreground">{searchArticles.length} results for "{searchQuery}"</p>
-                {searchArticles.map((a) => <NewsCard key={a.id} article={a} />)}
+                {searchArticles.map((a) => <NewsCardV2 key={a.id} article={a} />)}
               </div>
             ) : (
               <GlassCard className="py-12 text-center">
@@ -223,12 +388,68 @@ export function NewsPage() {
               <Skeleton className="h-48 rounded-xl" />
             ) : trendingArticles.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {trendingArticles.map((a) => <NewsCard key={a.id} article={a} />)}
+                {trendingArticles.map((a) => <NewsCardV2 key={a.id} article={a} />)}
               </div>
             ) : (
               <GlassCard className="py-12 text-center">
                 <TrendingUp className="h-8 w-8 text-muted-foreground mx-auto mb-3" />
                 <p className="text-muted-foreground">No trending news available</p>
+              </GlassCard>
+            )}
+          </TabsContent>
+
+          {/* INTELLIGENCE TAB */}
+          <TabsContent value="intelligence" className="mt-4">
+            {intelligenceLoading ? (
+              <div className="space-y-3">
+                <Skeleton className="h-48 rounded-xl" />
+                <Skeleton className="h-32 rounded-xl" />
+              </div>
+            ) : intelligenceData ? (
+              <div className="space-y-4">
+                {intelligenceData.note && (
+                  <GlassCard className="p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Brain className="h-4 w-4 text-primary" />
+                      <h3 className="text-sm font-semibold">AI Market Intelligence</h3>
+                      {intelligenceData.sentiment && (
+                        <Badge variant="outline" className={`text-[10px] px-1.5 py-0 ${intelligenceData.sentiment === "bullish" ? "text-green-400 border-green-500/30 bg-green-500/10" : intelligenceData.sentiment === "bearish" ? "text-red-400 border-red-500/30 bg-red-500/10" : "text-muted-foreground border-border"}`}>
+                          {intelligenceData.sentiment}
+                        </Badge>
+                      )}
+                    </div>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{intelligenceData.note}</p>
+                    {intelligenceData.theme && (
+                      <Badge variant="outline" className="text-[10px] px-1.5 py-0 mt-2 bg-primary/10 border-primary/30 text-primary">
+                        {intelligenceData.theme}
+                      </Badge>
+                    )}
+                  </GlassCard>
+                )}
+                {intelligenceData.tickersMentioned && intelligenceData.tickersMentioned.length > 0 && (
+                  <div className="flex flex-wrap gap-1">
+                    <span className="text-[10px] text-muted-foreground mr-1 self-center">Tickers:</span>
+                    {intelligenceData.tickersMentioned.slice(0, 8).map((t: string, i: number) => (
+                      <Badge key={i} variant="outline" className="text-[10px] px-1.5 py-0 font-mono">
+                        {t}
+                      </Badge>
+                    ))}
+                  </div>
+                )}
+                {latestArticles.length > 0 && (
+                  <div className="space-y-3">
+                    <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Latest Articles</h4>
+                    {latestArticles.slice(0, 8).map((a) => (
+                      <NewsCardV2 key={a.id} article={a} />
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <GlassCard className="py-12 text-center">
+                <Brain className="h-8 w-8 text-muted-foreground mx-auto mb-3" />
+                <p className="text-muted-foreground">No intelligence data available</p>
+                <p className="text-xs text-muted-foreground mt-1">Switch to the Latest tab to load articles first</p>
               </GlassCard>
             )}
           </TabsContent>
