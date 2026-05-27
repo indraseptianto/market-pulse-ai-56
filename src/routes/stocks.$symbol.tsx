@@ -21,10 +21,12 @@ import { QuarterlyFinancials } from "@/components/stock/QuarterlyFinancials";
 import { PeerInsightsCard } from "@/components/stock/PeerInsightsCard";
 import { StockIntelligenceTerminal } from "@/components/stock/StockIntelligenceTerminal";
 import { OwnershipCard } from "@/components/stock/OwnershipCard";
+import { DividendTab } from "@/components/stock/DividendTab";
 import { OwnershipIntelligencePanel } from "@/components/ownership/OwnershipIntelligencePanel";
 import { LivePriceBadge } from "@/components/common/LivePriceBadge";
 import { Skeleton } from "@/components/ui/skeleton";
-import { ArrowLeft, Building2, LineChart, Activity, TrendingUp, TrendingDown, FileText, ExternalLink } from "lucide-react";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { ArrowLeft, Building2, LineChart, Activity, TrendingUp, TrendingDown, FileText, ExternalLink, Calendar } from "lucide-react";
 import { fmtPrice, fmtPct, fmtCompact, changeClass } from "@/lib/formatters";
 import { findMockEquity } from "@/lib/mock-data";
 import { evaluateValuation } from "@/lib/valuation";
@@ -214,6 +216,20 @@ function StockDetailPage() {
     : null;
   const fair = valuationInput ? evaluateValuation(valuationInput) : null;
 
+  const divData = equity
+    ? {
+        symbol: equity.symbol,
+        name: equity.name,
+        sector: equity.sector ?? "",
+        price: equity.price,
+        dividend_yield: equity.dividend_yield ?? null,
+        dividend_per_share: (ratiosData.dividend_per_share as number | null | undefined) ?? null,
+        payout_ratio: (ratiosData.payout_ratio as number | null | undefined) ?? null,
+        frequency: (ratiosData.dividend_frequency as string | null | undefined) ?? "Annual",
+        last_dividend_date: (ratiosData.last_dividend_date as string | null | undefined) ?? null,
+      }
+    : null;
+
   const earningsPayload = ((earnings.data as { data?: unknown } | undefined)?.data ?? null) as Record<string, unknown> | null;
   const equitiesV2Payload = ((equitiesV2.data as { data?: unknown } | undefined)?.data ?? null) as Record<string, unknown> | null;
 
@@ -304,103 +320,119 @@ function StockDetailPage() {
           </GlassCard>
         )}
 
-        {equity && (
-          <StockIntelligenceTerminal
-            equity={equity}
-            technical={tech}
-            fair={fair}
-            newsPayload={(news.data as { data?: unknown } | undefined)?.data ?? null}
-            earningsPayload={earningsPayload}
-            peerPayload={(insights.data as { data?: unknown } | undefined)?.data ?? null}
-            trades={symbolTrades}
-          />
-        )}
+        <Tabs defaultValue="overview" className="w-full">
+          <TabsList className="mb-4">
+            <TabsTrigger value="overview">Overview</TabsTrigger>
+            <TabsTrigger value="dividends" className="gap-1.5">
+              <Calendar className="h-3.5 w-3.5" />
+              Dividends
+            </TabsTrigger>
+          </TabsList>
 
-        <OfficialDataCard
-          data={officialData.data ?? null}
-          isLoading={officialData.isLoading}
-          symbol={sym}
-        />
-
-        {/* ── Price chart + Fair Value ── */}
-        <div className="grid gap-3 lg:grid-cols-3">
-          <GlassCard className="lg:col-span-2">
-            <div className="mb-2 flex items-center justify-between">
-              <div className="text-sm font-medium">Price History</div>
-              <div className="text-[11px] uppercase tracking-wider text-muted-foreground">90 days</div>
-            </div>
-            {candles.isLoading ? (
-              <Skeleton className="h-[320px] rounded-xl" />
-            ) : (
-              <PriceChart candles={chartCandles} fairPrice={fair?.fairPrice ?? null} />
+          <TabsContent value="overview">
+            {equity && (
+              <StockIntelligenceTerminal
+                equity={equity}
+                technical={tech}
+                fair={fair}
+                newsPayload={(news.data as { data?: unknown } | undefined)?.data ?? null}
+                earningsPayload={earningsPayload}
+                peerPayload={(insights.data as { data?: unknown } | undefined)?.data ?? null}
+                trades={symbolTrades}
+              />
             )}
-          </GlassCard>
-          <div className="space-y-3">
-            {valuationInput && <FairValueCard {...valuationInput} />}
-          </div>
-        </div>
 
-        {/* ── Technical Snapshot ── */}
-        {tech && (
-          <GlassCard>
-            <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-              <div className="flex items-center gap-2 text-sm font-medium">
-                <Activity className="h-4 w-4 text-primary" /> Technical Snapshot
+            <OfficialDataCard
+              data={officialData.data ?? null}
+              isLoading={officialData.isLoading}
+              symbol={sym}
+            />
+
+            {/* ── Price chart + Fair Value ── */}
+            <div className="grid gap-3 lg:grid-cols-3">
+              <GlassCard className="lg:col-span-2">
+                <div className="mb-2 flex items-center justify-between">
+                  <div className="text-sm font-medium">Price History</div>
+                  <div className="text-[11px] uppercase tracking-wider text-muted-foreground">90 days</div>
+                </div>
+                {candles.isLoading ? (
+                  <Skeleton className="h-[320px] rounded-xl" />
+                ) : (
+                  <PriceChart candles={chartCandles} fairPrice={fair?.fairPrice ?? null} />
+                )}
+              </GlassCard>
+              <div className="space-y-3">
+                {valuationInput && <FairValueCard {...valuationInput} />}
               </div>
-              <Link to="/chart" className="inline-flex items-center gap-1 text-xs text-primary hover:underline">
-                <LineChart className="h-3 w-3" /> Open advanced chart
-              </Link>
             </div>
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              <TechStat label="Trend" value={tech.trend} />
-              <TechStat
-                label="RSI(14)"
-                value={tech.rsi != null ? `${tech.rsi.toFixed(1)} · ${tech.rsiState}` : "—"}
-                tone={tech.rsi != null && tech.rsi > 70 ? "loss" : tech.rsi != null && tech.rsi < 30 ? "gain" : "neutral"}
-              />
-              <TechStat
-                label="MACD"
-                value={`${tech.macdCross}${tech.histTurning ? ` · ${tech.histTurning}` : ""}`}
-                tone={tech.macdCross === "Bullish" ? "gain" : "loss"}
-              />
-              <TechStat
-                label="AI Stance"
-                value={`${tech.stance} · ${tech.score}/100`}
-                tone={tech.score >= 55 ? "gain" : tech.score >= 45 ? "neutral" : "loss"}
-              />
-              <TechStat label="SMA 20 / 50 / 200" value={`${num(tech.sma20)} / ${num(tech.sma50)} / ${num(tech.sma200)}`} />
-              <TechStat label="Bollinger" value={`${num(tech.bbLower)} – ${num(tech.bbUpper)}`} />
-              <TechStat label="ATR(14)" value={num(tech.atr)} />
-              <TechStat label="Support / Resistance" value={`${fmtPrice(tech.support)} – ${fmtPrice(tech.resistance)}`} />
-            </div>
-          </GlassCard>
-        )}
 
-        <PeerInsightsCard
-          payload={(insights.data as { data?: unknown } | undefined)?.data ?? null}
-          isLoading={insights.isLoading}
-        />
+            {/* ── Technical Snapshot ── */}
+            {tech && (
+              <GlassCard>
+                <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex items-center gap-2 text-sm font-medium">
+                    <Activity className="h-4 w-4 text-primary" /> Technical Snapshot
+                  </div>
+                  <Link to="/chart" className="inline-flex items-center gap-1 text-xs text-primary hover:underline">
+                    <LineChart className="h-3 w-3" /> Open advanced chart
+                  </Link>
+                </div>
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                  <TechStat label="Trend" value={tech.trend} />
+                  <TechStat
+                    label="RSI(14)"
+                    value={tech.rsi != null ? `${tech.rsi.toFixed(1)} · ${tech.rsiState}` : "—"}
+                    tone={tech.rsi != null && tech.rsi > 70 ? "loss" : tech.rsi != null && tech.rsi < 30 ? "gain" : "neutral"}
+                  />
+                  <TechStat
+                    label="MACD"
+                    value={`${tech.macdCross}${tech.histTurning ? ` · ${tech.histTurning}` : ""}`}
+                    tone={tech.macdCross === "Bullish" ? "gain" : "loss"}
+                  />
+                  <TechStat
+                    label="AI Stance"
+                    value={`${tech.stance} · ${tech.score}/100`}
+                    tone={tech.score >= 55 ? "gain" : tech.score >= 45 ? "neutral" : "loss"}
+                  />
+                  <TechStat label="SMA 20 / 50 / 200" value={`${num(tech.sma20)} / ${num(tech.sma50)} / ${num(tech.sma200)}`} />
+                  <TechStat label="Bollinger" value={`${num(tech.bbLower)} – ${num(tech.bbUpper)}`} />
+                  <TechStat label="ATR(14)" value={num(tech.atr)} />
+                  <TechStat label="Support / Resistance" value={`${fmtPrice(tech.support)} – ${fmtPrice(tech.resistance)}`} />
+                </div>
+              </GlassCard>
+            )}
 
-        {/* ── Key Ratios ── */}
-        {ratios.data?.data && <KeyRatiosGrid ratios={ratios.data.data as never} />}
+            <PeerInsightsCard
+              payload={(insights.data as { data?: unknown } | undefined)?.data ?? null}
+              isLoading={insights.isLoading}
+            />
 
-        {/* ── Quarterly Financials ── */}
-        <QuarterlyFinancials
-          earningsPayload={earningsPayload as Record<string, unknown> | null}
-          isLoading={earnings.isLoading}
-        />
+            {/* ── Key Ratios ── */}
+            {ratios.data?.data && <KeyRatiosGrid ratios={ratios.data.data as never} />}
 
-        {/* ── Ownership Intelligence (IDNFinancials dataset) ── */}
-        <OwnershipIntelligencePanel symbol={sym} />
+            {/* ── Quarterly Financials ── */}
+            <QuarterlyFinancials
+              earningsPayload={earningsPayload as Record<string, unknown> | null}
+              isLoading={earnings.isLoading}
+            />
 
-        {/* ── Ownership & Filings (DataSectors API) ── */}
-        <OwnershipCard
-          equitiesPayload={equitiesV2Payload as Record<string, unknown> | null}
-          trades={symbolTrades}
-          tradesLoading={trades.isLoading}
-          equitiesLoading={equitiesV2.isLoading}
-          symbol={sym}
-        />
+            {/* ── Ownership Intelligence (IDNFinancials dataset) ── */}
+            <OwnershipIntelligencePanel symbol={sym} />
+
+            {/* ── Ownership & Filings (DataSectors API) ── */}
+            <OwnershipCard
+              equitiesPayload={equitiesV2Payload as Record<string, unknown> | null}
+              trades={symbolTrades}
+              tradesLoading={trades.isLoading}
+              equitiesLoading={equitiesV2.isLoading}
+              symbol={sym}
+            />
+          </TabsContent>
+
+          <TabsContent value="dividends">
+            {divData && <DividendTab data={divData} />}
+          </TabsContent>
+        </Tabs>
       </div>
     </PageTransition>
   );
