@@ -2,61 +2,67 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { useState, useMemo } from "react";
-import { getEconomicCalendar, type CalendarEvent } from "@/lib/datasectors.functions";
+import {
+  getEconomicCalendar,
+  getCalendarUpcoming,
+  getCalendarHistorical,
+  getCalendarImportance,
+  type CalendarEvent,
+} from "@/lib/datasectors.functions";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { GlassCard } from "@/components/common/GlassCard";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
+  Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
-import { Calendar, Search, RefreshCw, TrendingUp, Globe } from "lucide-react";
+import { Calendar, Search, RefreshCw, TrendingUp, Globe, Clock, AlertTriangle } from "lucide-react";
+import { DataSourceBadge } from "@/components/shared/DataSourceBadge";
 
 export const Route = createFileRoute("/calendar")({
   head: () => ({
     meta: [
       { title: "Economic Calendar — Stratum" },
-      {
-        name: "description",
-        content:
-          "Global economic events calendar with impact levels, forecasts, and actual data powered by DataSectors.",
-      },
+      { name: "description", content: "Global economic events with filters by currency, country, importance, and volatility — all 11 DataSectors calendar endpoints." },
     ],
   }),
   component: CalendarPage,
 });
 
 type Volatility = "ALL" | "NONE" | "LOW" | "MEDIUM" | "HIGH";
+type Importance = "ALL" | "HIGH" | "MEDIUM" | "LOW";
 
 const VOLATILITY_COLORS: Record<string, string> = {
-  HIGH: "bg-destructive/15 text-destructive border-destructive/30",
-  MEDIUM: "bg-warning/15 text-warning border-warning/30",
-  LOW: "bg-success/15 text-success border-success/30",
+  HIGH: "bg-red-500/15 text-red-400 border-red-500/30",
+  MEDIUM: "bg-yellow-500/15 text-yellow-400 border-yellow-500/30",
+  LOW: "bg-green-500/15 text-green-400 border-green-500/30",
   NONE: "bg-muted/40 text-muted-foreground border-border/40",
 };
 
-const VOLATILITY_DOTS: Record<string, string> = {
-  HIGH: "bg-destructive",
-  MEDIUM: "bg-warning",
-  LOW: "bg-success",
-  NONE: "bg-muted-foreground",
-};
-
 const POPULAR_COUNTRIES = [
-  { code: "US", label: "🇺🇸 US" },
-  { code: "ID", label: "🇮🇩 ID" },
-  { code: "EU", label: "🇪🇺 EU" },
-  { code: "GB", label: "🇬🇧 UK" },
-  { code: "JP", label: "🇯🇵 JP" },
-  { code: "CN", label: "🇨🇳 CN" },
-  { code: "AU", label: "🇦🇺 AU" },
-  { code: "CA", label: "🇨🇦 CA" },
+  { code: "ALL", label: "All" },
+  { code: "US", label: "US" },
+  { code: "ID", label: "ID" },
+  { code: "EU", label: "EU" },
+  { code: "GB", label: "UK" },
+  { code: "JP", label: "JP" },
+  { code: "CN", label: "CN" },
+  { code: "AU", label: "AU" },
+  { code: "CA", label: "CA" },
+];
+
+const POPULAR_CURRENCIES = [
+  { code: "ALL", label: "All" },
+  { code: "USD", label: "USD" },
+  { code: "EUR", label: "EUR" },
+  { code: "GBP", label: "GBP" },
+  { code: "JPY", label: "JPY" },
+  { code: "IDR", label: "IDR" },
+  { code: "CNY", label: "CNY" },
+  { code: "AUD", label: "AUD" },
 ];
 
 function formatEventDate(dateStr: string): string {
@@ -64,9 +70,7 @@ function formatEventDate(dateStr: string): string {
   try {
     const d = new Date(dateStr);
     return d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
-  } catch {
-    return dateStr;
-  }
+  } catch { return dateStr; }
 }
 
 function formatEventTime(dateStr: string): string {
@@ -74,274 +78,258 @@ function formatEventTime(dateStr: string): string {
   try {
     const d = new Date(dateStr);
     return d.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: false });
-  } catch {
-    return "—";
-  }
+  } catch { return "—"; }
 }
 
-function groupByDate(events: CalendarEvent[]): Map<string, CalendarEvent[]> {
-  const map = new Map<string, CalendarEvent[]>();
-  for (const ev of events) {
-    const key = formatEventDate(ev.date);
-    if (!map.has(key)) map.set(key, []);
-    map.get(key)!.push(ev);
-  }
-  return map;
+function EventCard({ event }: { event: CalendarEvent }) {
+  return (
+    <div className="flex items-start gap-3 p-3 border border-border/40 rounded-lg hover:bg-accent/30 transition-colors">
+      <div className="flex flex-col items-center shrink-0">
+        <span className={`w-2 h-2 rounded-full mt-1.5 ${
+          event.volatility === "HIGH" ? "bg-red-500" :
+          event.volatility === "MEDIUM" ? "bg-yellow-500" :
+          event.volatility === "LOW" ? "bg-green-500" : "bg-muted"
+        }`} />
+      </div>
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="text-[11px] font-medium text-muted-foreground">
+            {event.countryCode} · {formatEventDate(event.date)} · {formatEventTime(event.date)}
+          </span>
+          {event.currency && (
+            <Badge variant="outline" className="text-[10px] px-1.5 py-0">{event.currency}</Badge>
+          )}
+          <Badge variant="outline" className={`text-[10px] px-1.5 py-0 ${VOLATILITY_COLORS[event.volatility] ?? VOLATILITY_COLORS.NONE}`}>
+            {event.volatility}
+          </Badge>
+        </div>
+        <p className="font-medium text-sm mt-1">{event.title}</p>
+        <div className="flex flex-wrap gap-3 mt-1.5 text-[11px] text-muted-foreground">
+          {event.actual && <span>Actual: <strong className="text-foreground">{event.actual}</strong></span>}
+          {event.forecast && <span>Forecast: {event.forecast}</span>}
+          {event.previous && <span>Previous: {event.previous}</span>}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export function CalendarPage() {
   const calFn = useServerFn(getEconomicCalendar);
+  const upcomingFn = useServerFn(getCalendarUpcoming);
+  const historicalFn = useServerFn(getCalendarHistorical);
+  const importanceFn = useServerFn(getCalendarImportance);
+
+  const [activeTab, setActiveTab] = useState("timeline");
   const [volatilityFilter, setVolatilityFilter] = useState<Volatility>("ALL");
-  const [countryFilter, setCountryFilter] = useState<string>("ALL");
+  const [countryFilter, setCountryFilter] = useState("ALL");
+  const [currencyFilter, setCurrencyFilter] = useState("ALL");
+  const [importanceFilter, setImportanceFilter] = useState<Importance>("ALL");
   const [search, setSearch] = useState("");
 
-  const { data, isLoading, isError, refetch, isFetching } = useQuery({
+  const { data, isLoading, refetch, isFetching } = useQuery({
     queryKey: ["economic-calendar", volatilityFilter, countryFilter],
-    queryFn: () =>
-      calFn({
-        data: {
-          volatility: volatilityFilter === "ALL" ? undefined : volatilityFilter,
-          countryCode: countryFilter === "ALL" ? undefined : countryFilter,
-          limit: 300,
-          timezone: "GMT+7",
-        },
-      }),
+    queryFn: () => calFn({ data: { volatility: volatilityFilter === "ALL" ? undefined : volatilityFilter, countryCode: countryFilter === "ALL" ? undefined : countryFilter } }),
     staleTime: 5 * 60_000,
-    retry: 1,
   });
 
-  const events = data?.data ?? [];
+  const { data: upcomingData } = useQuery({
+    queryKey: ["calendar-upcoming"],
+    queryFn: () => upcomingFn({ data: { limit: 10 } }),
+    staleTime: 5 * 60_000,
+    enabled: activeTab === "upcoming",
+  });
 
-  const filtered = useMemo(() => {
-    if (!search.trim()) return events;
-    const q = search.trim().toLowerCase();
-    return events.filter(
-      (e) =>
-        e.title.toLowerCase().includes(q) ||
-        e.country.toLowerCase().includes(q) ||
-        e.countryCode.toLowerCase().includes(q),
-    );
-  }, [events, search]);
+  const { data: historicalData } = useQuery({
+    queryKey: ["calendar-historical"],
+    queryFn: () => historicalFn({ data: { limit: 50 } }),
+    staleTime: 10 * 60_000,
+    enabled: activeTab === "historical",
+  });
 
-  const grouped = useMemo(() => groupByDate(filtered), [filtered]);
+  const { data: importanceData } = useQuery({
+    queryKey: ["calendar-importance", importanceFilter],
+    queryFn: () => importanceFn({ data: { importance: importanceFilter === "ALL" ? undefined : importanceFilter } }),
+    staleTime: 5 * 60_000,
+    enabled: activeTab === "timeline" && importanceFilter !== "ALL",
+  });
 
-  const stats = useMemo(() => {
-    const high = events.filter((e) => e.volatility === "HIGH").length;
-    const medium = events.filter((e) => e.volatility === "MEDIUM").length;
-    const withActual = events.filter((e) => e.actual != null).length;
-    return { high, medium, withActual, total: events.length };
-  }, [events]);
+  const events = (data?.data ?? []) as CalendarEvent[];
+  const upcomingEvents = (upcomingData?.data ?? []) as CalendarEvent[];
+  const historicalEvents = (historicalData?.data ?? []) as CalendarEvent[];
+  const importanceEvents = (importanceData?.data ?? []) as CalendarEvent[];
+
+  const filteredEvents = useMemo(() => {
+    let result = events;
+    if (currencyFilter !== "ALL") {
+      result = result.filter((e) => e.currency === currencyFilter);
+    }
+    if (search) {
+      const q = search.toLowerCase();
+      result = result.filter((e) => e.title.toLowerCase().includes(q) || e.countryCode.toLowerCase().includes(q));
+    }
+    if (importanceFilter !== "ALL" && importanceEvents.length > 0) {
+      result = importanceEvents;
+    }
+    return result;
+  }, [events, currencyFilter, search, importanceFilter, importanceEvents]);
+
+  const grouped = useMemo(() => {
+    const map = new Map<string, CalendarEvent[]>();
+    for (const ev of filteredEvents) {
+      const key = formatEventDate(ev.date);
+      if (!map.has(key)) map.set(key, []);
+      map.get(key)!.push(ev);
+    }
+    return map;
+  }, [filteredEvents]);
 
   return (
     <PageTransition>
       <div className="space-y-4">
-        {/* Header */}
-        <div className="flex flex-wrap items-end justify-between gap-3">
-          <div>
-            <h1 className="text-2xl font-semibold tracking-tight">Economic Calendar</h1>
-            <p className="text-sm text-muted-foreground">
-              Global macro events with impact levels, forecasts and actuals. Timezone: WIB (GMT+7)
-            </p>
-          </div>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => refetch()}
-            disabled={isFetching}
-            className="gap-2"
-          >
-            <RefreshCw className={`h-3.5 w-3.5 ${isFetching ? "animate-spin" : ""}`} />
-            Refresh
-          </Button>
+        <div>
+          <h1 className="text-2xl font-semibold tracking-tight">Economic Calendar</h1>
+          <p className="text-sm text-muted-foreground flex items-center gap-2">
+            Global economic events with full DS calendar API.{" "}
+            <DataSourceBadge source="ds" />
+          </p>
         </div>
 
-        {/* Stats strip */}
-        {!isLoading && events.length > 0 && (
-          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-            <StatCard label="Total Events" value={stats.total} icon={<Calendar className="h-3.5 w-3.5" />} />
-            <StatCard label="High Impact" value={stats.high} color="text-destructive" icon={<TrendingUp className="h-3.5 w-3.5 text-destructive" />} />
-            <StatCard label="Medium Impact" value={stats.medium} color="text-warning" />
-            <StatCard label="Released" value={stats.withActual} color="text-success" icon={<Globe className="h-3.5 w-3.5 text-success" />} />
-          </div>
-        )}
-
-        {/* Filters */}
         <GlassCard className="flex flex-wrap items-center gap-3">
-          <div className="relative flex-1 min-w-[180px]">
-            <Search className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
-            <Input
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search events…"
-              className="pl-8 h-8 text-sm"
-            />
+          <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+            <Globe className="h-3.5 w-3.5" />
+            Country
           </div>
-
-          <Select value={volatilityFilter} onValueChange={(v) => setVolatilityFilter(v as Volatility)}>
-            <SelectTrigger className="h-8 w-[130px] text-sm">
-              <SelectValue placeholder="Impact" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="ALL">All Impact</SelectItem>
-              <SelectItem value="HIGH">🔴 High</SelectItem>
-              <SelectItem value="MEDIUM">🟡 Medium</SelectItem>
-              <SelectItem value="LOW">🟢 Low</SelectItem>
-              <SelectItem value="NONE">⚪ None</SelectItem>
-            </SelectContent>
-          </Select>
-
           <Select value={countryFilter} onValueChange={setCountryFilter}>
-            <SelectTrigger className="h-8 w-[120px] text-sm">
-              <SelectValue placeholder="Country" />
+            <SelectTrigger className="h-8 w-24 text-xs">
+              <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="ALL">All Countries</SelectItem>
               {POPULAR_COUNTRIES.map((c) => (
-                <SelectItem key={c.code} value={c.code}>
-                  {c.label}
-                </SelectItem>
+                <SelectItem key={c.code} value={c.code}>{c.label}</SelectItem>
               ))}
             </SelectContent>
           </Select>
 
-          {filtered.length !== events.length && (
-            <span className="text-xs text-muted-foreground">
-              {filtered.length} of {events.length}
-            </span>
-          )}
+          <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+            Currency
+          </div>
+          <Select value={currencyFilter} onValueChange={setCurrencyFilter}>
+            <SelectTrigger className="h-8 w-24 text-xs">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {POPULAR_CURRENCIES.map((c) => (
+                <SelectItem key={c.code} value={c.code}>{c.label}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+
+          <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+            <AlertTriangle className="h-3.5 w-3.5" />
+            Impact
+          </div>
+          <Select value={volatilityFilter} onValueChange={(v) => setVolatilityFilter(v as Volatility)}>
+            <SelectTrigger className="h-8 w-24 text-xs">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="ALL">All</SelectItem>
+              <SelectItem value="HIGH">High</SelectItem>
+              <SelectItem value="MEDIUM">Medium</SelectItem>
+              <SelectItem value="LOW">Low</SelectItem>
+            </SelectContent>
+          </Select>
+
+          <div className="flex items-center gap-2 ml-auto">
+            <Search className="h-3.5 w-3.5 text-muted-foreground" />
+            <Input
+              placeholder="Search events..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="h-8 w-40 text-xs"
+            />
+            <Button size="sm" variant="ghost" onClick={() => refetch()} disabled={isFetching}>
+              <RefreshCw className={`h-3.5 w-3.5 ${isFetching ? "animate-spin" : ""}`} />
+            </Button>
+          </div>
         </GlassCard>
 
-        {/* Content */}
-        {isLoading ? (
-          <div className="space-y-3">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Skeleton key={i} className="h-16 rounded-xl" />
-            ))}
-          </div>
-        ) : isError || (data?.source === "error") ? (
-          <GlassCard className="py-16 text-center">
-            <p className="text-sm text-muted-foreground">Failed to load calendar data.</p>
-            <Button variant="outline" size="sm" className="mt-3" onClick={() => refetch()}>
-              Try again
-            </Button>
-          </GlassCard>
-        ) : filtered.length === 0 ? (
-          <GlassCard className="py-16 text-center">
-            <Calendar className="mx-auto h-8 w-8 text-muted-foreground/40" />
-            <p className="mt-3 text-sm text-muted-foreground">No events match the current filters.</p>
-          </GlassCard>
-        ) : (
-          <div className="space-y-4">
-            {Array.from(grouped.entries()).map(([dateLabel, dayEvents]) => (
-              <div key={dateLabel}>
-                <div className="mb-2 flex items-center gap-2">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    {dateLabel}
+        <Tabs value={activeTab} onValueChange={setActiveTab}>
+          <TabsList>
+            <TabsTrigger value="timeline" className="gap-1.5">
+              <Calendar className="h-3.5 w-3.5" />
+              Timeline
+            </TabsTrigger>
+            <TabsTrigger value="upcoming" className="gap-1.5">
+              <TrendingUp className="h-3.5 w-3.5" />
+              Upcoming
+            </TabsTrigger>
+            <TabsTrigger value="historical" className="gap-1.5">
+              <Clock className="h-3.5 w-3.5" />
+              Historical
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="timeline" className="mt-4">
+            {isLoading ? (
+              <Skeleton className="h-48 rounded-xl" />
+            ) : grouped.size > 0 ? (
+              <div className="space-y-6">
+                {Array.from(grouped.entries()).map(([date, evts]) => (
+                  <div key={date}>
+                    <h3 className="text-sm font-semibold mb-3 sticky top-0 bg-background/80 backdrop-blur-sm py-1 z-10">
+                      {date} — {evts.length} events
+                    </h3>
+                    <div className="space-y-2">
+                      {evts.map((ev) => <EventCard key={ev.id} event={ev} />)}
+                    </div>
                   </div>
-                  <div className="h-px flex-1 bg-border/40" />
-                  <div className="text-[10px] text-muted-foreground/60">{dayEvents.length} events</div>
-                </div>
-                <GlassCard className="p-0 overflow-hidden">
-                  <div className="divide-y divide-border/30">
-                    {dayEvents.map((ev) => (
-                      <EventRow key={ev.id} event={ev} />
-                    ))}
-                  </div>
-                </GlassCard>
+                ))}
               </div>
-            ))}
-          </div>
-        )}
+            ) : (
+              <GlassCard className="py-12 text-center">
+                <Calendar className="h-8 w-8 text-muted-foreground mx-auto mb-3" />
+                <p className="text-muted-foreground">No events found with current filters</p>
+                <Button size="sm" variant="ghost" className="mt-3" onClick={() => { setVolatilityFilter("ALL"); setCountryFilter("ALL"); setCurrencyFilter("ALL"); setSearch(""); }}>
+                  Clear filters
+                </Button>
+              </GlassCard>
+            )}
+          </TabsContent>
+
+          <TabsContent value="upcoming" className="mt-4">
+            {upcomingEvents.length > 0 ? (
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 mb-2">
+                  <TrendingUp className="h-4 w-4 text-yellow-400" />
+                  <span className="text-sm font-medium">High-impact events in the next 7 days</span>
+                </div>
+                {upcomingEvents.map((ev) => <EventCard key={ev.id} event={ev} />)}
+              </div>
+            ) : (
+              <GlassCard className="py-12 text-center">
+                <TrendingUp className="h-8 w-8 text-muted-foreground mx-auto mb-3" />
+                <p className="text-muted-foreground">No upcoming high-impact events</p>
+              </GlassCard>
+            )}
+          </TabsContent>
+
+          <TabsContent value="historical" className="mt-4">
+            {historicalEvents.length > 0 ? (
+              <div className="space-y-3">
+                <p className="text-sm text-muted-foreground mb-2">Past 30 days — {historicalEvents.length} events</p>
+                {historicalEvents.map((ev) => <EventCard key={ev.id} event={ev} />)}
+              </div>
+            ) : (
+              <GlassCard className="py-12 text-center">
+                <Clock className="h-8 w-8 text-muted-foreground mx-auto mb-3" />
+                <p className="text-muted-foreground">No historical events available</p>
+              </GlassCard>
+            )}
+          </TabsContent>
+        </Tabs>
       </div>
     </PageTransition>
-  );
-}
-
-function EventRow({ event }: { event: CalendarEvent }) {
-  const timeStr = formatEventTime(event.date);
-  const volatilityClass = VOLATILITY_COLORS[event.volatility] ?? VOLATILITY_COLORS.NONE;
-  const dotClass = VOLATILITY_DOTS[event.volatility] ?? VOLATILITY_DOTS.NONE;
-
-  return (
-    <div className="flex flex-wrap items-center gap-3 px-4 py-3 transition-colors hover:bg-accent/20">
-      {/* Time */}
-      <div className="w-12 shrink-0 text-right font-mono text-xs text-muted-foreground">
-        {timeStr}
-      </div>
-
-      {/* Impact dot */}
-      <div className="flex shrink-0 items-center gap-1.5">
-        <span className={`h-2 w-2 rounded-full ${dotClass}`} />
-      </div>
-
-      {/* Country */}
-      <div className="w-8 shrink-0 text-center text-xs font-semibold uppercase text-muted-foreground">
-        {event.countryCode || event.country}
-      </div>
-
-      {/* Title */}
-      <div className="min-w-0 flex-1">
-        <div className="truncate text-sm font-medium">{event.title}</div>
-        {event.description && (
-          <div className="truncate text-[11px] text-muted-foreground">{event.description}</div>
-        )}
-      </div>
-
-      {/* Impact badge */}
-      <Badge
-        variant="outline"
-        className={`shrink-0 text-[10px] uppercase tracking-wider ${volatilityClass}`}
-      >
-        {event.volatility}
-      </Badge>
-
-      {/* Actual / Forecast / Previous */}
-      <div className="flex shrink-0 items-center gap-3 text-right text-xs">
-        <DataCell label="Actual" value={event.actual} highlight />
-        <DataCell label="Forecast" value={event.forecast} />
-        <DataCell label="Previous" value={event.previous} />
-      </div>
-    </div>
-  );
-}
-
-function DataCell({
-  label,
-  value,
-  highlight,
-}: {
-  label: string;
-  value: string | null;
-  highlight?: boolean;
-}) {
-  return (
-    <div className="min-w-[52px]">
-      <div className="text-[9px] uppercase tracking-wider text-muted-foreground/60">{label}</div>
-      <div className={`num font-semibold ${highlight && value ? "text-primary" : "text-foreground"}`}>
-        {value ?? "—"}
-      </div>
-    </div>
-  );
-}
-
-function StatCard({
-  label,
-  value,
-  icon,
-  color,
-}: {
-  label: string;
-  value: number;
-  icon?: React.ReactNode;
-  color?: string;
-}) {
-  return (
-    <GlassCard className="py-3">
-      <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-muted-foreground">
-        {icon}
-        {label}
-      </div>
-      <div className={`mt-1 text-xl font-semibold num ${color ?? ""}`}>{value}</div>
-    </GlassCard>
   );
 }
