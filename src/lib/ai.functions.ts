@@ -179,3 +179,115 @@ export const getDividendNote = createServerFn({ method: "POST" })
     const text = await callAIWithCache(data.symbol, "dividend", "You are a dividend-focused equity analyst. Be concise, evidence-based, focus on sustainability and yield safety.", prompt);
     return { text };
   });
+
+// ── News AI Functions ─────────────────────────────────────────────────────────
+
+export const getNewsSentiment = createServerFn({ method: "POST" })
+  .inputValidator(
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      tickers: z.array(z.string()).max(10).optional(),
+      articleUrl: z.string().optional(),
+    }),
+  )
+  .handler(async ({ data }) => {
+    const prompt = `Analyze the sentiment of this financial news article.\n\nTitle: ${data.title}\nDescription: ${data.description}\nTickers mentioned: ${data.tickers?.join(", ") ?? "none"}\n\nRespond ONLY with valid JSON in this exact format:
+{
+  "sentiment": "bullish" | "bearish" | "neutral",
+  "confidence": number (0-100, percentage),
+  "key_factors": ["factor 1", "factor 2"],
+  "summary": "1-sentence Indonesian summary"
+}`;
+
+    const text = await callAI(
+      "You are a financial sentiment analyst. Analyze news articles and respond with valid JSON only. Output in Indonesian for the summary field.",
+      prompt,
+    );
+
+    // Parse JSON from response
+    try {
+      // Try to extract JSON from response (may have markdown code blocks)
+      const jsonMatch = text.match(/\{[\s\S]*\}/);
+      if (jsonMatch) {
+        const parsed = JSON.parse(jsonMatch[0]);
+        return {
+          sentiment: parsed.sentiment ?? "neutral",
+          confidence: Math.min(100, Math.max(0, Number(parsed.confidence) || 50)),
+          keyFactors: Array.isArray(parsed.key_factors) ? parsed.key_factors : [],
+          summary: parsed.summary ?? text.slice(0, 200),
+        };
+      }
+    } catch { /* fall through */ }
+
+    // Fallback: keyword-based simple detection
+    const combined = `${data.title} ${data.description}`.toLowerCase();
+    const bullish = ["surge", "beat", "upgrade", "rally", "soar", "record", "profit", "gain", "naik", "untung", "laba"].filter(w => combined.includes(w)).length;
+    const bearish = ["fall", "drop", "miss", "downgrade", "plunge", "loss", "turun", "rugi", "lemah"].filter(w => combined.includes(w)).length;
+    const s = bullish - bearish;
+    return {
+      sentiment: s > 0 ? "bullish" : s < 0 ? "bearish" : "neutral",
+      confidence: Math.min(90, 40 + Math.abs(s) * 15),
+      keyFactors: s > 0 ? ["Kata kunci bullish terdeteksi"] : s < 0 ? ["Kata kunci bearish terdeteksi"] : [],
+      summary: text.slice(0, 200) || "Analisis sentimen tidak tersedia.",
+    };
+  });
+
+export const getNewsIntelligenceNote = createServerFn({ method: "POST" })
+  .inputValidator(
+    z.object({
+      articles: z.array(z.object({
+        title: z.string(),
+        description: z.string(),
+        tickers: z.array(z.string()),
+      })).max(20),
+      sector: z.string().optional(),
+    }),
+  )
+  .handler(async ({ data }) => {
+    if (!data.articles.length) return { note: "Tidak ada berita untuk dianalisis.", theme: "N/A", sentiment: "neutral" as const };
+
+    const articlesMd = data.articles.map((a, i) =>
+      `${i + 1}. [${a.tickers.join(", ")}] ${a.title}\n   ${a.description.slice(0, 200)}`
+    ).join("\n\n");
+
+    const prompt = `You are a senior equity research analyst. Analyze these ${data.articles.length} news articles and provide a concise market intelligence note.
+
+${articlesMd}
+
+Respond ONLY with valid JSON:
+{
+  "theme": "2-3 word theme name in English (e.g. 'Banking Earnings', 'Energy Regulation')",
+  "overall_sentiment": "bullish | bearish | neutral",
+  "key_insight": "1-sentence Indonesian market insight for traders",
+  "article_count": number,
+  "tickers_mentioned": string[]
+}`;
+
+    const text = await callAI(
+      "You are an Indonesian equity research analyst. Respond with valid JSON only. Be concise and data-driven.",
+      prompt,
+    );
+
+    try {
+      const jsonMatch = text.match(/\{[\s\S]*\}/);
+      if (jsonMatch) {
+        const parsed = JSON.parse(jsonMatch[0]);
+        return {
+          note: parsed.key_insight ?? text.slice(0, 300),
+          theme: parsed.theme ?? "Market News",
+          sentiment: parsed.overall_sentiment ?? "neutral",
+          articleCount: parsed.article_count ?? data.articles.length,
+          tickersMentioned: parsed.tickers_mentioned ?? [],
+        };
+      }
+    } catch { /* fall through */ }
+
+    return {
+      note: text.slice(0, 300) || "Intelligence note unavailable.",
+      theme: data.sector ?? "Market News",
+      sentiment: "neutral" as const,
+      articleCount: data.articles.length,
+      tickersMentioned: [],
+    };
+  });
