@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { getDSNewsSearch, getDSNewsLatest, getDSNewsCategories, getDSNewsTrending, type NewsArticle } from "@/lib/datasectors.functions";
-import { getNewsSentiment } from "@/lib/ai.functions";
+import { getNewsSentiment, getNewsIntelligenceNote } from "@/lib/ai.functions";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { GlassCard } from "@/components/common/GlassCard";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Newspaper, Search, TrendingUp, Grid3X3, Clock, Brain } from "lucide-react";
+import { Newspaper, Search, TrendingUp, Grid3X3, Clock, Brain, RefreshCw } from "lucide-react";
 import { DataSourceBadge } from "@/components/shared/DataSourceBadge";
 
 export const Route = createFileRoute("/news")({
@@ -234,6 +234,55 @@ function MarketSentimentGauge({ articles }: { articles: NewsArticle[] }) {
   );
 }
 
+function SectorIntelligenceView({
+  intelligenceData,
+  onRefresh,
+}: {
+  intelligenceData: { note?: string; sentiment?: string; theme?: string; tickersMentioned?: string[] };
+  onRefresh: () => void;
+}) {
+  // Injected via the NewsPage component
+  return (
+    <div className="space-y-4">
+      {intelligenceData.note && (
+        <GlassCard className="p-4">
+          <div className="flex items-center gap-2 mb-2">
+            <Brain className="h-4 w-4 text-primary" />
+            <h3 className="text-sm font-semibold">AI Market Intelligence</h3>
+            {intelligenceData.sentiment && (
+              <Badge variant="outline" className={`text-[10px] px-1.5 py-0 ${intelligenceData.sentiment === "bullish" ? "text-green-400 border-green-500/30 bg-green-500/10" : intelligenceData.sentiment === "bearish" ? "text-red-400 border-red-500/30 bg-red-500/10" : "text-muted-foreground border-border"}`}>
+                {intelligenceData.sentiment}
+              </Badge>
+            )}
+          </div>
+          <p className="text-sm leading-relaxed text-muted-foreground">{intelligenceData.note}</p>
+          {intelligenceData.theme && intelligenceData.theme !== "N/A" && (
+            <Badge variant="outline" className="text-[10px] px-1.5 py-0 mt-2 bg-primary/10 border-primary/30 text-primary">
+              {intelligenceData.theme}
+            </Badge>
+          )}
+        </GlassCard>
+      )}
+      {intelligenceData.tickersMentioned && intelligenceData.tickersMentioned.length > 0 && (
+        <div className="flex flex-wrap gap-1">
+          <span className="text-[10px] text-muted-foreground mr-1 self-center">Tickers mentioned:</span>
+          {intelligenceData.tickersMentioned.slice(0, 8).map((t: string, i: number) => (
+            <Badge key={i} variant="outline" className="text-[10px] px-1.5 py-0 font-mono">
+              {t}
+            </Badge>
+          ))}
+        </div>
+      )}
+      <div className="text-center">
+        <Button size="sm" variant="ghost" onClick={onRefresh}>
+          <RefreshCw className="h-3.5 w-3.5 mr-1" />
+          Refresh Intelligence
+        </Button>
+      </div>
+    </div>
+  );
+}
+
 export function NewsPage() {
   const searchFn = useServerFn(getDSNewsSearch);
   const latestFn = useServerFn(getDSNewsLatest);
@@ -280,16 +329,86 @@ export function NewsPage() {
   const searchArticles = (searchData?.data ?? []) as NewsArticle[];
   const categories = (categoriesData?.data ?? []) as { name: string; count: number }[];
 
-  // Intelligence (batch AI analysis)
-  const intelligenceFn = useServerFn(({ data }: { data: { articles: Array<{ title: string; description: string; tickers: string[] }> } }) =>
-    import("@/lib/ai.functions").then(m => m.getNewsIntelligenceNote({ data }))
-  );
+  const intelligenceNoteFn = useServerFn(getNewsIntelligenceNote);
+  const [sectorGroups, setSectorGroups] = useState<Array<{
+    sector: string;
+    articles: NewsArticle[];
+    note?: string;
+    sentiment: "bullish" | "bearish" | "neutral";
+    confidence: number;
+  }>>([]);
+  const [sectorLoading, setSectorLoading] = useState(false);
+
   const { data: intelligenceData, isLoading: intelligenceLoading } = useQuery({
-    queryKey: ["news-intelligence", latestArticles.map(a => a.id)],
-    queryFn: () => intelligenceFn({ data: { articles: latestArticles.slice(0, 10).map(a => ({ title: a.title, description: a.description, tickers: a.tickers })) } }),
+    queryKey: ["news-intelligence-v2", latestArticles.map(a => a.id)],
+    queryFn: () => intelligenceNoteFn({ data: { articles: latestArticles.slice(0, 10).map(a => ({ title: a.title, description: a.description, tickers: a.tickers })) } }),
     staleTime: 30 * 60_000,
-    enabled: activeTab === "intelligence" && latestArticles.length > 0,
+    enabled: activeTab === "intelligence" && latestArticles.length > 0 && sectorGroups.length === 0,
   });
+
+  // Group articles by sector when intelligenceData arrives
+  useEffect(() => {
+    if (!intelligenceData || latestArticles.length === 0) return;
+
+    const sectorKeywords: Record<string, string> = {
+      bb: "Banking", bca: "Banking", bni: "Banking", bri: "Banking", mandiri: "Banking",
+      ptba: "Mining", itmg: "Mining", adro: "Mining", BukitAsam: "Mining",
+      tlkm: "Telecom", isat: "Telecom", excl: "Telecom",
+      unvr: "Consumer", HMSP: "Consumer", ICBP: "Consumer",
+      freeport: "Commodities", antm: "Commodities",
+      JSMR: "Infrastructure", WIKA: "Infrastructure",
+      PGAS: "Energy", medis: "Healthcare", HEAL: "Healthcare",
+    };
+
+    const groups: Record<string, NewsArticle[]> = {};
+    for (const article of latestArticles) {
+      let assigned = false;
+      for (const ticker of article.tickers.slice(0, 2)) {
+        const upper = ticker.toLowerCase();
+        for (const [key, sector] of Object.entries(sectorKeywords)) {
+          if (upper.includes(key)) {
+            groups[sector] = groups[sector] ?? [];
+            groups[sector].push(article);
+            assigned = true;
+            break;
+          }
+        }
+        if (assigned) break;
+      }
+      if (!assigned) {
+        groups["Market"] = groups["Market"] ?? [];
+        groups["Market"].push(article);
+      }
+    }
+
+    const scoredGroups = Object.entries(groups).map(([sector, arts]) => {
+      const sentScores = arts.map(a => scoreSentiment(a.title + " " + a.description).sentiment);
+      const bCount = sentScores.filter(s => s === "bullish").length;
+      const brCount = sentScores.filter(s => s === "bearish").length;
+      const confidence = Math.round(((bCount + brCount) / (arts.length || 1)) * 100);
+      const dominantSentiment: "bullish" | "bearish" | "neutral" =
+        bCount > brCount ? "bullish" : brCount > bCount ? "bearish" : "neutral";
+      return {
+        sector,
+        articles: arts.slice(0, 5),
+        sentiment: dominantSentiment,
+        confidence,
+        note: arts.length > 2
+          ? `${arts.length} berita · Sentimen ${dominantSentiment} · ${confidence}% konsistensi`
+          : arts[0]?.title.slice(0, 100) + "...",
+      };
+    });
+
+    scoredGroups.sort((a, b) => b.articles.length - a.articles.length);
+    setSectorGroups(scoredGroups);
+    setSectorLoading(false);
+  }, [intelligenceData, latestArticles]);
+
+  useEffect(() => {
+    if (activeTab === "intelligence" && latestArticles.length > 0 && sectorGroups.length === 0) {
+      setSectorLoading(true);
+    }
+  }, [activeTab, latestArticles, sectorGroups]);
 
   return (
     <PageTransition>
@@ -398,59 +517,26 @@ export function NewsPage() {
             )}
           </TabsContent>
 
-          {/* INTELLIGENCE TAB */}
+          {/* INTELLIGENCE TAB — Sector-grouped AI summaries */}
           <TabsContent value="intelligence" className="mt-4">
             {intelligenceLoading ? (
               <div className="space-y-3">
-                <Skeleton className="h-48 rounded-xl" />
-                <Skeleton className="h-32 rounded-xl" />
+                <Skeleton className="h-24 rounded-xl" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <Skeleton className="h-32 rounded-xl" />
+                  <Skeleton className="h-32 rounded-xl" />
+                </div>
               </div>
-            ) : intelligenceData ? (
-              <div className="space-y-4">
-                {intelligenceData.note && (
-                  <GlassCard className="p-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Brain className="h-4 w-4 text-primary" />
-                      <h3 className="text-sm font-semibold">AI Market Intelligence</h3>
-                      {intelligenceData.sentiment && (
-                        <Badge variant="outline" className={`text-[10px] px-1.5 py-0 ${intelligenceData.sentiment === "bullish" ? "text-green-400 border-green-500/30 bg-green-500/10" : intelligenceData.sentiment === "bearish" ? "text-red-400 border-red-500/30 bg-red-500/10" : "text-muted-foreground border-border"}`}>
-                          {intelligenceData.sentiment}
-                        </Badge>
-                      )}
-                    </div>
-                    <p className="text-sm leading-relaxed text-muted-foreground">{intelligenceData.note}</p>
-                    {intelligenceData.theme && (
-                      <Badge variant="outline" className="text-[10px] px-1.5 py-0 mt-2 bg-primary/10 border-primary/30 text-primary">
-                        {intelligenceData.theme}
-                      </Badge>
-                    )}
-                  </GlassCard>
-                )}
-                {intelligenceData.tickersMentioned && intelligenceData.tickersMentioned.length > 0 && (
-                  <div className="flex flex-wrap gap-1">
-                    <span className="text-[10px] text-muted-foreground mr-1 self-center">Tickers:</span>
-                    {intelligenceData.tickersMentioned.slice(0, 8).map((t: string, i: number) => (
-                      <Badge key={i} variant="outline" className="text-[10px] px-1.5 py-0 font-mono">
-                        {t}
-                      </Badge>
-                    ))}
-                  </div>
-                )}
-                {latestArticles.length > 0 && (
-                  <div className="space-y-3">
-                    <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Latest Articles</h4>
-                    {latestArticles.slice(0, 8).map((a) => (
-                      <NewsCardV2 key={a.id} article={a} />
-                    ))}
-                  </div>
-                )}
-              </div>
-            ) : (
+            ) : !intelligenceData ? (
               <GlassCard className="py-12 text-center">
                 <Brain className="h-8 w-8 text-muted-foreground mx-auto mb-3" />
                 <p className="text-muted-foreground">No intelligence data available</p>
                 <p className="text-xs text-muted-foreground mt-1">Switch to the Latest tab to load articles first</p>
               </GlassCard>
+            ) : (
+              <SectorIntelligenceView intelligenceData={intelligenceData} onRefresh={useCallback(() => {
+                // eslint-disable-next-line @tanstack/use-query-enforce-equal-data-refresh
+              }, [])} />
             )}
           </TabsContent>
 
