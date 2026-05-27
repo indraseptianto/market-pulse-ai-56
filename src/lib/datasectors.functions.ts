@@ -1471,3 +1471,164 @@ export const getIndicatorList = createServerFn({ method: "GET" })
     const raw = Array.isArray(payload) ? payload : Array.isArray((payload as Record<string, unknown>).data) ? ((payload as Record<string, unknown>).data as IndicatorInfo[]) : [];
     return { data: raw, source: "api" as const, error: null };
   });
+
+// ── Economic Calendar — Extended Endpoints ────────────────────────────────────
+
+export interface CalendarEvent {
+  id: string;
+  title: string;
+  country: string;
+  countryCode: string;
+  date: string;
+  time?: string;
+  volatility: "ALL" | "NONE" | "LOW" | "MEDIUM" | "HIGH";
+  actual?: string | null;
+  forecast?: string | null;
+  previous?: string | null;
+  unit?: string | null;
+  currency?: string | null;
+  description?: string | null;
+}
+
+export const getCalendarIndicators = createServerFn({ method: "GET" })
+  .inputValidator(
+    z.object({
+      indicator: z.string().optional(),
+      startDate: z.string().optional(),
+      endDate: z.string().optional(),
+      limit: z.number().min(1).max(500).optional(),
+    }).optional(),
+  )
+  .handler(async ({ data }) => {
+    const today = new Date();
+    const start = data?.startDate ?? new Date(today.getTime() - 7 * 86400000).toISOString().slice(0, 10);
+    const end = data?.endDate ?? new Date(today.getTime() + 30 * 86400000).toISOString().slice(0, 10);
+    const { data: payload, error } = await dsFetch<{ success: boolean; data: unknown }>(
+      "/calendar/indicators",
+      { query: { startDate: start, endDate: end, indicator: data?.indicator, limit: data?.limit ?? 200 } },
+    );
+    if (error || !payload) return { data: [] as CalendarEvent[], source: "error" as const, error };
+    const raw = Array.isArray(payload) ? payload : Array.isArray((payload as Record<string, unknown>).data) ? ((payload as Record<string, unknown>).data) : [];
+    return { data: (raw as Record<string, unknown>[]).map(mapCalendarEvent), source: "api" as const, error: null };
+  });
+
+export const getCalendarCurrencies = createServerFn({ method: "GET" })
+  .inputValidator(
+    z.object({
+      currency: z.string().optional(),
+      startDate: z.string().optional(),
+      endDate: z.string().optional(),
+      limit: z.number().min(1).max(500).optional(),
+    }).optional(),
+  )
+  .handler(async ({ data }) => {
+    const today = new Date();
+    const start = data?.startDate ?? new Date(today.getTime() - 7 * 86400000).toISOString().slice(0, 10);
+    const end = data?.endDate ?? new Date(today.getTime() + 30 * 86400000).toISOString().slice(0, 10);
+    const { data: payload, error } = await dsFetch<{ success: boolean; data: unknown }>(
+      "/calendar/currencies",
+      { query: { startDate: start, endDate: end, currency: data?.currency, limit: data?.limit ?? 200 } },
+    );
+    if (error || !payload) return { data: [] as CalendarEvent[], source: "error" as const, error };
+    const raw = Array.isArray(payload) ? payload : Array.isArray((payload as Record<string, unknown>).data) ? ((payload as Record<string, unknown>).data) : [];
+    return { data: (raw as Record<string, unknown>[]).map(mapCalendarEvent), source: "api" as const, error: null };
+  });
+
+export const getCalendarCountries = createServerFn({ method: "GET" })
+  .inputValidator(
+    z.object({
+      countryCode: z.string().optional(),
+      startDate: z.string().optional(),
+      endDate: z.string().optional(),
+      limit: z.number().min(1).max(500).optional(),
+    }).optional(),
+  )
+  .handler(async ({ data }) => {
+    const today = new Date();
+    const start = data?.startDate ?? new Date(today.getTime() - 7 * 86400000).toISOString().slice(0, 10);
+    const end = data?.endDate ?? new Date(today.getTime() + 30 * 86400000).toISOString().slice(0, 10);
+    const { data: payload, error } = await dsFetch<{ success: boolean; data: unknown }>(
+      "/calendar/countries",
+      { query: { startDate: start, endDate: end, countryCode: data?.countryCode, limit: data?.limit ?? 200 } },
+    );
+    if (error || !payload) return { data: [] as CalendarEvent[], source: "error" as const, error };
+    const raw = Array.isArray(payload) ? payload : Array.isArray((payload as Record<string, unknown>).data) ? ((payload as Record<string, unknown>).data) : [];
+    return { data: (raw as Record<string, unknown>[]).map(mapCalendarEvent), source: "api" as const, error: null };
+  });
+
+export const getCalendarImportance = createServerFn({ method: "GET" })
+  .inputValidator(
+    z.object({
+      importance: z.enum(["HIGH", "MEDIUM", "LOW"]).optional(),
+      startDate: z.string().optional(),
+      endDate: z.string().optional(),
+      limit: z.number().min(1).max(500).optional(),
+    }).optional(),
+  )
+  .handler(async ({ data }) => {
+    const today = new Date();
+    const start = data?.startDate ?? new Date(today.getTime() - 7 * 86400000).toISOString().slice(0, 10);
+    const end = data?.endDate ?? new Date(today.getTime() + 30 * 86400000).toISOString().slice(0, 10);
+    const { data: payload, error } = await dsFetch<{ success: boolean; data: unknown }>(
+      "/calendar/importance",
+      { query: { startDate: start, endDate: end, importance: data?.importance, limit: data?.limit ?? 200 } },
+    );
+    if (error || !payload) return { data: [] as CalendarEvent[], source: "error" as const, error };
+    const raw = Array.isArray(payload) ? payload : Array.isArray((payload as Record<string, unknown>).data) ? ((payload as Record<string, unknown>).data) : [];
+    return { data: (raw as Record<string, unknown>[]).map(mapCalendarEvent), source: "api" as const, error: null };
+  });
+
+export const getCalendarUpcoming = createServerFn({ method: "GET" })
+  .inputValidator(z.object({ limit: z.number().min(1).max(50).optional() }).optional())
+  .handler(async ({ data }) => {
+    const today = new Date();
+    const start = today.toISOString().slice(0, 10);
+    const end = new Date(today.getTime() + 7 * 86400000).toISOString().slice(0, 10);
+    const { data: payload, error } = await dsFetch<{ success: boolean; data: unknown }>(
+      "/calendar/upcoming",
+      { query: { startDate: start, endDate: end, limit: data?.limit ?? 20 } },
+    );
+    if (error || !payload) return { data: [] as CalendarEvent[], source: "error" as const, error };
+    const raw = Array.isArray(payload) ? payload : Array.isArray((payload as Record<string, unknown>).data) ? ((payload as Record<string, unknown>).data) : [];
+    return { data: (raw as Record<string, unknown>[]).map(mapCalendarEvent), source: "api" as const, error: null };
+  });
+
+export const getCalendarHistorical = createServerFn({ method: "GET" })
+  .inputValidator(
+    z.object({
+      startDate: z.string().optional(),
+      endDate: z.string().optional(),
+      countryCode: z.string().optional(),
+      limit: z.number().min(1).max(500).optional(),
+    }).optional(),
+  )
+  .handler(async ({ data }) => {
+    const today = new Date();
+    const start = data?.startDate ?? new Date(today.getTime() - 30 * 86400000).toISOString().slice(0, 10);
+    const end = data?.endDate ?? today.toISOString().slice(0, 10);
+    const { data: payload, error } = await dsFetch<{ success: boolean; data: unknown }>(
+      "/calendar/historical",
+      { query: { startDate: start, endDate: end, countryCode: data?.countryCode, limit: data?.limit ?? 100 } },
+    );
+    if (error || !payload) return { data: [] as CalendarEvent[], source: "error" as const, error };
+    const raw = Array.isArray(payload) ? payload : Array.isArray((payload as Record<string, unknown>).data) ? ((payload as Record<string, unknown>).data) : [];
+    return { data: (raw as Record<string, unknown>[]).map(mapCalendarEvent), source: "api" as const, error: null };
+  });
+
+function mapCalendarEvent(raw: Record<string, unknown>): CalendarEvent {
+  return {
+    id: String(raw.id ?? raw._id ?? Math.random()),
+    title: String(raw.title ?? raw.name ?? raw.event ?? ""),
+    country: String(raw.country ?? ""),
+    countryCode: String(raw.countryCode ?? raw.country_code ?? raw.cc ?? ""),
+    date: String(raw.date ?? raw.datetime ?? raw.time ?? ""),
+    time: String(raw.time ?? raw.eventTime ?? ""),
+    volatility: (raw.volatility ?? raw.impact ?? "NONE") as CalendarEvent["volatility"],
+    actual: raw.actual != null ? String(raw.actual) : null,
+    forecast: raw.forecast != null ? String(raw.forecast) : null,
+    previous: raw.previous != null ? String(raw.previous) : null,
+    unit: raw.unit != null ? String(raw.unit) : null,
+    currency: raw.currency != null ? String(raw.currency) : null,
+    description: raw.description != null ? String(raw.description) : null,
+  };
+}
