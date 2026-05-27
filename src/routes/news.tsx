@@ -27,7 +27,7 @@ export const Route = createFileRoute("/news")({
 const BULLISH_WORDS = ["surge","beat","upgrade","rally","soar","record","growth","strong","boost","outperform","expand","win","profit","gain","rise","high","positive","optimistic","naik","untung","laba","tumbuh"];
 const BEARISH_WORDS = ["fall","drop","miss","downgrade","plunge","loss","cut","weak","decline","warn","risk","concern","crash","sell","negative","turun","rugi","melemah","anjlok","koreksi"];
 
-function scoreSentiment(text: string): { sentiment: "bullish" | "bearish" | "neutral"; score: number } {
+export function scoreSentiment(text: string): { sentiment: "bullish" | "bearish" | "neutral"; score: number } {
   const t = text.toLowerCase();
   let s = 0;
   for (const w of BULLISH_WORDS) if (t.includes(w)) s++;
