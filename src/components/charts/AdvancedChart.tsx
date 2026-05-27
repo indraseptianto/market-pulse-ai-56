@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   createChart,
   CandlestickSeries,
@@ -7,15 +7,37 @@ import {
   AreaSeries,
   type IChartApi,
   type UTCTimestamp,
+  type ISeriesApi,
   ColorType,
   CrosshairMode,
 } from "lightweight-charts";
 import type { Candle } from "@/lib/mock-data";
 import type { IndicatorToggles } from "@/routes/chart";
+import { getCandles } from "@/lib/datasectors.functions";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export type ChartType = "candles" | "line" | "area" | "heikin";
 
 type IndPoint = { time: number; [k: string]: number | string | null };
+
+// ── Drawing types ─────────────────────────────────────────────────────────────
+interface Drawing {
+  id: string;
+  type: "line" | "fibo" | "h-line" | "arrow";
+  points: [UTCTimestamp, number][];
+  color: string;
+  width: number;
+}
+
+interface ChartTemplate {
+  id: string;
+  name: string;
+  indicators: string[];
+  overlays: string[];
+  comparison: string[];
+  timeframe: string;
+}
 
 // ── Theme ─────────────────────────────────────────────────────────────────────
 const T = {
@@ -152,12 +174,14 @@ export function AdvancedChart({
   indicators,
   indicatorData = {},
   height = 480,
+  symbol,
 }: {
   candles: Candle[];
   type?: ChartType;
   indicators: IndicatorToggles;
   indicatorData?: Record<string, IndPoint[]>;
   height?: number;
+  symbol?: string;
 }) {
   const mainRef  = useRef<HTMLDivElement>(null);
   // Fixed refs for all possible sub-panes — never conditionally created
@@ -173,6 +197,179 @@ export function AdvancedChart({
     rsi: rsiRef, macd: macdRef, adx: adxRef,
     stochastic: stochRef, cci: cciRef, mfi: mfiRef, obv: obvRef,
   };
+
+  // ── Drawing Tools ────────────────────────────────────────────────────────────
+  const [drawingMode, setDrawingMode] = useState<"none" | "line" | "fibo" | "h-line" | "arrow">("none");
+  const [drawingColor, setDrawingColor] = useState("#f59e0b");
+  const [drawings, setDrawings] = useState<Drawing[]>([]);
+  const [drawingPoints, setDrawingPoints] = useState<[UTCTimestamp, number][]>([]);
+
+  // ── Chart Templates ───────────────────────────────────────────────────────────
+  const [activeTemplate, setActiveTemplate] = useState("Default");
+  const [savedTemplates, setSavedTemplates] = useState<ChartTemplate[]>([]);
+  const [showSaveTemplate, setShowSaveTemplate] = useState(false);
+  const [templateName, setTemplateName] = useState("");
+
+  // ── Multi-Symbol Comparison ───────────────────────────────────────────────────
+  const [comparisonTickers, setComparisonTickers] = useState<string[]>([]);
+  const [comparisonData, setComparisonData] = useState<Record<string, { time: UTCTimestamp; value: number }[]>>({});
+  const [compareInput, setCompareInput] = useState("");
+  const [compareLoading, setCompareLoading] = useState(false);
+
+  // Comparison colors
+  const COMP_COLORS = ["#38bdf8", "#a78bfa", "#f472b6", "#2dd4bf", "#f59e0b"];
+  // Drawing tool preset colors
+  const DRAW_COLORS = ["#f59e0b", "#ef4444", "#10b981", "#38bdf8", "#a78bfa", "#f472b6"];
+
+  // ── Load from localStorage on mount ───────────────────────────────────────────
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      const saved = localStorage.getItem("stratum_chart_templates");
+      if (saved) setSavedTemplates(JSON.parse(saved));
+    } catch { /* ignore */ }
+  }, []);
+
+  useEffect(() => {
+    if (!symbol || typeof window === "undefined") return;
+    try {
+      const key = `stratum_drawings_${symbol}`;
+      const saved = localStorage.getItem(key);
+      if (saved) setDrawings(JSON.parse(saved));
+    } catch { /* ignore */ }
+  }, [symbol]);
+
+  // ── Persist drawings on change ────────────────────────────────────────────────
+  useEffect(() => {
+    if (!symbol || typeof window === "undefined") return;
+    try {
+      localStorage.setItem(`stratum_drawings_${symbol}`, JSON.stringify(drawings));
+    } catch { /* ignore */ }
+  }, [drawings, symbol]);
+
+  // ── Persist templates on change ───────────────────────────────────────────────
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      localStorage.setItem("stratum_chart_templates", JSON.stringify(savedTemplates));
+    } catch { /* ignore */ }
+  }, [savedTemplates]);
+
+  // ── Save drawing to state ────────────────────────────────────────────────────
+  const finalizeDrawing = useCallback(
+    (pts: [UTCTimestamp, number][]) => {
+      if (pts.length < 1) return;
+      const d: Drawing = {
+        id: `d_${Date.now()}`,
+        type: drawingMode === "none" ? "line" : drawingMode,
+        points: pts,
+        color: drawingColor,
+        width: 1,
+      };
+      setDrawings((prev) => [...prev, d]);
+      setDrawingPoints([]);
+      setDrawingMode("none");
+    },
+    [drawingMode, drawingColor],
+  );
+
+  // ── Render drawings helper ────────────────────────────────────────────────────
+  const renderDrawings = useCallback(
+    (chart: IChartApi) => {
+      drawings.forEach((d) => {
+        if (d.type === "h-line" && d.points.length >= 1) {
+          const price = d.points[0][1];
+          const ser = chart.addSeries(LineSeries, {
+            color: d.color, lineWidth: 1,
+            priceLineVisible: false, lastValueVisible: false,
+            lineStyle: 1,
+          });
+          const times = chart.timeScale().getVisibleRange();
+          if (times) {
+            const data = [
+              { time: times.from as UTCTimestamp, value: price },
+              { time: times.to as UTCTimestamp, value: price },
+            ];
+            ser.setData(data as any);
+          }
+        } else if (d.type === "fibo" && d.points.length >= 2) {
+          const p1 = d.points[0], p2 = d.points[1];
+          const diff = p2[1] - p1[1];
+          const levels = [0, 0.236, 0.382, 0.5, 0.618, 0.786, 1].map((lvl) => p1[1] + diff * lvl);
+          const start = Math.min(p1[0], p2[0]), end = Math.max(p1[0], p2[0]);
+          levels.forEach((price) => {
+            const ser = chart.addSeries(LineSeries, {
+              color: d.color, lineWidth: 1,
+              priceLineVisible: false, lastValueVisible: false,
+            });
+            ser.setData([
+              { time: start, value: price },
+              { time: end, value: price },
+            ] as any);
+          });
+        } else if (d.points.length >= 1) {
+          // line or arrow
+          const ser = chart.addSeries(LineSeries, {
+            color: d.color, lineWidth: 1,
+            priceLineVisible: false, lastValueVisible: false,
+          });
+          ser.setData(
+            d.points.map((pt) => ({ time: pt[0], value: pt[1] })) as any,
+          );
+        }
+      });
+    },
+    [drawings],
+  );
+
+  // ── Add comparison ticker ─────────────────────────────────────────────────────
+  const addComparison = useCallback(async () => {
+    const ticker = compareInput.trim().toUpperCase();
+    if (!ticker || comparisonTickers.includes(ticker) || comparisonTickers.length >= 5) return;
+    setCompareLoading(true);
+    try {
+      const result = await getCandles({ data: { symbol: ticker, interval: "1D" } });
+      const data = (result?.data ?? []) as Array<{ close: number; time: string | number }>;
+      if (!data.length) { setCompareLoading(false); return; }
+      const closes = data.map((c) => c.close as number);
+      const base = closes[0];
+      const normalized = closes.map((v, i) => ({
+        time: toUTC(typeof data[i].time === "string" ? data[i].time : new Date((data[i].time as number) * 1000).toISOString()),
+        value: ((v / base) - 1) * 100,
+      }));
+      setComparisonData((prev) => ({ ...prev, [ticker]: normalized }));
+      setComparisonTickers((prev) => [...prev, ticker]);
+      setCompareInput("");
+    } catch { /* ignore */ } finally { setCompareLoading(false); }
+  }, [compareInput, comparisonTickers]);
+
+  const removeComparison = useCallback((ticker: string) => {
+    setComparisonTickers((prev) => prev.filter((t) => t !== ticker));
+    setComparisonData((prev) => { const n = { ...prev }; delete n[ticker]; return n; });
+  }, []);
+
+  // ── Clear all drawings ────────────────────────────────────────────────────────
+  const clearDrawings = useCallback(() => {
+    setDrawings([]);
+    setDrawingPoints([]);
+  }, []);
+
+  // ── Save template ─────────────────────────────────────────────────────────────
+  const saveTemplate = useCallback(() => {
+    if (!templateName.trim()) return;
+    const tmpl: ChartTemplate = {
+      id: `tpl_${Date.now()}`,
+      name: templateName.trim(),
+      indicators: Object.entries(indicators).filter(([, v]) => v).map(([k]) => k),
+      overlays: [],
+      comparison: comparisonTickers,
+      timeframe: "1D",
+    };
+    setSavedTemplates((prev) => [...prev.filter((t) => t.name !== tmpl.name), tmpl]);
+    setActiveTemplate(tmpl.name);
+    setTemplateName("");
+    setShowSaveTemplate(false);
+  }, [templateName, indicators, comparisonTickers]);
 
   const display = useMemo(
     () => (type === "heikin" ? heikinAshi(candles) : candles),
@@ -251,6 +448,42 @@ export function AdvancedChart({
 
     if (indicators.atr && ind.atr?.length)
       addLine(chart, ind.atr, ["atr", "value"], "rgba(251,191,36,0.5)");
+
+    // ── Render saved drawings ─────────────────────────────────────────────────
+    renderDrawings(chart);
+
+    // ── Drawing interaction: click to place points ─────────────────────────────
+    if (drawingMode !== "none") {
+      chart.subscribeClick((param) => {
+        if (!param.point || param.time === undefined) return;
+        const price = param.seriesData.size > 0
+          ? (param.seriesData.values().next().value as number | undefined)
+          : undefined;
+        if (price === undefined) return;
+        const pt: [UTCTimestamp, number] = [param.time as UTCTimestamp, price];
+        const pts = [...drawingPoints, pt];
+        setDrawingPoints(pts);
+
+        const need = drawingMode === "h-line" ? 1 : drawingMode === "fibo" ? 2 : 2;
+        if (pts.length >= need) finalizeDrawing(pts);
+      });
+    }
+
+    // ── Comparison lines (normalized %) ───────────────────────────────────────
+    const compSeries: ISeriesApi<"Line">[] = [];
+    comparisonTickers.forEach((ticker, idx) => {
+      const data = comparisonData[ticker];
+      if (!data?.length) return;
+      const ser = chart.addSeries(LineSeries, {
+        color: COMP_COLORS[idx % COMP_COLORS.length],
+        lineWidth: 1,
+        priceLineVisible: false,
+        lastValueVisible: false,
+        visible: true,
+      });
+      ser.setData(data as any);
+      compSeries.push(ser);
+    });
 
     chart.timeScale().fitContent();
 
@@ -350,12 +583,120 @@ export function AdvancedChart({
       chart.remove();
       subCharts.forEach((c) => c.remove());
     };
-  }, [display, type, indicators, indicatorData]);
+  }, [display, type, indicators, indicatorData, drawingMode, drawingPoints, drawings, comparisonTickers, comparisonData, renderDrawings, finalizeDrawing]);
 
+  // ── Toolbar ───────────────────────────────────────────────────────────────────
   return (
     <div className="flex flex-col gap-0">
       {/* Main chart */}
-      <div ref={mainRef} style={{ width: "100%", height }} />
+      <div ref={mainRef} style={{ width: "100%", height, position: "relative" }}>
+        {/* ── Floating toolbar ── */}
+        <div
+          className="absolute top-2 right-2 z-20 flex flex-col gap-2 rounded-lg border border-border/50 bg-background/90 p-2 shadow-sm backdrop-blur-sm"
+          style={{ minWidth: 180 }}
+        >
+          {/* Drawing Tools */}
+          <div className="flex flex-col gap-1">
+            <span className="text-[9px] uppercase tracking-widest text-muted-foreground">Draw</span>
+            <div className="flex flex-wrap gap-1">
+              {(["line", "fibo", "h-line", "arrow"] as const).map((mode) => (
+                <Button
+                  key={mode}
+                  size="sm"
+                  variant={drawingMode === mode ? "default" : "outline"}
+                  className="h-7 px-2 text-[10px]"
+                  onClick={() => { setDrawingMode(drawingMode === mode ? "none" : mode); setDrawingPoints([]); }}
+                >
+                  {mode === "h-line" ? "H-Line" : mode.charAt(0).toUpperCase() + mode.slice(1)}
+                </Button>
+              ))}
+              <Button size="sm" variant="ghost" className="h-7 px-1.5 text-[10px] text-muted-foreground" onClick={clearDrawings}>
+                ✕
+              </Button>
+            </div>
+          </div>
+
+          {/* Drawing Colors */}
+          <div className="flex flex-col gap-1">
+            <span className="text-[9px] uppercase tracking-widest text-muted-foreground">Color</span>
+            <div className="flex gap-1">
+              {DRAW_COLORS.map((c) => (
+                <button
+                  key={c}
+                  onClick={() => setDrawingColor(c)}
+                  className={`h-5 w-5 rounded-full border-2 transition-transform ${drawingColor === c ? "border-foreground scale-110" : "border-transparent"}`}
+                  style={{ backgroundColor: c }}
+                  title={c}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Chart Templates */}
+          <div className="flex flex-col gap-1">
+            <span className="text-[9px] uppercase tracking-widest text-muted-foreground">Template</span>
+            {showSaveTemplate ? (
+              <div className="flex gap-1">
+                <Input
+                  className="h-7 text-[10px]"
+                  placeholder="Template name"
+                  value={templateName}
+                  onChange={(e) => setTemplateName(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && saveTemplate()}
+                />
+                <Button size="sm" className="h-7 text-[10px]" onClick={saveTemplate}>Save</Button>
+                <Button size="sm" variant="ghost" className="h-7 text-[10px]" onClick={() => setShowSaveTemplate(false)}>✕</Button>
+              </div>
+            ) : (
+              <div className="flex gap-1">
+                <select
+                  className="flex-1 rounded border border-border bg-background px-1 py-1 text-[10px] text-foreground"
+                  value={activeTemplate}
+                  onChange={(e) => setActiveTemplate(e.target.value)}
+                >
+                  <option value="Default">Default</option>
+                  {savedTemplates.map((t) => (
+                    <option key={t.id} value={t.name}>{t.name}</option>
+                  ))}
+                </select>
+                <Button size="sm" variant="ghost" className="h-7 px-2 text-[10px]" onClick={() => setShowSaveTemplate(true)}>+</Button>
+              </div>
+            )}
+          </div>
+
+          {/* Multi-Symbol Comparison */}
+          <div className="flex flex-col gap-1">
+            <span className="text-[9px] uppercase tracking-widest text-muted-foreground">Compare (max 5)</span>
+            {comparisonTickers.length > 0 && (
+              <div className="flex flex-wrap gap-1">
+                {comparisonTickers.map((ticker, idx) => (
+                  <span
+                    key={ticker}
+                    className="flex items-center gap-0.5 rounded border px-1 py-0.5 text-[9px]"
+                    style={{ borderColor: COMP_COLORS[idx % COMP_COLORS.length], color: COMP_COLORS[idx % COMP_COLORS.length] }}
+                  >
+                    {ticker}
+                    <button onClick={() => removeComparison(ticker)} className="ml-0.5 leading-none">✕</button>
+                  </span>
+                ))}
+              </div>
+            )}
+            <div className="flex gap-1">
+              <Input
+                className="h-7 text-[10px]"
+                placeholder="Ticker…"
+                value={compareInput}
+                onChange={(e) => setCompareInput(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && addComparison()}
+                disabled={compareLoading}
+              />
+              <Button size="sm" className="h-7 text-[10px]" onClick={addComparison} disabled={compareLoading}>
+                {compareLoading ? "…" : "+"}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Sub-panes — ALL divs always rendered (hidden when inactive) so refs stay attached.
           This is critical: if a div unmounts, its ref becomes null and the chart can't be created. */}
