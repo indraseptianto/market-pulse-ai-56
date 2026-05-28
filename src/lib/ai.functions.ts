@@ -41,48 +41,160 @@ function setCache(symbol: string, type: string, text: string): void {
 }
 
 // ── AI Call with Retry + Cache ────────────────────────────────────────────────
+
+interface AIResponse {
+  ok: boolean;
+  json?: unknown;
+  status?: number;
+}
+
+async function tryCall(
+  body: object,
+  attempt = 1,
+): Promise<AIResponse> {
+  try {
+    const res = await fetch(`${BASE_URL}/chat/completions`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+    if (!res.ok) return { ok: false, status: res.status };
+    return { ok: true, json: await res.json() };
+  } catch {
+    return { ok: false };
+  }
+}
+
 async function callAI(system: string, user: string): Promise<string> {
   if (!API_KEY) return "AI insights unavailable: API key not configured.";
 
-  const body = JSON.stringify({
+  const body = {
     model: MODEL,
     temperature: TEMPERATURE,
     messages: [
       { role: "system", content: system },
       { role: "user", content: user },
     ],
-  });
-
-  const tryCall = async (): Promise<{ ok: boolean; json?: unknown }> => {
-    try {
-      const res = await fetch(`${BASE_URL}/chat/completions`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${API_KEY}`,
-          "Content-Type": "application/json",
-        },
-        body,
-      });
-      if (!res.ok) return { ok: false };
-      return { ok: true, json: await res.json() };
-    } catch { return { ok: false }; }
   };
 
-  const result = await tryCall();
+  let result = await tryCall(body);
   if (result.ok) {
     const json = result.json as { choices?: { message?: { content?: string } }[] };
     return json.choices?.[0]?.message?.content?.trim() || "No insight generated.";
   }
 
-  // Retry once after 3s
-  await new Promise((r) => setTimeout(r, RETRY_DELAY_MS));
-  const retryResult = await tryCall();
-  if (retryResult.ok) {
-    const json = retryResult.json as { choices?: { message?: { content?: string } }[] };
-    return json.choices?.[0]?.message?.content?.trim() || "No insight generated.";
+  // Retry once after 3s on failure (not 400 errors)
+  if (result.status !== 400) {
+    await new Promise((r) => setTimeout(r, RETRY_DELAY_MS));
+    result = await tryCall(body);
+    if (result.ok) {
+      const json = result.json as { choices?: { message?: { content?: string } }[] };
+      return json.choices?.[0]?.message?.content?.trim() || "No insight generated.";
+    }
   }
 
   return "AI is rate-limited. Try again shortly.";
+}
+
+/**
+ * Call AI with JSON output enforcement via response_format.
+ * Falls back to regex extraction if provider doesn't support response_format.
+ */
+async function callAIJson<T = Record<string, unknown>>(
+  system: string,
+  user: string,
+  schema?: z.ZodSchema<T>,
+): Promise<{ data: T | null; text: string; source: "json" | "regex" | "fallback" }> {
+  if (!API_KEY) {
+    return { data: null, text: "AI insights unavailable: API key not configured.", source: "fallback" };
+  }
+
+  // Try structured output first (OpenAI-compatible with response_format)
+  const structuredBody = {
+    model: MODEL,
+    temperature: 0.1, // Lower temp for structured output
+    response_format: { type: "json_object" } as { type: "json_object" },
+    messages: [
+      { role: "system", content: `${system}\n\nIMPORTANT: You must respond with ONLY valid JSON. No markdown, no explanation, no preamble. The response must be parseable JSON.` },
+      { role: "user", content: user },
+    ],
+  };
+
+  let result = await tryCall(structuredBody);
+
+  // Fallback to non-structured call if provider doesn't support response_format
+  if (!result.ok) {
+    const fallbackBody = {
+      model: MODEL,
+      temperature: 0.1,
+      messages: [
+        { role: "system", content: `${system}\n\nRespond ONLY with valid JSON. No markdown, no explanation.` },
+        { role: "user", content: user },
+      ],
+    };
+    result = await tryCall(fallbackBody);
+
+    if (!result.ok) {
+      await new Promise((r) => setTimeout(r, RETRY_DELAY_MS));
+      result = await tryCall(fallbackBody);
+      if (!result.ok) {
+        return { data: null, text: "AI is rate-limited. Try again shortly.", source: "fallback" };
+      }
+    }
+
+    // Parse JSON from text response
+    const json = result.json as { choices?: { message?: { content?: string } }[] };
+    const rawText = json.choices?.[0]?.message?.content?.trim() ?? "";
+
+    return parseJSONResponse(rawText, schema, rawText);
+  }
+
+  // Structured response — parse directly
+  const json = result.json as { choices?: { message?: { content?: string } }[] };
+  const rawText = json.choices?.[0]?.message?.content?.trim() ?? "";
+
+  return parseJSONResponse(rawText, schema, rawText);
+}
+
+/** Extract and parse JSON from text response */
+function parseJSONResponse<T>(
+  rawText: string,
+  schema?: z.ZodSchema<T>,
+  fallbackText: string,
+): { data: T | null; text: string; source: "json" | "regex" | "fallback" } {
+  // Direct parse attempt
+  try {
+    const parsed = JSON.parse(rawText);
+    if (schema) {
+      const result = schema.safeParse(parsed);
+      if (result.success) {
+        return { data: result.data, text: rawText, source: "json" };
+      }
+    } else {
+      return { data: parsed as T, text: rawText, source: "json" };
+    }
+  } catch { /* continue to regex */ }
+
+  // Try extracting from markdown code blocks
+  const jsonMatch = rawText.match(/```(?:json)?\s*([\s\S]+?)\s*```/) ?? rawText.match(/(\{[\s\S]+?\})/);
+  if (jsonMatch) {
+    try {
+      const parsed = JSON.parse(jsonMatch[jsonMatch.length - 1].trim());
+      if (schema) {
+        const result = schema.safeParse(parsed);
+        if (result.success) {
+          return { data: result.data, text: jsonMatch[jsonMatch.length - 1], source: "regex" };
+        }
+      } else {
+        return { data: parsed as T, text: jsonMatch[jsonMatch.length - 1], source: "regex" };
+      }
+    } catch { /* continue */ }
+  }
+
+  return { data: null, text: fallbackText, source: "fallback" };
 }
 
 async function callAIWithCache(
@@ -93,14 +205,26 @@ async function callAIWithCache(
 ): Promise<string> {
   const cached = getCache(symbol, type);
   const text = await callAI(system, user);
+
+  if (text.includes("rate-limited") && cached) {
+    const cacheEntry = (() => {
+      try {
+        const raw = localStorage.getItem(CACHE_KEY);
+        if (!raw) return null;
+        const cache = JSON.parse(raw) as Record<string, CacheEntry>;
+        return cache[`${symbol}:${type}`];
+      } catch { return null; }
+    })();
+    const age = cacheEntry ? Math.round((Date.now() - cacheEntry.timestamp) / 60000) : 0;
+    return `⚠️ AI sedang diproses. Analisis terakhir (${age}m lalu):\n\n${cached}`;
+  }
+
+  if (text.includes("unavailable") && cached) return `📋 AI unavailable. Using cached analysis:\n\n${cached}`;
+
   if (text && !text.includes("rate-limited") && !text.includes("unavailable")) {
     setCache(symbol, type, text);
   }
-  if (text.includes("rate-limited") && cached) {
-    const age = Math.round((Date.now() - Date.now()) / 60000);
-    return `⚠️ AI sedang diproses. Analisis terakhir (${age}m lalu):\n\n${cached}`;
-  }
-  if (text.includes("unavailable") && cached) return `📋 AI unavailable. Using cached analysis:\n\n${cached}`;
+
   return text;
 }
 
@@ -180,7 +304,14 @@ export const getDividendNote = createServerFn({ method: "POST" })
     return { text };
   });
 
-// ── News AI Functions ─────────────────────────────────────────────────────────
+// ── News AI Functions (with structured JSON output) ───────────────────────────
+
+const NewsSentimentSchema = z.object({
+  sentiment: z.enum(["bullish", "bearish", "neutral"]),
+  confidence: z.number().min(0).max(100),
+  key_factors: z.array(z.string()),
+  summary: z.string(),
+});
 
 export const getNewsSentiment = createServerFn({ method: "POST" })
   .inputValidator(
@@ -192,102 +323,98 @@ export const getNewsSentiment = createServerFn({ method: "POST" })
     }),
   )
   .handler(async ({ data }) => {
-    const prompt = `Analyze the sentiment of this financial news article.\n\nTitle: ${data.title}\nDescription: ${data.description}\nTickers mentioned: ${data.tickers?.join(", ") ?? "none"}\n\nRespond ONLY with valid JSON in this exact format:
-{
-  "sentiment": "bullish" | "bearish" | "neutral",
-  "confidence": number (0-100, percentage),
-  "key_factors": ["factor 1", "factor 2"],
-  "summary": "1-sentence Indonesian summary"
-}`;
+    const prompt = `Analyze the sentiment of this financial news article.\n\nTitle: ${data.title}\nDescription: ${data.description}\nTickers mentioned: ${data.tickers?.join(", ") ?? "none"}\n\nRespond ONLY with valid JSON:\n{\n  "sentiment": "bullish" | "bearish" | "neutral",\n  "confidence": number (0-100),\n  "key_factors": ["factor 1", "factor 2"],\n  "summary": "1-sentence Indonesian summary"\n}`;
 
-    const text = await callAI(
+    const { data: parsed, source } = await callAIJson(
       "You are a financial sentiment analyst. Analyze news articles and respond with valid JSON only. Output in Indonesian for the summary field.",
       prompt,
+      NewsSentimentSchema,
     );
 
-    // Parse JSON from response
-    try {
-      // Try to extract JSON from response (may have markdown code blocks)
-      const jsonMatch = text.match(/\{[\s\S]*\}/);
-      if (jsonMatch) {
-        const parsed = JSON.parse(jsonMatch[0]);
-        return {
-          sentiment: parsed.sentiment ?? "neutral",
-          confidence: Math.min(100, Math.max(0, Number(parsed.confidence) || 50)),
-          keyFactors: Array.isArray(parsed.key_factors) ? parsed.key_factors : [],
-          summary: parsed.summary ?? text.slice(0, 200),
-        };
-      }
-    } catch { /* fall through */ }
+    if (parsed) {
+      return {
+        sentiment: parsed.sentiment,
+        confidence: Math.min(100, Math.max(0, parsed.confidence || 50)),
+        keyFactors: parsed.key_factors ?? [],
+        summary: parsed.summary ?? "",
+        _source: source,
+      };
+    }
 
-    // Fallback: keyword-based simple detection
+    // Keyword-based fallback
     const combined = `${data.title} ${data.description}`.toLowerCase();
-    const bullish = ["surge", "beat", "upgrade", "rally", "soar", "record", "profit", "gain", "naik", "untung", "laba"].filter(w => combined.includes(w)).length;
-    const bearish = ["fall", "drop", "miss", "downgrade", "plunge", "loss", "turun", "rugi", "lemah"].filter(w => combined.includes(w)).length;
+    const bullish = ["surge", "beat", "upgrade", "rally", "soar", "record", "profit", "gain", "naik", "untung", "laba"].filter((w) => combined.includes(w)).length;
+    const bearish = ["fall", "drop", "miss", "downgrade", "plunge", "loss", "turun", "rugi", "lemah"].filter((w) => combined.includes(w)).length;
     const s = bullish - bearish;
+
     return {
       sentiment: s > 0 ? "bullish" : s < 0 ? "bearish" : "neutral",
       confidence: Math.min(90, 40 + Math.abs(s) * 15),
       keyFactors: s > 0 ? ["Kata kunci bullish terdeteksi"] : s < 0 ? ["Kata kunci bearish terdeteksi"] : [],
-      summary: text.slice(0, 200) || "Analisis sentimen tidak tersedia.",
+      summary: "Analisis sentimen tidak tersedia.",
+      _source: "fallback",
     };
   });
+
+const NewsIntelligenceSchema = z.object({
+  theme: z.string(),
+  overall_sentiment: z.enum(["bullish", "bearish", "neutral"]),
+  key_insight: z.string(),
+  article_count: z.number().optional(),
+  tickers_mentioned: z.array(z.string()).optional(),
+});
 
 export const getNewsIntelligenceNote = createServerFn({ method: "POST" })
   .inputValidator(
     z.object({
-      articles: z.array(z.object({
-        title: z.string(),
-        description: z.string(),
-        tickers: z.array(z.string()),
-      })).max(20),
+      articles: z.array(
+        z.object({ title: z.string(), description: z.string(), tickers: z.array(z.string()) }),
+      ).max(20),
       sector: z.string().optional(),
     }),
   )
   .handler(async ({ data }) => {
-    if (!data.articles.length) return { note: "Tidak ada berita untuk dianalisis.", theme: "N/A", sentiment: "neutral" as const };
+    if (!data.articles.length) {
+      return {
+        note: "Tidak ada berita untuk dianalisis.",
+        theme: "N/A",
+        sentiment: "neutral" as const,
+        articleCount: 0,
+        tickersMentioned: [],
+        _source: "fallback" as const,
+      };
+    }
 
-    const articlesMd = data.articles.map((a, i) =>
-      `${i + 1}. [${a.tickers.join(", ")}] ${a.title}\n   ${a.description.slice(0, 200)}`
-    ).join("\n\n");
+// Build article summary for context
+    const articleSummary = data.articles
+      .map((a, i) => i + 1 + '. ' + a.tickers.join('/') + ': ' + a.title + ' - ' + a.description.slice(0, 150))
+      .join(' | ');
 
-    const prompt = `You are a senior equity research analyst. Analyze these ${data.articles.length} news articles and provide a concise market intelligence note.
+    const prompt = 'Articles: ' + articleSummary + '. Respond ONLY with valid JSON (no markdown): {"theme":"2-3 words","overall_sentiment":"bullish|neutral|bearish","key_insight":"1 sentence in Indonesian","article_count":' + data.articles.length + ',"tickers_mentioned":["LIST"]}';
 
-${articlesMd}
-
-Respond ONLY with valid JSON:
-{
-  "theme": "2-3 word theme name in English (e.g. 'Banking Earnings', 'Energy Regulation')",
-  "overall_sentiment": "bullish | bearish | neutral",
-  "key_insight": "1-sentence Indonesian market insight for traders",
-  "article_count": number,
-  "tickers_mentioned": string[]
-}`;
-
-    const text = await callAI(
+    const { data: parsed, source } = await callAIJson(
       "You are an Indonesian equity research analyst. Respond with valid JSON only. Be concise and data-driven.",
       prompt,
+      NewsIntelligenceSchema,
     );
 
-    try {
-      const jsonMatch = text.match(/\{[\s\S]*\}/);
-      if (jsonMatch) {
-        const parsed = JSON.parse(jsonMatch[0]);
-        return {
-          note: parsed.key_insight ?? text.slice(0, 300),
-          theme: parsed.theme ?? "Market News",
-          sentiment: parsed.overall_sentiment ?? "neutral",
-          articleCount: parsed.article_count ?? data.articles.length,
-          tickersMentioned: parsed.tickers_mentioned ?? [],
-        };
-      }
-    } catch { /* fall through */ }
+    if (parsed) {
+      return {
+        note: parsed.key_insight ?? "",
+        theme: parsed.theme ?? data.sector ?? "Market News",
+        sentiment: parsed.overall_sentiment ?? "neutral",
+        articleCount: parsed.article_count ?? data.articles.length,
+        tickersMentioned: parsed.tickers_mentioned ?? [],
+        _source: source,
+      };
+    }
 
     return {
-      note: text.slice(0, 300) || "Intelligence note unavailable.",
+      note: "Intelligence note unavailable.",
       theme: data.sector ?? "Market News",
       sentiment: "neutral" as const,
       articleCount: data.articles.length,
       tickersMentioned: [],
+      _source: "fallback" as const,
     };
   });

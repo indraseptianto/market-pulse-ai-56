@@ -11,19 +11,24 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WatchlistRouteImport } from './routes/watchlist'
 import { Route as TechnicalRouteImport } from './routes/technical'
+import { Route as SmartMoneyRouteImport } from './routes/smart-money'
 import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as SectorsRouteImport } from './routes/sectors'
 import { Route as ScreenerRouteImport } from './routes/screener'
+import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as NewsRouteImport } from './routes/news'
 import { Route as InstitutionalRouteImport } from './routes/institutional'
 import { Route as IdxDataRouteImport } from './routes/idx-data'
 import { Route as ForexRouteImport } from './routes/forex'
 import { Route as FairValueRouteImport } from './routes/fair-value'
 import { Route as EarningsRouteImport } from './routes/earnings'
+import { Route as DividendsRouteImport } from './routes/dividends'
 import { Route as CryptoRouteImport } from './routes/crypto'
 import { Route as ChartRouteImport } from './routes/chart'
 import { Route as CalendarRouteImport } from './routes/calendar'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as StocksSymbolRouteImport } from './routes/stocks.$symbol'
+import { Route as SectorsSectorNameRouteImport } from './routes/sectors.$sectorName'
 
 const WatchlistRoute = WatchlistRouteImport.update({
   id: '/watchlist',
@@ -35,14 +40,29 @@ const TechnicalRoute = TechnicalRouteImport.update({
   path: '/technical',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SmartMoneyRoute = SmartMoneyRouteImport.update({
+  id: '/smart-money',
+  path: '/smart-money',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SettingsRoute = SettingsRouteImport.update({
   id: '/settings',
   path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SectorsRoute = SectorsRouteImport.update({
+  id: '/sectors',
+  path: '/sectors',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ScreenerRoute = ScreenerRouteImport.update({
   id: '/screener',
   path: '/screener',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioRoute = PortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NewsRoute = NewsRouteImport.update({
@@ -75,6 +95,11 @@ const EarningsRoute = EarningsRouteImport.update({
   path: '/earnings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DividendsRoute = DividendsRouteImport.update({
+  id: '/dividends',
+  path: '/dividends',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CryptoRoute = CryptoRouteImport.update({
   id: '/crypto',
   path: '/crypto',
@@ -100,22 +125,32 @@ const StocksSymbolRoute = StocksSymbolRouteImport.update({
   path: '/stocks/$symbol',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SectorsSectorNameRoute = SectorsSectorNameRouteImport.update({
+  id: '/$sectorName',
+  path: '/$sectorName',
+  getParentRoute: () => SectorsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/calendar': typeof CalendarRoute
   '/chart': typeof ChartRoute
   '/crypto': typeof CryptoRoute
+  '/dividends': typeof DividendsRoute
   '/earnings': typeof EarningsRoute
   '/fair-value': typeof FairValueRoute
   '/forex': typeof ForexRoute
   '/idx-data': typeof IdxDataRoute
   '/institutional': typeof InstitutionalRoute
   '/news': typeof NewsRoute
+  '/portfolio': typeof PortfolioRoute
   '/screener': typeof ScreenerRoute
+  '/sectors': typeof SectorsRouteWithChildren
   '/settings': typeof SettingsRoute
+  '/smart-money': typeof SmartMoneyRoute
   '/technical': typeof TechnicalRoute
   '/watchlist': typeof WatchlistRoute
+  '/sectors/$sectorName': typeof SectorsSectorNameRoute
   '/stocks/$symbol': typeof StocksSymbolRoute
 }
 export interface FileRoutesByTo {
@@ -123,16 +158,21 @@ export interface FileRoutesByTo {
   '/calendar': typeof CalendarRoute
   '/chart': typeof ChartRoute
   '/crypto': typeof CryptoRoute
+  '/dividends': typeof DividendsRoute
   '/earnings': typeof EarningsRoute
   '/fair-value': typeof FairValueRoute
   '/forex': typeof ForexRoute
   '/idx-data': typeof IdxDataRoute
   '/institutional': typeof InstitutionalRoute
   '/news': typeof NewsRoute
+  '/portfolio': typeof PortfolioRoute
   '/screener': typeof ScreenerRoute
+  '/sectors': typeof SectorsRouteWithChildren
   '/settings': typeof SettingsRoute
+  '/smart-money': typeof SmartMoneyRoute
   '/technical': typeof TechnicalRoute
   '/watchlist': typeof WatchlistRoute
+  '/sectors/$sectorName': typeof SectorsSectorNameRoute
   '/stocks/$symbol': typeof StocksSymbolRoute
 }
 export interface FileRoutesById {
@@ -141,16 +181,21 @@ export interface FileRoutesById {
   '/calendar': typeof CalendarRoute
   '/chart': typeof ChartRoute
   '/crypto': typeof CryptoRoute
+  '/dividends': typeof DividendsRoute
   '/earnings': typeof EarningsRoute
   '/fair-value': typeof FairValueRoute
   '/forex': typeof ForexRoute
   '/idx-data': typeof IdxDataRoute
   '/institutional': typeof InstitutionalRoute
   '/news': typeof NewsRoute
+  '/portfolio': typeof PortfolioRoute
   '/screener': typeof ScreenerRoute
+  '/sectors': typeof SectorsRouteWithChildren
   '/settings': typeof SettingsRoute
+  '/smart-money': typeof SmartMoneyRoute
   '/technical': typeof TechnicalRoute
   '/watchlist': typeof WatchlistRoute
+  '/sectors/$sectorName': typeof SectorsSectorNameRoute
   '/stocks/$symbol': typeof StocksSymbolRoute
 }
 export interface FileRouteTypes {
@@ -160,16 +205,21 @@ export interface FileRouteTypes {
     | '/calendar'
     | '/chart'
     | '/crypto'
+    | '/dividends'
     | '/earnings'
     | '/fair-value'
     | '/forex'
     | '/idx-data'
     | '/institutional'
     | '/news'
+    | '/portfolio'
     | '/screener'
+    | '/sectors'
     | '/settings'
+    | '/smart-money'
     | '/technical'
     | '/watchlist'
+    | '/sectors/$sectorName'
     | '/stocks/$symbol'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -177,16 +227,21 @@ export interface FileRouteTypes {
     | '/calendar'
     | '/chart'
     | '/crypto'
+    | '/dividends'
     | '/earnings'
     | '/fair-value'
     | '/forex'
     | '/idx-data'
     | '/institutional'
     | '/news'
+    | '/portfolio'
     | '/screener'
+    | '/sectors'
     | '/settings'
+    | '/smart-money'
     | '/technical'
     | '/watchlist'
+    | '/sectors/$sectorName'
     | '/stocks/$symbol'
   id:
     | '__root__'
@@ -194,16 +249,21 @@ export interface FileRouteTypes {
     | '/calendar'
     | '/chart'
     | '/crypto'
+    | '/dividends'
     | '/earnings'
     | '/fair-value'
     | '/forex'
     | '/idx-data'
     | '/institutional'
     | '/news'
+    | '/portfolio'
     | '/screener'
+    | '/sectors'
     | '/settings'
+    | '/smart-money'
     | '/technical'
     | '/watchlist'
+    | '/sectors/$sectorName'
     | '/stocks/$symbol'
   fileRoutesById: FileRoutesById
 }
@@ -212,14 +272,18 @@ export interface RootRouteChildren {
   CalendarRoute: typeof CalendarRoute
   ChartRoute: typeof ChartRoute
   CryptoRoute: typeof CryptoRoute
+  DividendsRoute: typeof DividendsRoute
   EarningsRoute: typeof EarningsRoute
   FairValueRoute: typeof FairValueRoute
   ForexRoute: typeof ForexRoute
   IdxDataRoute: typeof IdxDataRoute
   InstitutionalRoute: typeof InstitutionalRoute
   NewsRoute: typeof NewsRoute
+  PortfolioRoute: typeof PortfolioRoute
   ScreenerRoute: typeof ScreenerRoute
+  SectorsRoute: typeof SectorsRouteWithChildren
   SettingsRoute: typeof SettingsRoute
+  SmartMoneyRoute: typeof SmartMoneyRoute
   TechnicalRoute: typeof TechnicalRoute
   WatchlistRoute: typeof WatchlistRoute
   StocksSymbolRoute: typeof StocksSymbolRoute
@@ -241,6 +305,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TechnicalRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/smart-money': {
+      id: '/smart-money'
+      path: '/smart-money'
+      fullPath: '/smart-money'
+      preLoaderRoute: typeof SmartMoneyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/settings': {
       id: '/settings'
       path: '/settings'
@@ -248,11 +319,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sectors': {
+      id: '/sectors'
+      path: '/sectors'
+      fullPath: '/sectors'
+      preLoaderRoute: typeof SectorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/screener': {
       id: '/screener'
       path: '/screener'
       fullPath: '/screener'
       preLoaderRoute: typeof ScreenerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio': {
+      id: '/portfolio'
+      path: '/portfolio'
+      fullPath: '/portfolio'
+      preLoaderRoute: typeof PortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/news': {
@@ -297,6 +382,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EarningsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dividends': {
+      id: '/dividends'
+      path: '/dividends'
+      fullPath: '/dividends'
+      preLoaderRoute: typeof DividendsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/crypto': {
       id: '/crypto'
       path: '/crypto'
@@ -332,22 +424,44 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StocksSymbolRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sectors/$sectorName': {
+      id: '/sectors/$sectorName'
+      path: '/$sectorName'
+      fullPath: '/sectors/$sectorName'
+      preLoaderRoute: typeof SectorsSectorNameRouteImport
+      parentRoute: typeof SectorsRoute
+    }
   }
 }
+
+interface SectorsRouteChildren {
+  SectorsSectorNameRoute: typeof SectorsSectorNameRoute
+}
+
+const SectorsRouteChildren: SectorsRouteChildren = {
+  SectorsSectorNameRoute: SectorsSectorNameRoute,
+}
+
+const SectorsRouteWithChildren =
+  SectorsRoute._addFileChildren(SectorsRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CalendarRoute: CalendarRoute,
   ChartRoute: ChartRoute,
   CryptoRoute: CryptoRoute,
+  DividendsRoute: DividendsRoute,
   EarningsRoute: EarningsRoute,
   FairValueRoute: FairValueRoute,
   ForexRoute: ForexRoute,
   IdxDataRoute: IdxDataRoute,
   InstitutionalRoute: InstitutionalRoute,
   NewsRoute: NewsRoute,
+  PortfolioRoute: PortfolioRoute,
   ScreenerRoute: ScreenerRoute,
+  SectorsRoute: SectorsRouteWithChildren,
   SettingsRoute: SettingsRoute,
+  SmartMoneyRoute: SmartMoneyRoute,
   TechnicalRoute: TechnicalRoute,
   WatchlistRoute: WatchlistRoute,
   StocksSymbolRoute: StocksSymbolRoute,

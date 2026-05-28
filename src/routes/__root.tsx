@@ -13,6 +13,7 @@ import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/layout/AppSidebar";
 import { TopNav } from "@/components/layout/TopNav";
 import { Toaster } from "@/components/ui/sonner";
+import { StockChatbot } from "@/components/stock/StockChatbot";
 
 // Inline script to apply theme before first paint — prevents flash
 const themeScript = `
@@ -131,6 +132,7 @@ function RootComponent() {
             <Outlet />
           </main>
         </SidebarInset>
+        <StockChatbot />
         <Toaster richColors position="top-right" />
       </SidebarProvider>
     </QueryClientProvider>

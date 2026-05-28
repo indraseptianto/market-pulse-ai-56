@@ -3,9 +3,189 @@ import "./lib/error-capture";
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
 
+// ── Types ─────────────────────────────────────────────────────────────────────
+
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
 };
+
+type ChatMessage = {
+  role: "user" | "assistant" | "system";
+  content: string;
+};
+
+// ── Env helpers ───────────────────────────────────────────────────────────────
+
+function envString(env: unknown, key: string): string | undefined {
+  if (env && typeof env === "object" && key in env) {
+    const value = (env as Record<string, unknown>)[key];
+    if (typeof value === "string" && value.trim()) return value.trim();
+  }
+  const processEnv = (
+    globalThis as typeof globalThis & { process?: { env?: Record<string, string | undefined> } }
+  ).process?.env;
+  const value = processEnv?.[key];
+  return value?.trim() || undefined;
+}
+
+// ── Rate Limiter (in-memory, per-instance) ───────────────────────────────────
+
+interface RateLimitEntry {
+  count: number;
+  resetAt: number;
+}
+
+const RATE_LIMIT_WINDOW_MS = 60_000; // 1-minute window
+const RATE_LIMIT_MAX = 20; // 20 AI chat requests per minute per IP
+
+const rateLimitMap = new Map<string, RateLimitEntry>();
+
+function checkRateLimit(ip: string): { allowed: boolean; remaining: number; resetIn: number } {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return { allowed: true, remaining: RATE_LIMIT_MAX - 1, resetIn: RATE_LIMIT_WINDOW_MS };
+  }
+
+  if (entry.count >= RATE_LIMIT_MAX) {
+    return { allowed: false, remaining: 0, resetIn: entry.resetAt - now };
+  }
+
+  entry.count++;
+  return { allowed: true, remaining: RATE_LIMIT_MAX - entry.count, resetIn: entry.resetAt - now };
+}
+
+// ── JSON helper ───────────────────────────────────────────────────────────────
+
+function jsonResponse(payload: unknown, init?: ResponseInit): Response {
+  return new Response(JSON.stringify(payload), {
+    ...init,
+    headers: {
+      "content-type": "application/json; charset=utf-8",
+      ...(init?.headers ?? {}),
+    },
+  });
+}
+
+// ── Message sanitization ──────────────────────────────────────────────────────
+
+function sanitizeMessages(input: unknown): ChatMessage[] {
+  if (!input || typeof input !== "object" || !("messages" in input)) return [];
+  const raw = (input as { messages?: unknown }).messages;
+  if (!Array.isArray(raw)) return [];
+
+  return raw
+    .filter((item): item is ChatMessage => {
+      if (!item || typeof item !== "object") return false;
+      const role = item.role;
+      const content = item.content;
+      return ["user", "assistant"].includes(role) && typeof content === "string" && content.trim().length > 0;
+    })
+    .slice(-12)
+    .map((item) => ({ role: item.role, content: item.content.slice(0, 3000) }));
+}
+
+// ── Chat handler ──────────────────────────────────────────────────────────────
+
+async function handleStockChat(request: Request, env: unknown): Promise<Response> {
+  if (request.method !== "POST") {
+    return jsonResponse({ error: "Method not allowed" }, { status: 405 });
+  }
+
+  // Get client IP for rate limiting
+  const forwardedFor = request.headers.get("x-forwarded-for");
+  const clientIp = (forwardedFor ? forwardedFor.split(",")[0].trim() : "unknown").slice(0, 45);
+
+  // Check rate limit
+  const { allowed, remaining, resetIn } = checkRateLimit(clientIp);
+  if (!allowed) {
+    return jsonResponse(
+      {
+        error: `Rate limit exceeded. Try again in ${Math.ceil(resetIn / 1000)}s.`,
+        retryAfter: Math.ceil(resetIn / 1000),
+        limit: RATE_LIMIT_MAX,
+      },
+      {
+        status: 429,
+        headers: {
+          "Retry-After": String(Math.ceil(resetIn / 1000)),
+          "X-RateLimit-Limit": String(RATE_LIMIT_MAX),
+          "X-RateLimit-Remaining": "0",
+          "X-RateLimit-Reset": String(Math.ceil(resetIn / 1000)),
+        },
+      },
+    );
+  }
+
+  // Get config from env (only available inside fetch handler)
+  const baseUrl =
+    envString(env, "STOCK_CHAT_BASE_URL") ??
+    process.env.STOCK_CHAT_BASE_URL ??
+    "https://router.edenrekno.my.id/v1";
+
+  const apiKey = envString(env, "STOCK_CHAT_API_KEY");
+  if (!apiKey) {
+    return jsonResponse({ error: "STOCK_CHAT_API_KEY belum dikonfigurasi di server." }, { status: 500 });
+  }
+
+  const model = envString(env, "STOCK_CHAT_MODEL") ?? "ag/claude-sonnet-4-6";
+
+  // Parse body
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return jsonResponse({ error: "Payload JSON tidak valid." }, { status: 400 });
+  }
+
+  const messages = sanitizeMessages(body);
+  if (!messages.length) {
+    return jsonResponse({ error: "Pesan kosong." }, { status: 400 });
+  }
+
+  // Call upstream AI
+  const upstream = await fetch(`${baseUrl}/chat/completions`, {
+    method: "POST",
+    headers: {
+      authorization: `Bearer ${apiKey}`,
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      model,
+      temperature: 0.25,
+      max_tokens: 1200,
+      messages: [
+        {
+          role: "system",
+          content:
+            "Anda adalah analis saham Indonesia untuk dashboard Market Pulse. Bantu user menemukan saham potensial dengan framework ringkas: thesis, katalis, risiko, data yang perlu diverifikasi, dan checklist entry/exit. Jangan berikan nasihat finansial absolut, jangan mengarang data harga/fundamental jika tidak tersedia, dan selalu sarankan verifikasi ke laporan IDX/emiten.",
+        },
+        ...messages,
+      ],
+    }),
+  });
+
+  if (!upstream.ok) {
+    const detail = await upstream.text();
+    return jsonResponse({ error: detail || `Provider error ${upstream.status}` }, { status: 502 });
+  }
+
+  const data = (await upstream.json()) as { choices?: Array<{ message?: { content?: string } }> };
+  const reply = data.choices?.[0]?.message?.content?.trim();
+  return jsonResponse(
+    { reply: reply || "Model tidak mengembalikan jawaban." },
+    {
+      headers: {
+        "X-RateLimit-Remaining": String(remaining),
+        "X-RateLimit-Limit": String(RATE_LIMIT_MAX),
+      },
+    },
+  );
+}
+
+// ── SSR Entry ─────────────────────────────────────────────────────────────────
 
 let serverEntryPromise: Promise<ServerEntry> | undefined;
 
@@ -26,49 +206,46 @@ function brandedErrorResponse(): Response {
 }
 
 function isCatastrophicSsrErrorBody(body: string, responseStatus: number): boolean {
-  let payload: unknown;
   try {
-    payload = JSON.parse(body);
+    const payload = JSON.parse(body);
+    if (!payload || Array.isArray(payload) || typeof payload !== "object") return false;
+
+    const fields = payload as Record<string, unknown>;
+    const expectedKeys = new Set(["message", "status", "unhandled"]);
+    if (!Object.keys(fields).every((key) => expectedKeys.has(key))) return false;
+
+    return (
+      fields.unhandled === true &&
+      fields.message === "HTTPError" &&
+      (fields.status === undefined || fields.status === responseStatus)
+    );
   } catch {
     return false;
   }
-
-  if (!payload || Array.isArray(payload) || typeof payload !== "object") {
-    return false;
-  }
-
-  const fields = payload as Record<string, unknown>;
-  const expectedKeys = new Set(["message", "status", "unhandled"]);
-  if (!Object.keys(fields).every((key) => expectedKeys.has(key))) {
-    return false;
-  }
-
-  return (
-    fields.unhandled === true &&
-    fields.message === "HTTPError" &&
-    (fields.status === undefined || fields.status === responseStatus)
-  );
 }
 
-// h3 swallows in-handler throws into a normal 500 Response with body
-// {"unhandled":true,"message":"HTTPError"} — try/catch alone never fires for those.
 async function normalizeCatastrophicSsrResponse(response: Response): Promise<Response> {
   if (response.status < 500) return response;
   const contentType = response.headers.get("content-type") ?? "";
   if (!contentType.includes("application/json")) return response;
 
   const body = await response.clone().text();
-  if (!isCatastrophicSsrErrorBody(body, response.status)) {
-    return response;
-  }
+  if (!isCatastrophicSsrErrorBody(body, response.status)) return response;
 
   console.error(consumeLastCapturedError() ?? new Error(`h3 swallowed SSR error: ${body}`));
   return brandedErrorResponse();
 }
 
+// ── Fetch handler ─────────────────────────────────────────────────────────────
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      const url = new URL(request.url);
+      if (url.pathname === "/api/stock-chat") {
+        return await handleStockChat(request, env);
+      }
+
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);
