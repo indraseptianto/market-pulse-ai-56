@@ -2,9 +2,12 @@
 
 Dashboard pasar saham Indonesia (IDX) dengan AI-powered analysis. Built dengan TanStack Start, React 19, dan Supabase.
 
-![Status](https://img.shields.io/badge/status-active-brightgreen)
-![Next.js](https://img.shields.io/badge/framework-TanStack%20Start-blue)
-![License](https://img.shields.io/badge/license-MIT-yellow)
+[![Status](https://img.shields.io/badge/status-active-brightgreen)](#)
+[![CI](https://img.shields.io/github/actions/workflow/status/indraseptianto/market-pulse-ai-56/ci.yml?branch=main&label=CI)](https://github.com/indraseptianto/market-pulse-ai-56/actions)
+[![Framework](https://img.shields.io/badge/framework-TanStack%20Start-blue)](https://tanstack.com/start)
+[![License](https://img.shields.io/badge/license-MIT-yellow)](LICENSE)
+
+**Live Demo:** [market-pulse-ai-56.vercel.app](https://market-pulse-ai-56.vercel.app)
 
 ## ✨ Features
 
@@ -16,13 +19,14 @@ Dashboard pasar saham Indonesia (IDX) dengan AI-powered analysis. Built dengan T
 - **📅 Earnings Calendar** — Jadwal release laporan keuangan
 - **🏦 Portfolio** — Track portofolio saham dengan P&L tracking
 - **📰 News & Sentiment** — News aggregator dengan sentiment analysis via AI
-- **🧠 AI Analyst** — Stock chatbot powered by LLM untuk analisis real-time
+- **🧠 AI Analyst** — Stock chatbot powered by MiniMax M2.5 untuk analisis real-time
 - **📋 Watchlist** — Custom watchlist dengan alert
 - **💱 Forex** — Mata uang asing dan kurs
 - **₿ Crypto** — Crypto price tracker
 - **🏢 Institutional** — Data investor institusi (PTKP, Reksa Dana)
 - **💵 Smart Money** — Tracking aliran dana smart money
 - **🌐 IDX Data** — Direct access ke data resmi Bursa Efek Indonesia
+- **📆 Corporate Events** — IPO, dividends, dan split events calendar
 
 ## 🛠️ Tech Stack
 
@@ -63,25 +67,36 @@ cp .env.example .env
 ### Environment Variables
 
 ```env
-# Supabase (optional - untuk auth & database)
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+# ============================================================
+# Server-only variables (do NOT prefix with VITE_)
+# ============================================================
+
+# DataSectors API — stock price/candle data
+DATASECTORS_API_KEY=your_datasectors_api_key
+
+# Stock Chatbot AI backend (OpenAI-compatible endpoint)
+OPENAI_API_BASE_URL=http://43.133.150.19:20128/v1
+OPENAI_API_KEY=your_api_key
+OPENAI_MODEL=ocg/minimax-m2.5
+
+# Gemini AI — news sentiment analysis (optional)
+GEMINI_API_KEY=your_gemini_api_key
+
+# Supabase — server-side (service role key for admin ops)
+SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 
-# AI Analytics (Stock Chatbot)
-STOCK_CHAT_BASE_URL=https://router.edenrekno.my.id/v1
-STOCK_CHAT_MODEL=ag/claude-sonnet-4-4
+# Development only — enables mock data fallback in non-production
+ENABLE_MOCK_DATA=false
 
-# AI Analyst (dashboard analysis)
-AI_ANALYST_BASE_URL=http://43.133.150.19:20128/v1
-AI_ANALYST_API_KEY=your_api_key
-AI_ANALYST_MODEL=kimi-minimax-m2.5
+# ============================================================
+# Client-exposed variables (prefix with VITE_)
+# ============================================================
 
-# DataSectors API (stock prices)
-DATASECTORS_API_KEY=your_datasectors_key
-
-# Optional: Enable mock data (development only)
-ENABLE_MOCK_DATA=true
+# Supabase — client-side (publishable key, safe for browser)
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_key
+VITE_SUPABASE_PROJECT_ID=your_project_id
 ```
 
 ### Development
@@ -92,6 +107,7 @@ bun build    # Production build
 bun preview  # Preview production build
 bun lint     # Run ESLint
 bun format   # Format code with Prettier
+bun typecheck  # Run TypeScript check
 ```
 
 ### Build & Deploy
@@ -110,33 +126,34 @@ vercel --prod
 market-pulse-ai-56/
 ├── src/
 │   ├── components/          # React components (shadcn + custom)
-│   │   ├── ui/             # shadcn/ui base components
-│   │   ├── charts/          # Chart components
-│   │   ├── screener/        # Screener widgets
-│   │   ├── sectors/         # Sector analysis
-│   │   └── stock/           # Stock detail components
-│   ├── routes/              # TanStack Router pages (15 routes)
-│   │   ├── index.tsx        # Dashboard
-│   │   ├── screener.tsx    # Stock screener
-│   │   ├── stocks.$symbol.tsx  # Stock detail
-│   │   └── ...             # 15 routes total
+│   │   ├── ui/              # shadcn/ui base components
+│   │   ├── charts/           # Chart components
+│   │   ├── screener/         # Screener widgets
+│   │   ├── sectors/          # Sector analysis
+│   │   └── stock/            # Stock detail components
+│   ├── routes/               # TanStack Router pages (21 routes)
+│   │   ├── index.tsx         # Dashboard
+│   │   ├── screener.tsx      # Stock screener
+│   │   ├── stocks.$symbol.tsx # Stock detail
+│   │   └── ...               # 21 routes total
 │   ├── lib/
-│   │   ├── ai.functions.ts # AI server functions (7 functions)
-│   │   ├── datasectors.functions.ts  # DataSectors API integration
-│   │   ├── supabase/       # Supabase client + hooks
-│   │   ├── mock-data.ts    # Mock data for development
-│   │   └── utils.ts        # Utility functions
-│   ├── server.ts           # Server entry (SSR + AI proxy)
-│   └── routeTree.gen.ts    # Generated route tree
+│   │   ├── ai.functions.ts   # AI server functions (7 functions)
+│   │   ├── datasectors.functions.ts # DataSectors API integration
+│   │   ├── supabase/          # Supabase client + hooks
+│   │   ├── mock-data.ts       # Mock data for development
+│   │   └── utils.ts           # Utility functions
+│   ├── server.ts              # Server entry (SSR + AI proxy)
+│   └── routeTree.gen.ts       # Generated route tree
 ├── supabase/
 │   └── migrations/
-│       └── 001_initial_schema.sql  # Database schema + RLS
-├── public/                 # Static assets
-├── .env.example            # Environment template
+│       ├── 001_initial_schema.sql   # Database schema + RLS
+│       └── 002_portfolio_alerts.sql # Portfolio & alerts tables
+├── public/                   # Static assets
+├── .env.example              # Environment template
 ├── package.json
 ├── tsconfig.json
 ├── vite.config.ts
-└── vercel.json             # Vercel deployment config
+└── vercel.json               # Vercel deployment config
 ```
 
 ## 🗄️ Database Schema
@@ -190,13 +207,13 @@ All AI calls memiliki:
 
 | Source | Purpose | Auth |
 |--------|---------|------|
-| DataSectors | Stock prices, candles, financials | API Key |
+| DataSectors | Stock prices, candles, financials, dividends, earnings, IPO | API Key |
 | IDX | Official stock data | Public |
 | Supabase | User data, auth, persistence | Client/Service key |
 | Hermes Router | AI chatbot | Bearer token |
 | MiniMax M2.5 | AI analysis | Internal routing |
 
-## 📊 Available Routes
+## 📊 Available Routes (21 total)
 
 | Route | Page | Description |
 |-------|------|-------------|
@@ -209,6 +226,7 @@ All AI calls memiliki:
 | `/fair-value` | Fair Value | Valuation analysis |
 | `/earnings` | Earnings | Earnings calendar |
 | `/calendar` | Calendar | Corporate actions calendar |
+| `/corporate-events` | Corporate Events | IPO, dividends, splits events |
 | `/institutional` | Institutional | Institusional ownership data |
 | `/smart-money` | Smart Money | Smart money flow tracking |
 | `/news` | News | News feed dengan sentiment |
