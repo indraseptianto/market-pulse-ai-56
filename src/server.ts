@@ -57,106 +57,112 @@ function checkRateLimit(ip: string): { allowed: boolean; remaining: number; rese
 
 // ── IP extraction (with basic spoofing protection) ──────────────────────────
 
-const TRUSTED_PROXIES = new Set([
-  "43.133.150.19", // Cloudflare / Nginx proxy
-  "127.0.0.1",     // Local
-]);
+const TRUSTED_PROXIES = new Set(["127.0.0.1", "::1"]);
 
 function getClientIp(request: Request): string {
+  // Only trust x-forwarded-for from known proxies
   const forwarded = request.headers.get("x-forwarded-for");
   if (forwarded) {
-    // Only trust first IP if from known proxy, otherwise use last hop
-    const firstIp = forwarded.split(",")[0].trim();
-    if (TRUSTED_PROXIES.has(firstIp) || firstIp.match(/^10\./) || firstIp.match(/^172\.(1[6-9]|2\d|3[01])\./)) {
-      return firstIp.slice(0, 45);
-    }
-    // For untrusted X-Forwarded-For, use the rightmost (client-facing) IP
-    const ips = forwarded.split(",").map((p) => p.trim()).filter(Boolean);
-    const clientIp = ips[ips.length - 1];
-    return clientIp.slice(0, 45);
+    const first = forwarded.split(",")[0].trim();
+    // Only use if from a trusted proxy, otherwise use x-real-ip or fall back
+    const realIp = request.headers.get("x-real-ip");
+    if (realIp && TRUSTED_PROXIES.has(realIp)) return first;
   }
-  return (request.headers.get("x-real-ip") ?? "unknown").slice(0, 45);
+  // Fall back to CF-Connecting-IP or request's remote address
+  return (
+    request.headers.get("cf-connecting-ip") ??
+    request.headers.get("x-real-ip") ??
+    "unknown"
+  );
 }
 
-// ── JSON helper ───────────────────────────────────────────────────────────────
+// ── JSON helper ──────────────────────────────────────────────────────────────
 
-function jsonResponse(payload: unknown, init?: ResponseInit): Response {
-  return new Response(JSON.stringify(payload), {
-    ...init,
+function jsonResponse(
+  body: unknown,
+  options: ResponseInit = {},
+): Response {
+  return new Response(JSON.stringify(body), {
+    ...options,
     headers: {
-      "content-type": "application/json; charset=utf-8",
-      ...(init?.headers ?? {}),
+      "Content-Type": "application/json",
+      ...(options.headers as Record<string, string> | undefined),
     },
   });
 }
 
-// ── Message sanitization ─────────────────────────────────────────────────────
+// ── Message sanitiser ─────────────────────────────────────────────────────────
 
-function sanitizeMessages(input: unknown): ChatMessage[] {
-  if (!input || typeof input !== "object" || !("messages" in input)) return [];
-  const raw = (input as { messages?: unknown }).messages;
-  if (!Array.isArray(raw)) return [];
-
-  return raw
+function sanitizeMessages(body: unknown): ChatMessage[] {
+  if (!body || typeof body !== "object") return [];
+  const raw = (body as { messages?: unknown }).messages;
+  if (!raw || !Array.isArray(raw)) return [];
+  return (raw as unknown[])
     .filter((item): item is ChatMessage => {
       if (!item || typeof item !== "object") return false;
-      const role = item.role;
-      const content = item.content;
+      const role = (item as ChatMessage).role;
+      const content = (item as ChatMessage).content;
       return ["user", "assistant"].includes(role) && typeof content === "string" && content.trim().length > 0;
     })
     .slice(-12)
     .map((item) => ({ role: item.role, content: item.content.slice(0, 3000) }));
 }
 
-// ── Chat handler ─────────────────────────────────────────────────────────────
+// ── Unified chat handler (stock-chat + /api/chat) ───────────────────────────
 
-async function handleStockChat(request: Request, env: unknown): Promise<Response> {
+async function handleChat(
+  request: Request,
+  env: unknown,
+  options: {
+    path: string;
+    baseUrlKey: string;
+    apiKeyKey: string;
+    modelKey: string;
+    systemPrompt?: string;
+    rateLimitEnabled?: boolean;
+  },
+): Promise<Response> {
   if (request.method !== "POST") {
     return jsonResponse({ error: "Method not allowed" }, { status: 405 });
   }
 
-  // Rate limit check (in-memory, per-instance)
-  const clientIp = getClientIp(request);
-  const { allowed, remaining, resetIn } = checkRateLimit(clientIp);
-  if (!allowed) {
-    return jsonResponse(
-      {
-        error: `Rate limit exceeded. Try again in ${Math.ceil(resetIn / 1000)}s.`,
-        retryAfter: Math.ceil(resetIn / 1000),
-        limit: RATE_LIMIT_MAX,
-      },
-      {
-        status: 429,
-        headers: {
-          "Retry-After": String(Math.ceil(resetIn / 1000)),
-          "X-RateLimit-Limit": String(RATE_LIMIT_MAX),
-          "X-RateLimit-Remaining": "0",
-          "X-RateLimit-Reset": String(Math.ceil(resetIn / 1000)),
+  // Rate limit (skippable for internal / authenticated routes)
+  if (options.rateLimitEnabled !== false) {
+    const clientIp = getClientIp(request);
+    const { allowed, remaining, resetIn } = checkRateLimit(clientIp);
+    if (!allowed) {
+      return jsonResponse(
+        {
+          error: `Rate limit exceeded. Try again in ${Math.ceil(resetIn / 1000)}s.`,
+          retryAfter: Math.ceil(resetIn / 1000),
+          limit: RATE_LIMIT_MAX,
         },
-      },
-    );
+        {
+          status: 429,
+          headers: {
+            "Retry-After": String(Math.ceil(resetIn / 1000)),
+            "X-RateLimit-Limit": String(RATE_LIMIT_MAX),
+            "X-RateLimit-Remaining": "0",
+            "X-RateLimit-Reset": String(Math.ceil(resetIn / 1000)),
+          },
+        },
+      );
+    }
   }
 
-  // Get config from env — NO hardcoded fallbacks
-  const baseUrl = envString(env, "STOCK_CHAT_BASE_URL") ?? process.env.STOCK_CHAT_BASE_URL;
+  const baseUrl = envString(env, options.baseUrlKey) ?? process.env[options.baseUrlKey];
   if (!baseUrl) {
-    return jsonResponse(
-      { error: "STOCK_CHAT_BASE_URL tidak dikonfigurasi. Set di environment variables." },
-      { status: 500 },
-    );
+    return jsonResponse({ error: `${options.baseUrlKey} tidak dikonfigurasi.` }, { status: 500 });
   }
 
-  const apiKey = envString(env, "STOCK_CHAT_API_KEY") ?? process.env.STOCK_CHAT_API_KEY;
+  const apiKey = envString(env, options.apiKeyKey) ?? process.env[options.apiKeyKey];
   if (!apiKey) {
-    return jsonResponse({ error: "STOCK_CHAT_API_KEY belum dikonfigurasi di server." }, { status: 500 });
+    return jsonResponse({ error: `${options.apiKeyKey} belum dikonfigurasi.` }, { status: 500 });
   }
 
-  const model = envString(env, "STOCK_CHAT_MODEL") ?? process.env.STOCK_CHAT_MODEL;
+  const model = envString(env, options.modelKey) ?? process.env[options.modelKey];
   if (!model) {
-    return jsonResponse(
-      { error: "STOCK_CHAT_MODEL tidak dikonfigurasi. Set di environment variables." },
-      { status: 500 },
-    );
+    return jsonResponse({ error: `${options.modelKey} tidak dikonfigurasi.` }, { status: 500 });
   }
 
   // Parse body
@@ -167,32 +173,54 @@ async function handleStockChat(request: Request, env: unknown): Promise<Response
     return jsonResponse({ error: "Payload JSON tidak valid." }, { status: 400 });
   }
 
-  const messages = sanitizeMessages(body);
+  // Support both { messages: [] } (StockChatbot) and { system, message } (external callers)
+  const raw = body as Record<string, unknown>;
+  const messages: ChatMessage[] = [];
+
+  if (options.systemPrompt) {
+    messages.push({ role: "system", content: options.systemPrompt });
+  }
+
+  // { messages: [{role, content}] } — StockChatbot format
+  const msgArr = raw.messages as unknown[] | undefined;
+  if (Array.isArray(msgArr)) {
+    for (const item of msgArr as unknown[]) {
+      if (item && typeof item === "object") {
+        const role = (item as ChatMessage).role;
+        const content = (item as ChatMessage).content;
+        if (["user", "assistant", "system"].includes(role) && typeof content === "string" && content.trim()) {
+          messages.push({ role, content: content.slice(0, 3000) });
+        }
+      }
+    }
+  } else {
+    // { system, message } — external caller format (crypto dashboard)
+    if (typeof raw.system === "string" && raw.system.trim() && !options.systemPrompt) {
+      messages.push({ role: "system", content: raw.system });
+    }
+    if (typeof raw.message === "string" && raw.message.trim()) {
+      messages.push({ role: "user", content: raw.message.slice(0, 3000) });
+    }
+  }
+
   if (!messages.length) {
     return jsonResponse({ error: "Pesan kosong." }, { status: 400 });
   }
 
-  // Call upstream AI
+  // Call upstream AI — OpenAI-compatible /chat/completions endpoint
   let upstream: Response;
   try {
     upstream = await fetch(`${baseUrl}/chat/completions`, {
       method: "POST",
       headers: {
-        authorization: `Bearer ${apiKey}`,
-        "content-type": "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
         model,
-        temperature: 0.25,
-        max_tokens: 1200,
-        messages: [
-          {
-            role: "system",
-            content:
-              "Anda adalah analis saham Indonesia untuk dashboard Market Pulse. Bantu user menemukan saham potensial dengan framework ringkas: thesis, katalis, risiko, data yang perlu diverifikasi, dan checklist entry/exit. Jangan berikan nasihat finansial absolut, jangan mengarang data harga/fundamental jika tidak tersedia, dan selalu sarankan verifikasi ke laporan IDX/emiten.",
-          },
-          ...messages,
-        ],
+        messages: messages.slice(-12),
+        temperature: 0.7,
+        max_tokens: 2000,
       }),
     });
   } catch (err) {
@@ -204,23 +232,54 @@ async function handleStockChat(request: Request, env: unknown): Promise<Response
 
   if (!upstream.ok) {
     const detail = await upstream.text();
-    return jsonResponse({ error: detail || `Provider error ${upstream.status}` }, { status: 502 });
+    return jsonResponse(
+      { error: detail || `Provider error ${upstream.status}` },
+      { status: upstream.status >= 400 && upstream.status < 500 ? upstream.status : 502 },
+    );
   }
 
-  const data = (await upstream.json()) as { choices?: Array<{ message?: { content?: string } }> };
+  const data = (await upstream.json()) as {
+    choices?: Array<{ message?: { content?: string } }>;
+    error?: { message?: string };
+  };
+
+  if (data.error) {
+    return jsonResponse({ error: data.error.message ?? "Model error" }, { status: 502 });
+  }
+
   const reply = data.choices?.[0]?.message?.content?.trim();
   return jsonResponse(
+    { reply: reply || "Model tidak mengembalikan jawaban." },
     {
-      reply: reply || "Model tidak mengembalikan jawaban.",
-      source: "stock-chat",
-    },
-    {
-      headers: {
-        "X-RateLimit-Remaining": String(remaining),
+      headers: options.rateLimitEnabled !== false ? {
+        "X-RateLimit-Remaining": String(checkRateLimit(getClientIp(request)).remaining),
         "X-RateLimit-Limit": String(RATE_LIMIT_MAX),
-      },
+      } : {},
     },
   );
+}
+
+// ── Chat routes ───────────────────────────────────────────────────────────────
+
+async function handleStockChat(request: Request, env: unknown): Promise<Response> {
+  return handleChat(request, env, {
+    path: "/api/stock-chat",
+    baseUrlKey: "STOCK_CHAT_BASE_URL",
+    apiKeyKey: "STOCK_CHAT_API_KEY",
+    modelKey: "STOCK_CHAT_MODEL",
+    rateLimitEnabled: true,
+  });
+}
+
+async function handleGenericChat(request: Request, env: unknown): Promise<Response> {
+  return handleChat(request, env, {
+    path: "/api/chat",
+    baseUrlKey: "OPENAI_API_BASE_URL",
+    apiKeyKey: "OPENAI_API_KEY",
+    modelKey: "OPENAI_MODEL",
+    // No rate limit for external callers (crypto dashboard), they have their own
+    rateLimitEnabled: false,
+  });
 }
 
 // ── SSR Entry ─────────────────────────────────────────────────────────────────
@@ -239,57 +298,32 @@ async function getServerEntry(): Promise<ServerEntry> {
 function brandedErrorResponse(): Response {
   return new Response(renderErrorPage(), {
     status: 500,
-    headers: { "content-type": "text/html; charset=utf-8" },
+    headers: { "Content-Type": "text/html; charset=utf-8" },
   });
 }
-
-function isCatastrophicSsrErrorBody(body: string, responseStatus: number): boolean {
-  try {
-    const payload = JSON.parse(body);
-    if (!payload || Array.isArray(payload) || typeof payload !== "object") return false;
-
-    const fields = payload as Record<string, unknown>;
-    const expectedKeys = new Set(["message", "status", "unhandled"]);
-    if (!Object.keys(fields).every((key) => expectedKeys.has(key))) return false;
-
-    return (
-      fields.unhandled === true &&
-      fields.message === "HTTPError" &&
-      (fields.status === undefined || fields.status === responseStatus)
-    );
-  } catch {
-    return false;
-  }
-}
-
-async function normalizeCatastrophicSsrResponse(response: Response): Promise<Response> {
-  if (response.status < 500) return response;
-  const contentType = response.headers.get("content-type") ?? "";
-  if (!contentType.includes("application/json")) return response;
-
-  const body = await response.clone().text();
-  if (!isCatastrophicSsrErrorBody(body, response.status)) return response;
-
-  console.error(consumeLastCapturedError() ?? new Error(`h3 swallowed SSR error: ${body}`));
-  return brandedErrorResponse();
-}
-
-// ── Fetch handler ─────────────────────────────────────────────────────────────
 
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       const url = new URL(request.url);
+
+      // Custom API routes
       if (url.pathname === "/api/stock-chat") {
         return await handleStockChat(request, env);
       }
+      if (url.pathname === "/api/chat") {
+        return await handleGenericChat(request, env);
+      }
 
-      const handler = await getServerEntry();
-      const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
-    } catch (error) {
-      console.error(error);
+      // TanStack Start SSR
+      const entry = await getServerEntry();
+      return entry.fetch(request, env, ctx);
+    } catch (err) {
+      const captured = consumeLastCapturedError();
+      if (import.meta.env.DEV) {
+        console.error("[server]", captured ?? err);
+      }
       return brandedErrorResponse();
     }
   },
-};
+} satisfies ServerEntry;
