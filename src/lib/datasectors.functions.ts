@@ -1776,19 +1776,3 @@ export type IPOEvent = Record<string, unknown>; // fields: symbol, company, exch
 export type SplitEvent = Record<string, unknown>; // fields: symbol, date, ratio, from_price, to_price
 export type SplitDetail = Record<string, unknown>;
 export type NewsSearchResult = Record<string, unknown>; // fields: title, content, source, createdAt, url, tickers, etc.
-  return {
-    id: String(raw.id ?? raw._id ?? Math.random()),
-    title: String(raw.title ?? raw.name ?? raw.event ?? ""),
-    country: String(raw.country ?? ""),
-    countryCode: String(raw.countryCode ?? raw.country_code ?? raw.cc ?? ""),
-    date: String(raw.date ?? raw.datetime ?? raw.time ?? ""),
-    time: String(raw.time ?? raw.eventTime ?? ""),
-    volatility: (raw.volatility ?? raw.impact ?? "NONE") as "NONE" | "LOW" | "MEDIUM" | "HIGH",
-    actual: raw.actual != null ? String(raw.actual) : null,
-    forecast: raw.forecast != null ? String(raw.forecast) : null,
-    previous: raw.previous != null ? String(raw.previous) : null,
-    unit: raw.unit != null ? String(raw.unit) : null,
-    currency: raw.currency != null ? String(raw.currency) : null,
-    description: raw.description != null ? String(raw.description) : null,
-  };
-}

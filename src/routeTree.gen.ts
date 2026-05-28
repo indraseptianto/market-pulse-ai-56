@@ -24,6 +24,7 @@ import { Route as FairValueRouteImport } from './routes/fair-value'
 import { Route as EarningsRouteImport } from './routes/earnings'
 import { Route as DividendsRouteImport } from './routes/dividends'
 import { Route as CryptoRouteImport } from './routes/crypto'
+import { Route as CorporateEventsRouteImport } from './routes/corporate-events'
 import { Route as ChartRouteImport } from './routes/chart'
 import { Route as CalendarRouteImport } from './routes/calendar'
 import { Route as IndexRouteImport } from './routes/index'
@@ -105,6 +106,11 @@ const CryptoRoute = CryptoRouteImport.update({
   path: '/crypto',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CorporateEventsRoute = CorporateEventsRouteImport.update({
+  id: '/corporate-events',
+  path: '/corporate-events',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ChartRoute = ChartRouteImport.update({
   id: '/chart',
   path: '/chart',
@@ -135,6 +141,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/calendar': typeof CalendarRoute
   '/chart': typeof ChartRoute
+  '/corporate-events': typeof CorporateEventsRoute
   '/crypto': typeof CryptoRoute
   '/dividends': typeof DividendsRoute
   '/earnings': typeof EarningsRoute
@@ -157,6 +164,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/calendar': typeof CalendarRoute
   '/chart': typeof ChartRoute
+  '/corporate-events': typeof CorporateEventsRoute
   '/crypto': typeof CryptoRoute
   '/dividends': typeof DividendsRoute
   '/earnings': typeof EarningsRoute
@@ -180,6 +188,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/calendar': typeof CalendarRoute
   '/chart': typeof ChartRoute
+  '/corporate-events': typeof CorporateEventsRoute
   '/crypto': typeof CryptoRoute
   '/dividends': typeof DividendsRoute
   '/earnings': typeof EarningsRoute
@@ -204,6 +213,7 @@ export interface FileRouteTypes {
     | '/'
     | '/calendar'
     | '/chart'
+    | '/corporate-events'
     | '/crypto'
     | '/dividends'
     | '/earnings'
@@ -226,6 +236,7 @@ export interface FileRouteTypes {
     | '/'
     | '/calendar'
     | '/chart'
+    | '/corporate-events'
     | '/crypto'
     | '/dividends'
     | '/earnings'
@@ -248,6 +259,7 @@ export interface FileRouteTypes {
     | '/'
     | '/calendar'
     | '/chart'
+    | '/corporate-events'
     | '/crypto'
     | '/dividends'
     | '/earnings'
@@ -271,6 +283,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CalendarRoute: typeof CalendarRoute
   ChartRoute: typeof ChartRoute
+  CorporateEventsRoute: typeof CorporateEventsRoute
   CryptoRoute: typeof CryptoRoute
   DividendsRoute: typeof DividendsRoute
   EarningsRoute: typeof EarningsRoute
@@ -396,6 +409,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CryptoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/corporate-events': {
+      id: '/corporate-events'
+      path: '/corporate-events'
+      fullPath: '/corporate-events'
+      preLoaderRoute: typeof CorporateEventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/chart': {
       id: '/chart'
       path: '/chart'
@@ -449,6 +469,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CalendarRoute: CalendarRoute,
   ChartRoute: ChartRoute,
+  CorporateEventsRoute: CorporateEventsRoute,
   CryptoRoute: CryptoRoute,
   DividendsRoute: DividendsRoute,
   EarningsRoute: EarningsRoute,
