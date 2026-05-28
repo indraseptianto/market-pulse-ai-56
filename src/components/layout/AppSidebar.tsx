@@ -45,7 +45,8 @@ const mainItems = [
 const analyticsItems = [
   { title: "Technical Scanner",       url: "/technical",     icon: Activity     },
   { title: "Institutional Tracker",   url: "/institutional", icon: Zap          },
-  { title: "Earnings Calendar",       url: "/earnings",      icon: CalendarDays },
+  { title: "Earnings Calendar",       url: "/earnings",        icon: CalendarDays },
+  { title: "Corporate Events",         url: "/corporate-events", icon: BarChart2   },
   { title: "News & Sentiment",        url: "/news",          icon: Newspaper    },
   { title: "Economic Calendar",       url: "/calendar",      icon: Calendar     },
 ];
