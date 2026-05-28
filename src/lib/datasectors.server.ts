@@ -1,4 +1,10 @@
 // Server-only DataSectors API helpers.
+// NOTE: Caching is handled by React Query's staleTime/gcTime — NOT in this file.
+// The in-memory ResponseCache was removed because it resets on every serverless cold start,
+// making it useless on Vercel/Vercel Edge. React Query's client-side cache is the correct
+// place for caching since it lives in the browser and survives across API calls.
+// If you need server-side caching, use Vercel KV, Upstash Redis, or a dedicated cache service.
+
 const BASE_URL = "https://api.datasectors.com/api";
 
 export function allowMockFallback(): boolean {
@@ -34,9 +40,13 @@ export async function dsFetch<T = unknown>(
   let lastError = "Unknown error";
   for (let attempt = 0; attempt <= maxRetries; attempt++) {
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    let timer: ReturnType<typeof setTimeout>;
+    const timerPromise = new Promise<never>((_, reject) => {
+      timer = setTimeout(() => reject(new Error("Request timeout")), timeoutMs);
+    });
+
     try {
-      const res = await fetch(url.toString(), {
+      const racePromise = fetch(url.toString(), {
         method: opts.method ?? "GET",
         headers: {
           "X-API-Key": apiKey,
@@ -44,9 +54,11 @@ export async function dsFetch<T = unknown>(
           Accept: "application/json",
         },
         body: opts.body ? JSON.stringify(opts.body) : undefined,
-        signal: controller.signal,
       });
-      clearTimeout(timer);
+
+      const res = await Promise.race([racePromise, timerPromise]);
+      clearTimeout(timer!);
+
       if (!res.ok) {
         lastError = `HTTP ${res.status}`;
         if (res.status >= 500 && attempt < maxRetries) {
@@ -58,7 +70,7 @@ export async function dsFetch<T = unknown>(
       const json = (await res.json()) as T;
       return { data: json, error: null };
     } catch (err) {
-      clearTimeout(timer);
+      clearTimeout(timer!);
       lastError = err instanceof Error ? err.message : "Request failed";
       if (attempt < maxRetries) {
         await new Promise((r) => setTimeout(r, 250 * (attempt + 1)));
@@ -81,56 +93,11 @@ export function unwrapList<T>(payload: unknown): T[] {
   return [];
 }
 
-// ── Cache layer for stale-while-revalidate ────────────────────────────────────
-
-interface CacheEntry<T> {
-  data: T;
-  timestamp: number;
-  ttl: number;
-}
-
-class ResponseCache {
-  private store = new Map<string, CacheEntry<unknown>>();
-
-  get<T>(key: string): T | null {
-    const entry = this.store.get(key) as CacheEntry<T> | undefined;
-    if (!entry) return null;
-    if (Date.now() - entry.timestamp > entry.ttl) {
-      this.store.delete(key);
-      return null;
-    }
-    return entry.data;
-  }
-
-  set<T>(key: string, data: T, ttlMs: number): void {
-    this.store.set(key, { data, timestamp: Date.now(), ttl: ttlMs });
-  }
-
-  clear(): void {
-    this.store.clear();
-  }
-}
-
-const cache = new ResponseCache();
-
-export interface CachedFetchOptions extends FetchOptions {
-  cacheTtlMs?: number;   // e.g. 120_000 = 2 min, 300_000 = 5 min
-  cacheKey?: string;     // custom cache key, defaults to URL
-}
-
+// Backwards compatibility — maps to dsFetch. React Query handles caching.
 export async function dsFetchCached<T = unknown>(
   path: string,
-  opts: CachedFetchOptions = {},
+  opts: FetchOptions & { cacheTtlMs?: number; cacheKey?: string } = {},
 ): Promise<{ data: T | null; error: string | null; fromCache?: boolean }> {
-  const cacheKey = opts.cacheKey ?? path + JSON.stringify(opts.query ?? {});
-  const cached = cache.get<T>(cacheKey);
-  if (cached && !opts.query?.refresh) {
-    return { data: cached, error: null, fromCache: true };
-  }
   const result = await dsFetch<T>(path, opts);
-  if (result.data && !result.error) {
-    cache.set(cacheKey, result.data, opts.cacheTtlMs ?? 120_000);
-  }
-  return result;
+  return { ...result, fromCache: false };
 }
-

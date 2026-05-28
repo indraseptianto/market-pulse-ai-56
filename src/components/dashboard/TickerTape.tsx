@@ -1,8 +1,8 @@
 import type { Equity } from "@/lib/mock-data";
 import { fmtPct, changeClass } from "@/lib/formatters";
 
-export function TickerTape({ equities }: { equities: Equity[] }) {
-  const items = equities.slice(0, 24);
+export function TickerTape({ equities = [] }: { equities?: Equity[] }) {
+  const items = equities.slice(0, 24).filter(Boolean);
   const doubled = [...items, ...items];
   return (
     <div className="glass overflow-hidden rounded-2xl">

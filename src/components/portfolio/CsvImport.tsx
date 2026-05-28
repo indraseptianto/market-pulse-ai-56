@@ -11,6 +11,9 @@ interface ParsedRow {
   date: string;
 }
 
+const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2 MB max
+const ALLOWED_TYPES = ["text/csv", "text/plain", "application/csv"];
+
 interface Props { onImport: (rows: ParsedRow[]) => void; }
 
 export function CsvImport({ onImport }: Props) {
@@ -37,8 +40,22 @@ export function CsvImport({ onImport }: Props) {
 
   const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     setError("");
+    setPreview([]);
     const file = e.target.files?.[0];
     if (!file) return;
+
+    // Validate file size
+    if (file.size > MAX_FILE_SIZE) {
+      setError(`File terlalu besar (${(file.size / 1024).toFixed(1)} KB). Maksimal 2 MB.`);
+      return;
+    }
+
+    // Validate file type
+    if (!ALLOWED_TYPES.includes(file.type) && !file.name.endsWith(".csv")) {
+      setError("Hanya file .csv yang diizinkan.");
+      return;
+    }
+
     const reader = new FileReader();
     reader.onload = (ev) => {
       const text = ev.target?.result as string;

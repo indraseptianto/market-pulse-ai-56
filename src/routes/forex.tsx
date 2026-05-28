@@ -97,7 +97,12 @@ function SentimentBar({ long, short }: { long: number | null; short: number | nu
   );
 }
 
-function PairCard({ pair, data, isLoading }: { pair: typeof FOREX_PAIRS[0]; data: ParsedForex | null; isLoading: boolean }) {
+function PairCard({ pair, data, isLoading, error }: {
+  pair: typeof FOREX_PAIRS[0];
+  data: ParsedForex | null;
+  isLoading: boolean;
+  error?: string | null;
+}) {
   const sentimentCfg = {
     BULLISH: { color: "text-gain", bg: "bg-success/15", border: "border-success/30", icon: TrendingUp },
     BEARISH: { color: "text-loss", bg: "bg-destructive/15", border: "border-destructive/30", icon: TrendingDown },
@@ -156,7 +161,7 @@ function PairCard({ pair, data, isLoading }: { pair: typeof FOREX_PAIRS[0]; data
       ) : (
         <div className="rounded-xl border border-border/40 bg-accent/10 px-3 py-4 text-center text-xs text-muted-foreground">
           <AlertTriangle className="h-5 w-5 mx-auto mb-1 opacity-40" />
-          Data tidak tersedia
+          {error ? `Error: ${error}` : "Data tidak tersedia"}
         </div>
       )}
     </GlassCard>
@@ -184,6 +189,7 @@ function ForexPage() {
       pair,
       data: query.data?.data ? parseForexData(query.data.data, pair.symbol) : null,
       isLoading: query.isLoading,
+      error: query.data?.error ?? (query.isError ? "API error" : null),
     })),
     [queries]
   );
@@ -260,8 +266,8 @@ function ForexPage() {
 
         {/* Pair cards grid */}
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {parsedData.map(({ pair, data, isLoading }) => (
-            <PairCard key={pair.symbol} pair={pair} data={data} isLoading={isLoading} />
+          {parsedData.map(({ pair, data, isLoading, error }) => (
+            <PairCard key={pair.symbol} pair={pair} data={data} isLoading={isLoading} error={error} />
           ))}
         </div>
 

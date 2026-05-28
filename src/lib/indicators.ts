@@ -142,8 +142,12 @@ export function stochastic(
 ): { k: (number | null)[]; d: (number | null)[] } {
   const raw: (number | null)[] = new Array(close.length).fill(null);
   for (let i = period - 1; i < close.length; i++) {
-    const h = Math.max(...high.slice(i - period + 1, i + 1));
-    const l = Math.min(...low.slice(i - period + 1, i + 1));
+    // Use loop instead of spread operator to avoid RangeError on large arrays
+    let h = -Infinity, l = Infinity;
+    for (let j = i - period + 1; j <= i; j++) {
+      if (high[j] > h) h = high[j];
+      if (low[j] < l) l = low[j];
+    }
     raw[i] = h === l ? 50 : ((close[i] - l) / (h - l)) * 100;
   }
   const rawNum = raw.map((v) => (v == null ? 0 : v));

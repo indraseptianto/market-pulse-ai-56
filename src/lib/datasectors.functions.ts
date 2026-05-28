@@ -65,6 +65,11 @@ function yahooInterval(timeframe: string): string {
   return timeframe;
 }
 
+// ── Yahoo Finance fallback (backup chart data) ─────────────────────────────
+// Yahoo Finance is a PUBLIC endpoint — no API key needed.
+// This is a FALLBACK only when DataSectors is unavailable.
+// Yahoo can throttle rapid requests, so we use a short 8s timeout.
+// For production use, rely on DataSectors as primary source.
 async function fetchYahooChart(
   symbol: string,
   range = "5d",
@@ -169,7 +174,6 @@ export interface SearchResult {
 export const searchStocks = createServerFn({ method: "GET" })
   .inputValidator(z.object({ query: z.string().min(1).max(50) }))
   .handler(async ({ data }) => {
-    console.log("[searchStocks] query:", data.query);
     const { data: payload, error } = await dsFetch<{
       success: boolean;
       data: Array<{
@@ -183,10 +187,10 @@ export const searchStocks = createServerFn({ method: "GET" })
       count: number;
     }>(`/search/market`, { query: { query: data.query } });
 
-    console.log("[searchStocks] raw payload:", JSON.stringify(payload)?.slice(0, 500));
+    if (import.meta.env.DEV) console.log("[searchStocks] raw payload:", JSON.stringify(payload)?.slice(0, 500));
 
     if (error || !payload) {
-      console.warn("[searchStocks] error:", error);
+      if (import.meta.env.DEV) console.warn("[searchStocks] error:", error);
       return { data: [] as SearchResult[], source: "error" as const, error };
     }
 
@@ -208,7 +212,7 @@ export const searchStocks = createServerFn({ method: "GET" })
       }))
       .filter((r) => r.symbol !== "");
 
-    console.log("[searchStocks] mapped results count:", results.length, results.slice(0, 3));
+    if (import.meta.env.DEV) console.log("[searchStocks] mapped results count:", results.length, results.slice(0, 3));
     return { data: results, source: "api" as const, error: null };
   });
 
@@ -570,7 +574,7 @@ export const getEconomicCalendar = createServerFn({ method: "GET" })
       },
     });
 
-    console.log("[getEconomicCalendar] error:", error, "payload keys:", payload ? Object.keys(payload) : null);
+    if (import.meta.env.DEV) console.log("[getEconomicCalendar] error:", error, "payload keys:", payload ? Object.keys(payload) : null);
 
     if (error || !payload) {
       return { data: [] as CalendarEvent[], source: "error" as const, error };
@@ -620,7 +624,7 @@ export const getChartSaham = createServerFn({ method: "GET" })
       { query: { from: fromDate, to: toDate, limit: "0" } },
     );
 
-    console.log("[getChartSaham]", sym, tf, "error:", error);
+    if (import.meta.env.DEV) console.error("[getChartSaham]", sym, tf, "error:", error);
 
     if (error || !payload) {
       const yahooCandles = await getYahooCandles(sym, tf === "daily" ? "1y" : "5d", yahooInterval(tf));
@@ -686,7 +690,7 @@ export const getChartPrice = createServerFn({ method: "GET" })
       },
     );
 
-    console.log("[getChartPrice]", data.symbol, "error:", error);
+    if (import.meta.env.DEV) console.error("[getChartPrice]", data.symbol, "error:", error);
 
     if (error || !payload) {
       return { data: [] as Candle[], source: "error" as const, error };
@@ -755,7 +759,7 @@ export const getIndicator = createServerFn({ method: "GET" })
       },
     });
 
-    console.log("[getIndicator]", data.indicator, data.symbol, "error:", error);
+    if (import.meta.env.DEV) console.error("[getIndicator]", data.indicator, data.symbol, "error:", error);
 
     if (error || !payload) {
       return { data: [] as IndicatorPoint[], source: "error" as const, error };
@@ -791,7 +795,7 @@ export const getStockEarnings = createServerFn({ method: "GET" })
       "/stocks/v2/earnings",
       { query: { symbol: data.symbol.toUpperCase(), market: data.market ?? "id-id" } },
     );
-    console.log("[getStockEarnings]", data.symbol, "error:", error);
+    if (import.meta.env.DEV) console.error("[getStockEarnings]", data.symbol, "error:", error);
     if (error || !payload) return { data: null as null, source: "error" as const, error };
     return { data: payload, source: "api" as const, error: null };
   });
@@ -805,7 +809,7 @@ export const getStockEquitiesV2 = createServerFn({ method: "GET" })
       "/stocks/v2/equities",
       { query: { symbol: data.symbol.toUpperCase(), market: data.market ?? "id-id" } },
     );
-    console.log("[getStockEquitiesV2]", data.symbol, "error:", error);
+    if (import.meta.env.DEV) console.error("[getStockEquitiesV2]", data.symbol, "error:", error);
     if (error || !payload) return { data: null as null, source: "error" as const, error };
     return { data: payload, source: "api" as const, error: null };
   });
@@ -819,7 +823,7 @@ export const getStockKeyRatiosV2 = createServerFn({ method: "GET" })
       "/stocks/v2/key-ratios",
       { query: { symbol: data.symbol.toUpperCase(), market: data.market ?? "id-id" } },
     );
-    console.log("[getStockKeyRatiosV2]", data.symbol, "error:", error);
+    if (import.meta.env.DEV) console.error("[getStockKeyRatiosV2]", data.symbol, "error:", error);
     if (error || !payload) return { data: null as null, source: "error" as const, error };
     return { data: payload, source: "api" as const, error: null };
   });
@@ -833,7 +837,7 @@ export const getStockInsights = createServerFn({ method: "GET" })
       "/stocks/v2/insights",
       { query: { symbol: data.symbol.toUpperCase(), market: data.market ?? "id-id" } },
     );
-    console.log("[getStockInsights]", data.symbol, "error:", error);
+    if (import.meta.env.DEV) console.error("[getStockInsights]", data.symbol, "error:", error);
     if (error || !payload) return { data: null as null, source: "error" as const, error };
     return { data: payload, source: "api" as const, error: null };
   });
@@ -888,7 +892,7 @@ export const getInvestorActivity = createServerFn({ method: "GET" })
         },
       },
     );
-    console.log("[getInvestorActivity] error:", error);
+    if (import.meta.env.DEV) console.error("[getInvestorActivity] error:", error);
     if (error || !payload) return { data: [] as InvestorTrade[], source: "error" as const, error };
 
     const raw = Array.isArray(payload)
@@ -924,8 +928,8 @@ export const getInvestorActivity = createServerFn({ method: "GET" })
 // All DS crypto endpoints return { success: boolean, data: nullable }
 // We log the FULL raw response so we can see the actual structure.
 function logCrypto(label: string, payload: unknown, error: string | null) {
-  console.log(`[${label}] error:`, error);
-  console.log(`[${label}] raw:`, JSON.stringify(payload)?.slice(0, 800));
+  if (import.meta.env.DEV) console.log(`[${label}] error:`, error);
+  if (import.meta.env.DEV) console.log(`[${label}] raw:`, JSON.stringify(payload)?.slice(0, 800));
 }
 
 // ── Crypto: Trending coins ────────────────────────────────────────────────────
@@ -1052,7 +1056,7 @@ export const getForexOrderbook = createServerFn({ method: "GET" })
       "/forex/orderbook-positioning",
       { query: { symbol: data?.symbol } },
     );
-    console.log("[getForexOrderbook] error:", error, "symbol:", data?.symbol);
+    if (import.meta.env.DEV) console.log("[getForexOrderbook] error:", error, "symbol:", data?.symbol);
     if (error || !payload) return { data: null as null, source: "error" as const, error };
     return { data: payload, source: "api" as const, error: null };
   });
@@ -1077,7 +1081,7 @@ export const getInstitutionalInvestors = createServerFn({ method: "GET" })
         },
       },
     );
-    console.log("[getInstitutionalInvestors] error:", error);
+    if (import.meta.env.DEV) console.error("[getInstitutionalInvestors] error:", error);
     if (error || !payload) return { data: null as null, source: "error" as const, error };
     return { data: payload, source: "api" as const, error: null };
   });
@@ -1101,7 +1105,7 @@ export const getDSNews = createServerFn({ method: "GET" })
         skip: data?.skip ?? 0,
       },
     });
-    console.log("[getDSNews] error:", error);
+    if (import.meta.env.DEV) console.error("[getDSNews] error:", error);
     if (error || !payload) return { data: null as null, source: "error" as const, error };
     return { data: payload, source: "api" as const, error: null };
   });
@@ -1132,7 +1136,7 @@ export const getEarningsCalendar = createServerFn({ method: "GET" })
         limit: data?.limit ?? 200,
       },
     });
-    console.log("[getEarningsCalendar] error:", error);
+    if (import.meta.env.DEV) console.error("[getEarningsCalendar] error:", error);
     if (error || !payload) return { data: null as null, source: "error" as const, error };
     return { data: payload, source: "api" as const, error: null };
   });

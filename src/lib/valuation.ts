@@ -73,6 +73,8 @@ export function evaluateValuation(input: ValuationInput): ValuationResult {
     (v): v is number => v !== null && v > 0,
   );
 
+  // Guard: if all values are null/zero after filter, return insufficient data
+  // (division by zero would occur if we proceeded with empty array)
   if (blendValues.length === 0) {
     return {
       verdict: "Insufficient Data",

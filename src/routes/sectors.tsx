@@ -33,15 +33,17 @@ const MOCK_SECTORS = [
 ];
 
 function buildRotationData() {
-  return MOCK_SECTORS.map((s) => ({
+  // Use sine/cosine with sector index as deterministic "random" offsets.
+  // This avoids hydration mismatch: same values on SSR and client (no Math.random()).
+  return MOCK_SECTORS.map((s, idx) => ({
     name: s.name,
     change1d: s.avgChangePct,
-    change1w: s.avgChangePct * (1 + (Math.random() - 0.5) * 0.5),
-    change1m: s.avgChangePct * (1 + Math.random() * 1.5),
-    change3m: s.avgChangePct * (1 + Math.random() * 3),
-    change6m: s.avgChangePct * (1 + Math.random() * 5),
-    change1y: s.avgChangePct * (1 + Math.random() * 8),
-    momentumScore: Math.round(50 + (s.avgChangePct * 10) + (Math.random() * 20)),
+    change1w: s.avgChangePct * (1 + Math.sin(idx * 0.7) * 0.25),
+    change1m: s.avgChangePct * (1 + Math.cos(idx * 0.5) * 0.75),
+    change3m: s.avgChangePct * (1 + Math.sin(idx * 1.1) * 1.5),
+    change6m: s.avgChangePct * (1 + Math.cos(idx * 0.9) * 2.5),
+    change1y: s.avgChangePct * (1 + Math.sin(idx * 0.3) * 4),
+    momentumScore: Math.round(50 + (s.avgChangePct * 10) + Math.cos(idx * 1.3) * 10),
   }));
 }
 

@@ -122,7 +122,9 @@ function SettingsPage() {
   };
 
   const isSaving = saveMut.isPending;
-  const isCloudConnected = !settingsQ.isError;
+  // isError = false for both "loading" AND "no user" (query returns null, no throw)
+  // Only truly "connected" when we have actual settings data (user is logged in)
+  const isCloudConnected = !settingsQ.isError && settingsQ.data !== null;
 
   return (
     <PageTransition>

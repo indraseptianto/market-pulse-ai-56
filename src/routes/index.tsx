@@ -72,19 +72,24 @@ function DashboardPage() {
   const liveMap = livePricesQ.data?.data ?? {};
   const hasLivePrices = Object.keys(liveMap).length > 0;
 
-  // Merge live prices into equities. In production, never render stale seed prices.
-  const equities = useMemo(() => baseEquities.map(e => {
-    const live = liveMap[e.symbol];
-    if (!live) return import.meta.env.PROD ? null : e;
-    return {
-      ...e,
-      price: live.price,
-      change: live.change,
-      change_pct: live.change_pct,
-      volume: live.volume,
-      market_cap: live.marketCap || e.market_cap,
-    };
-  }).filter((equity): equity is NonNullable<typeof equity> => equity !== null), [baseEquities, liveMap]);
+  // Merge live prices into equities.
+  // Always show mock data as fallback — don't silently drop stocks in production.
+  const equities = useMemo(
+    () =>
+      baseEquities.map((e) => {
+        const live = liveMap[e.symbol];
+        if (!live) return e; // Always show mock fallback (not filtered out)
+        return {
+          ...e,
+          price: live.price,
+          change: live.change,
+          change_pct: live.change_pct,
+          volume: live.volume,
+          market_cap: live.marketCap || e.market_cap,
+        };
+      }),
+    [baseEquities, liveMap],
+  );
 
   const isDashboardLoading =
     isLoading || (dashboardSymbols.length > 0 && livePricesQ.isLoading && !hasLivePrices);

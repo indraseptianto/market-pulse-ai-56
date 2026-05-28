@@ -6,9 +6,24 @@ import { supabase } from "./client";
 import type { Alert, UserSettings, ScreenerPreset } from "./types";
 
 // ── Auth helper ───────────────────────────────────────────────────────────────
+// Cached userId — valid for 30s per serverless invocation.
+// This avoids 6+ redundant getUser() calls per page load.
+// The Supabase client already caches session in localStorage, so this
+// only adds one network call on cold start instead of one per hook.
+let _cachedUid: { uid: string | null; expiresAt: number } | null = null;
+
 export async function getCurrentUserId(): Promise<string | null> {
-  const { data } = await supabase.auth.getUser();
-  return data.user?.id ?? null;
+  if (_cachedUid && Date.now() < _cachedUid.expiresAt) {
+    return _cachedUid.uid;
+  }
+  const uid = (await supabase.auth.getUser()).data.user?.id ?? null;
+  _cachedUid = { uid, expiresAt: Date.now() + 30_000 };
+  return uid;
+}
+
+// Clear cached userId (call on logout)
+export function clearCachedUserId() {
+  _cachedUid = null;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -44,7 +59,23 @@ export function useAddToWatchlist() {
         .insert({ user_id: uid, symbol: symbol.toUpperCase() });
       if (error && error.code !== "23505") throw error; // ignore duplicate
     },
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["supabase", "watchlist"] }),
+    onMutate: async (symbol) => {
+      // Cancel outgoing refetches
+      await qc.cancelQueries({ queryKey: ["supabase", "watchlist"] });
+      const snapshot = qc.getQueryData<string[]>(["supabase", "watchlist"]);
+      // Optimistically add symbol
+      qc.setQueryData<string[]>(["supabase", "watchlist"], (old) =>
+        old ? [...old, symbol.toUpperCase()] : [symbol.toUpperCase()],
+      );
+      return { snapshot };
+    },
+    onError: (_err, _symbol, context) => {
+      // Rollback on failure
+      if (context?.snapshot !== undefined) {
+        qc.setQueryData(["supabase", "watchlist"], context.snapshot);
+      }
+    },
+    onSettled: () => qc.invalidateQueries({ queryKey: ["supabase", "watchlist"] }),
   });
 }
 
@@ -61,7 +92,20 @@ export function useRemoveFromWatchlist() {
         .eq("symbol", symbol.toUpperCase());
       if (error) throw error;
     },
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["supabase", "watchlist"] }),
+    onMutate: async (symbol) => {
+      await qc.cancelQueries({ queryKey: ["supabase", "watchlist"] });
+      const snapshot = qc.getQueryData<string[]>(["supabase", "watchlist"]);
+      qc.setQueryData<string[]>(["supabase", "watchlist"], (old) =>
+        old ? old.filter((s) => s !== symbol.toUpperCase()) : [],
+      );
+      return { snapshot };
+    },
+    onError: (_err, _symbol, context) => {
+      if (context?.snapshot !== undefined) {
+        qc.setQueryData(["supabase", "watchlist"], context.snapshot);
+      }
+    },
+    onSettled: () => qc.invalidateQueries({ queryKey: ["supabase", "watchlist"] }),
   });
 }
 

@@ -29,16 +29,14 @@ function envString(env: unknown, key: string): string | undefined {
 }
 
 // ── Rate Limiter (in-memory, per-instance) ───────────────────────────────────
-
-interface RateLimitEntry {
-  count: number;
-  resetAt: number;
-}
+// WARNING: On Vercel serverless, each cold start = fresh instance.
+// This rate limiter is effective ONLY within a single warm Lambda.
+// For cross-instance rate limiting, use Upstash Redis or Vercel KV.
 
 const RATE_LIMIT_WINDOW_MS = 60_000; // 1-minute window
 const RATE_LIMIT_MAX = 20; // 20 AI chat requests per minute per IP
 
-const rateLimitMap = new Map<string, RateLimitEntry>();
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 
 function checkRateLimit(ip: string): { allowed: boolean; remaining: number; resetIn: number } {
   const now = Date.now();
@@ -57,6 +55,29 @@ function checkRateLimit(ip: string): { allowed: boolean; remaining: number; rese
   return { allowed: true, remaining: RATE_LIMIT_MAX - entry.count, resetIn: entry.resetAt - now };
 }
 
+// ── IP extraction (with basic spoofing protection) ──────────────────────────
+
+const TRUSTED_PROXIES = new Set([
+  "43.133.150.19", // Cloudflare / Nginx proxy
+  "127.0.0.1",     // Local
+]);
+
+function getClientIp(request: Request): string {
+  const forwarded = request.headers.get("x-forwarded-for");
+  if (forwarded) {
+    // Only trust first IP if from known proxy, otherwise use last hop
+    const firstIp = forwarded.split(",")[0].trim();
+    if (TRUSTED_PROXIES.has(firstIp) || firstIp.match(/^10\./) || firstIp.match(/^172\.(1[6-9]|2\d|3[01])\./)) {
+      return firstIp.slice(0, 45);
+    }
+    // For untrusted X-Forwarded-For, use the rightmost (client-facing) IP
+    const ips = forwarded.split(",").map((p) => p.trim()).filter(Boolean);
+    const clientIp = ips[ips.length - 1];
+    return clientIp.slice(0, 45);
+  }
+  return (request.headers.get("x-real-ip") ?? "unknown").slice(0, 45);
+}
+
 // ── JSON helper ───────────────────────────────────────────────────────────────
 
 function jsonResponse(payload: unknown, init?: ResponseInit): Response {
@@ -69,7 +90,7 @@ function jsonResponse(payload: unknown, init?: ResponseInit): Response {
   });
 }
 
-// ── Message sanitization ──────────────────────────────────────────────────────
+// ── Message sanitization ─────────────────────────────────────────────────────
 
 function sanitizeMessages(input: unknown): ChatMessage[] {
   if (!input || typeof input !== "object" || !("messages" in input)) return [];
@@ -87,18 +108,15 @@ function sanitizeMessages(input: unknown): ChatMessage[] {
     .map((item) => ({ role: item.role, content: item.content.slice(0, 3000) }));
 }
 
-// ── Chat handler ──────────────────────────────────────────────────────────────
+// ── Chat handler ─────────────────────────────────────────────────────────────
 
 async function handleStockChat(request: Request, env: unknown): Promise<Response> {
   if (request.method !== "POST") {
     return jsonResponse({ error: "Method not allowed" }, { status: 405 });
   }
 
-  // Get client IP for rate limiting
-  const forwardedFor = request.headers.get("x-forwarded-for");
-  const clientIp = (forwardedFor ? forwardedFor.split(",")[0].trim() : "unknown").slice(0, 45);
-
-  // Check rate limit
+  // Rate limit check (in-memory, per-instance)
+  const clientIp = getClientIp(request);
   const { allowed, remaining, resetIn } = checkRateLimit(clientIp);
   if (!allowed) {
     return jsonResponse(
@@ -119,18 +137,27 @@ async function handleStockChat(request: Request, env: unknown): Promise<Response
     );
   }
 
-  // Get config from env (only available inside fetch handler)
-  const baseUrl =
-    envString(env, "STOCK_CHAT_BASE_URL") ??
-    process.env.STOCK_CHAT_BASE_URL ??
-    "https://router.edenrekno.my.id/v1";
+  // Get config from env — NO hardcoded fallbacks
+  const baseUrl = envString(env, "STOCK_CHAT_BASE_URL") ?? process.env.STOCK_CHAT_BASE_URL;
+  if (!baseUrl) {
+    return jsonResponse(
+      { error: "STOCK_CHAT_BASE_URL tidak dikonfigurasi. Set di environment variables." },
+      { status: 500 },
+    );
+  }
 
-  const apiKey = envString(env, "STOCK_CHAT_API_KEY");
+  const apiKey = envString(env, "STOCK_CHAT_API_KEY") ?? process.env.STOCK_CHAT_API_KEY;
   if (!apiKey) {
     return jsonResponse({ error: "STOCK_CHAT_API_KEY belum dikonfigurasi di server." }, { status: 500 });
   }
 
-  const model = envString(env, "STOCK_CHAT_MODEL") ?? "ag/claude-sonnet-4-6";
+  const model = envString(env, "STOCK_CHAT_MODEL") ?? process.env.STOCK_CHAT_MODEL;
+  if (!model) {
+    return jsonResponse(
+      { error: "STOCK_CHAT_MODEL tidak dikonfigurasi. Set di environment variables." },
+      { status: 500 },
+    );
+  }
 
   // Parse body
   let body: unknown;
@@ -146,26 +173,34 @@ async function handleStockChat(request: Request, env: unknown): Promise<Response
   }
 
   // Call upstream AI
-  const upstream = await fetch(`${baseUrl}/chat/completions`, {
-    method: "POST",
-    headers: {
-      authorization: `Bearer ${apiKey}`,
-      "content-type": "application/json",
-    },
-    body: JSON.stringify({
-      model,
-      temperature: 0.25,
-      max_tokens: 1200,
-      messages: [
-        {
-          role: "system",
-          content:
-            "Anda adalah analis saham Indonesia untuk dashboard Market Pulse. Bantu user menemukan saham potensial dengan framework ringkas: thesis, katalis, risiko, data yang perlu diverifikasi, dan checklist entry/exit. Jangan berikan nasihat finansial absolut, jangan mengarang data harga/fundamental jika tidak tersedia, dan selalu sarankan verifikasi ke laporan IDX/emiten.",
-        },
-        ...messages,
-      ],
-    }),
-  });
+  let upstream: Response;
+  try {
+    upstream = await fetch(`${baseUrl}/chat/completions`, {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${apiKey}`,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        model,
+        temperature: 0.25,
+        max_tokens: 1200,
+        messages: [
+          {
+            role: "system",
+            content:
+              "Anda adalah analis saham Indonesia untuk dashboard Market Pulse. Bantu user menemukan saham potensial dengan framework ringkas: thesis, katalis, risiko, data yang perlu diverifikasi, dan checklist entry/exit. Jangan berikan nasihat finansial absolut, jangan mengarang data harga/fundamental jika tidak tersedia, dan selalu sarankan verifikasi ke laporan IDX/emiten.",
+          },
+          ...messages,
+        ],
+      }),
+    });
+  } catch (err) {
+    return jsonResponse(
+      { error: `Gagal connect ke AI provider: ${err instanceof Error ? err.message : "Network error"}` },
+      { status: 502 },
+    );
+  }
 
   if (!upstream.ok) {
     const detail = await upstream.text();
@@ -175,7 +210,10 @@ async function handleStockChat(request: Request, env: unknown): Promise<Response
   const data = (await upstream.json()) as { choices?: Array<{ message?: { content?: string } }> };
   const reply = data.choices?.[0]?.message?.content?.trim();
   return jsonResponse(
-    { reply: reply || "Model tidak mengembalikan jawaban." },
+    {
+      reply: reply || "Model tidak mengembalikan jawaban.",
+      source: "stock-chat",
+    },
     {
       headers: {
         "X-RateLimit-Remaining": String(remaining),
