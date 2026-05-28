@@ -52,7 +52,7 @@ export function StockChatbot() {
     setLoading(true);
 
     try {
-      const response = await fetch("/api/chat", {
+      const response = await fetch("/api/stock-chat", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ messages: nextMessages.slice(-12) }),
