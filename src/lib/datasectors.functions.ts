@@ -1589,7 +1589,193 @@ export const getCalendarHistorical = createServerFn({ method: "GET" })
 
 
 
-function mapCalendarEvent(raw: Record<string, unknown>): CalendarEvent {
+// ── Stock Dividends: Events (date-range) ─────────────────────────────────────
+export const getStockDividendsEvents = createServerFn({ method: "GET" })
+  .inputValidator(z.object({
+    start_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "YYYY-MM-DD"),
+    end_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "YYYY-MM-DD"),
+    skip: z.string().optional(),
+  }))
+  .handler(async ({ data }) => {
+    const { data: payload, error } = await dsFetch<{
+      success: boolean;
+      data: Record<string, unknown>[];
+    }>(`/stocks/dividends/events`, {
+      query: {
+        start_date: data.start_date,
+        end_date: data.end_date,
+        ...(data.skip ? { skip: data.skip } : {}),
+      },
+    });
+    if (import.meta.env.DEV && error) console.error("[getStockDividendsEvents] error:", error);
+    if (error || !payload) return { data: [] as DividendEvent[], source: "error" as const, error };
+    const raw = Array.isArray(payload) ? payload : Array.isArray((payload as Record<string, unknown>).data) ? (payload as Record<string, unknown>).data : [];
+    return { data: raw as DividendEvent[], source: "api" as const, error: null };
+  });
+
+// ── Stock Dividends: Details per ticker ─────────────────────────────────────
+export const getStockDividendsDetails = createServerFn({ method: "GET" })
+  .inputValidator(z.object({ ticker: z.string().min(1).max(20) }))
+  .handler(async ({ data }) => {
+    const { data: payload, error } = await dsFetch<{
+      success: boolean;
+      data: Record<string, unknown>;
+    }>(`/stocks/dividends/details/${encodeURIComponent(data.ticker)}`);
+    if (import.meta.env.DEV && error) console.error("[getStockDividendsDetails] error:", error);
+    if (error || !payload) return { data: null as DividendDetail[] | null, source: "error" as const, error };
+    const raw = Array.isArray((payload as Record<string, unknown>).data)
+      ? (payload as Record<string, unknown>).data as Record<string, unknown>[]
+      : [payload as Record<string, unknown>];
+    return { data: raw as DividendDetail[], source: "api" as const, error: null };
+  });
+
+// ── Stock Earnings: Events (date-range) ──────────────────────────────────────
+export const getStockEarningsEvents = createServerFn({ method: "GET" })
+  .inputValidator(z.object({
+    start_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "YYYY-MM-DD"),
+    end_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "YYYY-MM-DD"),
+    skip: z.string().optional(),
+  }))
+  .handler(async ({ data }) => {
+    const { data: payload, error } = await dsFetch<{
+      success: boolean;
+      data: Record<string, unknown>[];
+    }>(`/stocks/earnings/events`, {
+      query: {
+        start_date: data.start_date,
+        end_date: data.end_date,
+        ...(data.skip ? { skip: data.skip } : {}),
+      },
+    });
+    if (import.meta.env.DEV && error) console.error("[getStockEarningsEvents] error:", error);
+    if (error || !payload) return { data: [] as EarningsEvent[], source: "error" as const, error };
+    const raw = Array.isArray(payload) ? payload : Array.isArray((payload as Record<string, unknown>).data) ? (payload as Record<string, unknown>).data : [];
+    return { data: raw as EarningsEvent[], source: "api" as const, error: null };
+  });
+
+// ── Stock Earnings: Details per ticker ───────────────────────────────────────
+export const getStockEarningsDetails = createServerFn({ method: "GET" })
+  .inputValidator(z.object({ ticker: z.string().min(1).max(20) }))
+  .handler(async ({ data }) => {
+    const { data: payload, error } = await dsFetch<{
+      success: boolean;
+      data: Record<string, unknown>;
+    }>(`/stocks/earnings/details/${encodeURIComponent(data.ticker)}`);
+    if (import.meta.env.DEV && error) console.error("[getStockEarningsDetails] error:", error);
+    if (error || !payload) return { data: null as EarningsDetail | null, source: "error" as const, error };
+    return { data: payload as unknown as EarningsDetail, source: "api" as const, error: null };
+  });
+
+// ── Stock IPO: Events ─────────────────────────────────────────────────────────
+export const getStockIPOEvents = createServerFn({ method: "GET" })
+  .inputValidator(z.object({
+    start_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "YYYY-MM-DD"),
+    end_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "YYYY-MM-DD"),
+    skip: z.string().optional(),
+  }))
+  .handler(async ({ data }) => {
+    const { data: payload, error } = await dsFetch<{
+      success: boolean;
+      data: Record<string, unknown>[];
+    }>(`/stocks/ipo/events`, {
+      query: {
+        start_date: data.start_date,
+        end_date: data.end_date,
+        ...(data.skip ? { skip: data.skip } : {}),
+      },
+    });
+    if (import.meta.env.DEV && error) console.error("[getStockIPOEvents] error:", error);
+    if (error || !payload) return { data: [] as IPOEvent[], source: "error" as const, error };
+    const raw = Array.isArray(payload) ? payload : Array.isArray((payload as Record<string, unknown>).data) ? (payload as Record<string, unknown>).data : [];
+    return { data: raw as IPOEvent[], source: "api" as const, error: null };
+  });
+
+// ── Stock Splits: Events ──────────────────────────────────────────────────────
+export const getStockSplitsEvents = createServerFn({ method: "GET" })
+  .inputValidator(z.object({
+    start_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "YYYY-MM-DD"),
+    end_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "YYYY-MM-DD"),
+    skip: z.string().optional(),
+  }))
+  .handler(async ({ data }) => {
+    const { data: payload, error } = await dsFetch<{
+      success: boolean;
+      data: Record<string, unknown>[];
+    }>(`/stocks/splits/events`, {
+      query: {
+        start_date: data.start_date,
+        end_date: data.end_date,
+        ...(data.skip ? { skip: data.skip } : {}),
+      },
+    });
+    if (import.meta.env.DEV && error) console.error("[getStockSplitsEvents] error:", error);
+    if (error || !payload) return { data: [] as SplitEvent[], source: "error" as const, error };
+    const raw = Array.isArray(payload) ? payload : Array.isArray((payload as Record<string, unknown>).data) ? (payload as Record<string, unknown>).data : [];
+    return { data: raw as SplitEvent[], source: "api" as const, error: null };
+  });
+
+// ── Stock Splits: Details per ticker ──────────────────────────────────────────
+export const getStockSplitsDetails = createServerFn({ method: "GET" })
+  .inputValidator(z.object({ ticker: z.string().min(1).max(20) }))
+  .handler(async ({ data }) => {
+    const { data: payload, error } = await dsFetch<{
+      success: boolean;
+      data: Record<string, unknown>;
+    }>(`/stocks/splits/details/${encodeURIComponent(data.ticker)}`);
+    if (import.meta.env.DEV && error) console.error("[getStockSplitsDetails] error:", error);
+    if (error || !payload) return { data: null as SplitDetail[] | null, source: "error" as const, error };
+    const raw = Array.isArray((payload as Record<string, unknown>).data)
+      ? (payload as Record<string, unknown>).data as Record<string, unknown>[]
+      : [payload as Record<string, unknown>];
+    return { data: raw as SplitDetail[], source: "api" as const, error: null };
+  });
+
+// ── News: Full-text search ────────────────────────────────────────────────────
+export const getNewsSearch = createServerFn({ method: "GET" })
+  .inputValidator(z.object({
+    search: z.string().min(1).max(200),
+    marketType: z.string().optional(),
+    maxResults: z.string().optional(),
+    keywords: z.string().optional(),
+    dateFrom: z.string().optional(),
+    dateTo: z.string().optional(),
+    sortBy: z.enum(["createdAt", "relevance"]).optional(),
+    sortOrder: z.enum(["asc", "desc"]).optional(),
+  }))
+  .handler(async ({ data }) => {
+    const { data: payload, error } = await dsFetch<{
+      success: boolean;
+      data: Record<string, unknown>[];
+    }>(`/news/search`, {
+      query: {
+        search: data.search,
+        ...(data.marketType ? { marketType: data.marketType } : {}),
+        ...(data.maxResults ? { maxResults: data.maxResults } : {}),
+        ...(data.keywords ? { keywords: data.keywords } : {}),
+        ...(data.dateFrom ? { dateFrom: data.dateFrom } : {}),
+        ...(data.dateTo ? { dateTo: data.dateTo } : {}),
+        ...(data.sortBy ? { sortBy: data.sortBy } : {}),
+        ...(data.sortOrder ? { sortOrder: data.sortOrder } : {}),
+      },
+    });
+    if (import.meta.env.DEV && error) console.error("[getNewsSearch] error:", error);
+    if (error || !payload) return { data: [] as NewsSearchResult[], source: "error" as const, error };
+    const raw = Array.isArray(payload) ? payload : Array.isArray((payload as Record<string, unknown>).data) ? (payload as Record<string, unknown>).data : [];
+    return { data: raw as NewsSearchResult[], source: "api" as const, error: null };
+  });
+
+// ─────────────────────────────────────────────────────────────────────────────
+// TYPES for new endpoints
+// ─────────────────────────────────────────────────────────────────────────────
+
+export type DividendEvent = Record<string, unknown>; // fields: symbol, date, dividend_yield, amount, currency, etc.
+export type DividendDetail = Record<string, unknown>;
+export type EarningsEvent = Record<string, unknown>; // fields: symbol, date, eps_estimate, eps_actual, revenue_estimate, etc.
+export type EarningsDetail = Record<string, unknown>;
+export type IPOEvent = Record<string, unknown>; // fields: symbol, company, exchange, date, price_range, status
+export type SplitEvent = Record<string, unknown>; // fields: symbol, date, ratio, from_price, to_price
+export type SplitDetail = Record<string, unknown>;
+export type NewsSearchResult = Record<string, unknown>; // fields: title, content, source, createdAt, url, tickers, etc.
   return {
     id: String(raw.id ?? raw._id ?? Math.random()),
     title: String(raw.title ?? raw.name ?? raw.event ?? ""),
